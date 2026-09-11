@@ -9,27 +9,25 @@
 <style>
 
 /* =========================================================
-   PALETA
+   PALETA GENERAL
 ========================================================= */
 
 :root{
-    --brown:#9a6f5c;
-    --brown-dark:#7d5745;
-    --brown-light:#b98a77;
+    --brown:#9a7462;
+    --brown-dark:#765342;
+    --brown-soft:#b58b78;
 
-    --pink-curtain:#b77e70;
-    --pink-light:#c89586;
-    --pink-dark:#916153;
-
-    --cream:#f8eee4;
+    --cream:#f8eee5;
     --cream-light:#fffaf5;
 
-    --gold:#b9947d;
+    --curtain:#ad786b;
+    --curtain-dark:#895c52;
+    --curtain-light:#c99586;
 }
 
 
 /* =========================================================
-   GENERAL
+   BASE
 ========================================================= */
 
 *{
@@ -42,10 +40,18 @@ html{
 
 body{
     margin:0;
+    padding:0;
+
     background:var(--cream);
+
     color:var(--brown-dark);
+
     overflow-x:hidden;
-    font-family:Georgia,"Times New Roman",serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 }
 
 section{
@@ -59,6 +65,7 @@ section{
 
 .cover{
     position:relative;
+
     min-height:100vh;
 
     display:flex;
@@ -66,31 +73,43 @@ section{
     justify-content:center;
 
     overflow:hidden;
+
     text-align:center;
 
     background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,248,239,.28),
+            transparent 58%
+        ),
         linear-gradient(
             180deg,
-            #c6a18b 0%,
-            #cda995 45%,
-            #c29a83 100%
+            #c5a08b 0%,
+            #cba58f 48%,
+            #bd927c 100%
         );
 }
 
 
-/* luz suave */
+/* luz */
 
-.cover::before{
+.cover::after{
     content:"";
+
     position:absolute;
-    inset:0;
+
+    left:-10%;
+    bottom:-100px;
+
+    width:120%;
+    height:250px;
 
     background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(255,250,244,.25),
-            transparent 58%
-        );
+        rgba(255,248,240,.20);
+
+    border-radius:50%;
+
+    filter:blur(30px);
 }
 
 
@@ -101,15 +120,18 @@ section{
 .cloud{
     position:absolute;
 
-    width:180px;
-    height:43px;
+    width:175px;
+    height:42px;
 
     border-radius:50px;
 
-    background:#fdf7f0;
+    background:#fffaf4;
+
+    opacity:.95;
 
     box-shadow:
-        0 5px 15px rgba(90,60,45,.08);
+        0 6px 16px
+        rgba(95,65,50,.08);
 
     z-index:1;
 }
@@ -117,46 +139,54 @@ section{
 .cloud::before,
 .cloud::after{
     content:"";
+
     position:absolute;
+
     bottom:0;
 
-    border-radius:50%;
     background:#fffaf4;
+
+    border-radius:50%;
 }
 
 .cloud::before{
     width:72px;
     height:72px;
-    left:22px;
+
+    left:18px;
 }
 
 .cloud::after{
     width:58px;
     height:58px;
-    left:92px;
+
+    left:90px;
 }
 
-.cloud.one{
-    left:-40px;
+.cloud-1{
     top:14%;
+    left:-35px;
 }
 
-.cloud.two{
-    right:-50px;
-    top:28%;
+.cloud-2{
+    top:27%;
+    right:-45px;
 }
 
-.cloud.three{
-    left:43%;
+.cloud-3{
     top:7%;
+    left:42%;
+
     transform:scale(.45);
 }
 
-.cloud.four{
+.cloud-4{
+    bottom:13%;
     left:8%;
-    bottom:15%;
-    transform:scale(.5);
-    opacity:.8;
+
+    transform:scale(.48);
+
+    opacity:.7;
 }
 
 
@@ -169,8 +199,8 @@ section{
 
     width:105px;
 
-    top:11%;
-    left:-130px;
+    top:10%;
+    left:-140px;
 
     z-index:4;
 
@@ -182,31 +212,36 @@ section{
 
     filter:
         drop-shadow(
-            0 4px 5px
-            rgba(70,45,35,.15)
+            0 5px 7px
+            rgba(70,45,35,.16)
         );
 }
+
+
+/*
+   El avión apunta hacia la DERECHA.
+*/
 
 @keyframes airplaneFlight{
 
     0%{
-        left:-130px;
+        left:-140px;
         transform:rotate(5deg);
     }
 
     45%{
-        left:28%;
+        left:30%;
         transform:rotate(1deg);
     }
 
     75%{
         left:62%;
-        transform:rotate(-2deg);
+        transform:rotate(-1deg);
     }
 
     100%{
         left:110%;
-        transform:rotate(-5deg);
+        transform:rotate(-4deg);
     }
 
 }
@@ -218,21 +253,26 @@ section{
 
 .cover-content{
     position:relative;
+
     z-index:10;
 
-    width:min(700px,90%);
+    width:min(720px,90%);
+
+    padding-top:10px;
 }
 
 .cover-small{
-    margin:0 0 18px;
+    margin:0 0 17px;
 
-    color:#fff8f0;
+    color:#fff9f3;
 
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+
     font-size:10px;
+
     font-weight:bold;
 
-    letter-spacing:.28em;
+    letter-spacing:.27em;
 }
 
 .cover h1{
@@ -246,42 +286,53 @@ section{
     line-height:.88;
 
     font-weight:400;
+
     letter-spacing:-.045em;
 }
 
 .cover h1 span{
     display:block;
 
-    color:#795341;
+    margin-top:5px;
 
-    font-size:.9em;
+    color:#795544;
 
     font-style:italic;
+
+    font-size:.88em;
 }
 
 .cover-subtitle{
-    margin:28px auto 0;
+    margin:27px auto 0;
 
-    color:#fff8f1;
+    color:#fff9f3;
 
-    font-size:16px;
-    line-height:1.4;
+    font-size:15px;
+
+    line-height:1.5;
 }
 
 .cover-button{
-    margin-top:27px;
+    margin-top:25px;
 
     padding:11px 27px;
 
-    border:1px solid rgba(255,255,255,.8);
+    border:
+        1px solid
+        rgba(255,255,255,.85);
+
     border-radius:30px;
 
-    background:transparent;
+    background:
+        rgba(255,255,255,.06);
 
-    color:#fff;
+    color:white;
 
-    font-size:10px;
-    letter-spacing:.15em;
+    font-family:Arial,Helvetica,sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:.14em;
 
     cursor:pointer;
 
@@ -289,7 +340,10 @@ section{
 }
 
 .cover-button:hover{
-    background:rgba(255,255,255,.15);
+    background:
+        rgba(255,255,255,.18);
+
+    transform:translateY(-2px);
 }
 
 
@@ -298,9 +352,12 @@ section{
 ========================================================= */
 
 .letter{
+    position:relative;
+
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -312,8 +369,8 @@ section{
         radial-gradient(
             ellipse at center,
             #fffdf9 0%,
-            #faf1e8 62%,
-            #f2e1d4 100%
+            #faf2e9 60%,
+            #f1dfd1 100%
         );
 }
 
@@ -324,11 +381,12 @@ section{
 .letter-small{
     margin:0 0 10px;
 
-    color:#9a7764;
+    color:#9b7764;
 
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 
     font-size:9px;
+
     font-weight:bold;
 
     letter-spacing:.28em;
@@ -337,27 +395,34 @@ section{
 .letter h2{
     margin:0;
 
-    color:#815b48;
+    color:#815a48;
 
     font-size:
-        clamp(38px,7vw,62px);
+        clamp(40px,7vw,62px);
 
     font-weight:400;
+
     font-style:italic;
+
+    line-height:.95;
 }
 
 .letter-text{
-    margin:17px auto 25px;
+    margin:17px auto 17px;
 
-    color:#8d7262;
+    color:#8c7060;
 
-    font-size:15px;
+    font-size:14px;
+
     line-height:1.45;
 }
 
-.letter-decoration{
-    color:#bd8c76;
-    margin-bottom:14px;
+.letter-heart{
+    margin:0 0 14px;
+
+    color:#bb8c78;
+
+    font-size:14px;
 }
 
 
@@ -368,17 +433,42 @@ section{
 .envelope-wrap{
     position:relative;
 
-    width:min(360px,84vw);
+    width:min(350px,84vw);
 
     margin:auto;
 
     cursor:pointer;
+
+    perspective:1000px;
+}
+
+.envelope-wrap::after{
+    content:"";
+
+    position:absolute;
+
+    left:8%;
+    right:8%;
+
+    bottom:-15%;
+
+    height:22%;
+
+    border-radius:50%;
+
+    background:
+        rgba(90,60,48,.16);
+
+    filter:blur(18px);
+
+    z-index:-1;
 }
 
 .envelope{
     position:relative;
 
     width:100%;
+
     aspect-ratio:1.5 / 1;
 
     overflow:hidden;
@@ -388,28 +478,27 @@ section{
     background:
         linear-gradient(
             145deg,
-            #f1dfcf,
-            #d4b19a
+            #eedac9,
+            #d3ad95
         );
 
     box-shadow:
-        0 22px 45px
-        rgba(100,65,50,.16);
+        0 24px 55px
+        rgba(91,59,45,.16);
 }
-
-
-/* cuerpo */
 
 .envelope-front{
     position:absolute;
+
     inset:0;
+
     z-index:4;
 
     background:
         linear-gradient(
             145deg,
-            #ead4c1,
-            #d0a991
+            #ead4c0,
+            #cfaa91
         );
 
     clip-path:
@@ -421,9 +510,6 @@ section{
             0 100%
         );
 }
-
-
-/* solapa */
 
 .envelope-flap{
     position:absolute;
@@ -439,8 +525,8 @@ section{
     background:
         linear-gradient(
             145deg,
-            #d9bca5,
-            #c49a7d
+            #d8baa1,
+            #bf957a
         );
 
     clip-path:
@@ -474,19 +560,20 @@ section{
     transform:
         translate(-50%,-50%);
 
-    color:#936a55;
+    color:#8e6754;
 
     font-size:45px;
 
-    transition:.35s;
+    transition:.4s;
 }
 
 .envelope-wrap.open
 .envelope-heart{
     opacity:0;
+
     transform:
         translate(-50%,-50%)
-        scale(.6);
+        scale(.5);
 }
 
 .envelope-label{
@@ -494,16 +581,16 @@ section{
 
     z-index:9;
 
-    bottom:15%;
     left:50%;
+    bottom:15%;
 
     width:100%;
 
     transform:translateX(-50%);
 
-    color:#815d4a;
+    color:#815c49;
 
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 
     font-size:8px;
 
@@ -513,7 +600,7 @@ section{
 .letter-hint{
     margin-top:18px;
 
-    color:#9b8272;
+    color:#9b8171;
 
     font-size:12px;
 
@@ -522,7 +609,7 @@ section{
 
 
 /* =========================================================
-   CORAZONES DEL SOBRE
+   CORAZONES
 ========================================================= */
 
 #hearts{
@@ -540,13 +627,13 @@ section{
 .floating-heart{
     position:absolute;
 
-    bottom:28%;
+    bottom:25%;
 
     opacity:0;
 
     animation:
         heartFloat
-        4.5s
+        4.8s
         ease-out
         forwards;
 }
@@ -574,7 +661,6 @@ section{
             scale(var(--scale))
             rotate(var(--rotation));
     }
-
 }
 
 
@@ -583,7 +669,6 @@ section{
 ========================================================= */
 
 .reveal{
-
     position:relative;
 
     min-height:100vh;
@@ -591,6 +676,7 @@ section{
     overflow:hidden;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -600,7 +686,7 @@ section{
         radial-gradient(
             ellipse at center,
             #fffdf9 0%,
-            #f9efe5 67%,
+            #faf1e7 62%,
             #eeddd0 100%
         );
 }
@@ -611,10 +697,9 @@ section{
 ========================================================= */
 
 .reveal-content{
-
     position:relative;
 
-    z-index:20;
+    z-index:15;
 
     width:min(650px,90%);
 
@@ -622,7 +707,7 @@ section{
 
     opacity:0;
 
-    transform:translateY(15px);
+    transform:translateY(12px);
 
     transition:
         opacity 1.2s ease,
@@ -632,33 +717,34 @@ section{
 .reveal.open
 .reveal-content{
     opacity:1;
+
     transform:translateY(0);
 }
 
 .reveal-small{
-
     margin:0 0 6px;
 
     color:#9a7562;
 
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 
     font-size:8px;
+
     font-weight:bold;
 
     letter-spacing:.27em;
 }
 
 .reveal h2{
-
     margin:0;
 
-    color:#825b47;
+    color:#815a47;
 
     font-size:
         clamp(52px,10vw,82px);
 
     font-weight:400;
+
     font-style:italic;
 
     line-height:.9;
@@ -670,28 +756,26 @@ section{
 ========================================================= */
 
 .animals{
-
     display:block;
 
-    width:min(250px,58vw);
+    width:min(245px,58vw);
 
     max-height:175px;
 
     object-fit:contain;
 
-    margin:8px auto 3px;
+    margin:9px auto 3px;
 }
 
 
 /* =========================================================
-   TEXTO
+   TEXTO REVELACIÓN
 ========================================================= */
 
 .reveal-text{
+    max-width:400px;
 
-    max-width:390px;
-
-    margin:3px auto 0;
+    margin:4px auto 0;
 
     color:#80695a;
 
@@ -701,7 +785,7 @@ section{
 }
 
 .reveal-text strong{
-    color:#704b39;
+    color:#714c3a;
 }
 
 
@@ -710,20 +794,18 @@ section{
 ========================================================= */
 
 .photos{
-
     display:flex;
 
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     gap:13px;
 
-    margin:25px auto 0;
+    margin:24px auto 0;
 }
 
 .photo{
-
-    width:125px;
+    width:120px;
 
     aspect-ratio:1 / 1.15;
 
@@ -732,8 +814,8 @@ section{
     background:#fffdf9;
 
     box-shadow:
-        0 7px 18px
-        rgba(80,55,45,.15);
+        0 8px 18px
+        rgba(80,55,45,.16);
 
     transform:rotate(-2deg);
 }
@@ -741,7 +823,7 @@ section{
 .photo:nth-child(2){
     transform:
         rotate(3deg)
-        translateY(-3px);
+        translateY(-4px);
 }
 
 .photo:nth-child(3){
@@ -749,16 +831,16 @@ section{
 }
 
 .photo img{
-    display:block;
-
     width:100%;
     height:100%;
+
+    display:block;
 
     object-fit:cover;
 }
 
 .final{
-    margin:17px auto 0;
+    margin:16px auto 0;
 
     color:#8c7262;
 
@@ -770,412 +852,44 @@ section{
 
 /* =========================================================
    =========================================================
-   CORTINAS
-   AQUÍ ESTÁ EL CAMBIO IMPORTANTE
+   CORTINAS SVG
    =========================================================
    ========================================================= */
 
 
 /*
-   Cada cortina ocupa únicamente su lado.
-   La forma interior NO es recta.
-
-   Se crea una gran curva desde arriba,
-   se estrecha hacia la zona del recogido
-   y después vuelve a caer hacia abajo,
-   igual que en la referencia.
+   Las cortinas ocupan la pantalla completa.
+   Cada SVG tiene una silueta CURVA real.
 */
 
 .curtain{
-
     position:absolute;
 
     top:0;
 
-    width:46%;
+    width:50vw;
+    height:100vh;
 
-    height:100%;
-
-    z-index:50;
-
-    pointer-events:none;
+    z-index:100;
 
     transition:
         transform
         6s
-        cubic-bezier(
-            .77,
-            0,
-            .18,
-            1
-        );
+        cubic-bezier(.77,0,.18,1);
 
+    pointer-events:none;
 }
-
-
-/* =========================================================
-   CORTINA IZQUIERDA
-========================================================= */
 
 .curtain-left{
-
     left:0;
+
+    transform-origin:left center;
 }
-
-
-/*
-   Tela principal izquierda
-*/
-
-.curtain-left .fabric{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-
-            #8f6055 0%,
-            #a97165 9%,
-            #c18b7c 18%,
-            #9a685d 27%,
-            #c79485 37%,
-            #a46f63 47%,
-            #c99586 57%,
-            #a06a60 68%,
-            #c38c7e 79%,
-            #96645a 91%,
-            #84584f 100%
-        );
-
-    /*
-       SILUETA DE LA CORTINA
-       exactamente con la caída hacia el centro.
-    */
-
-    clip-path:
-        polygon(
-
-            /* parte superior */
-
-            0 0,
-            100% 0,
-
-            /* caída superior */
-
-            98% 7%,
-            94% 14%,
-            89% 21%,
-            83% 28%,
-            77% 34%,
-            70% 39%,
-            64% 44%,
-            58% 48%,
-            54% 51%,
-
-            /* recogido */
-
-            51% 54%,
-
-            /* caída inferior */
-
-            53% 59%,
-            55% 65%,
-            56% 72%,
-            57% 80%,
-            57% 88%,
-            54% 96%,
-            51% 100%,
-
-            0 100%
-
-        );
-
-}
-
-
-/*
-   Pliegues de tela
-*/
-
-.curtain-left .folds{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        repeating-linear-gradient(
-            100deg,
-
-            transparent 0px,
-            transparent 13px,
-
-            rgba(255,224,214,.14) 14px,
-            rgba(255,224,214,.14) 18px,
-
-            rgba(91,53,46,.12) 19px,
-            rgba(91,53,46,.12) 25px,
-
-            transparent 26px,
-            transparent 39px
-        );
-
-    clip-path:
-        polygon(
-
-            0 0,
-            100% 0,
-
-            54% 52%,
-            57% 100%,
-
-            0 100%
-
-        );
-
-}
-
-
-/* =========================================================
-   CORTINA DERECHA
-========================================================= */
 
 .curtain-right{
-
-    right:0;
-}
-
-
-/* tela */
-
-.curtain-right .fabric{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-
-            #84584f 0%,
-            #96645a 9%,
-            #c38c7e 21%,
-            #a06a60 32%,
-            #c99586 43%,
-            #a46f63 53%,
-            #c79485 63%,
-            #9a685d 73%,
-            #c18b7c 82%,
-            #a97165 92%,
-            #8f6055 100%
-        );
-
-    clip-path:
-        polygon(
-
-            0 0,
-            100% 0,
-
-            100% 100%,
-
-            49% 100%,
-
-            46% 96%,
-            43% 88%,
-            43% 80%,
-            44% 72%,
-            45% 65%,
-            47% 59%,
-
-            49% 54%,
-
-            46% 51%,
-            42% 48%,
-            36% 44%,
-            30% 39%,
-            23% 34%,
-            17% 28%,
-            11% 21%,
-            6% 14%,
-            2% 7%,
-
-            0 0
-
-        );
-
-}
-
-
-/* pliegues */
-
-.curtain-right .folds{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        repeating-linear-gradient(
-            80deg,
-
-            transparent 0px,
-            transparent 13px,
-
-            rgba(255,224,214,.14) 14px,
-            rgba(255,224,214,.14) 18px,
-
-            rgba(91,53,46,.12) 19px,
-            rgba(91,53,46,.12) 25px,
-
-            transparent 26px,
-            transparent 39px
-        );
-
-    clip-path:
-        polygon(
-
-            0 0,
-            100% 0,
-            100% 100%,
-            43% 100%,
-            49% 54%
-
-        );
-
-}
-
-
-/* =========================================================
-   ABRAZADERAS
-   LAS HACEMOS COMO EN LA REFERENCIA
-========================================================= */
-
-.tie{
-
-    position:absolute;
-
-    top:45%;
-
-    width:85px;
-    height:45px;
-
-    z-index:10;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            180deg,
-            #bd8879,
-            #a66e61
-        );
-
-    box-shadow:
-        0 5px 10px
-        rgba(80,45,40,.18);
-
-}
-
-
-/* lado izquierdo */
-
-.curtain-left .tie{
-
     right:0;
 
-    transform:
-        translateX(22px);
-
-}
-
-
-/* lado derecho */
-
-.curtain-right .tie{
-
-    left:0;
-
-    transform:
-        translateX(-22px);
-
-}
-
-
-/* líneas de la abrazadera */
-
-.tie::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:8%;
-    right:8%;
-
-    top:50%;
-
-    height:3px;
-
-    transform:
-        translateY(-50%);
-
-    border-radius:50%;
-
-    background:
-        rgba(255,218,208,.28);
-
-}
-
-
-/* =========================================================
-   BORDE INTERIOR SUAVE
-========================================================= */
-
-.curtain-left::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    right:0;
-
-    width:12px;
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(76,47,42,.18)
-        );
-
-}
-
-
-.curtain-right::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:12px;
-    height:100%;
-
-    background:
-        linear-gradient(
-            270deg,
-            transparent,
-            rgba(76,47,42,.18)
-        );
-
+    transform-origin:right center;
 }
 
 
@@ -1183,18 +897,30 @@ section{
    APERTURA
 ========================================================= */
 
-.reveal.open .curtain-left{
-
+.reveal.open
+.curtain-left{
     transform:
-        translateX(-110%);
-
+        translateX(-102%);
 }
 
-.reveal.open .curtain-right{
-
+.reveal.open
+.curtain-right{
     transform:
-        translateX(110%);
+        translateX(102%);
+}
 
+
+/* =========================================================
+   SVG
+========================================================= */
+
+.curtain svg{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    overflow:visible;
 }
 
 
@@ -1203,35 +929,33 @@ section{
 ========================================================= */
 
 .reveal-heart{
-
     position:absolute;
 
-    z-index:25;
+    z-index:20;
 
-    color:#c2947f;
+    color:#bd8d79;
 
-    font-size:15px;
-
+    font-size:14px;
 }
 
 .rh1{
     left:29%;
-    top:38%;
+    top:37%;
 }
 
 .rh2{
     left:32%;
-    top:45%;
+    top:44%;
 }
 
 .rh3{
     right:29%;
-    top:38%;
+    top:37%;
 }
 
 .rh4{
     right:32%;
-    top:45%;
+    top:44%;
 }
 
 .rh5{
@@ -1252,15 +976,20 @@ section{
 @media(max-width:700px){
 
     .cover h1{
-        font-size:50px;
+        font-size:51px;
     }
 
     .airplane{
-        width:75px;
+        width:76px;
+        top:9%;
+    }
+
+    .cloud{
+        transform:scale(.72);
     }
 
     .letter h2{
-        font-size:40px;
+        font-size:41px;
     }
 
     .envelope-wrap{
@@ -1268,7 +997,7 @@ section{
     }
 
     .reveal h2{
-        font-size:53px;
+        font-size:54px;
     }
 
     .animals{
@@ -1280,23 +1009,28 @@ section{
         font-size:12px;
     }
 
-    .photos{
-        gap:7px;
-    }
-
     .photo{
         width:88px;
     }
 
-    .curtain{
-        width:48%;
+    .photos{
+        gap:7px;
     }
 
-    .tie{
-        width:55px;
-        height:32px;
-    }
+}
 
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+button:focus-visible,
+.envelope-wrap:focus-visible{
+    outline:
+        2px solid
+        #9c715e;
+
+    outline-offset:5px;
 }
 
 </style>
@@ -1313,11 +1047,13 @@ section{
 <section class="cover">
 
 
-    <div class="cloud one"></div>
-    <div class="cloud two"></div>
-    <div class="cloud three"></div>
-    <div class="cloud four"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
 
+
+    <!-- AVIÓN -->
 
     <svg
         class="airplane"
@@ -1406,27 +1142,29 @@ section{
             muy especial quiere decirte.
         </p>
 
-        <div class="letter-decoration">
+        <div class="letter-heart">
             ♥
         </div>
 
+
+        <!-- SOBRE -->
 
         <div
             class="envelope-wrap"
             id="envelope"
             tabindex="0"
             role="button"
-            aria-label="Abrir sobre">
+            aria-label="Abrir el sobre">
 
             <div class="envelope">
-
-                <div class="envelope-heart">
-                    ♡
-                </div>
 
                 <div class="envelope-front"></div>
 
                 <div class="envelope-flap"></div>
+
+                <div class="envelope-heart">
+                    ♡
+                </div>
 
                 <div class="envelope-label">
                     PARA ALGUIEN MUY ESPECIAL
@@ -1462,36 +1200,547 @@ section{
 
     <!-- =================================================
          CORTINA IZQUIERDA
+         SILUETA CURVA
     ================================================== -->
 
     <div class="curtain curtain-left">
 
-        <div class="fabric"></div>
+        <svg
+            viewBox="0 0 500 1000"
+            preserveAspectRatio="none"
+            aria-hidden="true">
 
-        <div class="folds"></div>
+            <defs>
 
-        <div class="tie"></div>
+                <!-- GRADIENTE DE TELA -->
+
+                <linearGradient
+                    id="leftFabric"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#875a50"/>
+
+                    <stop
+                        offset="12%"
+                        stop-color="#a87064"/>
+
+                    <stop
+                        offset="24%"
+                        stop-color="#c18b7d"/>
+
+                    <stop
+                        offset="36%"
+                        stop-color="#9a675c"/>
+
+                    <stop
+                        offset="48%"
+                        stop-color="#c28d7f"/>
+
+                    <stop
+                        offset="60%"
+                        stop-color="#a66e63"/>
+
+                    <stop
+                        offset="72%"
+                        stop-color="#c48f80"/>
+
+                    <stop
+                        offset="84%"
+                        stop-color="#a16b60"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#85594f"/>
+
+                </linearGradient>
+
+
+                <!-- SOMBRA -->
+
+                <linearGradient
+                    id="leftShadow"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="rgba(65,40,35,.18)"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="rgba(255,230,220,.10)"/>
+
+                </linearGradient>
+
+            </defs>
+
+
+            <!--
+                ESTA ES LA SILUETA PRINCIPAL.
+
+                Observa que el borde interior está
+                construido con curvas C y no con líneas
+                rectas.
+            -->
+
+            <path
+                d="
+                M 0 0
+
+                L 500 0
+
+                C 485 70,
+                  465 125,
+                  430 175
+
+                C 395 225,
+                  350 275,
+                  305 320
+
+                C 260 365,
+                  220 405,
+                  190 440
+
+                C 170 463,
+                  162 485,
+                  170 505
+
+                C 178 525,
+                  188 542,
+                  188 570
+
+                C 188 615,
+                  176 665,
+                  157 710
+
+                C 137 758,
+                  117 807,
+                  103 858
+
+                C 96 892,
+                  92 930,
+                  82 1000
+
+                L 0 1000
+
+                Z
+                "
+                fill="url(#leftFabric)"
+            />
+
+
+            <!-- PLIEGUES PRINCIPALES -->
+
+            <path
+                d="
+                M 35 0
+                C 65 170, 90 300, 112 445
+                C 125 550, 110 720, 90 1000
+
+                M 90 0
+                C 120 180, 145 320, 160 450
+                C 172 560, 150 730, 120 1000
+
+                M 145 0
+                C 180 170, 200 310, 210 430
+                C 220 500, 200 600, 170 700
+                C 145 790, 130 900, 120 1000
+
+                M 205 0
+                C 230 150, 250 270, 270 350
+                C 285 410, 265 450, 215 510
+                C 195 550, 205 650, 185 750
+
+                M 275 0
+                C 300 125, 315 230, 325 300
+                C 335 360, 300 420, 235 485
+
+                M 350 0
+                C 365 105, 370 185, 360 240
+                C 350 300, 320 350, 275 395
+
+                M 420 0
+                C 425 80, 420 145, 395 195
+                C 375 240, 340 285, 300 325
+                "
+                fill="none"
+
+                stroke="#f3cfc2"
+                stroke-opacity=".20"
+
+                stroke-width="13"
+
+                stroke-linecap="round"
+            />
+
+
+            <!-- PLIEGUES OSCUROS -->
+
+            <path
+                d="
+                M 65 0
+                C 90 180, 110 340, 122 500
+                C 130 650, 110 820, 95 1000
+
+                M 175 0
+                C 195 160, 220 300, 230 410
+                C 235 470, 210 540, 190 620
+
+                M 315 0
+                C 330 140, 335 250, 320 330
+                C 310 380, 280 430, 240 470
+
+                M 455 0
+                C 455 100, 440 165, 405 215
+                "
+                fill="none"
+
+                stroke="#6e4841"
+                stroke-opacity=".20"
+
+                stroke-width="11"
+
+                stroke-linecap="round"
+            />
+
+
+            <!-- SOMBRA DEL BORDE -->
+
+            <path
+                d="
+                M 500 0
+                C 485 70,465 125,430 175
+                C 395 225,350 275,305 320
+                C 260 365,220 405,190 440
+                C 170 463,162 485,170 505
+                C 178 525,188 542,188 570
+                C 188 615,176 665,157 710
+                C 137 758,117 807,103 858
+                C 96 892,92 930,82 1000
+                "
+                fill="none"
+
+                stroke="#704a43"
+                stroke-opacity=".28"
+
+                stroke-width="18"
+            />
+
+
+            <!-- ABRAZADERA -->
+
+            <ellipse
+                cx="178"
+                cy="505"
+                rx="70"
+                ry="34"
+
+                fill="#9e6b60"
+            />
+
+            <ellipse
+                cx="178"
+                cy="505"
+                rx="64"
+                ry="25"
+
+                fill="none"
+
+                stroke="#d5a092"
+                stroke-opacity=".5"
+
+                stroke-width="4"
+            />
+
+            <path
+                d="
+                M120 500
+                C145 490,210 490,236 500
+
+                M120 512
+                C150 522,205 522,236 512
+                "
+                fill="none"
+
+                stroke="#7e514a"
+                stroke-opacity=".35"
+
+                stroke-width="5"
+            />
+
+        </svg>
 
     </div>
+
 
 
     <!-- =================================================
          CORTINA DERECHA
+         MISMA SILUETA ESPEJADA
     ================================================== -->
 
     <div class="curtain curtain-right">
 
-        <div class="fabric"></div>
+        <svg
+            viewBox="0 0 500 1000"
+            preserveAspectRatio="none"
+            aria-hidden="true">
 
-        <div class="folds"></div>
+            <defs>
 
-        <div class="tie"></div>
+                <linearGradient
+                    id="rightFabric"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#85594f"/>
+
+                    <stop
+                        offset="16%"
+                        stop-color="#a16b60"/>
+
+                    <stop
+                        offset="28%"
+                        stop-color="#c48f80"/>
+
+                    <stop
+                        offset="40%"
+                        stop-color="#a66e63"/>
+
+                    <stop
+                        offset="52%"
+                        stop-color="#c28d7f"/>
+
+                    <stop
+                        offset="64%"
+                        stop-color="#9a675c"/>
+
+                    <stop
+                        offset="76%"
+                        stop-color="#c18b7d"/>
+
+                    <stop
+                        offset="88%"
+                        stop-color="#a87064"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#875a50"/>
+
+                </linearGradient>
+
+            </defs>
+
+
+            <!-- SILUETA ESPEJADA -->
+
+            <path
+                d="
+                M 0 0
+
+                L 500 0
+
+                L 500 1000
+
+                L 418 1000
+
+                C 408 930,
+                  404 892,
+                  397 858
+
+                C 383 807,
+                  363 758,
+                  343 710
+
+                C 324 665,
+                  312 615,
+                  312 570
+
+                C 312 542,
+                  322 525,
+                  330 505
+
+                C 338 485,
+                  330 463,
+                  310 440
+
+                C 280 405,
+                  240 365,
+                  195 320
+
+                C 150 275,
+                  105 225,
+                  70 175
+
+                C 35 125,
+                  15 70,
+                  0 0
+
+                Z
+                "
+                fill="url(#rightFabric)"
+            />
+
+
+            <!-- PLIEGUES CLAROS -->
+
+            <path
+                d="
+                M 465 0
+                C 435 170,410 300,388 445
+                C 375 550,390 720,410 1000
+
+                M 410 0
+                C 380 180,355 320,340 450
+                C 328 560,350 730,380 1000
+
+                M 355 0
+                C 320 170,300 310,290 430
+                C 280 500,300 600,330 700
+                C 355 790,370 900,380 1000
+
+                M 295 0
+                C 270 150,250 270,230 350
+                C 215 410,235 450,285 510
+                C 305 550,295 650,315 750
+
+                M 225 0
+                C 200 125,185 230,175 300
+                C 165 360,200 420,265 485
+
+                M 150 0
+                C 135 105,130 185,140 240
+                C 150 300,180 350,225 395
+
+                M 80 0
+                C 75 80,80 145,105 195
+                C 125 240,160 285,200 325
+                "
+                fill="none"
+
+                stroke="#f3cfc2"
+                stroke-opacity=".20"
+
+                stroke-width="13"
+
+                stroke-linecap="round"
+            />
+
+
+            <!-- PLIEGUES OSCUROS -->
+
+            <path
+                d="
+                M 435 0
+                C 410 180,390 340,378 500
+                C 370 650,390 820,405 1000
+
+                M 325 0
+                C 305 160,280 300,270 410
+                C 265 470,290 540,310 620
+
+                M 185 0
+                C 170 140,165 250,180 330
+                C 190 380,220 430,260 470
+
+                M 45 0
+                C 45 100,60 165,95 215
+                "
+                fill="none"
+
+                stroke="#6e4841"
+                stroke-opacity=".20"
+
+                stroke-width="11"
+
+                stroke-linecap="round"
+            />
+
+
+            <!-- BORDE INTERIOR -->
+
+            <path
+                d="
+                M 0 0
+                C 15 70,35 125,70 175
+                C 105 225,150 275,195 320
+                C 240 365,280 405,310 440
+                C 330 463,338 485,330 505
+                C 322 525,312 542,312 570
+                C 312 615,324 665,343 710
+                C 363 758,383 807,397 858
+                C 404 892,408 930,418 1000
+                "
+                fill="none"
+
+                stroke="#704a43"
+                stroke-opacity=".28"
+
+                stroke-width="18"
+            />
+
+
+            <!-- ABRAZADERA -->
+
+            <ellipse
+                cx="322"
+                cy="505"
+                rx="70"
+                ry="34"
+
+                fill="#9e6b60"
+            />
+
+            <ellipse
+                cx="322"
+                cy="505"
+                rx="64"
+                ry="25"
+
+                fill="none"
+
+                stroke="#d5a092"
+                stroke-opacity=".5"
+
+                stroke-width="4"
+            />
+
+            <path
+                d="
+                M264 500
+                C290 490,355 490,380 500
+
+                M264 512
+                C295 522,350 522,380 512
+                "
+                fill="none"
+
+                stroke="#7e514a"
+                stroke-opacity=".35"
+
+                stroke-width="5"
+            />
+
+        </svg>
 
     </div>
 
 
 
-    <!-- CORAZONES -->
+    <!-- =================================================
+         CORAZONES DECORATIVOS
+    ================================================== -->
 
     <span class="reveal-heart rh1">♥</span>
     <span class="reveal-heart rh2">♡</span>
@@ -1503,21 +1752,26 @@ section{
 
 
     <!-- =================================================
-         CONTENIDO
+         CONTENIDO CENTRAL
     ================================================== -->
 
     <div class="reveal-content">
-
 
         <p class="reveal-small">
             UNA NUEVA AVENTURA ESTÁ POR COMENZAR
         </p>
 
-
         <h2>
             Hola papi...
         </h2>
 
+
+        <!--
+            PON AQUÍ TU IMAGEN DE LOS ANIMALITOS
+            con el nombre:
+
+            animalitos.png
+        -->
 
         <img
             src="animalitos.png"
@@ -1549,6 +1803,8 @@ section{
         </p>
 
 
+        <!-- FOTOS -->
+
         <div class="photos">
 
             <div class="photo">
@@ -1579,7 +1835,6 @@ section{
 
         </p>
 
-
     </div>
 
 </section>
@@ -1587,7 +1842,7 @@ section{
 
 
 <!-- =====================================================
-     CORAZONES DEL SOBRE
+     CONTENEDOR DE CORAZONES
 ===================================================== -->
 
 <div id="hearts"></div>
@@ -1618,6 +1873,7 @@ const letterHint =
 const hearts =
     document.getElementById("hearts");
 
+
 let alreadyOpened = false;
 
 
@@ -1639,19 +1895,20 @@ goLetter.addEventListener(
 
 
 /* =========================================================
-   CORAZONES DEL SOBRE
+   CREAR MUCHOS CORAZONES
 ========================================================= */
 
 function createHearts(){
 
     const colors = [
 
-        "#b98270",
-        "#c99583",
-        "#d8ad9b",
-        "#e5c6b7",
-        "#f2ddd1",
-        "#fff8f2"
+        "#a87563",
+        "#b98673",
+        "#c99884",
+        "#d8ae9c",
+        "#e7c9b9",
+        "#f3ded3",
+        "#fff7f1"
 
     ];
 
@@ -1665,7 +1922,8 @@ function createHearts(){
 
 
     /*
-       MUCHOS CORAZONES
+       50 corazones para que
+       realmente se note al abrir el sobre.
     */
 
     for(let i=0;i<50;i++){
@@ -1679,16 +1937,24 @@ function createHearts(){
         heart.textContent =
             symbols[
                 Math.floor(
-                    Math.random()*symbols.length
+                    Math.random() *
+                    symbols.length
                 )
             ];
 
         heart.style.color =
             colors[
                 Math.floor(
-                    Math.random()*colors.length
+                    Math.random() *
+                    colors.length
                 )
             ];
+
+
+        /*
+           Los hacemos salir
+           desde el centro del sobre.
+        */
 
         heart.style.left =
             (
@@ -1696,12 +1962,14 @@ function createHearts(){
                 Math.random()*22
             ) + "%";
 
+
         heart.style.setProperty(
             "--x",
             (
-                (Math.random()-.5)*450
+                (Math.random()-.5)*430
             ) + "px"
         );
+
 
         heart.style.setProperty(
             "--y",
@@ -1711,6 +1979,7 @@ function createHearts(){
             ) + "px"
         );
 
+
         heart.style.setProperty(
             "--scale",
             (
@@ -1719,32 +1988,38 @@ function createHearts(){
             )
         );
 
+
         heart.style.setProperty(
             "--rotation",
             (
-                (Math.random()-.5)*120
+                (Math.random()-.5)*130
             ) + "deg"
         );
 
+
         heart.style.fontSize =
             (
-                11+
-                Math.random()*15
+                10+
+                Math.random()*16
             ) + "px";
+
 
         heart.style.animationDelay =
             (
-                Math.random()*1.2
+                Math.random()*1.1
             ) + "s";
+
 
         hearts.appendChild(heart);
 
 
         setTimeout(
             function(){
+
                 heart.remove();
+
             },
-            5700
+            5900
         );
 
     }
@@ -1765,12 +2040,12 @@ function openEnvelope(){
     alreadyOpened = true;
 
 
-    /* abrir sobre */
+    /* abre el sobre */
 
     envelope.classList.add("open");
 
 
-    /* corazones */
+    /* salen los corazones */
 
     createHearts();
 
@@ -1780,12 +2055,17 @@ function openEnvelope(){
 
 
     /*
-       Esperamos a que se vea
-       la animación del sobre.
+       Esperamos 1.2 segundos para que
+       se vea la apertura del sobre.
     */
 
     setTimeout(
         function(){
+
+            /*
+               TRANSICIÓN SUAVE
+               DE LA CARTA A LAS CORTINAS.
+            */
 
             reveal.scrollIntoView({
                 behavior:"smooth",
@@ -1794,22 +2074,20 @@ function openEnvelope(){
 
 
             /*
-               Dejamos que el scroll termine
-               antes de abrir las cortinas.
+               Una vez llegamos a la sección,
+               las cortinas empiezan a abrirse.
+
+               La transición CSS dura EXACTAMENTE
+               6 segundos.
             */
 
             setTimeout(
                 function(){
 
-                    /*
-                       LAS CORTINAS SE ABREN
-                       EN 6 SEGUNDOS.
-                    */
-
                     reveal.classList.add("open");
 
                 },
-                700
+                750
             );
 
         },
@@ -1820,7 +2098,7 @@ function openEnvelope(){
 
 
 /* =========================================================
-   CLICK
+   CLICK SOBRE
 ========================================================= */
 
 envelope.addEventListener(
