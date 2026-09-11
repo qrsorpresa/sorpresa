@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nuestra próxima aventura ✈️</title>
+
+<style>
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Georgia", serif;
+    background: #f7fbff;
+    color: #18324a;
+    overflow-x: hidden;
+}
+
+/* =========================
+   PANTALLA DE INICIO
+========================= */
+
+.intro {
+    height: 100vh;
+    min-height: 650px;
+    background: linear-gradient(
+        180deg,
+        #dcefff 0%,
+        #f7fbff 65%,
+        #ffffff 100%
+    );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Nubes */
+
+.cloud {
+    position: absolute;
+    background: rgba(255,255,255,0.85);
+    border-radius: 50px;
+    filter: blur(1px);
+    opacity: 0.8;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud1 {
+    width: 170px;
+    height: 45px;
+    top: 18%;
+    left: -30px;
+}
+
+.cloud1::before {
+    width: 70px;
+    height: 70px;
+    left: 30px;
+    bottom: 0;
+}
+
+.cloud1::after {
+    width: 55px;
+    height: 55px;
+    left: 85px;
+    bottom: 0;
+}
+
+.cloud2 {
+    width: 200px;
+    height: 50px;
+    top: 30%;
+    right: -50px;
+}
+
+.cloud2::before {
+    width: 80px;
+    height: 80px;
+    left: 35px;
+    bottom: 0;
+}
+
+.cloud2::after {
+    width: 60px;
+    height: 60px;
+    right: 25px;
+    bottom: 0;
+}
+
+/* Avión */
+
+.airplane {
+    font-size: 70px;
+    position: absolute;
+    top: 28%;
+    left: -100px;
+
+    animation: fly 5s ease-in-out forwards;
+}
+
+@keyframes fly {
+    0% {
+        left: -100px;
+        transform: rotate(5deg);
+    }
+
+    70% {
+        left: 75%;
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        left: 110%;
+        transform: rotate(-5deg);
+    }
+}
+
+/* Texto */
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+    padding: 20px;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+.small-title {
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #6588a5;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-size: clamp(45px, 10vw, 85px);
+    font-weight: normal;
+    font-style: italic;
+    color: #17466d;
+    line-height: 1.1;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #57758e;
+    font-style: italic;
+}
+
+/* Botón */
+
+.start-btn {
+    margin-top: 45px;
+
+    border: 1px solid #8eb4d0;
+    background: rgba(255,255,255,0.75);
+
+    color: #315b79;
+
+    padding: 15px 32px;
+    border-radius: 40px;
+
+    font-family: Georgia, serif;
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.start-btn:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(50,100,130,0.15);
+}
+
+/* =========================
+   SECCIÓN DEL SOBRE
+========================= */
+
+.letter-section {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background: #ffffff;
+
+    position: relative;
+}
+
+.letter-title {
+    font-size: 32px;
+    font-weight: normal;
+    font-style: italic;
+
+    color: #214e70;
+
+    margin-bottom: 15px;
+}
+
+.letter-description {
+    color: #71899b;
+    margin-bottom: 45px;
+    font-size: 16px;
+}
+
+/* SOBRE */
+
+.envelope-container {
+    position: relative;
+    width: 290px;
+    height: 200px;
+
+    cursor: pointer;
+
+    perspective: 1000px;
+}
+
+.envelope {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    background: #d7eaf6;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 20px 45px rgba(47, 86, 110, 0.18);
+
+    overflow: hidden;
+}
+
+/* Parte frontal */
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+
+    background: #c8e1f1;
+
+    clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    z-index: 4;
+}
+
+/* Solapa */
+
+.flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 110px;
+
+    background: #b9d8ec;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin: top;
+
+    transition: transform 1s ease;
+
+    z-index: 5;
+}
+
+.envelope-container.open .flap {
+    transform: rotateX(180deg);
+}
+
+/* Corazón */
+
+.heart {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    top: 53%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 35px;
+
+    transition: 0.5s;
+}
+
+.envelope-container.open .heart {
+    opacity: 0;
+}
+
+/* Texto del sobre */
+
+.envelope-text {
+    position: absolute;
+
+    left: 50%;
+    top: 75%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+
+    color: #315a76;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+/* =========================
+   CORTINAS
+========================= */
+
+.reveal-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #f4faff;
+}
+
+/* Cortina izquierda */
+
+.curtain {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 52%;
+    height: 100%;
+
+    z-index: 50;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #6f9fc1 0px,
+            #6f9fc1 22px,
+            #80adca 23px,
+            #80adca 42px
+        );
+
+    box-shadow: 0 0 30px rgba(32,75,105,0.25);
+
+    transition:
+        transform 2.5s cubic-bezier(.77,0,.18,1);
+}
+
+.curtain-left {
+    left: 0;
+
+    transform-origin: left;
+}
+
+.curtain-right {
+    right: 0;
+
+    transform-origin: right;
+}
+
+/* Apertura */
+
+.reveal-section.open .curtain-left {
+    transform: translateX(-100%);
+}
+
+.reveal-section.open .curtain-right {
+    transform: translateX(100%);
+}
+
+/* Texto antes de abrir */
+
+.waiting-message {
+
+    position: absolute;
+
+    z-index: 60;
+
+    text-align: center;
+
+    color: white;
+
+    transition: opacity 1s;
+
+    padding: 20px;
+}
+
+.waiting-message .pause-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.waiting-message h2 {
+    font-size: 27px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.waiting-message p {
+    margin-top: 12px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.reveal-section.open .waiting-message {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================
+   CONTENIDO REVELACIÓN
+========================= */
+
+.reveal-content {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 1.5s 1.7s,
+        transform 1.5s 1.7s;
+}
+
+.reveal-section.open .reveal-content {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.baby-small {
+    font-size: 15px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #7895aa;
+
+    margin-bottom: 20px;
+}
+
+.hello {
+
+    font-size: clamp(35px, 8vw, 58px);
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    color: #17466d;
+
+    margin-bottom: 25px;
+}
+
+.message {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 21px;
+
+    line-height: 1.8;
+
+    color: #536d80;
+}
+
+.message strong {
+    color: #17466d;
+}
+
+/* =========================
+   FOTOS
+========================= */
+
+.photos {
+
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.photo {
+
+    height: 300px;
+
+    background: #e7f1f7;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 30px rgba(37,75,100,0.12);
+
+    transition: transform 0.4s;
+}
+
+.photo:hover {
+    transform: translateY(-8px);
+}
+
+.photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+
+    margin-top: 70px;
+
+    color: #6f8799;
+
+    font-size: 16px;
+
+    font-style: italic;
+}
+
+.final span {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 30px;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 700px) {
+
+    .main-title {
+        font-size: 48px;
+    }
+
+    .airplane {
+        font-size: 55px;
+        top: 23%;
+    }
+
+    .letter-title {
+        font-size: 28px;
+    }
+
+    .envelope-container {
+        width: 270px;
+        height: 185px;
+    }
+
+    .message {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .photos {
+
+        grid-template-columns: 1fr;
+
+        max-width: 350px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo {
+        height: 380px;
+    }
+
+    .curtain {
+        width: 55%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro" id="inicio">
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="airplane">
+        ✈️
+    </div>
+
+    <div class="intro-content">
+
+        <div class="small-title">
+            Hay viajes que cambian la vida...
+        </div>
+
+        <h1 class="main-title">
+            Nuestra próxima<br>
+            aventura
+        </h1>
+
+        <p class="subtitle">
+            Un viaje muy especial está a punto de comenzar.
+        </p>
+
+        <button class="start-btn" onclick="goToLetter()">
+            Tengo algo para ti
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section class="letter-section" id="carta">
+
+    <h2 class="letter-title">
+        Antes de continuar...
+    </h2>
+
+    <p class="letter-description">
+        Hay algo que alguien muy especial quiere decirte.
+    </p>
+
+
+    <div
+        class="envelope-container"
+        id="envelope"
+        onclick="openEnvelope()"
+    >
+
+        <div class="envelope">
+
+            <div class="envelope-text">
+                Para alguien muy especial
+            </div>
+
+            <div class="heart">
+                ♡
+            </div>
+
+            <div class="envelope-front"></div>
+
+            <div class="flap"></div>
+
+        </div>
+
+    </div>
+
+    <p style="
+        margin-top:25px;
+        color:#7890a0;
+        font-size:14px;
+    ">
+        Toca el sobre para abrirlo
+    </p>
+
+</section>
+
+
+<!-- =========================
+     REVELACIÓN
+========================= -->
+
+<section class="reveal-section" id="revelacion">
+
+
+    <!-- CORTINAS -->
+
+    <div class="curtain curtain-left"></div>
+
+    <div class="curtain curtain-right"></div>
+
+
+    <!-- MENSAJE DE ESPERA -->
+
+    <div class="waiting-message">
+
+        <div class="pause-icon">
+            ⏳
+        </div>
+
+        <h2>
+            Espera un poquito...
+        </h2>
+
+        <p>
+            Hay una pequeña sorpresa esperando por ti.
+        </p>
+
+    </div>
+
+
+    <!-- CONTENIDO -->
+
+    <div class="reveal-content">
+
+        <div class="baby-small">
+            Una nueva aventura está por comenzar
+        </div>
+
+        <h1 class="hello">
+            Hola papi...
+        </h1>
+
+        <p class="message">
+
+            Mami me contó que eres maravilloso
+            y que serás un buen padre.
+
+            <br><br>
+
+            <strong>
+                No puedo esperar a conocerte.
+            </strong>
+
+            <br><br>
+
+            Tengo muchas ganas de vivir
+            esta aventura contigo.
+
+        </p>
+
+
+        <!-- FOTOS -->
+
+        <div class="photos">
+
+            <div class="photo">
+                <img
+                    src="foto1.jpg"
+                    alt="Nuestra historia"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="foto2.jpg"
+                    alt="Un momento especial"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="foto3.jpg"
+                    alt="Nuestra próxima aventura"
+                >
+            </div>
+
+        </div>
+
+
+        <div class="final">
+
+            Parece que nuestro próximo viaje
+            será el más especial de todos...
+
+            <span>
+                👶🏻 🩵
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   IR AL SOBRE
+========================= */
+
+function goToLetter() {
+
+    document
+        .getElementById("carta")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =========================
+   ABRIR SOBRE
+========================= */
+
+function openEnvelope() {
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const reveal =
+        document.getElementById("revelacion");
+
+    envelope.classList.add("open");
+
+
+    /*
+       Esperamos un buen rato para crear
+       sensación de misterio.
+    */
+
+    setTimeout(function() {
+
+        reveal.classList.add("open");
+
+        setTimeout(function() {
+
+            reveal.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }, 500);
+
+    }, 1800);
+
+}
+
+</script>
+
+</body>
+</html>
