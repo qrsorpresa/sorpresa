@@ -2,18 +2,39 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#fbf9f5"
+  >
 
   <title>Nuestra próxima aventura</title>
 
+
+  <!-- =====================================================
+       FUENTES
+  ====================================================== -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
     rel="stylesheet"
   >
+
 
   <style>
 
@@ -22,15 +43,43 @@
     ===================================================== */
 
     :root {
-      --cream: #faf7f1;
-      --cream-dark: #f0e7da;
-      --beige: #dfcfbd;
-      --beige-light: #eee5d9;
-      --brown: #806b57;
-      --brown-dark: #604c39;
-      --text: #817466;
+
+      --ivory: #fbf9f5;
+
+      --ivory-2: #f8f4ed;
+
+      --cream: #f4eee5;
+
+      --beige: #e9dfd2;
+
+      --beige-soft: #efe8de;
+
+      --beige-dark: #cbb9a5;
+
+      --brown: #8b7763;
+
+      --brown-dark: #665342;
+
+      --text: #83776b;
+
       --white: #ffffff;
+
+
+      --shadow-soft:
+        0 15px 45px
+        rgba(91, 72, 53, .07);
+
+
+      --shadow:
+        0 30px 80px
+        rgba(91, 72, 53, .11);
+
+
+      --ease:
+        cubic-bezier(.22, 1, .36, 1);
+
     }
+
 
 
     /* =====================================================
@@ -46,26 +95,60 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 20px;
     }
 
 
     body {
+
       min-width: 320px;
+
       overflow-x: hidden;
 
+      background: var(--white);
+
       color: var(--text);
-      background: white;
 
       font-family:
         "DM Sans",
-        Arial,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
         sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+
+      text-rendering: optimizeLegibility;
+
     }
 
 
     button {
-      font-family: inherit;
+      font: inherit;
     }
+
+
+
+    /* =====================================================
+       TIPOGRAFÍA
+    ===================================================== */
+
+    .main-title,
+    .section-title,
+    .hello {
+
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      font-weight: 500;
+
+      letter-spacing: -.04em;
+
+    }
+
 
 
     /* =====================================================
@@ -73,186 +156,369 @@
     ===================================================== */
 
     .intro {
+
       position: relative;
 
       min-height: 100vh;
       min-height: 100dvh;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
-      padding: 40px 20px;
-
       overflow: hidden;
+
+      isolation: isolate;
+
+      padding: 50px 24px;
 
       text-align: center;
 
       background:
+
         radial-gradient(
-          circle at center 25%,
-          #ffffff 0%,
-          transparent 35%
+          circle at 50% 24%,
+          rgba(255,255,255,.98),
+          transparent 34%
         ),
+
         linear-gradient(
           180deg,
-          #eee6db 0%,
-          #f8f4ee 60%,
+          #f2ece3 0%,
+          #faf8f4 58%,
           #ffffff 100%
         );
+
+    }
+
+
+    .intro::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: -10%;
+      right: -10%;
+      bottom: -12%;
+
+      height: 30%;
+
+      z-index: -1;
+
+      border-radius:
+        50% 50% 0 0;
+
+      background:
+        rgba(255,255,255,.85);
+
+      filter: blur(18px);
+
     }
 
 
     .intro-content {
+
       position: relative;
+
       z-index: 5;
 
-      max-width: 760px;
+      width:
+        min(760px, 100%);
 
-      animation: fadeUp 1s ease both;
+      animation:
+        fadeUp
+        1.2s
+        var(--ease)
+        both;
+
     }
 
 
     .eyebrow {
+
       margin-bottom: 20px;
 
-      color: #b49b7e;
+      color:
+        var(--beige-dark);
 
-      font-size: .72rem;
-      font-weight: 600;
+      font-size:
+        .7rem;
 
-      letter-spacing: .22em;
-      text-transform: uppercase;
+      font-weight:
+        600;
+
+      letter-spacing:
+        .24em;
+
+      text-transform:
+        uppercase;
+
     }
 
 
     .main-title {
-      color: var(--brown-dark);
 
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+      color:
+        var(--brown-dark);
 
       font-size:
-        clamp(3.1rem, 9vw, 6rem);
+        clamp(
+          3.2rem,
+          9vw,
+          6.2rem
+        );
 
-      font-weight: 500;
-      font-style: italic;
+      font-style:
+        italic;
 
-      line-height: .98;
+      line-height:
+        .98;
 
-      letter-spacing: -.04em;
     }
 
 
     .subtitle {
-      max-width: 520px;
 
-      margin: 28px auto 0;
+      max-width:
+        550px;
 
-      color: var(--text);
+      margin:
+        28px auto 0;
 
-      font-size: 1.05rem;
-      line-height: 1.8;
+      color:
+        var(--text);
+
+      font-size:
+        1.05rem;
+
+      line-height:
+        1.8;
+
     }
 
 
+
     /* =====================================================
-       BOTÓN INICIAL
+       BOTÓN
     ===================================================== */
 
     .start-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
 
-      margin-top: 38px;
+      display:
+        inline-flex;
 
-      padding: 15px 25px;
+      align-items:
+        center;
 
-      border: 1px solid rgba(118, 95, 73, .18);
-      border-radius: 999px;
+      gap:
+        11px;
 
-      background: rgba(255,255,255,.85);
+      margin-top:
+        38px;
 
-      color: var(--brown);
+      padding:
+        15px 25px;
+
+      border:
+        1px solid
+        rgba(120,100,80,.14);
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(255,255,255,.88);
+
+      color:
+        var(--brown);
 
       box-shadow:
-        0 12px 35px rgba(94,73,52,.08);
+        var(--shadow-soft);
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
       transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        background .3s ease;
+        transform .35s var(--ease),
+        box-shadow .35s var(--ease),
+        background .35s ease;
+
     }
 
 
     .start-btn::after {
-      content: "→";
-      transition: transform .3s ease;
+
+      content:
+        "→";
+
+      transition:
+        transform .35s var(--ease);
+
     }
 
 
     .start-btn:hover {
-      transform: translateY(-4px);
 
-      background: white;
+      transform:
+        translateY(-4px);
+
+      background:
+        #ffffff;
 
       box-shadow:
-        0 18px 40px rgba(94,73,52,.13);
+        0 20px 45px
+        rgba(91,72,53,.12);
+
     }
 
 
     .start-btn:hover::after {
-      transform: translateX(4px);
+
+      transform:
+        translateX(4px);
+
     }
 
-
-    .start-btn:active {
-      transform: translateY(-1px);
-    }
 
 
     /* =====================================================
-       AVIÓN
+       AVIÓN PROFESIONAL
     ===================================================== */
 
     .airplane {
-      position: absolute;
 
-      top: 22%;
-      left: -80px;
+      position:
+        absolute;
 
-      font-size: 3.2rem;
+      top:
+        22%;
 
-      opacity: .55;
+      left:
+        -120px;
+
+      width:
+        72px;
+
+      height:
+        72px;
+
+      z-index:
+        2;
+
+      opacity:
+        .72;
 
       animation:
-        fly 6s ease-in-out forwards;
+        airplaneFlight
+        8s
+        cubic-bezier(.4,0,.2,1)
+        forwards;
+
     }
 
 
-    @keyframes fly {
+    .airplane svg {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      overflow:
+        visible;
+
+      filter:
+        drop-shadow(
+          0 7px 10px
+          rgba(91,72,53,.08)
+        );
+
+    }
+
+
+    .airplane-path {
+
+      fill:
+        #cbbba9;
+
+    }
+
+
+    .airplane-highlight {
+
+      fill:
+        #e9dfd4;
+
+    }
+
+
+    @keyframes airplaneFlight {
 
       0% {
-        left: -100px;
-        transform: rotate(6deg);
+
+        left:
+          -120px;
+
+        transform:
+          translateY(15px)
+          rotate(7deg)
+          scale(.92);
+
+        opacity:
+          0;
+
       }
+
+
+      10% {
+
+        opacity:
+          .72;
+
+      }
+
+
+      45% {
+
+        transform:
+          translateY(-8px)
+          rotate(2deg)
+          scale(1);
+
+      }
+
 
       70% {
-        left: 75%;
-        transform: rotate(-2deg);
+
+        transform:
+          translateY(5px)
+          rotate(-2deg)
+          scale(1);
+
       }
 
+
       100% {
-        left: 110%;
-        transform: rotate(-6deg);
+
+        left:
+          110%;
+
+        transform:
+          translateY(-12px)
+          rotate(-6deg)
+          scale(.95);
+
+        opacity:
+          0;
+
       }
 
     }
+
 
 
     /* =====================================================
@@ -260,65 +526,102 @@
     ===================================================== */
 
     .letter-section {
-      min-height: 100vh;
-      min-height: 100dvh;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height:
+        100vh;
 
-      padding: 100px 20px;
+      min-height:
+        100dvh;
 
-      background: white;
+      display:
+        flex;
 
-      text-align: center;
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        100px 24px;
+
+      background:
+        #ffffff;
+
+      text-align:
+        center;
+
     }
 
 
     .letter-inner {
-      width: min(760px, 100%);
+
+      width:
+        min(760px,100%);
+
     }
 
 
     .section-kicker {
-      margin-bottom: 12px;
 
-      color: #b49b7e;
+      margin-bottom:
+        12px;
 
-      font-size: .72rem;
-      font-weight: 600;
+      color:
+        var(--beige-dark);
 
-      letter-spacing: .2em;
-      text-transform: uppercase;
+      font-size:
+        .7rem;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        .22em;
+
+      text-transform:
+        uppercase;
+
     }
 
 
     .section-title {
-      color: var(--brown-dark);
 
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+      color:
+        var(--brown-dark);
 
       font-size:
-        clamp(2rem, 5vw, 3.1rem);
+        clamp(
+          2rem,
+          5vw,
+          3.1rem
+        );
 
-      font-weight: 500;
+      line-height:
+        1.1;
 
-      line-height: 1.1;
     }
 
 
     .section-description {
-      max-width: 500px;
 
-      margin: 18px auto 48px;
+      max-width:
+        510px;
 
-      color: var(--text);
+      margin:
+        18px auto 48px;
 
-      line-height: 1.8;
+      color:
+        var(--text);
+
+      font-size:
+        1rem;
+
+      line-height:
+        1.8;
+
     }
+
 
 
     /* =====================================================
@@ -326,80 +629,124 @@
     ===================================================== */
 
     .envelope-container {
-      position: relative;
 
-      width: min(360px, 88vw);
+      position:
+        relative;
 
-      aspect-ratio: 1.45 / 1;
+      width:
+        min(360px,88vw);
 
-      margin: auto;
+      aspect-ratio:
+        1.45 / 1;
 
-      cursor: pointer;
+      margin:
+        auto;
 
-      outline: none;
+      cursor:
+        pointer;
+
+      outline:
+        none;
+
     }
 
 
     .envelope-container::after {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      left: 8%;
-      right: 8%;
-      bottom: -15%;
+      position:
+        absolute;
 
-      height: 35%;
+      left:
+        8%;
 
-      z-index: 0;
+      right:
+        8%;
 
-      border-radius: 50%;
+      bottom:
+        -15%;
 
-      background: rgba(94,73,52,.12);
+      height:
+        35%;
 
-      filter: blur(25px);
+      z-index:
+        0;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(91,72,53,.10);
+
+      filter:
+        blur(25px);
+
     }
 
 
     .envelope {
-      position: relative;
 
-      width: 100%;
-      height: 100%;
+      position:
+        relative;
 
-      overflow: hidden;
+      width:
+        100%;
 
-      border-radius: 12px;
+      height:
+        100%;
 
-      background: #eee5d9;
+      overflow:
+        hidden;
+
+      border-radius:
+        12px;
+
+      background:
+        #f0e8de;
 
       box-shadow:
-        0 25px 70px rgba(94,73,52,.12);
+        var(--shadow);
+
     }
 
 
     .envelope-back {
-      position: absolute;
-      inset: 0;
 
-      background: #eee5d9;
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+        #eee7de;
+
     }
 
 
     .envelope-front {
-      position: absolute;
-      inset: 0;
 
-      z-index: 4;
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      z-index:
+        4;
 
       background:
+
         linear-gradient(
           145deg,
-          #eee4d7,
-          #d9c7b2
+          #f0e8de,
+          #ded0c0
         );
 
       clip-path:
+
         polygon(
           0 0,
           50% 56%,
@@ -407,107 +754,159 @@
           100% 100%,
           0 100%
         );
+
     }
 
 
     .flap {
-      position: absolute;
 
-      top: 0;
-      left: 0;
+      position:
+        absolute;
 
-      width: 100%;
-      height: 58%;
+      top:
+        0;
 
-      z-index: 6;
+      left:
+        0;
+
+      width:
+        100%;
+
+      height:
+        58%;
+
+      z-index:
+        6;
 
       background:
+
         linear-gradient(
           145deg,
-          #e6d9ca,
-          #ccb59b
+          #eee5da,
+          #d8c7b4
         );
 
       clip-path:
+
         polygon(
           0 0,
           100% 0,
           50% 100%
         );
 
-      transform-origin: top;
+      transform-origin:
+        top;
 
       transition:
-        transform 1s cubic-bezier(.22,1,.36,1);
+        transform
+        1s
+        var(--ease);
+
     }
 
 
     .heart {
-      position: absolute;
 
-      top: 51%;
-      left: 50%;
+      position:
+        absolute;
 
-      z-index: 10;
+      top:
+        51%;
 
-      color: #bda486;
+      left:
+        50%;
 
-      font-family: Georgia, serif;
+      z-index:
+        10;
 
-      font-size: 2.7rem;
+      color:
+        #bca78e;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        2.7rem;
 
       transform:
-        translate(-50%, -50%);
+        translate(-50%,-50%);
 
       transition:
         opacity .4s ease,
         transform .4s ease;
+
     }
 
 
     .envelope-text {
-      position: absolute;
 
-      top: 78%;
-      left: 50%;
+      position:
+        absolute;
 
-      z-index: 7;
+      top:
+        78%;
 
-      width: 100%;
+      left:
+        50%;
 
-      color: #796652;
+      z-index:
+        7;
 
-      font-size: .68rem;
-      font-weight: 500;
+      width:
+        100%;
 
-      letter-spacing: .14em;
-      text-transform: uppercase;
+      color:
+        #796a5a;
+
+      font-size:
+        .68rem;
+
+      letter-spacing:
+        .14em;
+
+      text-transform:
+        uppercase;
 
       transform:
-        translate(-50%, -50%);
+        translate(-50%,-50%);
+
     }
 
 
-    .envelope-container.open .flap {
-      transform: rotateX(180deg);
+    .envelope-container.open
+    .flap {
+
+      transform:
+        rotateX(180deg);
+
     }
 
 
-    .envelope-container.open .heart {
-      opacity: 0;
+    .envelope-container.open
+    .heart {
+
+      opacity:
+        0;
 
       transform:
-        translate(-50%, -50%)
+        translate(-50%,-50%)
         scale(.7);
+
     }
 
 
     .tap-hint {
-      margin-top: 28px;
 
-      color: #a18f7b;
+      margin-top:
+        28px;
 
-      font-size: .8rem;
+      color:
+        #aa9b8a;
+
+      font-size:
+        .8rem;
+
     }
 
 
@@ -517,53 +916,84 @@
     ===================================================== */
 
     #heartsContainer {
-      position: fixed;
-      inset: 0;
 
-      z-index: 9999;
+      position:
+        fixed;
 
-      pointer-events: none;
+      inset:
+        0;
 
-      overflow: hidden;
+      z-index:
+        9999;
+
+      pointer-events:
+        none;
+
+      overflow:
+        hidden;
+
     }
 
 
     .floating-heart {
-      position: absolute;
 
-      bottom: 30%;
+      position:
+        absolute;
 
-      color: #c8ad8e;
+      bottom:
+        30%;
 
-      opacity: 0;
+      color:
+        #d1bba2;
+
+      opacity:
+        0;
 
       animation:
-        heartFloat 2.8s ease-out forwards;
+        heartFloat
+        3s
+        ease-out
+        forwards;
+
     }
 
 
     @keyframes heartFloat {
 
       0% {
-        opacity: 0;
+
+        opacity:
+          0;
 
         transform:
-          translate(0, 20px)
+          translate(0,20px)
           scale(.4)
           rotate(0deg);
+
       }
+
 
       15% {
-        opacity: 1;
+
+        opacity:
+          .95;
+
       }
 
+
       100% {
-        opacity: 0;
+
+        opacity:
+          0;
 
         transform:
-          translate(var(--x), -75vh)
+          translate(
+            var(--x),
+            -75vh
+          )
           scale(1)
           rotate(var(--rotate));
+
       }
 
     }
@@ -575,27 +1005,42 @@
     ===================================================== */
 
     .reveal-section {
-      position: relative;
 
-      min-height: 100vh;
-      min-height: 100dvh;
+      position:
+        relative;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height:
+        100vh;
 
-      overflow: hidden;
+      min-height:
+        100dvh;
 
-      padding: 100px 20px 130px;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      overflow:
+        hidden;
+
+      padding:
+        110px 24px 130px;
 
       background:
+
         radial-gradient(
-          circle at center 15%,
-          white 0%,
-          #fcfaf7 48%,
-          #f5eee5 100%
+          circle at 50% 12%,
+          #ffffff 0%,
+          #fcfaf7 45%,
+          #f8f3ec 100%
         );
+
     }
+
 
 
     /* =====================================================
@@ -603,113 +1048,256 @@
     ===================================================== */
 
     .curtain {
-      position: absolute;
 
-      top: 0;
+      position:
+        absolute;
 
-      width: 34%;
-      height: 100%;
+      top:
+        0;
 
-      z-index: 50;
+      width:
+        34%;
+
+      height:
+        100%;
+
+      z-index:
+        50;
 
       background:
+
         linear-gradient(
           90deg,
-          #eee5d9 0%,
-          #faf7f2 13%,
-          #e7dccf 28%,
-          #fcfaf6 44%,
-          #e8ded1 59%,
-          #faf7f2 74%,
-          #e7dccf 89%,
-          #f5eee6 100%
+
+          #eee8df 0%,
+
+          #faf8f4 12%,
+
+          #e9e1d7 25%,
+
+          #fdfbf8 39%,
+
+          #ebe3d9 52%,
+
+          #fcfaf7 66%,
+
+          #e9e1d7 80%,
+
+          #faf7f2 92%,
+
+          #eee7de 100%
         );
 
       box-shadow:
-        inset 0 0 40px rgba(130,105,80,.07),
-        0 0 35px rgba(130,105,80,.05);
+
+        inset 0 0 45px
+        rgba(125,105,85,.045),
+
+        0 0 35px
+        rgba(125,105,85,.04);
+
+      /*
+        MUY IMPORTANTE:
+
+        La cortina NO se abre inmediatamente.
+
+        Primero aparece.
+        Después espera 5 segundos.
+        Finalmente empieza su movimiento.
+      */
 
       transition:
-        transform 1.8s cubic-bezier(.77,0,.18,1);
+
+        transform
+        4s
+        cubic-bezier(
+          .77,
+          0,
+          .18,
+          1
+        );
+
     }
 
 
-    .curtain::before {
-      content: "";
+    /* PLIEGUES DELICADOS */
 
-      position: absolute;
-      inset: 0;
+    .curtain::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
 
       background:
+
         repeating-linear-gradient(
           90deg,
+
           transparent 0,
-          transparent 16px,
-          rgba(255,255,255,.30) 19px,
-          rgba(255,255,255,.30) 28px,
-          transparent 31px,
-          transparent 48px
+
+          transparent 14px,
+
+          rgba(255,255,255,.30) 17px,
+
+          rgba(255,255,255,.30) 25px,
+
+          transparent 28px,
+
+          transparent 43px
         );
 
-      opacity: .65;
+      opacity:
+        .52;
+
+    }
+
+
+    .curtain::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      top:
+        0;
+
+      bottom:
+        0;
+
+      width:
+        45px;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(191,169,145,.08),
+          transparent
+        );
+
     }
 
 
     .curtain-left {
-      left: 0;
+
+      left:
+        0;
 
       border-radius:
-        0 0 40% 0;
+        0 0 42% 0;
+
     }
 
 
     .curtain-right {
-      right: 0;
+
+      right:
+        0;
 
       border-radius:
-        0 0 0 40%;
+        0 0 0 42%;
+
     }
 
 
-    .reveal-section.open .curtain-left {
-      transform: translateX(-110%);
+    .curtain-right::after {
+
+      right:
+        0;
+
+      transform:
+        scaleX(-1);
+
     }
 
 
-    .reveal-section.open .curtain-right {
-      transform: translateX(110%);
+    /*
+      IMPORTANTE:
+
+      Al principio las cortinas están cerradas.
+
+      Cuando .open aparece,
+      comienza el movimiento.
+
+      El retraso de 5 segundos está
+      controlado por JavaScript.
+    */
+
+    .reveal-section.open
+    .curtain-left {
+
+      transform:
+        translateX(-110%);
+
+    }
+
+
+    .reveal-section.open
+    .curtain-right {
+
+      transform:
+        translateX(110%);
+
     }
 
 
 
     /* =====================================================
-       CONTENIDO
+       CONTENIDO DE LA REVELACIÓN
     ===================================================== */
 
     .reveal-content {
-      position: relative;
 
-      z-index: 10;
+      position:
+        relative;
 
-      width: min(920px, 100%);
+      z-index:
+        10;
 
-      text-align: center;
+      width:
+        min(920px,100%);
 
-      opacity: 0;
+      text-align:
+        center;
 
-      transform: translateY(25px);
+      opacity:
+        0;
+
+      transform:
+        translateY(30px);
 
       transition:
-        opacity 1s ease .9s,
-        transform 1s cubic-bezier(.22,1,.36,1) .9s;
+
+        opacity
+        1.5s
+        ease 5.5s,
+
+        transform
+        1.5s
+        var(--ease)
+        5.5s;
+
     }
 
 
-    .reveal-section.open .reveal-content {
-      opacity: 1;
+    .reveal-section.open
+    .reveal-content {
 
-      transform: translateY(0);
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+
     }
+
 
 
     /* =====================================================
@@ -717,80 +1305,116 @@
     ===================================================== */
 
     .animalitos {
-      position: absolute;
 
-      left: 50%;
-      bottom: -70px;
+      position:
+        absolute;
 
-      width: min(540px, 110%);
+      left:
+        50%;
 
-      z-index: -1;
+      bottom:
+        -70px;
 
-      opacity: .22;
+      width:
+        min(540px,110%);
 
-      transform: translateX(-50%);
+      z-index:
+        -1;
 
-      pointer-events: none;
+      opacity:
+        .20;
+
+      pointer-events:
+        none;
+
+      transform:
+        translateX(-50%);
+
     }
 
 
+
     /* =====================================================
-       HOLA PAPI
+       TÍTULO
     ===================================================== */
 
     .baby-small {
-      margin-bottom: 8px;
 
-      color: #b49b7e;
+      margin-bottom:
+        8px;
 
-      font-size: .7rem;
-      font-weight: 600;
+      color:
+        #bba58b;
 
-      letter-spacing: .2em;
-      text-transform: uppercase;
+      font-size:
+        .7rem;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        .21em;
+
+      text-transform:
+        uppercase;
+
     }
 
 
     .hello-wrap {
-      display: flex;
 
-      flex-direction: column;
+      display:
+        flex;
 
-      align-items: center;
+      flex-direction:
+        column;
 
-      margin-bottom: 20px;
+      align-items:
+        center;
+
+      margin-bottom:
+        20px;
+
     }
 
 
     .hello {
-      color: var(--brown-dark);
 
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+      color:
+        var(--brown-dark);
 
       font-size:
-        clamp(3rem, 8vw, 4.8rem);
+        clamp(
+          3rem,
+          8vw,
+          4.8rem
+        );
 
-      font-weight: 500;
+      font-style:
+        italic;
 
-      font-style: italic;
+      line-height:
+        .92;
 
-      line-height: .95;
-
-      letter-spacing: -.04em;
     }
 
 
     .hello-line {
-      width: 48px;
-      height: 1px;
 
-      margin-top: 15px;
+      width:
+        50px;
 
-      background: rgba(118,95,73,.35);
+      height:
+        1px;
+
+      margin-top:
+        15px;
+
+      background:
+        rgba(118,95,73,.28);
+
     }
+
 
 
     /* =====================================================
@@ -798,11 +1422,15 @@
     ===================================================== */
 
     .message {
-      width: min(650px, 100%);
 
-      margin: auto;
+      width:
+        min(650px,100%);
 
-      color: #75695d;
+      margin:
+        auto;
+
+      color:
+        #786d62;
 
       font-family:
         "Playfair Display",
@@ -810,16 +1438,26 @@
         serif;
 
       font-size:
-        clamp(1.05rem, 2.3vw, 1.3rem);
+        clamp(
+          1.05rem,
+          2.3vw,
+          1.3rem
+        );
 
-      line-height: 1.85;
+      line-height:
+        1.85;
+
     }
 
 
     .message strong {
-      color: var(--brown-dark);
 
-      font-weight: 600;
+      color:
+        var(--brown-dark);
+
+      font-weight:
+        600;
+
     }
 
 
@@ -829,64 +1467,90 @@
     ===================================================== */
 
     .photos {
-      display: grid;
+
+      display:
+        grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
-      gap: 18px;
+      gap:
+        18px;
 
-      margin-top: 55px;
+      margin-top:
+        55px;
+
     }
 
 
     .photo {
-      position: relative;
 
-      aspect-ratio: 4 / 5;
+      position:
+        relative;
 
-      overflow: hidden;
+      aspect-ratio:
+        4 / 5;
 
-      border-radius: 20px;
+      overflow:
+        hidden;
 
       border:
         1px solid
-        rgba(118,95,73,.12);
+        rgba(118,95,73,.10);
 
-      background: #eee5d9;
+      border-radius:
+        20px;
+
+      background:
+        #f0e8de;
 
       box-shadow:
-        0 12px 35px rgba(94,73,52,.08);
+        var(--shadow-soft);
 
       transition:
-        transform .4s ease,
-        box-shadow .4s ease;
+        transform .5s var(--ease),
+        box-shadow .5s var(--ease);
+
     }
 
 
     .photo:hover {
-      transform: translateY(-7px);
+
+      transform:
+        translateY(-7px);
 
       box-shadow:
-        0 25px 50px rgba(94,73,52,.14);
+        0 25px 55px
+        rgba(94,73,52,.13);
+
     }
 
 
     .photo img {
-      display: block;
 
-      width: 100%;
-      height: 100%;
+      display:
+        block;
 
-      object-fit: cover;
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
 
       transition:
-        transform .6s ease;
+        transform .7s var(--ease);
+
     }
 
 
     .photo:hover img {
-      transform: scale(1.045);
+
+      transform:
+        scale(1.045);
+
     }
 
 
@@ -896,20 +1560,27 @@
     ===================================================== */
 
     .final {
-      margin-top: 60px;
 
-      color: #907e6b;
+      margin-top:
+        60px;
+
+      color:
+        #978777;
 
       font-family:
         "Playfair Display",
         Georgia,
         serif;
 
-      font-size: .98rem;
+      font-size:
+        .98rem;
 
-      font-style: italic;
+      font-style:
+        italic;
 
-      line-height: 1.8;
+      line-height:
+        1.8;
+
     }
 
 
@@ -919,82 +1590,103 @@
     ===================================================== */
 
     .curtain-control {
-      position: absolute;
 
-      left: 50%;
-      bottom: 28px;
+      position:
+        absolute;
 
-      z-index: 100;
+      left:
+        50%;
 
-      padding: 10px 20px;
+      bottom:
+        28px;
+
+      z-index:
+        100;
+
+      padding:
+        10px 20px;
 
       border:
         1px solid
-        rgba(118,95,73,.18);
+        rgba(118,95,73,.15);
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
       background:
-        rgba(255,255,255,.90);
+        rgba(255,255,255,.92);
 
       color:
         #806d59;
 
-      font-size: .75rem;
+      font-size:
+        .75rem;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
-      box-shadow:
-        0 8px 25px rgba(100,80,60,.08);
+      opacity:
+        0;
 
-      opacity: 0;
-
-      pointer-events: none;
+      pointer-events:
+        none;
 
       transition:
-        opacity .5s ease,
-        transform .3s ease,
-        background .3s ease;
+        opacity .6s ease,
+        transform .3s ease;
+
     }
 
 
-    .reveal-section.open .curtain-control {
-      opacity: 1;
+    .reveal-section.open
+    .curtain-control {
 
-      pointer-events: auto;
+      opacity:
+        1;
+
+      pointer-events:
+        auto;
+
     }
 
 
     .curtain-control:hover {
+
       transform:
         translateX(-50%)
         translateY(-3px);
 
-      background: white;
     }
 
 
 
     /* =====================================================
-       ANIMACIÓN
+       ANIMACIÓN INTRO
     ===================================================== */
 
     @keyframes fadeUp {
 
       from {
-        opacity: 0;
+
+        opacity:
+          0;
 
         transform:
           translateY(25px);
+
       }
 
       to {
-        opacity: 1;
+
+        opacity:
+          1;
 
         transform:
           translateY(0);
+
       }
 
     }
@@ -1007,63 +1699,146 @@
 
     @media (max-width: 720px) {
 
+      .intro,
+      .letter-section,
+      .reveal-section {
+
+        padding-inline:
+          20px;
+
+      }
+
+
       .main-title {
+
         font-size:
           clamp(
             3rem,
             15vw,
             4.5rem
           );
+
+      }
+
+
+      .airplane {
+
+        width:
+          58px;
+
+        height:
+          58px;
+
       }
 
 
       .curtain {
-        width: 40%;
+
+        width:
+          40%;
+
       }
 
 
       .photos {
-        grid-template-columns: 1fr;
 
-        width: min(390px,100%);
+        grid-template-columns:
+          1fr;
 
-        margin-inline: auto;
+        width:
+          min(390px,100%);
+
+        margin-inline:
+          auto;
+
       }
 
 
       .photo {
-        aspect-ratio: 1 / 1.12;
+
+        aspect-ratio:
+          1 / 1.12;
+
       }
 
 
       .animalitos {
-        width: 120%;
 
-        bottom: -30px;
+        width:
+          120%;
+
+        bottom:
+          -30px;
+
       }
 
     }
 
 
+
+    /* =====================================================
+       MÓVIL PEQUEÑO
+    ===================================================== */
+
     @media (max-width: 420px) {
 
       .envelope-container {
-        width: 285px;
+
+        width:
+          285px;
+
       }
 
 
       .curtain {
-        width: 43%;
+
+        width:
+          43%;
+
       }
 
 
       .hello {
-        font-size: 3.2rem;
+
+        font-size:
+          3.2rem;
+
       }
 
 
       .animalitos {
-        width: 135%;
+
+        width:
+          135%;
+
+      }
+
+    }
+
+
+
+    /* =====================================================
+       REDUCIR ANIMACIONES
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
+      }
+
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:
+          .01ms !important;
+
+        transition-duration:
+          .01ms !important;
+
       }
 
     }
@@ -1073,6 +1848,7 @@
 </head>
 
 
+
 <body>
 
 
@@ -1080,7 +1856,11 @@
        CORAZONES
   ====================================================== -->
 
-  <div id="heartsContainer"></div>
+  <div
+    id="heartsContainer"
+    aria-hidden="true"
+  ></div>
+
 
 
   <main>
@@ -1090,12 +1870,65 @@
          INTRO
     ==================================================== -->
 
-    <section class="intro" id="inicio">
+    <section
+      class="intro"
+      id="inicio"
+    >
 
 
-      <div class="airplane" aria-hidden="true">
-        ✈️
+      <!-- AVIÓN SVG -->
+
+      <div
+        class="airplane"
+        aria-hidden="true"
+      >
+
+        <svg
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <path
+            class="airplane-path"
+            d="
+              M91 47
+              L57 42
+              L48 15
+              C47 12 43 12 42 15
+              L39 40
+              L13 37
+              C10 37 8 39 9 42
+              L10 45
+              L35 52
+              L10 59
+              C8 60 8 63 10 64
+              L12 65
+              L39 59
+              L42 84
+              C42 87 46 88 48 85
+              L57 57
+              L91 53
+              C95 52 95 48 91 47
+              Z
+            "
+          />
+
+          <path
+            class="airplane-highlight"
+            d="
+              M42 17
+              L45 42
+              L53 44
+              L46 47
+              L43 17
+              Z
+            "
+          />
+
+        </svg>
+
       </div>
+
 
 
       <div class="intro-content">
@@ -1137,7 +1970,10 @@
          CARTA
     ==================================================== -->
 
-    <section class="letter-section" id="carta">
+    <section
+      class="letter-section"
+      id="carta"
+    >
 
 
       <div class="letter-inner">
@@ -1159,13 +1995,11 @@
 
 
 
-        <!-- SOBRE -->
-
         <div
           class="envelope-container"
           id="envelope"
-          tabindex="0"
           role="button"
+          tabindex="0"
           aria-label="Abrir la carta"
         >
 
@@ -1198,7 +2032,10 @@
         </div>
 
 
-        <p class="tap-hint" id="tapHint">
+        <p
+          class="tap-hint"
+          id="tapHint"
+        >
           Toca el sobre para abrirlo
         </p>
 
@@ -1220,13 +2057,15 @@
     >
 
 
-      <!-- CORTINAS -->
+      <!-- CORTINA IZQUIERDA -->
 
       <div
         class="curtain curtain-left"
         aria-hidden="true"
       ></div>
 
+
+      <!-- CORTINA DERECHA -->
 
       <div
         class="curtain curtain-right"
@@ -1240,10 +2079,7 @@
       <div class="reveal-content">
 
 
-        <!--
-          Si tienes la imagen de los animalitos guardada
-          como animalitos.png, aparecerá aquí.
-        -->
+        <!-- ANIMALITOS -->
 
         <img
           src="animalitos.png"
@@ -1294,7 +2130,10 @@
 
         <!-- FOTOS -->
 
-        <div class="photos">
+        <div
+          class="photos"
+          aria-label="Nuestra historia"
+        >
 
 
           <figure class="photo">
@@ -1346,7 +2185,7 @@
 
 
 
-      <!-- BOTÓN -->
+      <!-- BOTÓN CORTINAS -->
 
       <button
         class="curtain-control"
@@ -1417,7 +2256,20 @@
 
 
         /* =================================================
-           IR A UNA SECCIÓN
+           CONFIGURACIÓN
+        ================================================= */
+
+        const CURTAIN_WAIT =
+          5000;
+
+
+        const CURTAIN_ANIMATION =
+          4000;
+
+
+
+        /* =================================================
+           SCROLL
         ================================================= */
 
         function goTo(section) {
@@ -1437,7 +2289,7 @@
 
 
         /* =================================================
-           BOTÓN "TENGO ALGO PARA TI"
+           BOTÓN INICIAL
         ================================================= */
 
         startButton.addEventListener(
@@ -1454,7 +2306,7 @@
 
 
         /* =================================================
-           CREAR CORAZONES
+           CORAZONES
         ================================================= */
 
         function createHearts() {
@@ -1462,7 +2314,7 @@
 
           for (
             let i = 0;
-            i < 26;
+            i < 28;
             i++
           ) {
 
@@ -1526,9 +2378,11 @@
 
             setTimeout(
               function () {
+
                 heart.remove();
+
               },
-              3600
+              3800
             );
 
           }
@@ -1547,11 +2401,15 @@
           if (
             envelope.classList.contains("open")
           ) {
+
             return;
+
           }
 
 
-          envelope.classList.add("open");
+          envelope.classList.add(
+            "open"
+          );
 
 
           tapHint.textContent =
@@ -1563,31 +2421,70 @@
           createHearts();
 
 
-          /* ESPERAR Y ABRIR CORTINAS */
+
+          /*
+            ESPERAMOS ANTES DE MOSTRAR
+            LA REVELACIÓN.
+          */
 
           setTimeout(
             function () {
 
 
-              reveal.classList.add("open");
+              /*
+                LAS CORTINAS APARECEN
+                CERRADAS.
+              */
+
+              reveal.classList.add(
+                "stage-ready"
+              );
 
 
-              curtainControl.textContent =
-                "Cerrar cortinas";
+              /*
+                AHORA ESPERAMOS
+                5 SEGUNDOS.
 
+                Después de esos 5 segundos
+                se abren mediante la clase open.
+              */
 
               setTimeout(
                 function () {
 
-                  goTo(reveal);
+
+                  reveal.classList.add(
+                    "open"
+                  );
+
+
+                  curtainControl.textContent =
+                    "Cerrar cortinas";
+
+
+                  /*
+                    Esperamos un poquito
+                    para desplazar al usuario
+                    suavemente.
+                  */
+
+                  setTimeout(
+                    function () {
+
+                      goTo(reveal);
+
+                    },
+                    500
+                  );
+
 
                 },
-                700
+                CURTAIN_WAIT
               );
 
 
             },
-            1800
+            1600
           );
 
         }
@@ -1606,7 +2503,7 @@
 
 
         /* =================================================
-           TECLADO SOBRE
+           TECLADO
         ================================================= */
 
         envelope.addEventListener(
@@ -1619,12 +2516,9 @@
               event.key === " "
             ) {
 
-
               event.preventDefault();
 
-
               openEnvelope();
-
 
             }
 
@@ -1634,7 +2528,7 @@
 
 
         /* =================================================
-           ABRIR / CERRAR CORTINAS
+           CORTINAS MANUALES
         ================================================= */
 
         curtainControl.addEventListener(
@@ -1642,11 +2536,15 @@
           function () {
 
 
-            const isOpen =
-              reveal.classList.contains("open");
+            const currentlyOpen =
+              reveal.classList.contains(
+                "open"
+              );
 
 
-            if (isOpen) {
+            if (
+              currentlyOpen
+            ) {
 
 
               reveal.classList.remove(
@@ -1668,6 +2566,7 @@
 
               curtainControl.textContent =
                 "Cerrar cortinas";
+
 
             }
 
