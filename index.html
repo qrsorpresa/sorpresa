@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,24 +9,27 @@
 <style>
 
 /* =========================================================
-   PALETA DE LA REFERENCIA
+   PALETA
 ========================================================= */
 
 :root{
-    --bg:#F7EDE3;
-    --cream:#FBF5EF;
+    --brown:#9a6f5c;
+    --brown-dark:#7d5745;
+    --brown-light:#b98a77;
 
-    --brown:#8B6753;
-    --brown-dark:#76513F;
-    --brown-soft:#A9846F;
+    --pink-curtain:#b77e70;
+    --pink-light:#c89586;
+    --pink-dark:#916153;
 
-    --pink-brown:#B98273;
-    --pink-light:#D1A095;
+    --cream:#f8eee4;
+    --cream-light:#fffaf5;
+
+    --gold:#b9947d;
 }
 
 
 /* =========================================================
-   BASE
+   GENERAL
 ========================================================= */
 
 *{
@@ -40,35 +42,23 @@ html{
 
 body{
     margin:0;
-    background:var(--bg);
-    color:var(--brown);
-    font-family:Georgia, "Times New Roman", serif;
+    background:var(--cream);
+    color:var(--brown-dark);
     overflow-x:hidden;
+    font-family:Georgia,"Times New Roman",serif;
 }
 
-button{
-    font-family:inherit;
-}
-
-
-/* =========================================================
-   PÁGINA
-========================================================= */
-
-.page{
-    width:100%;
-    overflow:hidden;
+section{
+    min-height:100vh;
 }
 
 
 /* =========================================================
-   1. PORTADA
+   PORTADA
 ========================================================= */
 
 .cover{
-
     position:relative;
-
     min-height:100vh;
 
     display:flex;
@@ -76,37 +66,31 @@ button{
     justify-content:center;
 
     overflow:hidden;
-
     text-align:center;
 
     background:
         linear-gradient(
             180deg,
-            #C09A80 0%,
-            #C5A087 48%,
-            #B99177 100%
+            #c6a18b 0%,
+            #cda995 45%,
+            #c29a83 100%
         );
-
 }
 
 
-.cover::after{
+/* luz suave */
 
+.cover::before{
     content:"";
-
     position:absolute;
-
     inset:0;
 
     background:
         radial-gradient(
-            ellipse at center,
-            rgba(255,255,255,.12),
-            transparent 65%
+            circle at 50% 45%,
+            rgba(255,250,244,.25),
+            transparent 58%
         );
-
-    pointer-events:none;
-
 }
 
 
@@ -115,148 +99,64 @@ button{
 ========================================================= */
 
 .cloud{
-
     position:absolute;
 
-    width:170px;
-    height:42px;
+    width:180px;
+    height:43px;
 
     border-radius:50px;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,249,243,.96),
-            rgba(241,229,218,.90)
-        );
+    background:#fdf7f0;
 
-    filter:
-        drop-shadow(
-            0 5px 7px
-            rgba(111,76,58,.08)
-        );
+    box-shadow:
+        0 5px 15px rgba(90,60,45,.08);
 
     z-index:1;
-
 }
-
 
 .cloud::before,
 .cloud::after{
-
     content:"";
-
     position:absolute;
-
     bottom:0;
 
     border-radius:50%;
-
-    background:
-        linear-gradient(
-            180deg,
-            #FFF9F2,
-            #EBDDD1
-        );
-
+    background:#fffaf4;
 }
-
 
 .cloud::before{
-
-    width:75px;
-    height:75px;
-
-    left:20px;
-
+    width:72px;
+    height:72px;
+    left:22px;
 }
-
 
 .cloud::after{
-
-    width:60px;
-    height:60px;
-
-    left:85px;
-
+    width:58px;
+    height:58px;
+    left:92px;
 }
 
-
-.cloud-1{
-    top:13%;
-    left:-45px;
+.cloud.one{
+    left:-40px;
+    top:14%;
 }
 
-.cloud-2{
-    top:30%;
+.cloud.two{
     right:-50px;
+    top:28%;
 }
 
-.cloud-3{
+.cloud.three{
+    left:43%;
+    top:7%;
+    transform:scale(.45);
+}
 
-    top:5%;
-    left:47%;
-
-    transform:scale(.42);
-
+.cloud.four{
+    left:8%;
+    bottom:15%;
+    transform:scale(.5);
     opacity:.8;
-
-}
-
-.cloud-4{
-
-    top:42%;
-    left:15%;
-
-    transform:scale(.52);
-
-    opacity:.75;
-
-}
-
-
-/* =========================================================
-   ESTRELLITAS
-========================================================= */
-
-.star{
-
-    position:absolute;
-
-    color:#FFF8EF;
-
-    font-size:15px;
-
-    opacity:.9;
-
-    z-index:2;
-
-}
-
-
-.star-1{
-    left:17%;
-    top:24%;
-}
-
-.star-2{
-    right:17%;
-    top:19%;
-}
-
-.star-3{
-    left:9%;
-    bottom:23%;
-}
-
-.star-4{
-    right:24%;
-    bottom:20%;
-}
-
-.star-5{
-    left:37%;
-    top:8%;
 }
 
 
@@ -265,19 +165,17 @@ button{
 ========================================================= */
 
 .airplane{
-
     position:absolute;
 
     width:105px;
 
-    left:-130px;
-
     top:11%;
+    left:-130px;
 
     z-index:4;
 
     animation:
-        fly
+        airplaneFlight
         9s
         ease-in-out
         forwards;
@@ -285,13 +183,11 @@ button{
     filter:
         drop-shadow(
             0 4px 5px
-            rgba(80,52,39,.15)
+            rgba(70,45,35,.15)
         );
-
 }
 
-
-@keyframes fly{
+@keyframes airplaneFlight{
 
     0%{
         left:-130px;
@@ -299,7 +195,7 @@ button{
     }
 
     45%{
-        left:30%;
+        left:28%;
         transform:rotate(1deg);
     }
 
@@ -321,246 +217,147 @@ button{
 ========================================================= */
 
 .cover-content{
-
     position:relative;
-
     z-index:10;
 
     width:min(700px,90%);
-
 }
-
 
 .cover-small{
-
     margin:0 0 18px;
 
-    color:#FFF8F0;
+    color:#fff8f0;
 
-    font-family:Arial, sans-serif;
-
+    font-family:Arial,sans-serif;
     font-size:10px;
-
     font-weight:bold;
 
-    letter-spacing:.30em;
-
+    letter-spacing:.28em;
 }
-
 
 .cover h1{
-
     margin:0;
 
-    color:#FFF9F3;
+    color:#fffaf5;
 
     font-size:
-        clamp(
-            52px,
-            9vw,
-            92px
-        );
+        clamp(52px,9vw,88px);
 
-    line-height:.84;
+    line-height:.88;
 
     font-weight:400;
-
-    letter-spacing:-.055em;
-
+    letter-spacing:-.045em;
 }
-
 
 .cover h1 span{
-
     display:block;
 
-    margin-top:7px;
+    color:#795341;
 
-    color:#77513E;
-
-    font-size:.91em;
+    font-size:.9em;
 
     font-style:italic;
-
 }
-
 
 .cover-subtitle{
+    margin:28px auto 0;
 
-    margin:
-        28px auto 0;
+    color:#fff8f1;
 
-    color:#FFF8F1;
-
-    font-size:17px;
-
-    line-height:1.35;
-
+    font-size:16px;
+    line-height:1.4;
 }
 
-
 .cover-button{
+    margin-top:27px;
 
-    margin-top:28px;
+    padding:11px 27px;
 
-    padding:
-        12px 28px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.85);
-
+    border:1px solid rgba(255,255,255,.8);
     border-radius:30px;
 
-    background:
-        transparent;
+    background:transparent;
 
-    color:white;
+    color:#fff;
 
-    font-size:11px;
-
-    letter-spacing:.14em;
+    font-size:10px;
+    letter-spacing:.15em;
 
     cursor:pointer;
 
     transition:.3s;
-
 }
 
-
 .cover-button:hover{
-
-    background:
-        rgba(255,255,255,.15);
-
-    transform:translateY(-2px);
-
+    background:rgba(255,255,255,.15);
 }
 
 
 /* =========================================================
-   2. CARTA
+   CARTA
 ========================================================= */
 
 .letter{
-
     min-height:100vh;
 
     display:flex;
-
+    align-items:center;
     justify-content:center;
 
-    align-items:center;
+    padding:70px 20px;
 
     text-align:center;
-
-    padding:60px 20px;
 
     background:
         radial-gradient(
             ellipse at center,
-            #FFFDF9 0%,
-            #FAF1E8 65%,
-            #F2E2D5 100%
+            #fffdf9 0%,
+            #faf1e8 62%,
+            #f2e1d4 100%
         );
-
 }
-
 
 .letter-content{
-
     width:min(700px,100%);
-
 }
 
-
 .letter-small{
-
     margin:0 0 10px;
 
-    color:#9A7661;
+    color:#9a7764;
 
     font-family:Arial,sans-serif;
 
-    font-size:10px;
-
+    font-size:9px;
     font-weight:bold;
 
-    letter-spacing:.30em;
-
+    letter-spacing:.28em;
 }
-
 
 .letter h2{
-
     margin:0;
 
-    color:#825C48;
+    color:#815b48;
 
     font-size:
-        clamp(
-            38px,
-            7vw,
-            64px
-        );
+        clamp(38px,7vw,62px);
 
     font-weight:400;
-
     font-style:italic;
-
-    letter-spacing:-.035em;
-
 }
-
 
 .letter-text{
+    margin:17px auto 25px;
 
-    max-width:380px;
+    color:#8d7262;
 
-    margin:
-        18px auto 30px;
-
-    color:#896E5D;
-
-    font-size:17px;
-
-    line-height:1.4;
-
+    font-size:15px;
+    line-height:1.45;
 }
-
-
-/* =========================================================
-   CORAZONES DECORATIVOS CARTA
-========================================================= */
 
 .letter-decoration{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:18px;
-
-    margin-bottom:18px;
-
-    color:#B98972;
-
-}
-
-
-.letter-decoration::before,
-.letter-decoration::after{
-
-    content:"";
-
-    width:55px;
-
-    height:1px;
-
-    background:#C6A08B;
-
+    color:#bd8c76;
+    margin-bottom:14px;
 }
 
 
@@ -569,80 +366,67 @@ button{
 ========================================================= */
 
 .envelope-wrap{
-
     position:relative;
 
-    width:min(390px,82vw);
+    width:min(360px,84vw);
 
     margin:auto;
 
     cursor:pointer;
-
 }
 
-
 .envelope{
-
     position:relative;
 
     width:100%;
-
     aspect-ratio:1.5 / 1;
+
+    overflow:hidden;
+
+    border-radius:7px;
 
     background:
         linear-gradient(
             145deg,
-            #F0DCCB,
-            #D5B29A
+            #f1dfcf,
+            #d4b19a
         );
-
-    border-radius:9px;
 
     box-shadow:
         0 22px 45px
-        rgba(110,75,56,.16);
-
-    overflow:hidden;
-
+        rgba(100,65,50,.16);
 }
 
 
-/* parte delantera */
+/* cuerpo */
 
 .envelope-front{
-
     position:absolute;
-
     inset:0;
-
     z-index:4;
 
     background:
         linear-gradient(
             145deg,
-            #E8CFBB,
-            #D0AB91
+            #ead4c1,
+            #d0a991
         );
 
     clip-path:
         polygon(
             0 0,
-            50% 57%,
+            50% 58%,
             100% 0,
             100% 100%,
             0 100%
         );
-
 }
 
 
 /* solapa */
 
 .envelope-flap{
-
     position:absolute;
-
-    z-index:8;
 
     top:0;
     left:0;
@@ -650,11 +434,13 @@ button{
     width:100%;
     height:62%;
 
+    z-index:8;
+
     background:
         linear-gradient(
             145deg,
-            #D9BCA5,
-            #C49A7E
+            #d9bca5,
+            #c49a7d
         );
 
     clip-path:
@@ -670,166 +456,130 @@ button{
         transform
         1.2s
         cubic-bezier(.22,1,.36,1);
-
 }
 
+.envelope-wrap.open
+.envelope-flap{
+    transform:rotateX(180deg);
+}
 
-.envelope-container-heart{
-
+.envelope-heart{
     position:absolute;
 
     z-index:10;
 
     left:50%;
-    top:52%;
+    top:53%;
 
     transform:
         translate(-50%,-50%);
 
-    color:#9B715B;
+    color:#936a55;
 
-    font-size:48px;
+    font-size:45px;
 
     transition:.35s;
-
 }
 
+.envelope-wrap.open
+.envelope-heart{
+    opacity:0;
+    transform:
+        translate(-50%,-50%)
+        scale(.6);
+}
 
 .envelope-label{
-
     position:absolute;
 
     z-index:9;
 
+    bottom:15%;
     left:50%;
-    bottom:16%;
-
-    transform:
-        translateX(-50%);
 
     width:100%;
 
-    color:#805D4A;
+    transform:translateX(-50%);
+
+    color:#815d4a;
 
     font-family:Arial,sans-serif;
 
-    font-size:9px;
+    font-size:8px;
 
-    letter-spacing:.20em;
-
+    letter-spacing:.18em;
 }
-
-
-.envelope-wrap.open
-.envelope-flap{
-
-    transform:
-        rotateX(180deg);
-
-}
-
-
-.envelope-wrap.open
-.envelope-container-heart{
-
-    opacity:0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.6);
-
-}
-
 
 .letter-hint{
-
     margin-top:18px;
 
-    color:#9D8474;
+    color:#9b8272;
 
-    font-size:13px;
+    font-size:12px;
 
     font-style:italic;
-
 }
 
 
 /* =========================================================
-   CORAZONES QUE SALEN DEL SOBRE
+   CORAZONES DEL SOBRE
 ========================================================= */
 
-#heartContainer{
-
+#hearts{
     position:fixed;
 
     inset:0;
 
+    z-index:9999;
+
     pointer-events:none;
 
     overflow:hidden;
-
-    z-index:1000;
-
 }
 
-
-.heart{
-
+.floating-heart{
     position:absolute;
 
-    bottom:27%;
+    bottom:28%;
 
     opacity:0;
 
-    font-family:Arial,sans-serif;
-
     animation:
-        heartUp
-        4s
+        heartFloat
+        4.5s
         ease-out
         forwards;
-
 }
 
-
-@keyframes heartUp{
+@keyframes heartFloat{
 
     0%{
-
         opacity:0;
 
         transform:
             translate(0,0)
-            scale(.2)
+            scale(.3)
             rotate(0deg);
-
     }
 
     12%{
-
         opacity:1;
-
     }
 
     100%{
-
         opacity:0;
 
         transform:
-            translate(
-                var(--x),
-                var(--y)
-            )
+            translate(var(--x),var(--y))
             scale(var(--scale))
             rotate(var(--rotation));
-
     }
 
 }
 
 
 /* =========================================================
-   3. REVELACIÓN
+   REVELACIÓN
 ========================================================= */
 
 .reveal{
@@ -841,9 +591,7 @@ button{
     overflow:hidden;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     padding:60px 20px;
@@ -851,11 +599,10 @@ button{
     background:
         radial-gradient(
             ellipse at center,
-            #FFFDF9 0%,
-            #F8EEE4 70%,
-            #EEDCCE 100%
+            #fffdf9 0%,
+            #f9efe5 67%,
+            #eeddd0 100%
         );
-
 }
 
 
@@ -867,69 +614,54 @@ button{
 
     position:relative;
 
-    z-index:10;
+    z-index:20;
 
-    width:min(680px,100%);
+    width:min(650px,90%);
 
     text-align:center;
 
     opacity:0;
 
-    transform:translateY(20px);
+    transform:translateY(15px);
 
     transition:
-        opacity 1s ease,
-        transform 1s ease;
-
+        opacity 1.2s ease,
+        transform 1.2s ease;
 }
-
 
 .reveal.open
 .reveal-content{
-
     opacity:1;
-
     transform:translateY(0);
-
 }
-
 
 .reveal-small{
 
-    margin:0 0 8px;
+    margin:0 0 6px;
 
-    color:#997460;
+    color:#9a7562;
 
     font-family:Arial,sans-serif;
 
-    font-size:10px;
-
+    font-size:8px;
     font-weight:bold;
 
-    letter-spacing:.28em;
-
+    letter-spacing:.27em;
 }
-
 
 .reveal h2{
 
     margin:0;
 
-    color:#865F4A;
+    color:#825b47;
 
     font-size:
-        clamp(
-            52px,
-            10vw,
-            82px
-        );
+        clamp(52px,10vw,82px);
 
     font-weight:400;
-
     font-style:italic;
 
     line-height:.9;
-
 }
 
 
@@ -941,42 +673,35 @@ button{
 
     display:block;
 
-    width:min(260px,62vw);
+    width:min(250px,58vw);
 
-    max-height:190px;
+    max-height:175px;
 
     object-fit:contain;
 
-    margin:
-        8px auto 5px;
-
+    margin:8px auto 3px;
 }
 
 
 /* =========================================================
-   TEXTO REVELACIÓN
+   TEXTO
 ========================================================= */
 
 .reveal-text{
 
-    max-width:450px;
+    max-width:390px;
 
-    margin:
-        4px auto 0;
+    margin:3px auto 0;
 
-    color:#80695A;
+    color:#80695a;
 
-    font-size:16px;
+    font-size:13px;
 
     line-height:1.42;
-
 }
 
-
 .reveal-text strong{
-
-    color:#704B39;
-
+    color:#704b39;
 }
 
 
@@ -989,89 +714,77 @@ button{
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
-    gap:15px;
+    gap:13px;
 
-    margin:
-        30px auto 0;
-
+    margin:25px auto 0;
 }
-
 
 .photo{
 
-    position:relative;
+    width:125px;
 
-    width:145px;
-
-    aspect-ratio:1/1.15;
+    aspect-ratio:1 / 1.15;
 
     padding:5px;
 
-    background:#FFFDF9;
+    background:#fffdf9;
 
     box-shadow:
-        0 7px 20px
-        rgba(90,60,45,.14);
+        0 7px 18px
+        rgba(80,55,45,.15);
 
-    transform:
-        rotate(-2deg);
-
+    transform:rotate(-2deg);
 }
-
 
 .photo:nth-child(2){
-
     transform:
         rotate(3deg)
-        translateY(-4px);
-
+        translateY(-3px);
 }
-
 
 .photo:nth-child(3){
-
-    transform:
-        rotate(-1deg);
-
+    transform:rotate(-1deg);
 }
 
-
 .photo img{
+    display:block;
 
     width:100%;
     height:100%;
 
     object-fit:cover;
-
-    display:block;
-
 }
-
-
-/* =========================================================
-   MENSAJE FINAL
-========================================================= */
 
 .final{
+    margin:17px auto 0;
 
-    margin:
-        24px auto 0;
+    color:#8c7262;
 
-    color:#8B7161;
-
-    font-size:14px;
+    font-size:11px;
 
     font-style:italic;
-
 }
 
 
 /* =========================================================
+   =========================================================
    CORTINAS
-========================================================= */
+   AQUÍ ESTÁ EL CAMBIO IMPORTANTE
+   =========================================================
+   ========================================================= */
+
+
+/*
+   Cada cortina ocupa únicamente su lado.
+   La forma interior NO es recta.
+
+   Se crea una gran curva desde arriba,
+   se estrecha hacia la zona del recogido
+   y después vuelve a caer hacia abajo,
+   igual que en la referencia.
+*/
 
 .curtain{
 
@@ -1079,7 +792,7 @@ button{
 
     top:0;
 
-    width:39%;
+    width:46%;
 
     height:100%;
 
@@ -1097,22 +810,6 @@ button{
             1
         );
 
-    overflow:hidden;
-
-}
-
-
-.curtain-left{
-
-    left:0;
-
-}
-
-
-.curtain-right{
-
-    right:0;
-
 }
 
 
@@ -1120,9 +817,17 @@ button{
    CORTINA IZQUIERDA
 ========================================================= */
 
-.curtain-left::before{
+.curtain-left{
 
-    content:"";
+    left:0;
+}
+
+
+/*
+   Tela principal izquierda
+*/
+
+.curtain-left .fabric{
 
     position:absolute;
 
@@ -1131,53 +836,71 @@ button{
     background:
         linear-gradient(
             90deg,
-            #875B51 0%,
-            #A87368 13%,
-            #CB978A 27%,
-            #95665B 40%,
-            #D0A096 53%,
-            #A16F64 68%,
-            #C28E83 81%,
-            #8F6158 100%
+
+            #8f6055 0%,
+            #a97165 9%,
+            #c18b7c 18%,
+            #9a685d 27%,
+            #c79485 37%,
+            #a46f63 47%,
+            #c99586 57%,
+            #a06a60 68%,
+            #c38c7e 79%,
+            #96645a 91%,
+            #84584f 100%
         );
+
+    /*
+       SILUETA DE LA CORTINA
+       exactamente con la caída hacia el centro.
+    */
 
     clip-path:
         polygon(
+
+            /* parte superior */
+
             0 0,
             100% 0,
 
-            96% 8%,
-            91% 17%,
-            84% 26%,
-            76% 34%,
-            67% 41%,
-            59% 46%,
-            53% 50%,
+            /* caída superior */
 
-            50% 53%,
+            98% 7%,
+            94% 14%,
+            89% 21%,
+            83% 28%,
+            77% 34%,
+            70% 39%,
+            64% 44%,
+            58% 48%,
+            54% 51%,
 
-            50% 58%,
-            54% 65%,
-            57% 74%,
-            56% 83%,
-            53% 92%,
-            50% 100%,
+            /* recogido */
+
+            51% 54%,
+
+            /* caída inferior */
+
+            53% 59%,
+            55% 65%,
+            56% 72%,
+            57% 80%,
+            57% 88%,
+            54% 96%,
+            51% 100%,
 
             0 100%
-        );
 
-    box-shadow:
-        10px 0 30px
-        rgba(76,48,40,.20);
+        );
 
 }
 
 
-/* pliegues */
+/*
+   Pliegues de tela
+*/
 
-.curtain-left::after{
-
-    content:"";
+.curtain-left .folds{
 
     position:absolute;
 
@@ -1186,19 +909,31 @@ button{
     background:
         repeating-linear-gradient(
             100deg,
-            transparent 0 18px,
-            rgba(255,225,217,.16) 19px 23px,
-            rgba(86,52,45,.12) 24px 30px,
-            transparent 31px 45px
+
+            transparent 0px,
+            transparent 13px,
+
+            rgba(255,224,214,.14) 14px,
+            rgba(255,224,214,.14) 18px,
+
+            rgba(91,53,46,.12) 19px,
+            rgba(91,53,46,.12) 25px,
+
+            transparent 26px,
+            transparent 39px
         );
 
     clip-path:
         polygon(
+
             0 0,
             100% 0,
-            50% 53%,
-            50% 100%,
+
+            54% 52%,
+            57% 100%,
+
             0 100%
+
         );
 
 }
@@ -1208,9 +943,15 @@ button{
    CORTINA DERECHA
 ========================================================= */
 
-.curtain-right::before{
+.curtain-right{
 
-    content:"";
+    right:0;
+}
+
+
+/* tela */
+
+.curtain-right .fabric{
 
     position:absolute;
 
@@ -1219,43 +960,199 @@ button{
     background:
         linear-gradient(
             90deg,
-            #8F6158 0%,
-            #C28E83 19%,
-            #A16F64 32%,
-            #D0A096 47%,
-            #95665B 60%,
-            #CB978A 73%,
-            #A87368 87%,
-            #875B51 100%
+
+            #84584f 0%,
+            #96645a 9%,
+            #c38c7e 21%,
+            #a06a60 32%,
+            #c99586 43%,
+            #a46f63 53%,
+            #c79485 63%,
+            #9a685d 73%,
+            #c18b7c 82%,
+            #a97165 92%,
+            #8f6055 100%
         );
 
     clip-path:
         polygon(
+
+            0 0,
+            100% 0,
+
+            100% 100%,
+
+            49% 100%,
+
+            46% 96%,
+            43% 88%,
+            43% 80%,
+            44% 72%,
+            45% 65%,
+            47% 59%,
+
+            49% 54%,
+
+            46% 51%,
+            42% 48%,
+            36% 44%,
+            30% 39%,
+            23% 34%,
+            17% 28%,
+            11% 21%,
+            6% 14%,
+            2% 7%,
+
+            0 0
+
+        );
+
+}
+
+
+/* pliegues */
+
+.curtain-right .folds{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            80deg,
+
+            transparent 0px,
+            transparent 13px,
+
+            rgba(255,224,214,.14) 14px,
+            rgba(255,224,214,.14) 18px,
+
+            rgba(91,53,46,.12) 19px,
+            rgba(91,53,46,.12) 25px,
+
+            transparent 26px,
+            transparent 39px
+        );
+
+    clip-path:
+        polygon(
+
             0 0,
             100% 0,
             100% 100%,
+            43% 100%,
+            49% 54%
 
-            50% 100%,
-            47% 92%,
-            44% 83%,
-            43% 74%,
-            46% 65%,
-            50% 58%,
-            50% 53%,
-            47% 50%,
-            41% 46%,
-            33% 41%,
-            24% 34%,
-            16% 26%,
-            9% 17%,
-            4% 8%,
+        );
 
-            0 0
+}
+
+
+/* =========================================================
+   ABRAZADERAS
+   LAS HACEMOS COMO EN LA REFERENCIA
+========================================================= */
+
+.tie{
+
+    position:absolute;
+
+    top:45%;
+
+    width:85px;
+    height:45px;
+
+    z-index:10;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #bd8879,
+            #a66e61
         );
 
     box-shadow:
-        -10px 0 30px
-        rgba(76,48,40,.20);
+        0 5px 10px
+        rgba(80,45,40,.18);
+
+}
+
+
+/* lado izquierdo */
+
+.curtain-left .tie{
+
+    right:0;
+
+    transform:
+        translateX(22px);
+
+}
+
+
+/* lado derecho */
+
+.curtain-right .tie{
+
+    left:0;
+
+    transform:
+        translateX(-22px);
+
+}
+
+
+/* líneas de la abrazadera */
+
+.tie::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:8%;
+    right:8%;
+
+    top:50%;
+
+    height:3px;
+
+    transform:
+        translateY(-50%);
+
+    border-radius:50%;
+
+    background:
+        rgba(255,218,208,.28);
+
+}
+
+
+/* =========================================================
+   BORDE INTERIOR SUAVE
+========================================================= */
+
+.curtain-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:12px;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(76,47,42,.18)
+        );
 
 }
 
@@ -1266,93 +1163,84 @@ button{
 
     position:absolute;
 
-    inset:0;
+    top:0;
+    left:0;
+
+    width:12px;
+    height:100%;
 
     background:
-        repeating-linear-gradient(
-            80deg,
-            transparent 0 18px,
-            rgba(255,225,217,.16) 19px 23px,
-            rgba(86,52,45,.12) 24px 30px,
-            transparent 31px 45px
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            100% 100%,
-            50% 100%,
-            50% 53%
+        linear-gradient(
+            270deg,
+            transparent,
+            rgba(76,47,42,.18)
         );
 
 }
 
 
 /* =========================================================
-   CORTINAS ABIERTAS
+   APERTURA
 ========================================================= */
 
 .reveal.open .curtain-left{
 
     transform:
-        translateX(-105%);
+        translateX(-110%);
 
 }
-
 
 .reveal.open .curtain-right{
 
     transform:
-        translateX(105%);
+        translateX(110%);
 
 }
 
 
 /* =========================================================
-   PEQUEÑOS CORAZONES DECORATIVOS EN REVELACIÓN
+   CORAZONES DECORATIVOS
 ========================================================= */
 
 .reveal-heart{
 
     position:absolute;
 
-    color:#C18E79;
+    z-index:25;
 
-    font-size:18px;
+    color:#c2947f;
 
-    z-index:12;
+    font-size:15px;
 
 }
 
-
 .rh1{
-    left:28%;
-    top:43%;
+    left:29%;
+    top:38%;
 }
 
 .rh2{
-    left:33%;
-    top:49%;
+    left:32%;
+    top:45%;
 }
 
 .rh3{
     right:29%;
-    top:43%;
+    top:38%;
 }
 
 .rh4{
-    right:34%;
-    top:49%;
+    right:32%;
+    top:45%;
 }
 
 .rh5{
-    left:28%;
+    left:27%;
     bottom:20%;
 }
 
 .rh6{
-    right:28%;
+    right:27%;
     bottom:20%;
 }
 
@@ -1364,24 +1252,15 @@ button{
 @media(max-width:700px){
 
     .cover h1{
-        font-size:49px;
-    }
-
-    .cover-subtitle{
-        font-size:14px;
+        font-size:50px;
     }
 
     .airplane{
         width:75px;
-        top:10%;
     }
 
     .letter h2{
-        font-size:38px;
-    }
-
-    .letter-text{
-        font-size:14px;
+        font-size:40px;
     }
 
     .envelope-wrap{
@@ -1389,7 +1268,7 @@ button{
     }
 
     .reveal h2{
-        font-size:52px;
+        font-size:53px;
     }
 
     .animals{
@@ -1398,7 +1277,7 @@ button{
 
     .reveal-text{
         max-width:290px;
-        font-size:13px;
+        font-size:12px;
     }
 
     .photos{
@@ -1410,52 +1289,35 @@ button{
     }
 
     .curtain{
-        width:47%;
+        width:48%;
     }
 
-    .reveal-heart{
-        display:none;
+    .tie{
+        width:55px;
+        height:32px;
     }
 
 }
 
 </style>
-
 </head>
-
 
 
 <body>
 
 
-<div class="page">
-
-
-<!-- =======================================================
+<!-- =====================================================
      PORTADA
-======================================================= -->
+===================================================== -->
 
-<section class="cover" id="cover">
-
-
-    <!-- NUBES -->
-
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
-    <div class="cloud cloud-4"></div>
+<section class="cover">
 
 
-    <!-- ESTRELLAS -->
+    <div class="cloud one"></div>
+    <div class="cloud two"></div>
+    <div class="cloud three"></div>
+    <div class="cloud four"></div>
 
-    <div class="star star-1">✦</div>
-    <div class="star star-2">✦</div>
-    <div class="star star-3">♡</div>
-    <div class="star star-4">✦</div>
-    <div class="star star-5">✦</div>
-
-
-    <!-- AVIÓN -->
 
     <svg
         class="airplane"
@@ -1481,51 +1343,31 @@ button{
             L64 70
             L42 44
             H5
-            C0 44
-            -2 42
-            -2 39
-            C-2 36
-            0 34
-            5 34
+            C0 44 -2 42 -2 39
+            C-2 36 0 34 5 34
             Z
             "
-            fill="#FFF7EF"
+            fill="#fffaf4"
         />
 
     </svg>
 
 
-
     <div class="cover-content">
 
-
         <p class="cover-small">
-
             HAY VIAJES QUE CAMBIAN LA VIDA...
-
         </p>
-
 
         <h1>
-
             Nuestra próxima
-
-            <span>
-
-                aventura
-
-            </span>
-
+            <span>aventura</span>
         </h1>
 
-
         <p class="cover-subtitle">
-
             Un viaje muy especial<br>
             está a punto de comenzar.
-
         </p>
-
 
         <button
             class="cover-button"
@@ -1535,86 +1377,60 @@ button{
 
         </button>
 
-
     </div>
 
 </section>
 
 
 
-<!-- =======================================================
+<!-- =====================================================
      CARTA
-======================================================= -->
+===================================================== -->
 
 <section
     class="letter"
     id="letter">
 
-
     <div class="letter-content">
 
-
         <p class="letter-small">
-
             UNA PEQUEÑA PAUSA
-
         </p>
-
 
         <h2>
-
             Antes de continuar...
-
         </h2>
 
-
         <p class="letter-text">
-
             Hay algo que alguien<br>
             muy especial quiere decirte.
-
         </p>
 
-
         <div class="letter-decoration">
-
-            ♥️
-
+            ♥
         </div>
 
-
-
-        <!-- SOBRE -->
 
         <div
             class="envelope-wrap"
             id="envelope"
             tabindex="0"
-            role="button">
-
+            role="button"
+            aria-label="Abrir sobre">
 
             <div class="envelope">
 
-
-                <div class="envelope-container-heart">
-
+                <div class="envelope-heart">
                     ♡
-
                 </div>
-
 
                 <div class="envelope-front"></div>
 
-
                 <div class="envelope-flap"></div>
 
-
                 <div class="envelope-label">
-
                     PARA ALGUIEN MUY ESPECIAL
-
                 </div>
-
 
             </div>
 
@@ -1629,30 +1445,53 @@ button{
 
         </p>
 
-
     </div>
 
 </section>
 
 
 
-<!-- =======================================================
+<!-- =====================================================
      REVELACIÓN
-======================================================= -->
+===================================================== -->
 
 <section
     class="reveal"
     id="reveal">
 
 
-    <!-- CORTINAS -->
+    <!-- =================================================
+         CORTINA IZQUIERDA
+    ================================================== -->
 
-    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-left">
 
-    <div class="curtain curtain-right"></div>
+        <div class="fabric"></div>
+
+        <div class="folds"></div>
+
+        <div class="tie"></div>
+
+    </div>
 
 
-    <!-- CORAZONES DECORATIVOS -->
+    <!-- =================================================
+         CORTINA DERECHA
+    ================================================== -->
+
+    <div class="curtain curtain-right">
+
+        <div class="fabric"></div>
+
+        <div class="folds"></div>
+
+        <div class="tie"></div>
+
+    </div>
+
+
+
+    <!-- CORAZONES -->
 
     <span class="reveal-heart rh1">♥</span>
     <span class="reveal-heart rh2">♡</span>
@@ -1663,34 +1502,28 @@ button{
 
 
 
-    <!-- CONTENIDO -->
+    <!-- =================================================
+         CONTENIDO
+    ================================================== -->
 
     <div class="reveal-content">
 
 
         <p class="reveal-small">
-
             UNA NUEVA AVENTURA ESTÁ POR COMENZAR
-
         </p>
 
 
         <h2>
-
             Hola papi...
-
         </h2>
 
-
-
-        <!-- ANIMALITOS -->
 
         <img
             src="animalitos.png"
             class="animals"
             alt="Un elefantito y una jirafa"
         >
-
 
 
         <p class="reveal-text">
@@ -1716,44 +1549,27 @@ button{
         </p>
 
 
-
-        <!-- FOTOS -->
-
         <div class="photos">
 
-
             <div class="photo">
-
                 <img
                     src="foto1.jpeg"
-                    alt="Nuestra historia"
-                >
-
+                    alt="Nuestra historia">
             </div>
 
-
             <div class="photo">
-
                 <img
                     src="foto2.jpeg"
-                    alt="Un momento especial"
-                >
-
+                    alt="Un momento especial">
             </div>
-
 
             <div class="photo">
-
                 <img
                     src="foto3.jpeg"
-                    alt="Nuestra aventura"
-                >
-
+                    alt="Nuestra aventura">
             </div>
 
-
         </div>
-
 
 
         <p class="final">
@@ -1768,15 +1584,13 @@ button{
 
 </section>
 
-</div>
 
 
-
-<!-- =======================================================
+<!-- =====================================================
      CORAZONES DEL SOBRE
-======================================================= -->
+===================================================== -->
 
-<div id="heartContainer"></div>
+<div id="hearts"></div>
 
 
 
@@ -1801,15 +1615,14 @@ const reveal =
 const letterHint =
     document.getElementById("letterHint");
 
-const heartContainer =
-    document.getElementById("heartContainer");
+const hearts =
+    document.getElementById("hearts");
 
-
-let opened = false;
+let alreadyOpened = false;
 
 
 /* =========================================================
-   BOTÓN PORTADA
+   PORTADA → CARTA
 ========================================================= */
 
 goLetter.addEventListener(
@@ -1826,18 +1639,20 @@ goLetter.addEventListener(
 
 
 /* =========================================================
-   CORAZONES
+   CORAZONES DEL SOBRE
 ========================================================= */
 
-function makeHearts(){
+function createHearts(){
 
     const colors = [
-        "#C08F78",
-        "#D1A18E",
-        "#B98270",
-        "#E1C0AF",
-        "#F1DED2",
-        "#FFFFFF"
+
+        "#b98270",
+        "#c99583",
+        "#d8ad9b",
+        "#e5c6b7",
+        "#f2ddd1",
+        "#fff8f2"
+
     ];
 
 
@@ -1850,21 +1665,16 @@ function makeHearts(){
 
 
     /*
-    42 CORAZONES
+       MUCHOS CORAZONES
     */
 
-    for(
-        let i=0;
-        i<42;
-        i++
-    ){
+    for(let i=0;i<50;i++){
 
         const heart =
             document.createElement("span");
 
-
-        heart.className="heart";
-
+        heart.className =
+            "floating-heart";
 
         heart.textContent =
             symbols[
@@ -1873,7 +1683,6 @@ function makeHearts(){
                 )
             ];
 
-
         heart.style.color =
             colors[
                 Math.floor(
@@ -1881,73 +1690,61 @@ function makeHearts(){
                 )
             ];
 
-
         heart.style.left =
             (
-                40 +
-                Math.random()*20
+                39 +
+                Math.random()*22
             ) + "%";
-
 
         heart.style.setProperty(
             "--x",
             (
-                (Math.random()-.5)*420
+                (Math.random()-.5)*450
             ) + "px"
         );
-
 
         heart.style.setProperty(
             "--y",
             (
                 -(350+
-                Math.random()*400)
+                Math.random()*500)
             ) + "px"
         );
-
 
         heart.style.setProperty(
             "--scale",
             (
-                .55+
-                Math.random()*1
+                .5+
+                Math.random()*1.1
             )
         );
-
 
         heart.style.setProperty(
             "--rotation",
             (
-                (Math.random()-.5)*100
-            )+"deg"
+                (Math.random()-.5)*120
+            ) + "deg"
         );
-
 
         heart.style.fontSize =
             (
-                12+
-                Math.random()*14
-            )+"px";
-
+                11+
+                Math.random()*15
+            ) + "px";
 
         heart.style.animationDelay =
             (
                 Math.random()*1.2
-            )+"s";
+            ) + "s";
 
-
-        heartContainer.appendChild(
-            heart
-        );
+        hearts.appendChild(heart);
 
 
         setTimeout(
             function(){
-
                 heart.remove();
-
             },
-            5500
+            5700
         );
 
     }
@@ -1961,72 +1758,69 @@ function makeHearts(){
 
 function openEnvelope(){
 
-    if(opened){
+    if(alreadyOpened){
         return;
     }
 
-    opened=true;
+    alreadyOpened = true;
 
 
-    /* abrir */
+    /* abrir sobre */
 
     envelope.classList.add("open");
+
+
+    /* corazones */
+
+    createHearts();
 
 
     letterHint.textContent =
         "La sorpresa está a punto de comenzar...";
 
 
-    /* MUCHOS CORAZONES */
-
-    makeHearts();
-
-
     /*
-    Dejamos que se vea la apertura
-    del sobre.
+       Esperamos a que se vea
+       la animación del sobre.
     */
 
     setTimeout(
         function(){
 
             reveal.scrollIntoView({
-
                 behavior:"smooth",
-
                 block:"start"
-
             });
 
 
             /*
-            Pequeña pausa después del scroll.
+               Dejamos que el scroll termine
+               antes de abrir las cortinas.
             */
 
             setTimeout(
                 function(){
 
                     /*
-                    LAS CORTINAS TARDAN
-                    EXACTAMENTE 6 SEGUNDOS.
+                       LAS CORTINAS SE ABREN
+                       EN 6 SEGUNDOS.
                     */
 
                     reveal.classList.add("open");
 
                 },
-                500
+                700
             );
 
-
         },
-        1100
+        1200
     );
 
 }
 
 
 /* =========================================================
-   CLICK SOBRE
+   CLICK
 ========================================================= */
 
 envelope.addEventListener(
@@ -2041,14 +1835,14 @@ envelope.addEventListener(
 
 envelope.addEventListener(
     "keydown",
-    function(e){
+    function(event){
 
         if(
-            e.key==="Enter" ||
-            e.key===" "
+            event.key === "Enter" ||
+            event.key === " "
         ){
 
-            e.preventDefault();
+            event.preventDefault();
 
             openEnvelope();
 
