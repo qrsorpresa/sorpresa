@@ -8,26 +8,27 @@
 
 <title>Nuestra próxima aventura</title>
 
-
 <style>
 
 /* =========================================================
-   PALETA
+   PALETA — MARRÓN BEBÉ / CAFÉ CON LECHE
 ========================================================= */
 
 :root{
 
-    --brown:#5F402E;
-    --brown-dark:#493021;
-    --brown-light:#795944;
+    --brown:#8A6A55;
+    --brown-dark:#70513F;
+    --brown-soft:#A48670;
 
     --cream:#F8F3EC;
     --cream-light:#FCF9F4;
 
-    --beige:#E7D9C9;
-    --beige-light:#F3EAE0;
+    --beige:#EADDCF;
+    --beige-light:#F3EAE1;
 
-    --text:#725F50;
+    --white:#FFFDF9;
+
+    --text:#806D5E;
 
 }
 
@@ -91,22 +92,24 @@ section{
     background:
 
         radial-gradient(
-            circle at 50% 42%,
-            rgba(255,255,255,.055),
-            transparent 32%
+            circle at 50% 30%,
+            rgba(255,255,255,.25),
+            transparent 35%
         ),
 
         linear-gradient(
-            145deg,
-            #5F402E 0%,
-            #5F402E 55%,
-            #563925 100%
+            180deg,
+            #A88B76 0%,
+            #94745E 48%,
+            #8A6A55 100%
         );
 
 }
 
 
-/* textura muy sutil */
+/* =========================================================
+   TEXTURA MUY SUAVE
+========================================================= */
 
 .intro::before{
 
@@ -116,45 +119,153 @@ section{
 
     inset:0;
 
-    opacity:.10;
+    opacity:.07;
 
     background-image:
 
         radial-gradient(
-            rgba(255,255,255,.18) 1px,
+            rgba(255,255,255,.8) 1px,
             transparent 1px
         );
 
-    background-size:24px 24px;
+    background-size:26px 26px;
 
     pointer-events:none;
 
 }
 
 
-/* línea decorativa inferior */
+/* =========================================================
+   NUBES
+========================================================= */
 
-.intro::after{
+.cloud{
+
+    position:absolute;
+
+    width:180px;
+
+    height:38px;
+
+    border-radius:50px;
+
+    background:
+        rgba(
+            255,
+            253,
+            249,
+            .55
+        );
+
+    filter:blur(.4px);
+
+    opacity:.9;
+
+    z-index:1;
+
+}
+
+
+.cloud::before,
+.cloud::after{
 
     content:"";
 
     position:absolute;
 
-    width:1px;
-
-    height:150px;
-
-    bottom:-20px;
-
-    left:50%;
+    bottom:0;
 
     background:
-
-        linear-gradient(
-            transparent,
-            rgba(247,235,220,.35),
-            transparent
+        rgba(
+            255,
+            253,
+            249,
+            .72
         );
+
+    border-radius:50%;
+
+}
+
+
+.cloud::before{
+
+    width:70px;
+
+    height:70px;
+
+    left:25px;
+
+}
+
+
+.cloud::after{
+
+    width:55px;
+
+    height:55px;
+
+    left:95px;
+
+}
+
+
+/* nube 1 */
+
+.cloud-1{
+
+    left:-45px;
+
+    top:18%;
+
+    transform:
+        scale(.9);
+
+}
+
+
+/* nube 2 */
+
+.cloud-2{
+
+    right:-50px;
+
+    top:30%;
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* nube 3 */
+
+.cloud-3{
+
+    left:12%;
+
+    top:9%;
+
+    transform:
+        scale(.55);
+
+    opacity:.55;
+
+}
+
+
+/* nube 4 */
+
+.cloud-4{
+
+    right:14%;
+
+    top:15%;
+
+    transform:
+        scale(.65);
+
+    opacity:.5;
 
 }
 
@@ -169,13 +280,13 @@ section{
 
     width:105px;
 
-    top:13%;
+    top:12%;
 
-    left:-140px;
+    left:-150px;
 
     z-index:2;
 
-    opacity:.78;
+    opacity:.9;
 
     animation:
         airplaneFlight
@@ -185,38 +296,61 @@ section{
 
     filter:
         drop-shadow(
-            0 7px 8px
-            rgba(0,0,0,.12)
+            0 7px 9px
+            rgba(
+                65,
+                43,
+                30,
+                .16
+            )
         );
 
 }
 
 
+/*
+El avión siempre mantiene
+el morro hacia la derecha.
+*/
+
 @keyframes airplaneFlight{
 
     0%{
 
-        left:-140px;
+        left:-150px;
 
         transform:
-            rotate(5deg);
+            translateY(0)
+            rotate(4deg);
 
     }
 
-    45%{
+    25%{
 
-        left:32%;
+        left:18%;
 
         transform:
-            rotate(1deg);
+            translateY(-5px)
+            rotate(2deg);
+
+    }
+
+    50%{
+
+        left:43%;
+
+        transform:
+            translateY(3px)
+            rotate(0deg);
 
     }
 
     75%{
 
-        left:65%;
+        left:68%;
 
         transform:
+            translateY(-4px)
             rotate(-2deg);
 
     }
@@ -226,7 +360,8 @@ section{
         left:110%;
 
         transform:
-            rotate(-5deg);
+            translateY(-8px)
+            rotate(-4deg);
 
     }
 
@@ -251,7 +386,9 @@ section{
 }
 
 
-/* pequeño texto */
+/* =========================================================
+   FRASE SUPERIOR
+========================================================= */
 
 .eyebrow{
 
@@ -261,18 +398,18 @@ section{
 
     justify-content:center;
 
-    gap:16px;
+    gap:15px;
 
     margin:
         0 0 28px;
 
-    color:#E9DCCC;
+    color:#F4E9DE;
 
     font-size:10px;
 
     font-weight:bold;
 
-    letter-spacing:.38em;
+    letter-spacing:.32em;
 
     text-transform:uppercase;
 
@@ -284,30 +421,30 @@ section{
 
     content:"";
 
-    width:42px;
+    width:38px;
 
     height:1px;
 
     background:
         rgba(
+            244,
             233,
-            220,
-            204,
-            .55
+            222,
+            .65
         );
 
 }
 
 
 /* =========================================================
-   TÍTULO PRINCIPAL
+   TÍTULO
 ========================================================= */
 
 .intro h1{
 
     margin:0;
 
-    color:#FCF7F0;
+    color:#FFFDF9;
 
     font-family:
 
@@ -322,7 +459,7 @@ section{
         clamp(
             58px,
             10vw,
-            108px
+            106px
         );
 
     line-height:.88;
@@ -338,11 +475,11 @@ section{
 
     display:block;
 
+    margin-top:9px;
+
     font-size:.88em;
 
     font-style:italic;
-
-    margin-top:10px;
 
 }
 
@@ -358,7 +495,7 @@ section{
     margin:
         34px auto 0;
 
-    color:#E8D8C7;
+    color:#F0E2D4;
 
     font-family:
 
@@ -381,8 +518,6 @@ section{
 
 .start-button{
 
-    position:relative;
-
     margin-top:40px;
 
     padding:
@@ -391,10 +526,10 @@ section{
     border:
         1px solid
         rgba(
-            248,
-            239,
-            228,
-            .45
+            255,
+            253,
+            249,
+            .55
         );
 
     border-radius:50px;
@@ -404,10 +539,10 @@ section{
             255,
             255,
             255,
-            .08
+            .10
         );
 
-    color:#FFF9F2;
+    color:#FFFDF9;
 
     cursor:pointer;
 
@@ -429,7 +564,7 @@ section{
             255,
             255,
             255,
-            .16
+            .18
         );
 
     transform:
@@ -439,7 +574,7 @@ section{
 
 
 /* =========================================================
-   SECCIÓN DEL SOBRE
+   SECCIÓN SOBRE
 ========================================================= */
 
 .letter-section{
@@ -456,7 +591,12 @@ section{
         80px 20px;
 
     background:
-        var(--cream-light);
+
+        linear-gradient(
+            180deg,
+            #FCF9F4,
+            #F7F0E8
+        );
 
     text-align:center;
 
@@ -478,7 +618,7 @@ section{
     margin:
         0 0 13px;
 
-    color:var(--brown-light);
+    color:var(--brown-soft);
 
     font-size:10px;
 
@@ -506,6 +646,7 @@ section{
         serif;
 
     font-size:
+
         clamp(
             40px,
             6vw,
@@ -526,7 +667,7 @@ section{
     margin:
         20px auto 45px;
 
-    color:#806F61;
+    color:#8A7869;
 
     line-height:1.8;
 
@@ -573,10 +714,10 @@ section{
 
     background:
         rgba(
-            95,
-            64,
-            46,
-            .17
+            112,
+            81,
+            63,
+            .16
         );
 
     border-radius:50%;
@@ -600,16 +741,16 @@ section{
 
     border-radius:12px;
 
-    background:#E4D1BE;
+    background:#E8D8C9;
 
     box-shadow:
 
         0 25px 70px
         rgba(
-            95,
-            64,
-            46,
-            .17
+            112,
+            81,
+            63,
+            .15
         );
 
 }
@@ -627,14 +768,12 @@ section{
 
         linear-gradient(
             145deg,
-            #F0E5D9,
-            #DCC6B0
+            #F3E9DF,
+            #DEC9B7
         );
 
 }
 
-
-/* frente */
 
 .envelope-front{
 
@@ -648,8 +787,8 @@ section{
 
         linear-gradient(
             145deg,
-            #E5D2BF,
-            #CFB59C
+            #E9D9C9,
+            #D3BBA5
         );
 
     clip-path:
@@ -666,8 +805,6 @@ section{
 
 }
 
-
-/* solapa */
 
 .envelope-flap{
 
@@ -687,8 +824,8 @@ section{
 
         linear-gradient(
             145deg,
-            #D5BCA4,
-            #B99579
+            #D8C1AC,
+            #C0A188
         );
 
     clip-path:
@@ -715,8 +852,6 @@ section{
 }
 
 
-/* corazón del sobre */
-
 .envelope-heart{
 
     position:absolute;
@@ -742,8 +877,6 @@ section{
 }
 
 
-/* etiqueta */
-
 .envelope-label{
 
     position:absolute;
@@ -762,7 +895,7 @@ section{
             -50%
         );
 
-    color:#795D47;
+    color:#80624C;
 
     font-size:10px;
 
@@ -772,8 +905,6 @@ section{
 
 }
 
-
-/* sobre abierto */
 
 .envelope-container.open
 .envelope-flap{
@@ -803,7 +934,7 @@ section{
 
     margin-top:25px;
 
-    color:#9B8878;
+    color:#A18D7C;
 
     font-size:13px;
 
@@ -834,6 +965,7 @@ section{
     position:absolute;
 
     font-size:
+
         clamp(
             18px,
             2.2vw,
@@ -859,10 +991,10 @@ section{
         drop-shadow(
             0 4px 5px
             rgba(
-                95,
-                64,
-                46,
-                .14
+                112,
+                81,
+                63,
+                .12
             )
         );
 
@@ -961,7 +1093,57 @@ section{
 
 
 /* =========================================================
+   CENEFA SUPERIOR
+========================================================= */
+
+.reveal-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:22px;
+
+    z-index:85;
+
+    pointer-events:none;
+
+    background:
+
+        repeating-linear-gradient(
+
+            90deg,
+
+            #70513F 0,
+            #70513F 18px,
+
+            #A48670 20px,
+            #A48670 38px
+
+        );
+
+    box-shadow:
+
+        0 5px 15px
+        rgba(
+            112,
+            81,
+            63,
+            .15
+        );
+
+}
+
+
+/* =========================================================
    CORTINAS
+   APERTURA = 6 SEGUNDOS
 ========================================================= */
 
 .curtain{
@@ -984,26 +1166,21 @@ section{
 
             90deg,
 
-            rgba(
-                55,
-                34,
-                23,
-                .90
-            ) 0%,
+            #70513F 0%,
 
-            #5F402E 12%,
+            #8A6A55 13%,
 
-            #795944 25%,
+            #A48670 25%,
 
-            #563925 39%,
+            #795945 39%,
 
-            #76543E 53%,
+            #A0836D 53%,
 
-            #543624 68%,
+            #765641 68%,
 
-            #76543E 83%,
+            #A0836D 83%,
 
-            #4B3021 100%
+            #70513F 100%
 
         );
 
@@ -1012,24 +1189,24 @@ section{
         inset
         0 0 70px
         rgba(
-            30,
-            17,
-            10,
-            .25
+            74,
+            49,
+            36,
+            .18
         ),
 
         0 0 50px
         rgba(
-            60,
-            38,
-            26,
-            .22
+            95,
+            67,
+            50,
+            .17
         );
 
     transition:
 
         transform
-        9s
+        6s
         cubic-bezier(
             .77,
             0,
@@ -1062,30 +1239,30 @@ section{
                 255,
                 255,
                 255,
-                .10
+                .12
             ) 0px,
 
             rgba(
                 255,
                 255,
                 255,
-                .10
+                .12
             ) 8px,
 
             transparent 17px,
 
             rgba(
-                0,
-                0,
-                0,
-                .16
+                80,
+                53,
+                39,
+                .14
             ) 27px,
 
             transparent 39px
 
         );
 
-    opacity:.85;
+    opacity:.75;
 
 }
 
@@ -1110,7 +1287,12 @@ section{
 
         linear-gradient(
             90deg,
-            rgba(0,0,0,.25),
+            rgba(
+                70,
+                46,
+                33,
+                .22
+            ),
             transparent
         );
 
@@ -1127,10 +1309,10 @@ section{
 
         inset
         -30px 0 45px
-        rgba(0,0,0,.20),
+        rgba(75,48,35,.18),
 
         0 0 50px
-        rgba(60,38,26,.20);
+        rgba(95,67,50,.18);
 
 }
 
@@ -1152,10 +1334,10 @@ section{
 
         inset
         30px 0 45px
-        rgba(0,0,0,.20),
+        rgba(75,48,35,.18),
 
         0 0 50px
-        rgba(60,38,26,.20);
+        rgba(95,67,50,.18);
 
 }
 
@@ -1171,56 +1353,7 @@ section{
 
 
 /* =========================================================
-   CENEFA SUPERIOR
-========================================================= */
-
-.reveal-section::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:0;
-
-    right:0;
-
-    height:22px;
-
-    z-index:85;
-
-    pointer-events:none;
-
-    background:
-
-        repeating-linear-gradient(
-
-            90deg,
-
-            #493021 0,
-            #493021 18px,
-
-            #76543E 20px,
-            #76543E 38px
-
-        );
-
-    box-shadow:
-
-        0 5px 15px
-        rgba(
-            45,
-            26,
-            17,
-            .18
-        );
-
-}
-
-
-/* =========================================================
-   APERTURA
+   APERTURA DE CORTINAS
 ========================================================= */
 
 .reveal-section.open
@@ -1242,7 +1375,7 @@ section{
 
 
 /* =========================================================
-   CONTENIDO
+   CONTENIDO DETRÁS
 ========================================================= */
 
 .reveal-content{
@@ -1292,7 +1425,7 @@ section{
     margin:
         0 0 6px;
 
-    color:var(--brown-light);
+    color:var(--brown-soft);
 
     font-size:11px;
 
@@ -1363,7 +1496,7 @@ section{
     margin:
         20px auto 0;
 
-    color:#705F51;
+    color:#806D5E;
 
     font-family:
 
@@ -1388,7 +1521,7 @@ section{
 
 .reveal-message strong{
 
-    color:var(--brown);
+    color:var(--brown-dark);
 
 }
 
@@ -1425,16 +1558,16 @@ section{
 
     border-radius:18px;
 
-    background:#EEE2D6;
+    background:#EEE3D8;
 
     box-shadow:
 
         0 12px 35px
         rgba(
-            95,
-            64,
-            46,
-            .12
+            112,
+            81,
+            63,
+            .11
         );
 
 }
@@ -1457,7 +1590,7 @@ section{
 
     margin-top:38px;
 
-    color:#8B7869;
+    color:#958274;
 
     font-family:
 
@@ -1491,7 +1624,7 @@ section{
 
         font-size:9px;
 
-        letter-spacing:.25em;
+        letter-spacing:.24em;
 
     }
 
@@ -1509,6 +1642,22 @@ section{
         width:78px;
 
         top:9%;
+
+    }
+
+
+    .cloud{
+
+        transform:
+            scale(.65);
+
+    }
+
+
+    .cloud-3,
+    .cloud-4{
+
+        display:none;
 
     }
 
@@ -1555,54 +1704,82 @@ section{
 <section class="intro">
 
 
-    <!-- AVIÓN -->
+    <!-- NUBES -->
+
+    <div class="cloud cloud-1"></div>
+
+    <div class="cloud cloud-2"></div>
+
+    <div class="cloud cloud-3"></div>
+
+    <div class="cloud cloud-4"></div>
+
+
+
+    <!-- ===================================================
+         AVIÓN
+    =================================================== -->
 
     <svg
         class="airplane"
         viewBox="0 0 120 70"
         aria-hidden="true">
 
+
+        <!-- avión apuntando hacia la derecha -->
+
         <path
             d="
-            M8 35
+            M5 34
             H43
-            L67 10
-            L76 13
-            L62 35
-            H90
-            L110 24
-            L115 28
-            L97 40
-            L115 52
-            L110 56
-            L90 45
+            L65 10
+            L75 13
+            L62 34
+            H88
+            L108 22
+            L116 27
+            L98 39
+            L116 51
+            L108 56
+            L88 44
             H62
-            L76 67
-            L67 70
-            L43 45
-            H8
-            C2 45 -1 42 -1 40
-            C-1 37 2 35 8 35
+            L75 67
+            L65 70
+            L43 44
+            H5
+            C1 44
+            -2 41
+            -2 39
+            C-2 36
+            1 34
+            5 34
             Z
             "
-            fill="#E5D2BF">
+
+            fill="#F0E1D2">
         </path>
 
 
         <path
             d="
-            M48 38
+            M47 37
             L67 57
             L73 59
-            L60 38
+            L60 37
             Z
             "
-            fill="#D0B59B">
+
+            fill="#DCC5B0">
         </path>
+
 
     </svg>
 
 
+
+    <!-- ===================================================
+         TEXTO PORTADA
+    =================================================== -->
 
     <div class="intro-content">
 
@@ -1619,7 +1796,9 @@ section{
             Nuestra próxima
 
             <span class="italic">
+
                 aventura
+
             </span>
 
         </h1>
@@ -1644,12 +1823,13 @@ section{
 
     </div>
 
+
 </section>
 
 
 
 <!-- =======================================================
-     SOBRE
+     CARTA / SOBRE
 ======================================================= -->
 
 <section
@@ -1682,6 +1862,8 @@ section{
         </p>
 
 
+
+        <!-- SOBRE -->
 
         <div
             class="envelope-container"
@@ -1766,7 +1948,7 @@ section{
 
 
     <!-- ===================================================
-         CONTENIDO DETRÁS
+         CONTENIDO
     =================================================== -->
 
     <div class="reveal-content">
@@ -1787,16 +1969,7 @@ section{
 
 
 
-        <!--
-        IMAGEN DE LOS ANIMALITOS
-
-        Pon tu imagen exacta aquí.
-
-        Nombre:
-        animalitos.png
-
-        Debe estar junto al HTML.
-        -->
+        <!-- ANIMALITOS -->
 
         <img
             class="animals-image"
@@ -1804,6 +1977,8 @@ section{
             alt="Un elefantito y una jirafa">
 
 
+
+        <!-- MENSAJE -->
 
         <p class="reveal-message">
 
@@ -1930,11 +2105,13 @@ let envelopeAlreadyOpened =
 
 
 /* =========================================================
-   BOTÓN INICIAL
+   BOTÓN DE PORTADA
 ========================================================= */
 
 startButton.addEventListener(
+
     "click",
+
     function(){
 
         document
@@ -1948,6 +2125,7 @@ startButton.addEventListener(
             });
 
     }
+
 );
 
 
@@ -1961,12 +2139,12 @@ function createHearts(){
 
     const colors = [
 
-        "#E7D9C9",
-        "#F3EAE0",
+        "#EADDCF",
+        "#F3EAE1",
         "#FFFDF9",
-        "#D5BCA4",
-        "#A9876D",
-        "#795944"
+        "#D8C1AC",
+        "#A48670",
+        "#8A6A55"
 
     ];
 
@@ -1981,11 +2159,6 @@ function createHearts(){
     ];
 
 
-    /*
-    Calculamos dónde está el sobre
-    en ese momento.
-    */
-
     const rect =
         envelope.getBoundingClientRect();
 
@@ -1997,17 +2170,17 @@ function createHearts(){
 
     const originY =
         rect.top +
-        rect.height * .43;
+        rect.height * .42;
 
 
 
     /*
-    42 corazones
+    MUCHOS CORAZONES
     */
 
     for(
         let i=0;
-        i<42;
+        i<48;
         i++
     ){
 
@@ -2036,34 +2209,35 @@ function createHearts(){
 
 
         /*
-        Todos nacen desde
-        el sobre.
+        salen desde el centro
+        del sobre
         */
 
         heart.style.left =
+
             (
                 originX +
 
                 (Math.random()-.5)
                 * rect.width
-                * .50
+                * .45
 
             ) + "px";
 
 
         heart.style.top =
+
             (
                 originY +
 
-                Math.random()
-                * 20
+                Math.random()*25
 
             ) + "px";
 
 
 
         /*
-        Movimiento horizontal
+        movimiento horizontal
         */
 
         heart.style.setProperty(
@@ -2072,7 +2246,7 @@ function createHearts(){
 
             (
                 (Math.random()-.5)
-                * 330
+                * 360
 
             ) + "px"
 
@@ -2081,7 +2255,7 @@ function createHearts(){
 
 
         /*
-        Movimiento vertical
+        movimiento vertical
         */
 
         heart.style.setProperty(
@@ -2090,7 +2264,7 @@ function createHearts(){
 
             (
                 -(260 +
-                Math.random()*420)
+                Math.random()*430)
 
             ) + "px"
 
@@ -2099,7 +2273,7 @@ function createHearts(){
 
 
         /*
-        Tamaño aleatorio
+        tamaños diferentes
         */
 
         heart.style.setProperty(
@@ -2107,8 +2281,8 @@ function createHearts(){
             "--scale",
 
             (
-                .75 +
-                Math.random()*.75
+                .7 +
+                Math.random()*.8
 
             )
 
@@ -2117,7 +2291,7 @@ function createHearts(){
 
 
         /*
-        Rotación
+        rotaciones
         */
 
         heart.style.setProperty(
@@ -2126,7 +2300,7 @@ function createHearts(){
 
             (
                 (Math.random()-.5)
-                * 120
+                * 130
 
             ) + "deg"
 
@@ -2135,13 +2309,13 @@ function createHearts(){
 
 
         /*
-        Salen en pequeños grupos
+        aparecen escalonados
         */
 
         heart.style.animationDelay =
 
             (
-                Math.random()*1.1
+                Math.random()*1.2
 
             ) + "s";
 
@@ -2161,7 +2335,7 @@ function createHearts(){
 
             },
 
-            6000
+            6200
 
         );
 
@@ -2192,7 +2366,9 @@ function openEnvelope(){
 
 
 
-    /* abrir sobre */
+    /*
+    ABRIMOS EL SOBRE
+    */
 
     envelope.classList.add(
         "open"
@@ -2205,9 +2381,7 @@ function openEnvelope(){
 
 
     /*
-    Los corazones salen justo
-    después de que empieza
-    a abrirse el sobre.
+    CORAZONES
     */
 
     setTimeout(
@@ -2218,7 +2392,7 @@ function openEnvelope(){
 
         },
 
-        450
+        350
 
     );
 
@@ -2226,7 +2400,7 @@ function openEnvelope(){
 
     /*
     =========================================================
-    1.5 SEGUNDOS
+    1.5 SEGUNDOS DESPUÉS
     =========================================================
     */
 
@@ -2258,7 +2432,7 @@ function openEnvelope(){
 
                     /*
                     =========================================
-                    APERTURA DE 9 SEGUNDOS
+                    LAS CORTINAS SE ABREN EN 6 SEGUNDOS
                     =========================================
                     */
 
@@ -2281,7 +2455,7 @@ function openEnvelope(){
 
                             /*
                             =================================
-                            CIERRE DE 9 SEGUNDOS
+                            SE CIERRAN EN 6 SEGUNDOS
                             =================================
                             */
 
@@ -2315,7 +2489,7 @@ function openEnvelope(){
 
 
 /* =========================================================
-   CLICK
+   CLICK EN SOBRE
 ========================================================= */
 
 envelope.addEventListener(
