@@ -2,47 +2,18 @@
 <html lang="es">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Nuestra próxima aventura"
-  >
-
-  <meta
-    name="theme-color"
-    content="#faf7f1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Nuestra próxima aventura</title>
 
-
-  <!-- =====================================================
-       FUENTES
-  ====================================================== -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
     rel="stylesheet"
   >
-
 
   <style>
 
@@ -51,125 +22,50 @@
     ===================================================== */
 
     :root {
-
       --cream: #faf7f1;
-
-      --cream-dark: #f1e9de;
-
+      --cream-dark: #f0e7da;
       --beige: #dfcfbd;
-
-      --beige-dark: #c4aa8e;
-
+      --beige-light: #eee5d9;
       --brown: #806b57;
-
       --brown-dark: #604c39;
-
       --text: #817466;
-
       --white: #ffffff;
-
-
-      --shadow:
-        0 25px 70px
-        rgba(94, 73, 52, .11);
-
-
-      --shadow-soft:
-        0 12px 35px
-        rgba(94, 73, 52, .07);
-
-
-      --ease:
-        cubic-bezier(.22, 1, .36, 1);
-
     }
-
 
 
     /* =====================================================
        RESET
     ===================================================== */
 
-    *,
-    *::before,
-    *::after {
-
+    * {
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
-
     }
 
 
     html {
-
       scroll-behavior: smooth;
-
-      scroll-padding-top: 20px;
-
     }
 
 
     body {
-
       min-width: 320px;
-
       overflow-x: hidden;
 
-      background:
-        var(--white);
-
-      color:
-        var(--text);
+      color: var(--text);
+      background: white;
 
       font-family:
         "DM Sans",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
+        Arial,
         sans-serif;
-
-      -webkit-font-smoothing:
-        antialiased;
-
-      text-rendering:
-        optimizeLegibility;
-
     }
 
 
     button {
-
-      font: inherit;
-
+      font-family: inherit;
     }
-
-
-
-    /* =====================================================
-       TIPOGRAFÍA
-    ===================================================== */
-
-    .main-title,
-    .section-title,
-    .hello {
-
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-      font-weight:
-        500;
-
-      letter-spacing:
-        -.035em;
-
-    }
-
 
 
     /* =====================================================
@@ -177,359 +73,147 @@
     ===================================================== */
 
     .intro {
-
       position: relative;
 
-      min-height:
-        100svh;
+      min-height: 100vh;
+      min-height: 100dvh;
 
-      display:
-        grid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      place-items:
-        center;
+      padding: 40px 20px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      isolation:
-        isolate;
-
-      padding:
-        50px 24px;
-
-      text-align:
-        center;
+      text-align: center;
 
       background:
-
         radial-gradient(
-          circle at 50% 25%,
-          rgba(255,255,255,.98),
-          transparent 32%
+          circle at center 25%,
+          #ffffff 0%,
+          transparent 35%
         ),
-
         linear-gradient(
           180deg,
-          #eee5d8 0%,
-          #f8f4ed 55%,
+          #eee6db 0%,
+          #f8f4ee 60%,
           #ffffff 100%
         );
-
-    }
-
-
-    .intro::after {
-
-      content: "";
-
-      position:
-        absolute;
-
-      left:
-        -10%;
-
-      right:
-        -10%;
-
-      bottom:
-        -10%;
-
-      height:
-        28%;
-
-      z-index:
-        -1;
-
-      border-radius:
-        50% 50% 0 0;
-
-      background:
-        rgba(255,255,255,.8);
-
-      filter:
-        blur(15px);
-
     }
 
 
     .intro-content {
+      position: relative;
+      z-index: 5;
 
-      position:
-        relative;
+      max-width: 760px;
 
-      z-index:
-        5;
-
-      width:
-        min(760px,100%);
-
-      animation:
-        fadeUp
-        1.2s
-        var(--ease)
-        both;
-
+      animation: fadeUp 1s ease both;
     }
 
 
     .eyebrow {
+      margin-bottom: 20px;
 
-      margin-bottom:
-        20px;
+      color: #b49b7e;
 
-      color:
-        var(--beige-dark);
+      font-size: .72rem;
+      font-weight: 600;
 
-      font-size:
-        .72rem;
-
-      font-weight:
-        600;
-
-      letter-spacing:
-        .22em;
-
-      text-transform:
-        uppercase;
-
+      letter-spacing: .22em;
+      text-transform: uppercase;
     }
 
 
     .main-title {
+      color: var(--brown-dark);
 
-      color:
-        var(--brown-dark);
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
       font-size:
-        clamp(
-          3.2rem,
-          9vw,
-          6.2rem
-        );
+        clamp(3.1rem, 9vw, 6rem);
 
-      font-style:
-        italic;
+      font-weight: 500;
+      font-style: italic;
 
-      line-height:
-        .98;
+      line-height: .98;
 
+      letter-spacing: -.04em;
     }
 
 
     .subtitle {
+      max-width: 520px;
 
-      max-width:
-        550px;
+      margin: 28px auto 0;
 
-      margin:
-        28px auto 0;
+      color: var(--text);
 
-      color:
-        var(--text);
-
-      font-size:
-        1.05rem;
-
-      line-height:
-        1.8;
-
+      font-size: 1.05rem;
+      line-height: 1.8;
     }
 
 
-
     /* =====================================================
-       BOTÓN PRINCIPAL
+       BOTÓN INICIAL
     ===================================================== */
 
     .start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
 
-      display:
-        inline-flex;
+      margin-top: 38px;
 
-      align-items:
-        center;
+      padding: 15px 25px;
 
-      gap:
-        10px;
+      border: 1px solid rgba(118, 95, 73, .18);
+      border-radius: 999px;
 
-      margin-top:
-        38px;
+      background: rgba(255,255,255,.85);
 
-      padding:
-        15px
-        24px
-        15px
-        26px;
-
-      border:
-        1px solid
-        rgba(118,95,73,.18);
-
-      border-radius:
-        999px;
-
-      background:
-        rgba(255,255,255,.78);
-
-      color:
-        var(--brown);
+      color: var(--brown);
 
       box-shadow:
-        var(--shadow-soft);
+        0 12px 35px rgba(94,73,52,.08);
 
-      backdrop-filter:
-        blur(12px);
-
-      cursor:
-        pointer;
+      cursor: pointer;
 
       transition:
-        transform .4s var(--ease),
-        box-shadow .4s var(--ease),
-        background .4s ease;
-
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
     }
 
 
     .start-btn::after {
-
-      content:
-        "→";
-
-      transition:
-        transform .35s var(--ease);
-
+      content: "→";
+      transition: transform .3s ease;
     }
 
 
     .start-btn:hover {
+      transform: translateY(-4px);
 
-      transform:
-        translateY(-4px);
-
-      background:
-        #ffffff;
+      background: white;
 
       box-shadow:
-        0 18px 40px
-        rgba(94,73,52,.13);
-
+        0 18px 40px rgba(94,73,52,.13);
     }
 
 
     .start-btn:hover::after {
-
-      transform:
-        translateX(4px);
-
+      transform: translateX(4px);
     }
 
 
-
-    /* =====================================================
-       NUBES
-    ===================================================== */
-
-    .cloud {
-
-      position:
-        absolute;
-
-      width:
-        180px;
-
-      height:
-        42px;
-
-      border-radius:
-        999px;
-
-      background:
-        rgba(255,255,255,.72);
-
-      opacity:
-        .75;
-
-      filter:
-        blur(1px);
-
+    .start-btn:active {
+      transform: translateY(-1px);
     }
-
-
-    .cloud::before,
-    .cloud::after {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      bottom:
-        0;
-
-      border-radius:
-        50%;
-
-      background:
-        #ffffff;
-
-    }
-
-
-    .cloud::before {
-
-      left:
-        25px;
-
-      width:
-        65px;
-
-      height:
-        65px;
-
-    }
-
-
-    .cloud::after {
-
-      left:
-        85px;
-
-      width:
-        50px;
-
-      height:
-        50px;
-
-    }
-
-
-    .cloud-1 {
-
-      top:
-        17%;
-
-      left:
-        -45px;
-
-    }
-
-
-    .cloud-2 {
-
-      top:
-        32%;
-
-      right:
-        -55px;
-
-      transform:
-        scale(1.15);
-
-    }
-
 
 
     /* =====================================================
@@ -537,72 +221,38 @@
     ===================================================== */
 
     .airplane {
+      position: absolute;
 
-      position:
-        absolute;
+      top: 22%;
+      left: -80px;
 
-      top:
-        24%;
+      font-size: 3.2rem;
 
-      left:
-        -100px;
-
-      z-index:
-        1;
-
-      font-size:
-        3.5rem;
-
-      opacity:
-        .65;
-
-      filter:
-        grayscale(.3)
-        sepia(.15);
+      opacity: .55;
 
       animation:
-        fly
-        6s
-        ease-in-out
-        both;
-
+        fly 6s ease-in-out forwards;
     }
 
 
     @keyframes fly {
 
       0% {
-
-        left:
-          -100px;
-
-        transform:
-          rotate(6deg);
-
+        left: -100px;
+        transform: rotate(6deg);
       }
 
       70% {
-
-        left:
-          75%;
-
-        transform:
-          rotate(-2deg);
-
+        left: 75%;
+        transform: rotate(-2deg);
       }
 
       100% {
-
-        left:
-          110%;
-
-        transform:
-          rotate(-6deg);
-
+        left: 110%;
+        transform: rotate(-6deg);
       }
 
     }
-
 
 
     /* =====================================================
@@ -610,96 +260,65 @@
     ===================================================== */
 
     .letter-section {
+      min-height: 100vh;
+      min-height: 100dvh;
 
-      min-height:
-        100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      display:
-        grid;
+      padding: 100px 20px;
 
-      place-items:
-        center;
+      background: white;
 
-      padding:
-        100px 24px;
-
-      background:
-        #ffffff;
-
-      text-align:
-        center;
-
+      text-align: center;
     }
 
 
     .letter-inner {
-
-      width:
-        min(760px,100%);
-
+      width: min(760px, 100%);
     }
 
 
     .section-kicker {
+      margin-bottom: 12px;
 
-      margin-bottom:
-        12px;
+      color: #b49b7e;
 
-      color:
-        var(--beige-dark);
+      font-size: .72rem;
+      font-weight: 600;
 
-      font-size:
-        .72rem;
-
-      font-weight:
-        600;
-
-      letter-spacing:
-        .2em;
-
-      text-transform:
-        uppercase;
-
+      letter-spacing: .2em;
+      text-transform: uppercase;
     }
 
 
     .section-title {
+      color: var(--brown-dark);
 
-      color:
-        var(--brown-dark);
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
       font-size:
-        clamp(
-          2rem,
-          5vw,
-          3.1rem
-        );
+        clamp(2rem, 5vw, 3.1rem);
 
-      line-height:
-        1.1;
+      font-weight: 500;
 
+      line-height: 1.1;
     }
 
 
     .section-description {
+      max-width: 500px;
 
-      max-width:
-        510px;
+      margin: 18px auto 48px;
 
-      margin:
-        18px auto 48px;
+      color: var(--text);
 
-      color:
-        var(--text);
-
-      font-size:
-        1rem;
-
-      line-height:
-        1.8;
-
+      line-height: 1.8;
     }
-
 
 
     /* =====================================================
@@ -707,132 +326,80 @@
     ===================================================== */
 
     .envelope-container {
+      position: relative;
 
-      position:
-        relative;
+      width: min(360px, 88vw);
 
-      width:
-        min(
-          360px,
-          88vw
-        );
+      aspect-ratio: 1.45 / 1;
 
-      aspect-ratio:
-        1.45 / 1;
+      margin: auto;
 
-      margin:
-        0 auto;
+      cursor: pointer;
 
-      perspective:
-        1200px;
-
-      cursor:
-        pointer;
-
+      outline: none;
     }
 
 
     .envelope-container::after {
+      content: "";
 
-      content:
-        "";
+      position: absolute;
 
-      position:
-        absolute;
+      left: 8%;
+      right: 8%;
+      bottom: -15%;
 
-      left:
-        8%;
+      height: 35%;
 
-      right:
-        8%;
+      z-index: 0;
 
-      bottom:
-        -15%;
+      border-radius: 50%;
 
-      height:
-        35%;
+      background: rgba(94,73,52,.12);
 
-      z-index:
-        -1;
-
-      border-radius:
-        50%;
-
-      background:
-        rgba(94,73,52,.11);
-
-      filter:
-        blur(25px);
-
+      filter: blur(25px);
     }
 
 
     .envelope {
+      position: relative;
 
-      position:
-        relative;
+      width: 100%;
+      height: 100%;
 
-      width:
-        100%;
+      overflow: hidden;
 
-      height:
-        100%;
+      border-radius: 12px;
 
-      overflow:
-        hidden;
-
-      border-radius:
-        12px;
-
-      background:
-
-        linear-gradient(
-          145deg,
-          #f5eee6,
-          #e4d7c8
-        );
+      background: #eee5d9;
 
       box-shadow:
-        var(--shadow);
-
+        0 25px 70px rgba(94,73,52,.12);
     }
 
 
     .envelope-back {
+      position: absolute;
+      inset: 0;
 
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      background:
-        #eee5d8;
-
+      background: #eee5d9;
     }
 
 
     .envelope-front {
+      position: absolute;
+      inset: 0;
 
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      z-index:
-        4;
+      z-index: 4;
 
       background:
-
         linear-gradient(
           145deg,
-          #eee3d5,
-          #dac9b6
+          #eee4d7,
+          #d9c7b2
         );
 
       clip-path:
-
         polygon(
           0 0,
           50% 56%,
@@ -840,276 +407,163 @@
           100% 100%,
           0 100%
         );
-
     }
 
 
     .flap {
+      position: absolute;
 
-      position:
-        absolute;
+      top: 0;
+      left: 0;
 
-      top:
-        0;
+      width: 100%;
+      height: 58%;
 
-      left:
-        0;
-
-      width:
-        100%;
-
-      height:
-        58%;
-
-      z-index:
-        5;
+      z-index: 6;
 
       background:
-
         linear-gradient(
           145deg,
-          #e5d8c9,
-          #cdb79d
+          #e6d9ca,
+          #ccb59b
         );
 
       clip-path:
-
         polygon(
           0 0,
           100% 0,
           50% 100%
         );
 
-      transform-origin:
-        top;
+      transform-origin: top;
 
       transition:
-        transform
-        1s
-        var(--ease);
-
+        transform 1s cubic-bezier(.22,1,.36,1);
     }
 
 
     .heart {
+      position: absolute;
 
-      position:
-        absolute;
+      top: 51%;
+      left: 50%;
 
-      top:
-        51%;
+      z-index: 10;
 
-      left:
-        50%;
+      color: #bda486;
 
-      z-index:
-        10;
+      font-family: Georgia, serif;
 
-      color:
-        #bda386;
-
-      font-family:
-        Georgia,
-        serif;
-
-      font-size:
-        2.7rem;
+      font-size: 2.7rem;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        );
+        translate(-50%, -50%);
 
       transition:
-        opacity .5s ease,
-        transform .5s var(--ease);
-
+        opacity .4s ease,
+        transform .4s ease;
     }
 
 
     .envelope-text {
+      position: absolute;
 
-      position:
-        absolute;
+      top: 78%;
+      left: 50%;
 
-      top:
-        78%;
+      z-index: 7;
 
-      left:
-        50%;
+      width: 100%;
 
-      z-index:
-        6;
+      color: #796652;
 
-      width:
-        100%;
+      font-size: .68rem;
+      font-weight: 500;
 
-      color:
-        #796652;
-
-      font-size:
-        .7rem;
-
-      font-weight:
-        500;
-
-      letter-spacing:
-        .14em;
-
-      text-transform:
-        uppercase;
+      letter-spacing: .14em;
+      text-transform: uppercase;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        );
-
+        translate(-50%, -50%);
     }
 
 
-    .envelope-container.open
-    .flap {
-
-      transform:
-        rotateX(180deg);
-
+    .envelope-container.open .flap {
+      transform: rotateX(180deg);
     }
 
 
-    .envelope-container.open
-    .heart {
-
-      opacity:
-        0;
+    .envelope-container.open .heart {
+      opacity: 0;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        )
+        translate(-50%, -50%)
         scale(.7);
-
     }
 
 
     .tap-hint {
+      margin-top: 28px;
 
-      margin-top:
-        27px;
+      color: #a18f7b;
 
-      color:
-        #a18f7b;
-
-      font-size:
-        .8rem;
-
+      font-size: .8rem;
     }
 
 
 
     /* =====================================================
-       CORAZONES QUE SALEN DEL SOBRE
+       CORAZONES
     ===================================================== */
 
-    .hearts-container {
+    #heartsContainer {
+      position: fixed;
+      inset: 0;
 
-      position:
-        fixed;
+      z-index: 9999;
 
-      inset:
-        0;
+      pointer-events: none;
 
-      z-index:
-        999;
-
-      pointer-events:
-        none;
-
-      overflow:
-        hidden;
-
+      overflow: hidden;
     }
 
 
     .floating-heart {
+      position: absolute;
 
-      position:
-        absolute;
+      bottom: 30%;
 
-      bottom:
-        34%;
+      color: #c8ad8e;
 
-      color:
-        #c9ae8f;
-
-      font-size:
-        clamp(
-          14px,
-          2vw,
-          24px
-        );
-
-      opacity:
-        0;
+      opacity: 0;
 
       animation:
-        heartFloat
-        2.8s
-        var(--ease)
-        forwards;
-
+        heartFloat 2.8s ease-out forwards;
     }
 
 
     @keyframes heartFloat {
 
       0% {
-
-        opacity:
-          0;
+        opacity: 0;
 
         transform:
-
-          translate(
-            0,
-            20px
-          )
-
-          scale(.5)
-
+          translate(0, 20px)
+          scale(.4)
           rotate(0deg);
-
       }
-
 
       15% {
-
-        opacity:
-          .95;
-
+        opacity: 1;
       }
 
-
       100% {
-
-        opacity:
-          0;
+        opacity: 0;
 
         transform:
-
-          translate(
-            var(--x),
-            -80vh
-          )
-
+          translate(var(--x), -75vh)
           scale(1)
-
-          rotate(
-            var(--rotate)
-          );
-
+          rotate(var(--rotate));
       }
 
     }
@@ -1121,38 +575,27 @@
     ===================================================== */
 
     .reveal-section {
+      position: relative;
 
-      position:
-        relative;
+      min-height: 100vh;
+      min-height: 100dvh;
 
-      min-height:
-        100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      display:
-        grid;
+      overflow: hidden;
 
-      place-items:
-        center;
-
-      overflow:
-        hidden;
-
-      padding:
-        110px
-        24px
-        150px;
+      padding: 100px 20px 130px;
 
       background:
-
         radial-gradient(
-          circle at 50% 15%,
-          #ffffff 0%,
-          #fcfaf6 45%,
-          #f6f0e7 100%
+          circle at center 15%,
+          white 0%,
+          #fcfaf7 48%,
+          #f5eee5 100%
         );
-
     }
-
 
 
     /* =====================================================
@@ -1160,339 +603,113 @@
     ===================================================== */
 
     .curtain {
+      position: absolute;
 
-      position:
-        absolute;
+      top: 0;
 
-      top:
-        0;
+      width: 34%;
+      height: 100%;
 
-      width:
-        31%;
-
-      height:
-        100%;
-
-      z-index:
-        50;
+      z-index: 50;
 
       background:
-
         linear-gradient(
           90deg,
-
           #eee5d9 0%,
-
-          #f9f5ee 13%,
-
-          #e9dfd2 28%,
-
-          #fbf8f3 43%,
-
-          #e8ddd0 58%,
-
-          #f8f4ed 73%,
-
-          #e7dbcd 88%,
-
-          #f3ece3 100%
+          #faf7f2 13%,
+          #e7dccf 28%,
+          #fcfaf6 44%,
+          #e8ded1 59%,
+          #faf7f2 74%,
+          #e7dccf 89%,
+          #f5eee6 100%
         );
 
       box-shadow:
-
-        inset 0 0 35px
-        rgba(130,105,80,.07),
-
-        0 0 35px
-        rgba(130,105,80,.06);
+        inset 0 0 40px rgba(130,105,80,.07),
+        0 0 35px rgba(130,105,80,.05);
 
       transition:
-
-        transform
-        2s
-        cubic-bezier(
-          .77,
-          0,
-          .18,
-          1
-        );
-
+        transform 1.8s cubic-bezier(.77,0,.18,1);
     }
 
 
-    /* PLIEGUES */
-
     .curtain::before {
+      content: "";
 
-      content:
-        "";
-
-      position:
-        absolute;
-
-      inset:
-        0;
+      position: absolute;
+      inset: 0;
 
       background:
-
         repeating-linear-gradient(
           90deg,
-
           transparent 0,
-
-          transparent 17px,
-
-          rgba(255,255,255,.28) 19px,
-
-          rgba(255,255,255,.28) 28px,
-
+          transparent 16px,
+          rgba(255,255,255,.30) 19px,
+          rgba(255,255,255,.30) 28px,
           transparent 31px,
-
           transparent 48px
         );
 
-      opacity:
-        .65;
-
-    }
-
-
-    /* BORDE SUAVE */
-
-    .curtain::after {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      top:
-        0;
-
-      bottom:
-        0;
-
-      width:
-        35px;
-
-      background:
-
-        linear-gradient(
-          90deg,
-          rgba(180,155,130,.10),
-          transparent
-        );
-
+      opacity: .65;
     }
 
 
     .curtain-left {
-
-      left:
-        0;
+      left: 0;
 
       border-radius:
-        0 0 35% 0;
-
-      transform-origin:
-        left center;
-
+        0 0 40% 0;
     }
 
 
     .curtain-right {
-
-      right:
-        0;
+      right: 0;
 
       border-radius:
-        0 0 0 35%;
-
-      transform-origin:
-        right center;
-
+        0 0 0 40%;
     }
 
 
-    .curtain-right::after {
-
-      right:
-        0;
-
-      transform:
-        scaleX(-1);
-
+    .reveal-section.open .curtain-left {
+      transform: translateX(-110%);
     }
 
 
-    /* CORTINAS ABIERTAS */
-
-    .reveal-section.open
-    .curtain-left {
-
-      transform:
-        translateX(-108%);
-
-    }
-
-
-    .reveal-section.open
-    .curtain-right {
-
-      transform:
-        translateX(108%);
-
+    .reveal-section.open .curtain-right {
+      transform: translateX(110%);
     }
 
 
 
     /* =====================================================
-       BOTÓN CERRAR / ABRIR CORTINAS
-    ===================================================== */
-
-    .curtain-control {
-
-      position:
-        absolute;
-
-      z-index:
-        80;
-
-      bottom:
-        28px;
-
-      left:
-        50%;
-
-      transform:
-        translateX(-50%);
-
-      padding:
-        10px
-        19px;
-
-      border:
-        1px solid
-        rgba(118,95,73,.15);
-
-      border-radius:
-        999px;
-
-      background:
-        rgba(255,255,255,.82);
-
-      color:
-        #806d59;
-
-      font-size:
-        .75rem;
-
-      box-shadow:
-        0 8px 25px
-        rgba(100,80,60,.08);
-
-      backdrop-filter:
-        blur(10px);
-
-      cursor:
-        pointer;
-
-      opacity:
-        0;
-
-      pointer-events:
-        none;
-
-      transition:
-
-        opacity .7s ease,
-
-        transform .35s var(--ease),
-
-        background .35s ease;
-
-    }
-
-
-    .reveal-section.open
-    .curtain-control {
-
-      opacity:
-        1;
-
-      pointer-events:
-        auto;
-
-    }
-
-
-    .curtain-control:hover {
-
-      transform:
-        translateX(-50%)
-        translateY(-3px);
-
-      background:
-        #ffffff;
-
-    }
-
-
-
-    /* =====================================================
-       CONTENIDO REVELADO
+       CONTENIDO
     ===================================================== */
 
     .reveal-content {
+      position: relative;
 
-      position:
-        relative;
+      z-index: 10;
 
-      z-index:
-        5;
+      width: min(920px, 100%);
 
-      width:
-        min(
-          920px,
-          100%
-        );
+      text-align: center;
 
-      text-align:
-        center;
+      opacity: 0;
 
-      opacity:
-        0;
-
-      transform:
-        translateY(30px);
+      transform: translateY(25px);
 
       transition:
-
-        opacity
-        1.2s
-        1.25s
-        ease,
-
-        transform
-        1.2s
-        1.25s
-        var(--ease);
-
+        opacity 1s ease .9s,
+        transform 1s cubic-bezier(.22,1,.36,1) .9s;
     }
 
 
-    .reveal-section.open
-    .reveal-content {
+    .reveal-section.open .reveal-content {
+      opacity: 1;
 
-      opacity:
-        1;
-
-      transform:
-        translateY(0);
-
+      transform: translateY(0);
     }
-
 
 
     /* =====================================================
@@ -1500,140 +717,80 @@
     ===================================================== */
 
     .animalitos {
+      position: absolute;
 
-      position:
-        absolute;
+      left: 50%;
+      bottom: -70px;
 
-      left:
-        50%;
+      width: min(540px, 110%);
 
-      bottom:
-        -100px;
+      z-index: -1;
 
-      width:
-        min(
-          540px,
-          115%
-        );
+      opacity: .22;
 
-      z-index:
-        -1;
+      transform: translateX(-50%);
 
-      opacity:
-        .30;
-
-      pointer-events:
-        none;
-
-      transform:
-        translateX(-50%);
-
-      mask-image:
-
-        linear-gradient(
-          to bottom,
-          transparent 0%,
-          black 30%,
-          black 100%
-        );
-
-      -webkit-mask-image:
-
-        linear-gradient(
-          to bottom,
-          transparent 0%,
-          black 30%,
-          black 100%
-        );
-
+      pointer-events: none;
     }
 
 
-
     /* =====================================================
-       TÍTULO
+       HOLA PAPI
     ===================================================== */
 
     .baby-small {
+      margin-bottom: 8px;
 
-      margin-bottom:
-        9px;
+      color: #b49b7e;
 
-      color:
-        var(--beige-dark);
+      font-size: .7rem;
+      font-weight: 600;
 
-      font-size:
-        .7rem;
-
-      font-weight:
-        600;
-
-      letter-spacing:
-        .2em;
-
-      text-transform:
-        uppercase;
-
+      letter-spacing: .2em;
+      text-transform: uppercase;
     }
 
 
     .hello-wrap {
+      display: flex;
 
-      display:
-        inline-flex;
+      flex-direction: column;
 
-      flex-direction:
-        column;
+      align-items: center;
 
-      align-items:
-        center;
-
-      gap:
-        0;
-
-      margin-bottom:
-        20px;
-
+      margin-bottom: 20px;
     }
 
 
     .hello {
+      color: var(--brown-dark);
 
-      color:
-        var(--brown-dark);
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
       font-size:
-        clamp(
-          3rem,
-          8vw,
-          4.8rem
-        );
+        clamp(3rem, 8vw, 4.8rem);
 
-      font-style:
-        italic;
+      font-weight: 500;
 
-      line-height:
-        .9;
+      font-style: italic;
 
+      line-height: .95;
+
+      letter-spacing: -.04em;
     }
 
 
     .hello-line {
+      width: 48px;
+      height: 1px;
 
-      width:
-        48px;
+      margin-top: 15px;
 
-      height:
-        1px;
-
-      margin-top:
-        15px;
-
-      background:
-        rgba(118,95,73,.35);
-
+      background: rgba(118,95,73,.35);
     }
-
 
 
     /* =====================================================
@@ -1641,18 +798,11 @@
     ===================================================== */
 
     .message {
+      width: min(650px, 100%);
 
-      width:
-        min(
-          650px,
-          100%
-        );
+      margin: auto;
 
-      margin-inline:
-        auto;
-
-      color:
-        #75695d;
+      color: #75695d;
 
       font-family:
         "Playfair Display",
@@ -1660,188 +810,191 @@
         serif;
 
       font-size:
-        clamp(
-          1.08rem,
-          2.3vw,
-          1.3rem
-        );
+        clamp(1.05rem, 2.3vw, 1.3rem);
 
-      line-height:
-        1.85;
-
+      line-height: 1.85;
     }
 
 
     .message strong {
+      color: var(--brown-dark);
 
-      color:
-        var(--brown-dark);
-
-      font-weight:
-        600;
-
+      font-weight: 600;
     }
 
 
 
     /* =====================================================
-       GALERÍA
+       FOTOS
     ===================================================== */
 
     .photos {
-
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
-        repeat(
-          3,
-          1fr
-        );
+        repeat(3, 1fr);
 
-      gap:
-        18px;
+      gap: 18px;
 
-      margin-top:
-        55px;
-
+      margin-top: 55px;
     }
 
 
     .photo {
+      position: relative;
 
-      position:
-        relative;
+      aspect-ratio: 4 / 5;
 
-      aspect-ratio:
-        4 / 5;
+      overflow: hidden;
 
-      overflow:
-        hidden;
+      border-radius: 20px;
 
       border:
         1px solid
         rgba(118,95,73,.12);
 
-      border-radius:
-        20px;
-
-      background:
-        #eee5d8;
+      background: #eee5d9;
 
       box-shadow:
-        var(--shadow-soft);
+        0 12px 35px rgba(94,73,52,.08);
 
       transition:
-
-        transform
-        .45s
-        var(--ease),
-
-        box-shadow
-        .45s
-        var(--ease);
-
+        transform .4s ease,
+        box-shadow .4s ease;
     }
 
 
     .photo:hover {
-
-      transform:
-        translateY(-7px);
+      transform: translateY(-7px);
 
       box-shadow:
-        0 25px 50px
-        rgba(94,73,52,.15);
-
+        0 25px 50px rgba(94,73,52,.14);
     }
 
 
     .photo img {
+      display: block;
 
-      display:
-        block;
+      width: 100%;
+      height: 100%;
 
-      width:
-        100%;
-
-      height:
-        100%;
-
-      object-fit:
-        cover;
+      object-fit: cover;
 
       transition:
-        transform
-        .7s
-        var(--ease);
-
+        transform .6s ease;
     }
 
 
     .photo:hover img {
-
-      transform:
-        scale(1.045);
-
+      transform: scale(1.045);
     }
 
 
 
     /* =====================================================
-       TEXTO FINAL
+       FINAL
     ===================================================== */
 
     .final {
+      margin-top: 60px;
 
-      margin-top:
-        60px;
-
-      color:
-        #907e6b;
+      color: #907e6b;
 
       font-family:
         "Playfair Display",
         Georgia,
         serif;
 
-      font-size:
-        .98rem;
+      font-size: .98rem;
 
-      font-style:
-        italic;
+      font-style: italic;
 
-      line-height:
-        1.8;
-
+      line-height: 1.8;
     }
 
 
 
     /* =====================================================
-       ANIMACIÓN GENERAL
+       BOTÓN CORTINAS
+    ===================================================== */
+
+    .curtain-control {
+      position: absolute;
+
+      left: 50%;
+      bottom: 28px;
+
+      z-index: 100;
+
+      padding: 10px 20px;
+
+      border:
+        1px solid
+        rgba(118,95,73,.18);
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.90);
+
+      color:
+        #806d59;
+
+      font-size: .75rem;
+
+      cursor: pointer;
+
+      transform: translateX(-50%);
+
+      box-shadow:
+        0 8px 25px rgba(100,80,60,.08);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition:
+        opacity .5s ease,
+        transform .3s ease,
+        background .3s ease;
+    }
+
+
+    .reveal-section.open .curtain-control {
+      opacity: 1;
+
+      pointer-events: auto;
+    }
+
+
+    .curtain-control:hover {
+      transform:
+        translateX(-50%)
+        translateY(-3px);
+
+      background: white;
+    }
+
+
+
+    /* =====================================================
+       ANIMACIÓN
     ===================================================== */
 
     @keyframes fadeUp {
 
       from {
-
-        opacity:
-          0;
+        opacity: 0;
 
         transform:
           translateY(25px);
-
       }
 
       to {
-
-        opacity:
-          1;
+        opacity: 1;
 
         transform:
           translateY(0);
-
       }
 
     }
@@ -1849,178 +1002,68 @@
 
 
     /* =====================================================
-       ACCESIBILIDAD
-    ===================================================== */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-
-        scroll-behavior:
-          auto;
-
-      }
-
-
-      *,
-      *::before,
-      *::after {
-
-        animation-duration:
-          .01ms !important;
-
-        animation-iteration-count:
-          1 !important;
-
-        transition-duration:
-          .01ms !important;
-
-      }
-
-    }
-
-
-
-    /* =====================================================
-       TABLET
+       MÓVIL
     ===================================================== */
 
     @media (max-width: 720px) {
 
-      .intro,
-      .letter-section,
-      .reveal-section {
-
-        padding-inline:
-          20px;
-
-      }
-
-
       .main-title {
-
         font-size:
           clamp(
             3rem,
             15vw,
             4.5rem
           );
-
-      }
-
-
-      .airplane {
-
-        font-size:
-          3rem;
-
       }
 
 
       .curtain {
-
-        width:
-          38%;
-
+        width: 40%;
       }
 
 
       .photos {
+        grid-template-columns: 1fr;
 
-        grid-template-columns:
-          1fr;
+        width: min(390px,100%);
 
-        width:
-          min(
-            390px,
-            100%
-          );
-
-        margin-inline:
-          auto;
-
+        margin-inline: auto;
       }
 
 
       .photo {
-
-        aspect-ratio:
-          1 / 1.12;
-
-      }
-
-
-      .message {
-
-        font-size:
-          1.08rem;
-
+        aspect-ratio: 1 / 1.12;
       }
 
 
       .animalitos {
+        width: 120%;
 
-        width:
-          120%;
-
-        bottom:
-          -30px;
-
+        bottom: -30px;
       }
 
     }
 
 
-
-    /* =====================================================
-       MÓVIL PEQUEÑO
-    ===================================================== */
-
     @media (max-width: 420px) {
 
-      .eyebrow {
-
-        font-size:
-          .65rem;
-
-        letter-spacing:
-          .16em;
-
-      }
-
-
       .envelope-container {
-
-        width:
-          285px;
-
-      }
-
-
-      .hello {
-
-        font-size:
-          3.2rem;
-
+        width: 285px;
       }
 
 
       .curtain {
+        width: 43%;
+      }
 
-        width:
-          42%;
 
+      .hello {
+        font-size: 3.2rem;
       }
 
 
       .animalitos {
-
-        width:
-          135%;
-
-        bottom:
-          -15px;
-
+        width: 135%;
       }
 
     }
@@ -2030,7 +1073,6 @@
 </head>
 
 
-
 <body>
 
 
@@ -2038,42 +1080,20 @@
        CORAZONES
   ====================================================== -->
 
-  <div
-    class="hearts-container"
-    id="heartsContainer"
-  ></div>
-
+  <div id="heartsContainer"></div>
 
 
   <main>
 
 
     <!-- ===================================================
-         INTRODUCCIÓN
+         INTRO
     ==================================================== -->
 
-    <section
-      class="intro"
-      id="inicio"
-    >
+    <section class="intro" id="inicio">
 
 
-      <div
-        class="cloud cloud-1"
-        aria-hidden="true"
-      ></div>
-
-
-      <div
-        class="cloud cloud-2"
-        aria-hidden="true"
-      ></div>
-
-
-      <div
-        class="airplane"
-        aria-hidden="true"
-      >
+      <div class="airplane" aria-hidden="true">
         ✈️
       </div>
 
@@ -2117,10 +1137,7 @@
          CARTA
     ==================================================== -->
 
-    <section
-      class="letter-section"
-      id="carta"
-    >
+    <section class="letter-section" id="carta">
 
 
       <div class="letter-inner">
@@ -2147,8 +1164,8 @@
         <div
           class="envelope-container"
           id="envelope"
-          role="button"
           tabindex="0"
+          role="button"
           aria-label="Abrir la carta"
         >
 
@@ -2164,10 +1181,7 @@
             </div>
 
 
-            <div
-              class="heart"
-              aria-hidden="true"
-            >
+            <div class="heart">
               ♡
             </div>
 
@@ -2184,11 +1198,7 @@
         </div>
 
 
-
-        <p
-          class="tap-hint"
-          id="tapHint"
-        >
+        <p class="tap-hint" id="tapHint">
           Toca el sobre para abrirlo
         </p>
 
@@ -2210,15 +1220,13 @@
     >
 
 
-      <!-- CORTINA IZQUIERDA -->
+      <!-- CORTINAS -->
 
       <div
         class="curtain curtain-left"
         aria-hidden="true"
       ></div>
 
-
-      <!-- CORTINA DERECHA -->
 
       <div
         class="curtain curtain-right"
@@ -2227,22 +1235,22 @@
 
 
 
-      <!-- =================================================
-           CONTENIDO
-      ================================================== -->
+      <!-- CONTENIDO -->
 
       <div class="reveal-content">
 
 
-        <!-- ANIMALITOS -->
+        <!--
+          Si tienes la imagen de los animalitos guardada
+          como animalitos.png, aparecerá aquí.
+        -->
 
         <img
-          class="animalitos"
           src="animalitos.png"
+          class="animalitos"
           alt=""
           aria-hidden="true"
         >
-
 
 
         <p class="baby-small">
@@ -2250,28 +1258,19 @@
         </p>
 
 
-
-        <!-- HOLA PAPI -->
-
         <div class="hello-wrap">
-
 
           <h2 class="hello">
             Hola papi...
           </h2>
-
 
           <div
             class="hello-line"
             aria-hidden="true"
           ></div>
 
-
         </div>
 
-
-
-        <!-- MENSAJE -->
 
         <p class="message">
 
@@ -2293,14 +1292,9 @@
 
 
 
-        <!-- =================================================
-             FOTOS
-        ================================================== -->
+        <!-- FOTOS -->
 
-        <div
-          class="photos"
-          aria-label="Nuestra historia"
-        >
+        <div class="photos">
 
 
           <figure class="photo">
@@ -2340,8 +1334,6 @@
 
 
 
-        <!-- TEXTO FINAL -->
-
         <p class="final">
 
           Parece que nuestro próximo viaje<br>
@@ -2354,9 +1346,7 @@
 
 
 
-      <!-- =================================================
-           CONTROL DE CORTINAS
-      ================================================== -->
+      <!-- BOTÓN -->
 
       <button
         class="curtain-control"
@@ -2380,351 +1370,313 @@
 
   <script>
 
-    (() => {
-
-      "use strict";
-
-
-      /* ===================================================
-         ELEMENTOS
-      ==================================================== */
-
-      const envelope =
-        document.getElementById(
-          "envelope"
-        );
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
 
 
-      const reveal =
-        document.getElementById(
-          "revelacion"
-        );
+        /* =================================================
+           ELEMENTOS
+        ================================================= */
 
-
-      const startButton =
-        document.getElementById(
-          "startButton"
-        );
-
-
-      const tapHint =
-        document.getElementById(
-          "tapHint"
-        );
-
-
-      const heartsContainer =
-        document.getElementById(
-          "heartsContainer"
-        );
-
-
-      const curtainControl =
-        document.getElementById(
-          "curtainControl"
-        );
-
-
-      let isOpening =
-        false;
-
-
-      let curtainsOpen =
-        false;
-
-
-
-      /* ===================================================
-         SCROLL
-      ==================================================== */
-
-      function scrollToSection(
-        section
-      ) {
-
-        if (!section) return;
-
-
-        section.scrollIntoView({
-
-          behavior:
-            "smooth",
-
-          block:
-            "start"
-
-        });
-
-      }
-
-
-
-      /* ===================================================
-         CORAZONES
-      ==================================================== */
-
-      function createHearts() {
-
-
-        const totalHearts =
-          24;
-
-
-        for (
-          let i = 0;
-          i < totalHearts;
-          i++
-        ) {
-
-
-          const heart =
-            document.createElement(
-              "span"
-            );
-
-
-          heart.className =
-            "floating-heart";
-
-
-          heart.innerHTML =
-            Math.random() > .5
-              ? "♡"
-              : "♥";
-
-
-          heart.style.left =
-            `${
-              35 +
-              Math.random() * 30
-            }%`;
-
-
-          heart.style.setProperty(
-            "--x",
-            `${
-              (Math.random() - .5)
-              * 360
-            }px`
+        const startButton =
+          document.getElementById(
+            "startButton"
           );
 
 
-          heart.style.setProperty(
-            "--rotate",
-            `${
-              (Math.random() - .5)
-              * 50
-            }deg`
+        const envelope =
+          document.getElementById(
+            "envelope"
           );
 
 
-          heart.style.animationDelay =
-            `${
-              Math.random() * .7
-            }s`;
-
-
-          heart.style.fontSize =
-            `${
-              14 +
-              Math.random() * 13
-            }px`;
-
-
-          heartsContainer.appendChild(
-            heart
+        const reveal =
+          document.getElementById(
+            "revelacion"
           );
 
 
-          setTimeout(() => {
-
-            heart.remove();
-
-          }, 3600);
-
-
-        }
-
-      }
-
-
-
-      /* ===================================================
-         ABRIR SOBRE
-      ==================================================== */
-
-      function openEnvelope() {
-
-
-        if (
-          isOpening ||
-          envelope.classList.contains(
-            "open"
-          )
-        ) {
-
-          return;
-
-        }
-
-
-        isOpening =
-          true;
-
-
-        envelope.classList.add(
-          "open"
-        );
-
-
-        /* CORAZONES */
-
-        createHearts();
-
-
-        tapHint.textContent =
-          "La sorpresa está a punto de comenzar...";
-
-
-        /* DESPUÉS DEL SOBRE */
-
-        setTimeout(() => {
-
-
-          reveal.classList.add(
-            "open"
+        const tapHint =
+          document.getElementById(
+            "tapHint"
           );
 
 
-          curtainsOpen =
-            true;
-
-
-          curtainControl.textContent =
-            "Cerrar cortinas";
-
-
-          setTimeout(() => {
-
-
-            scrollToSection(
-              reveal
-            );
-
-
-          }, 500);
-
-
-        }, 2300);
-
-      }
-
-
-
-      /* ===================================================
-         BOTÓN INICIAL
-      ==================================================== */
-
-      startButton.addEventListener(
-        "click",
-        () => {
-
-
-          scrollToSection(
-            document.getElementById(
-              "carta"
-            )
+        const heartsContainer =
+          document.getElementById(
+            "heartsContainer"
           );
 
 
-        }
-      );
+        const curtainControl =
+          document.getElementById(
+            "curtainControl"
+          );
 
 
 
-      /* ===================================================
-         SOBRE — CLICK
-      ==================================================== */
+        /* =================================================
+           IR A UNA SECCIÓN
+        ================================================= */
 
-      envelope.addEventListener(
-        "click",
-        openEnvelope
-      );
+        function goTo(section) {
 
-
-
-      /* ===================================================
-         SOBRE — TECLADO
-      ==================================================== */
-
-      envelope.addEventListener(
-        "keydown",
-        (event) => {
-
-
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-
-
-            event.preventDefault();
-
-
-            openEnvelope();
-
-
+          if (!section) {
+            return;
           }
 
 
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
         }
-      );
 
 
 
-      /* ===================================================
-         ABRIR / CERRAR CORTINAS
-      ==================================================== */
+        /* =================================================
+           BOTÓN "TENGO ALGO PARA TI"
+        ================================================= */
 
-      curtainControl.addEventListener(
-        "click",
-        () => {
+        startButton.addEventListener(
+          "click",
+          function () {
 
+            goTo(
+              document.getElementById("carta")
+            );
 
-          curtainsOpen =
-            !curtainsOpen;
-
-
-          reveal.classList.toggle(
-            "open",
-            curtainsOpen
-          );
+          }
+        );
 
 
-          if (
-            curtainsOpen
+
+        /* =================================================
+           CREAR CORAZONES
+        ================================================= */
+
+        function createHearts() {
+
+
+          for (
+            let i = 0;
+            i < 26;
+            i++
           ) {
 
 
-            curtainControl.textContent =
-              
+            const heart =
+              document.createElement("span");
 
 
-          } else {
+            heart.className =
+              "floating-heart";
 
 
-            curtainControl.textContent =
-              "Abrir cortinas";
+            heart.textContent =
+              Math.random() > .45
+                ? "♡"
+                : "♥";
 
+
+            heart.style.left =
+              (
+                35 +
+                Math.random() * 30
+              ) + "%";
+
+
+            heart.style.setProperty(
+              "--x",
+              (
+                (Math.random() - .5)
+                * 380
+              ) + "px"
+            );
+
+
+            heart.style.setProperty(
+              "--rotate",
+              (
+                (Math.random() - .5)
+                * 60
+              ) + "deg"
+            );
+
+
+            heart.style.animationDelay =
+              (
+                Math.random() * .7
+              ) + "s";
+
+
+            heart.style.fontSize =
+              (
+                14 +
+                Math.random() * 13
+              ) + "px";
+
+
+            heartsContainer.appendChild(
+              heart
+            );
+
+
+            setTimeout(
+              function () {
+                heart.remove();
+              },
+              3600
+            );
 
           }
 
+        }
+
+
+
+        /* =================================================
+           ABRIR SOBRE
+        ================================================= */
+
+        function openEnvelope() {
+
+
+          if (
+            envelope.classList.contains("open")
+          ) {
+            return;
+          }
+
+
+          envelope.classList.add("open");
+
+
+          tapHint.textContent =
+            "La sorpresa está a punto de comenzar...";
+
+
+          /* CORAZONES */
+
+          createHearts();
+
+
+          /* ESPERAR Y ABRIR CORTINAS */
+
+          setTimeout(
+            function () {
+
+
+              reveal.classList.add("open");
+
+
+              curtainControl.textContent =
+                "Cerrar cortinas";
+
+
+              setTimeout(
+                function () {
+
+                  goTo(reveal);
+
+                },
+                700
+              );
+
+
+            },
+            1800
+          );
 
         }
-      );
 
 
-    })();
+
+        /* =================================================
+           CLICK SOBRE
+        ================================================= */
+
+        envelope.addEventListener(
+          "click",
+          openEnvelope
+        );
+
+
+
+        /* =================================================
+           TECLADO SOBRE
+        ================================================= */
+
+        envelope.addEventListener(
+          "keydown",
+          function (event) {
+
+
+            if (
+              event.key === "Enter" ||
+              event.key === " "
+            ) {
+
+
+              event.preventDefault();
+
+
+              openEnvelope();
+
+
+            }
+
+          }
+        );
+
+
+
+        /* =================================================
+           ABRIR / CERRAR CORTINAS
+        ================================================= */
+
+        curtainControl.addEventListener(
+          "click",
+          function () {
+
+
+            const isOpen =
+              reveal.classList.contains("open");
+
+
+            if (isOpen) {
+
+
+              reveal.classList.remove(
+                "open"
+              );
+
+
+              curtainControl.textContent =
+                "Abrir cortinas";
+
+
+            } else {
+
+
+              reveal.classList.add(
+                "open"
+              );
+
+
+              curtainControl.textContent =
+                "Cerrar cortinas";
+
+            }
+
+          }
+        );
+
+
+      }
+    );
 
   </script>
 
