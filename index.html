@@ -11,25 +11,24 @@
 <style>
 
 /* =========================================================
-   PALETA — MARRÓN BEBÉ / CAFÉ CON LECHE
+   PALETA GENERAL
+   Marrón bebé / café con leche
 ========================================================= */
 
 :root{
 
-    --brown:#8A6A55;
-    --brown-dark:#70513F;
-    --brown-soft:#A48670;
+    --brown:#92725F;
+    --brown-dark:#765744;
+    --brown-soft:#AB8D79;
 
-    --cream:#F8F3EC;
-    --cream-light:#FCF9F4;
-
-    --beige:#EADDCF;
-    --beige-light:#F3EAE1;
+    --cream:#FBF7F1;
+    --cream-2:#F6EEE5;
+    --beige:#E9DACE;
+    --beige-light:#F4ECE4;
 
     --white:#FFFDF9;
 
-    --text:#806D5E;
-
+    --text:#806D5D;
 }
 
 
@@ -92,24 +91,22 @@ section{
     background:
 
         radial-gradient(
-            circle at 50% 30%,
-            rgba(255,255,255,.25),
-            transparent 35%
+            circle at 50% 35%,
+            rgba(255,255,255,.20),
+            transparent 34%
         ),
 
         linear-gradient(
             180deg,
-            #A88B76 0%,
-            #94745E 48%,
-            #8A6A55 100%
+            #AA8D79 0%,
+            #9C7C67 48%,
+            #92725F 100%
         );
 
 }
 
 
-/* =========================================================
-   TEXTURA MUY SUAVE
-========================================================= */
+/* textura */
 
 .intro::before{
 
@@ -119,16 +116,16 @@ section{
 
     inset:0;
 
-    opacity:.07;
+    opacity:.06;
 
     background-image:
 
         radial-gradient(
-            rgba(255,255,255,.8) 1px,
+            rgba(255,255,255,.9) 1px,
             transparent 1px
         );
 
-    background-size:26px 26px;
+    background-size:25px 25px;
 
     pointer-events:none;
 
@@ -143,7 +140,7 @@ section{
 
     position:absolute;
 
-    width:180px;
+    width:185px;
 
     height:38px;
 
@@ -154,10 +151,8 @@ section{
             255,
             253,
             249,
-            .55
+            .52
         );
-
-    filter:blur(.4px);
 
     opacity:.9;
 
@@ -180,7 +175,7 @@ section{
             255,
             253,
             249,
-            .72
+            .70
         );
 
     border-radius:50%;
@@ -205,67 +200,53 @@ section{
 
     height:55px;
 
-    left:95px;
+    left:100px;
 
 }
 
-
-/* nube 1 */
 
 .cloud-1{
 
-    left:-45px;
+    left:-55px;
 
-    top:18%;
-
-    transform:
-        scale(.9);
+    top:17%;
 
 }
 
-
-/* nube 2 */
 
 .cloud-2{
 
-    right:-50px;
+    right:-60px;
 
-    top:30%;
+    top:29%;
 
-    transform:
-        scale(1.05);
+    transform:scale(1.05);
 
 }
 
-
-/* nube 3 */
 
 .cloud-3{
 
-    left:12%;
+    left:14%;
 
-    top:9%;
+    top:8%;
 
-    transform:
-        scale(.55);
+    transform:scale(.55);
 
-    opacity:.55;
+    opacity:.48;
 
 }
 
 
-/* nube 4 */
-
 .cloud-4{
 
-    right:14%;
+    right:13%;
 
-    top:15%;
+    top:13%;
 
-    transform:
-        scale(.65);
+    transform:scale(.60);
 
-    opacity:.5;
+    opacity:.45;
 
 }
 
@@ -298,10 +279,10 @@ section{
         drop-shadow(
             0 7px 9px
             rgba(
-                65,
-                43,
-                30,
-                .16
+                80,
+                55,
+                40,
+                .14
             )
         );
 
@@ -309,8 +290,7 @@ section{
 
 
 /*
-El avión siempre mantiene
-el morro hacia la derecha.
+   EL AVIÓN APUNTA HACIA LA DERECHA
 */
 
 @keyframes airplaneFlight{
@@ -386,10 +366,6 @@ el morro hacia la derecha.
 }
 
 
-/* =========================================================
-   FRASE SUPERIOR
-========================================================= */
-
 .eyebrow{
 
     display:flex;
@@ -403,7 +379,7 @@ el morro hacia la derecha.
     margin:
         0 0 28px;
 
-    color:#F4E9DE;
+    color:#F5E9DD;
 
     font-size:10px;
 
@@ -427,18 +403,14 @@ el morro hacia la derecha.
 
     background:
         rgba(
-            244,
+            245,
             233,
-            222,
+            221,
             .65
         );
 
 }
 
-
-/* =========================================================
-   TÍTULO
-========================================================= */
 
 .intro h1{
 
@@ -484,10 +456,6 @@ el morro hacia la derecha.
 }
 
 
-/* =========================================================
-   SUBTÍTULO
-========================================================= */
-
 .subtitle{
 
     max-width:470px;
@@ -495,7 +463,7 @@ el morro hacia la derecha.
     margin:
         34px auto 0;
 
-    color:#F0E2D4;
+    color:#F2E5D9;
 
     font-family:
 
@@ -511,10 +479,6 @@ el morro hacia la derecha.
 
 }
 
-
-/* =========================================================
-   BOTÓN
-========================================================= */
 
 .start-button{
 
@@ -574,7 +538,7 @@ el morro hacia la derecha.
 
 
 /* =========================================================
-   SECCIÓN SOBRE
+   CARTA
 ========================================================= */
 
 .letter-section{
@@ -595,7 +559,7 @@ el morro hacia la derecha.
         linear-gradient(
             180deg,
             #FCF9F4,
-            #F7F0E8
+            #F7EFE6
         );
 
     text-align:center;
@@ -635,7 +599,7 @@ el morro hacia la derecha.
 
     margin:0;
 
-    color:var(--brown);
+    color:var(--brown-dark);
 
     font-family:
 
@@ -667,7 +631,7 @@ el morro hacia la derecha.
     margin:
         20px auto 45px;
 
-    color:#8A7869;
+    color:#897768;
 
     line-height:1.8;
 
@@ -717,7 +681,7 @@ el morro hacia la derecha.
             112,
             81,
             63,
-            .16
+            .15
         );
 
     border-radius:50%;
@@ -1061,7 +1025,7 @@ el morro hacia la derecha.
 
 
 /* =========================================================
-   REVELACIÓN
+   ESCENA DE LAS CORTINAS
 ========================================================= */
 
 .reveal-section{
@@ -1083,67 +1047,60 @@ el morro hacia la derecha.
 
     background:
 
-        linear-gradient(
-            180deg,
-            #F7EFE6,
-            #FFFDF9
+        radial-gradient(
+            circle at center,
+            #FFFDF9 0%,
+            #F8F0E8 65%,
+            #F1E5D9 100%
         );
 
 }
 
 
 /* =========================================================
-   CENEFA SUPERIOR
+   LUZ DETRÁS DE LAS CORTINAS
 ========================================================= */
 
-.reveal-section::before{
+.reveal-section::after{
 
     content:"";
 
     position:absolute;
 
-    top:0;
+    inset:0;
 
-    left:0;
-
-    right:0;
-
-    height:22px;
-
-    z-index:85;
-
-    pointer-events:none;
+    z-index:1;
 
     background:
 
-        repeating-linear-gradient(
+        radial-gradient(
+            ellipse at center,
+            rgba(
+                255,
+                255,
+                255,
+                .95
+            ) 0%,
 
-            90deg,
+            rgba(
+                255,
+                255,
+                255,
+                .50
+            ) 35%,
 
-            #70513F 0,
-            #70513F 18px,
-
-            #A48670 20px,
-            #A48670 38px
-
+            transparent 70%
         );
 
-    box-shadow:
-
-        0 5px 15px
-        rgba(
-            112,
-            81,
-            63,
-            .15
-        );
+    pointer-events:none;
 
 }
 
 
 /* =========================================================
    CORTINAS
-   APERTURA = 6 SEGUNDOS
+   Inspiradas en la imagen:
+   tela recogida a los lados
 ========================================================= */
 
 .curtain{
@@ -1152,13 +1109,11 @@ el morro hacia la derecha.
 
     top:0;
 
-    width:52%;
+    width:53%;
 
     height:100%;
 
     z-index:80;
-
-    overflow:hidden;
 
     background:
 
@@ -1166,21 +1121,23 @@ el morro hacia la derecha.
 
             90deg,
 
-            #70513F 0%,
+            #765744 0%,
 
-            #8A6A55 13%,
+            #94725F 11%,
 
-            #A48670 25%,
+            #A98B77 22%,
 
-            #795945 39%,
+            #866451 34%,
 
-            #A0836D 53%,
+            #B09582 47%,
 
-            #765641 68%,
+            #896653 59%,
 
-            #A0836D 83%,
+            #A78A76 72%,
 
-            #70513F 100%
+            #795945 87%,
+
+            #684B39 100%
 
         );
 
@@ -1189,17 +1146,9 @@ el morro hacia la derecha.
         inset
         0 0 70px
         rgba(
-            74,
-            49,
-            36,
-            .18
-        ),
-
-        0 0 50px
-        rgba(
-            95,
-            67,
-            50,
+            70,
+            45,
+            32,
             .17
         );
 
@@ -1208,7 +1157,7 @@ el morro hacia la derecha.
         transform
         6s
         cubic-bezier(
-            .77,
+            .76,
             0,
             .18,
             1
@@ -1218,7 +1167,7 @@ el morro hacia la derecha.
 
 
 /* =========================================================
-   PLIEGUES
+   PLIEGUES DE TELA
 ========================================================= */
 
 .curtain::before{
@@ -1239,36 +1188,46 @@ el morro hacia la derecha.
                 255,
                 255,
                 255,
-                .12
+                .16
             ) 0px,
 
             rgba(
                 255,
                 255,
                 255,
-                .12
-            ) 8px,
-
-            transparent 17px,
+                .16
+            ) 7px,
 
             rgba(
-                80,
-                53,
-                39,
-                .14
-            ) 27px,
+                120,
+                82,
+                63,
+                .04
+            ) 14px,
 
-            transparent 39px
+            rgba(
+                70,
+                45,
+                33,
+                .16
+            ) 25px,
+
+            rgba(
+                255,
+                255,
+                255,
+                .04
+            ) 35px
 
         );
 
-    opacity:.75;
+    opacity:.9;
 
 }
 
 
 /* =========================================================
-   SOMBRA INTERIOR
+   BRILLO SUAVE DE LOS PLIEGUES
 ========================================================= */
 
 .curtain::after{
@@ -1277,90 +1236,230 @@ el morro hacia la derecha.
 
     position:absolute;
 
-    top:0;
-
-    bottom:0;
-
-    width:45px;
+    inset:0;
 
     background:
 
         linear-gradient(
             90deg,
-            rgba(
-                70,
-                46,
-                33,
-                .22
-            ),
-            transparent
+            transparent 0%,
+            rgba(255,255,255,.10) 20%,
+            transparent 30%,
+            rgba(60,40,30,.10) 42%,
+            transparent 53%,
+            rgba(255,255,255,.10) 66%,
+            transparent 80%
         );
 
-}
+    mix-blend-mode:screen;
 
-
-/* izquierda */
-
-.curtain-left{
-
-    left:0;
-
-    box-shadow:
-
-        inset
-        -30px 0 45px
-        rgba(75,48,35,.18),
-
-        0 0 50px
-        rgba(95,67,50,.18);
-
-}
-
-
-.curtain-left::after{
-
-    right:0;
-
-}
-
-
-/* derecha */
-
-.curtain-right{
-
-    right:0;
-
-    box-shadow:
-
-        inset
-        30px 0 45px
-        rgba(75,48,35,.18),
-
-        0 0 50px
-        rgba(95,67,50,.18);
-
-}
-
-
-.curtain-right::after{
-
-    left:0;
-
-    transform:
-        scaleX(-1);
+    opacity:.65;
 
 }
 
 
 /* =========================================================
-   APERTURA DE CORTINAS
+   IZQUIERDA
+========================================================= */
+
+.curtain-left{
+
+    left:0;
+
+    transform-origin:left center;
+
+    clip-path:
+
+        polygon(
+
+            0 0,
+
+            100% 0,
+
+            92% 10%,
+
+            82% 20%,
+
+            67% 32%,
+
+            48% 42%,
+
+            36% 48%,
+
+            34% 53%,
+
+            39% 60%,
+
+            32% 72%,
+
+            23% 86%,
+
+            15% 100%,
+
+            0 100%
+
+        );
+
+}
+
+
+/* =========================================================
+   DERECHA
+========================================================= */
+
+.curtain-right{
+
+    right:0;
+
+    transform-origin:right center;
+
+    clip-path:
+
+        polygon(
+
+            0 0,
+
+            100% 0,
+
+            100% 100%,
+
+            85% 100%,
+
+            77% 86%,
+
+            68% 72%,
+
+            61% 60%,
+
+            66% 53%,
+
+            64% 48%,
+
+            52% 42%,
+
+            33% 32%,
+
+            18% 20%,
+
+            8% 10%
+
+        );
+
+}
+
+
+/* =========================================================
+   LAZOS / SUJECIONES
+========================================================= */
+
+.curtain-left{
+
+    --tie-position:51%;
+
+}
+
+
+.curtain-right{
+
+    --tie-position:51%;
+
+}
+
+
+/*
+   Lazada izquierda
+*/
+
+.curtain-left{
+
+    background-image:
+
+        radial-gradient(
+            ellipse at 65% 51%,
+            #B3947F 0px,
+            #A47F69 17px,
+            transparent 18px
+        ),
+
+        linear-gradient(
+
+            90deg,
+
+            #765744 0%,
+
+            #94725F 11%,
+
+            #A98B77 22%,
+
+            #866451 34%,
+
+            #B09582 47%,
+
+            #896653 59%,
+
+            #A78A76 72%,
+
+            #795945 87%,
+
+            #684B39 100%
+
+        );
+
+}
+
+
+/*
+   Lazada derecha
+*/
+
+.curtain-right{
+
+    background-image:
+
+        radial-gradient(
+            ellipse at 35% 51%,
+            #B3947F 0px,
+            #A47F69 17px,
+            transparent 18px
+        ),
+
+        linear-gradient(
+
+            90deg,
+
+            #684B39 0%,
+
+            #795945 13%,
+
+            #A78A76 28%,
+
+            #896653 41%,
+
+            #B09582 53%,
+
+            #866451 66%,
+
+            #A98B77 78%,
+
+            #94725F 89%,
+
+            #765744 100%
+
+        );
+
+}
+
+
+/* =========================================================
+   APERTURA
 ========================================================= */
 
 .reveal-section.open
 .curtain-left{
 
     transform:
-        translateX(-105%);
+        translateX(-92%)
+        scaleX(.94);
 
 }
 
@@ -1369,13 +1468,53 @@ el morro hacia la derecha.
 .curtain-right{
 
     transform:
-        translateX(105%);
+        translateX(92%)
+        scaleX(.94);
 
 }
 
 
 /* =========================================================
-   CONTENIDO DETRÁS
+   BARRA SUPERIOR DE TEATRO
+========================================================= */
+
+.reveal-section .top-valance{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:24px;
+
+    z-index:90;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #80604C,
+            #9C7B65
+        );
+
+    box-shadow:
+
+        0 4px 14px
+        rgba(
+            90,
+            60,
+            43,
+            .18
+        );
+
+}
+
+
+/* =========================================================
+   CONTENIDO
 ========================================================= */
 
 .reveal-content{
@@ -1394,16 +1533,16 @@ el morro hacia la derecha.
     opacity:0;
 
     transform:
-        translateY(20px);
+        translateY(25px);
 
     transition:
 
         opacity
-        1.2s
+        1.5s
         ease,
 
         transform
-        1.2s
+        1.5s
         ease;
 
 }
@@ -1442,7 +1581,7 @@ el morro hacia la derecha.
 
     margin:0;
 
-    color:var(--brown);
+    color:var(--brown-dark);
 
     font-family:
 
@@ -1496,7 +1635,7 @@ el morro hacia la derecha.
     margin:
         20px auto 0;
 
-    color:#806D5E;
+    color:#806D5D;
 
     font-family:
 
@@ -1646,14 +1785,6 @@ el morro hacia la derecha.
     }
 
 
-    .cloud{
-
-        transform:
-            scale(.65);
-
-    }
-
-
     .cloud-3,
     .cloud-4{
 
@@ -1683,7 +1814,27 @@ el morro hacia la derecha.
 
     .curtain{
 
-        width:57%;
+        width:58%;
+
+    }
+
+
+    .reveal-section.open
+    .curtain-left{
+
+        transform:
+            translateX(-93%)
+            scaleX(.94);
+
+    }
+
+
+    .reveal-section.open
+    .curtain-right{
+
+        transform:
+            translateX(93%)
+            scaleX(.94);
 
     }
 
@@ -1716,17 +1867,12 @@ el morro hacia la derecha.
 
 
 
-    <!-- ===================================================
-         AVIÓN
-    =================================================== -->
+    <!-- AVIÓN -->
 
     <svg
         class="airplane"
         viewBox="0 0 120 70"
         aria-hidden="true">
-
-
-        <!-- avión apuntando hacia la derecha -->
 
         <path
             d="
@@ -1756,7 +1902,8 @@ el morro hacia la derecha.
             Z
             "
 
-            fill="#F0E1D2">
+            fill="#F1E2D4">
+
         </path>
 
 
@@ -1770,16 +1917,14 @@ el morro hacia la derecha.
             "
 
             fill="#DCC5B0">
-        </path>
 
+        </path>
 
     </svg>
 
 
 
-    <!-- ===================================================
-         TEXTO PORTADA
-    =================================================== -->
+    <!-- CONTENIDO -->
 
     <div class="intro-content">
 
@@ -1829,7 +1974,7 @@ el morro hacia la derecha.
 
 
 <!-- =======================================================
-     CARTA / SOBRE
+     CARTA
 ======================================================= -->
 
 <section
@@ -1924,7 +2069,7 @@ el morro hacia la derecha.
 
 
 <!-- =======================================================
-     REVELACIÓN
+     ESCENA CORTINAS
 ======================================================= -->
 
 <section
@@ -1932,14 +2077,19 @@ el morro hacia la derecha.
     id="reveal-section">
 
 
-    <!-- CORTINA IZQUIERDA -->
+    <!-- barra superior -->
+
+    <div class="top-valance"></div>
+
+
+    <!-- cortina izquierda -->
 
     <div
         class="curtain curtain-left">
     </div>
 
 
-    <!-- CORTINA DERECHA -->
+    <!-- cortina derecha -->
 
     <div
         class="curtain curtain-right">
@@ -1948,7 +2098,7 @@ el morro hacia la derecha.
 
 
     <!-- ===================================================
-         CONTENIDO
+         CONTENIDO DETRÁS DE LAS CORTINAS
     =================================================== -->
 
     <div class="reveal-content">
@@ -2064,7 +2214,6 @@ el morro hacia la derecha.
 
 <script>
 
-
 /* =========================================================
    ELEMENTOS
 ========================================================= */
@@ -2105,7 +2254,7 @@ let envelopeAlreadyOpened =
 
 
 /* =========================================================
-   BOTÓN DE PORTADA
+   PORTADA → CARTA
 ========================================================= */
 
 startButton.addEventListener(
@@ -2120,7 +2269,9 @@ startButton.addEventListener(
             )
             .scrollIntoView({
 
-                behavior:"smooth"
+                behavior:"smooth",
+
+                block:"start"
 
             });
 
@@ -2139,12 +2290,12 @@ function createHearts(){
 
     const colors = [
 
-        "#EADDCF",
-        "#F3EAE1",
+        "#E9DACE",
+        "#F4ECE4",
         "#FFFDF9",
         "#D8C1AC",
-        "#A48670",
-        "#8A6A55"
+        "#AB8D79",
+        "#92725F"
 
     ];
 
@@ -2175,12 +2326,12 @@ function createHearts(){
 
 
     /*
-    MUCHOS CORAZONES
+       50 corazones
     */
 
     for(
         let i=0;
-        i<48;
+        i<50;
         i++
     ){
 
@@ -2209,8 +2360,7 @@ function createHearts(){
 
 
         /*
-        salen desde el centro
-        del sobre
+           Nacen desde el sobre
         */
 
         heart.style.left =
@@ -2237,7 +2387,7 @@ function createHearts(){
 
 
         /*
-        movimiento horizontal
+           Movimiento lateral
         */
 
         heart.style.setProperty(
@@ -2255,7 +2405,7 @@ function createHearts(){
 
 
         /*
-        movimiento vertical
+           Movimiento hacia arriba
         */
 
         heart.style.setProperty(
@@ -2273,7 +2423,7 @@ function createHearts(){
 
 
         /*
-        tamaños diferentes
+           Tamaño
         */
 
         heart.style.setProperty(
@@ -2291,7 +2441,7 @@ function createHearts(){
 
 
         /*
-        rotaciones
+           Rotación
         */
 
         heart.style.setProperty(
@@ -2309,13 +2459,13 @@ function createHearts(){
 
 
         /*
-        aparecen escalonados
+           Salida escalonada
         */
 
         heart.style.animationDelay =
 
             (
-                Math.random()*1.2
+                Math.random()*1.1
 
             ) + "s";
 
@@ -2367,7 +2517,7 @@ function openEnvelope(){
 
 
     /*
-    ABRIMOS EL SOBRE
+       Abrimos el sobre
     */
 
     envelope.classList.add(
@@ -2381,7 +2531,7 @@ function openEnvelope(){
 
 
     /*
-    CORAZONES
+       Corazones
     */
 
     setTimeout(
@@ -2399,15 +2549,20 @@ function openEnvelope(){
 
 
     /*
-    =========================================================
-    1.5 SEGUNDOS DESPUÉS
-    =========================================================
+       Esperamos un poquito
+       para que se disfrute el sobre
     */
 
     setTimeout(
 
         function(){
 
+
+            /*
+               Transición suave
+               hacia la escena
+               de las cortinas
+            */
 
             revealSection.scrollIntoView({
 
@@ -2420,9 +2575,8 @@ function openEnvelope(){
 
 
             /*
-            =================================================
-            10 SEGUNDOS CON CORTINAS CERRADAS
-            =================================================
+               Las cortinas permanecen
+               cerradas 10 segundos
             */
 
             setTimeout(
@@ -2431,9 +2585,8 @@ function openEnvelope(){
 
 
                     /*
-                    =========================================
-                    LAS CORTINAS SE ABREN EN 6 SEGUNDOS
-                    =========================================
+                       APERTURA:
+                       exactamente 6 segundos
                     */
 
                     revealSection.classList.add(
@@ -2443,9 +2596,8 @@ function openEnvelope(){
 
 
                     /*
-                    =========================================
-                    40 SEGUNDOS COMPLETAMENTE ABIERTAS
-                    =========================================
+                       Permanecen abiertas
+                       40 segundos
                     */
 
                     setTimeout(
@@ -2454,9 +2606,8 @@ function openEnvelope(){
 
 
                             /*
-                            =================================
-                            SE CIERRAN EN 6 SEGUNDOS
-                            =================================
+                               CIERRE:
+                               también 6 segundos
                             */
 
                             revealSection.classList.remove(
@@ -2480,7 +2631,7 @@ function openEnvelope(){
 
         },
 
-        1500
+        1800
 
     );
 
@@ -2489,7 +2640,7 @@ function openEnvelope(){
 
 
 /* =========================================================
-   CLICK EN SOBRE
+   CLICK SOBRE
 ========================================================= */
 
 envelope.addEventListener(
