@@ -1,70 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nuestra próxima aventura</title>
-
 
 <style>
 
-/* =========================================================
-   COLORES
-========================================================= */
+:root{
+    --brown:#A58A70;
+    --brown-dark:#705F51;
+    --brown-soft:#A58A70;
 
-:root {
+    --beige:#E8DED2;
+    --beige-light:#F5EEE6;
+    --cream:#FBF7F1;
+    --white:#FFFDF9;
 
-    --brown: #684936;
-    --brown-dark: #513628;
-    --brown-soft: #806653;
-
-    --beige: #e7d8c7;
-    --beige-light: #f4ece2;
-
-    --cream: #fbf7f1;
-
-    --white: #fffdf9;
-
-    --text: #756458;
+    --text:#76695D;
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-
-    margin: 0;
-    padding: 0;
-
-    background: var(--cream);
-
-    color: var(--text);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    overflow-x: hidden;
+body{
+    margin:0;
+    padding:0;
+    background:var(--cream);
+    color:var(--text);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
 }
 
-section {
-    min-height: 100vh;
+section{
+    min-height:100vh;
 }
 
 
@@ -72,232 +46,184 @@ section {
    PORTADA
 ========================================================= */
 
-.intro {
+.intro{
+    position:relative;
+    min-height:100vh;
 
-    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    min-height: 100vh;
+    overflow:hidden;
+    text-align:center;
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    text-align: center;
-
-    padding: 50px 25px;
+    padding:50px 25px;
 
     background:
-
         radial-gradient(
             circle at center top,
-            rgba(255,255,255,.75),
-            transparent 42%
+            rgba(255,255,255,.8),
+            transparent 45%
         ),
-
         linear-gradient(
             180deg,
-            #d8c4b1 0%,
-            #eaded1 55%,
-            #faf6f0 100%
+            #F0E7DE 0%,
+            #F6EFE7 55%,
+            #FBF8F3 100%
         );
 }
 
+.intro::after{
+    content:"";
 
-/* brillo inferior */
+    position:absolute;
 
-.intro::after {
+    width:130%;
+    height:250px;
 
-    content: "";
+    bottom:-150px;
+    left:-15%;
 
-    position: absolute;
+    background:rgba(255,255,255,.55);
 
-    width: 130%;
-    height: 250px;
+    border-radius:50%;
 
-    bottom: -150px;
-    left: -15%;
-
-    background:
-        rgba(255,255,255,.5);
-
-    border-radius: 50%;
-
-    filter: blur(25px);
+    filter:blur(25px);
 }
 
 
-/* =========================================================
-   NUBES
-========================================================= */
+/* NUBES */
 
-.cloud {
+.cloud{
+    position:absolute;
 
-    position: absolute;
+    width:170px;
+    height:40px;
 
-    width: 170px;
-    height: 40px;
+    border-radius:50px;
 
-    border-radius: 50px;
+    background:rgba(255,255,255,.45);
 
-    background:
-        rgba(255,255,255,.45);
-
-    filter: blur(1px);
+    filter:blur(1px);
 }
 
 .cloud::before,
-.cloud::after {
+.cloud::after{
+    content:"";
 
-    content: "";
+    position:absolute;
+    bottom:0;
 
-    position: absolute;
+    background:white;
 
-    bottom: 0;
-
-    background: white;
-
-    border-radius: 50%;
+    border-radius:50%;
 }
 
-.cloud::before {
-
-    width: 65px;
-    height: 65px;
-
-    left: 25px;
+.cloud::before{
+    width:65px;
+    height:65px;
+    left:25px;
 }
 
-.cloud::after {
-
-    width: 50px;
-    height: 50px;
-
-    left: 90px;
+.cloud::after{
+    width:50px;
+    height:50px;
+    left:90px;
 }
 
-.cloud-1 {
-
-    left: -30px;
-    top: 18%;
+.cloud-1{
+    left:-30px;
+    top:18%;
 }
 
-.cloud-2 {
-
-    right: -45px;
-    top: 32%;
+.cloud-2{
+    right:-45px;
+    top:32%;
 }
 
 
 /* =========================================================
    AVIÓN
-   SE MANTIENE ARRIBA Y NO PASA POR EL TEXTO
 ========================================================= */
 
-.airplane {
+.airplane{
+    position:absolute;
 
-    position: absolute;
+    width:110px;
 
-    width: 115px;
+    top:9%;
+    left:-150px;
 
-    top: 10%;
-
-    left: -150px;
-
-    z-index: 1;
+    z-index:1;
 
     animation:
         airplaneFlight
-        9s
+        10s
         ease-in-out
         forwards;
 
     filter:
         drop-shadow(
-            0 8px 10px
-            rgba(70,45,30,.18)
+            0 7px 10px
+            rgba(112,95,81,.16)
         );
 }
 
+@keyframes airplaneFlight{
 
-@keyframes airplaneFlight {
-
-    0% {
-
-        left: -150px;
-
-        transform:
-            rotate(5deg);
+    0%{
+        left:-150px;
+        transform:rotate(5deg);
     }
 
-    45% {
-
-        left: 32%;
-
-        transform:
-            rotate(1deg);
+    45%{
+        left:30%;
+        transform:rotate(1deg);
     }
 
-    75% {
-
-        left: 65%;
-
-        transform:
-            rotate(-2deg);
+    75%{
+        left:65%;
+        transform:rotate(-2deg);
     }
 
-    100% {
-
-        left: 110%;
-
-        transform:
-            rotate(-5deg);
+    100%{
+        left:110%;
+        transform:rotate(-5deg);
     }
+
 }
 
 
 /* =========================================================
-   TEXTO DE PORTADA
+   TEXTO PORTADA
 ========================================================= */
 
-.intro-content {
+.intro-content{
+    position:relative;
 
-    position: relative;
+    z-index:5;
 
-    z-index: 5;
-
-    width:
-        min(850px,100%);
+    width:min(850px,100%);
 }
 
-.eyebrow {
+.eyebrow{
+    margin:0 0 20px;
 
-    margin:
-        0 0 20px;
+    color:var(--brown);
 
-    color:
-        var(--brown);
+    font-size:12px;
 
-    font-size: 12px;
+    font-weight:bold;
 
-    font-weight: bold;
+    letter-spacing:.25em;
 
-    letter-spacing:
-        .25em;
-
-    text-transform:
-        uppercase;
+    text-transform:uppercase;
 }
 
+.intro h1{
+    margin:0;
 
-.intro h1 {
-
-    margin: 0;
-
-    color:
-        var(--brown-dark);
+    color:var(--brown-dark);
 
     font-family:
         Georgia,
@@ -311,150 +237,109 @@ section {
             100px
         );
 
-    line-height:
-        .95;
+    line-height:.95;
 
-    font-style:
-        italic;
+    font-style:italic;
 
-    font-weight:
-        400;
+    font-weight:400;
 
-    letter-spacing:
-        -.04em;
+    letter-spacing:-.04em;
 }
 
+.subtitle{
+    max-width:580px;
 
-.subtitle {
+    margin:28px auto 0;
 
-    max-width:
-        580px;
+    color:#806F61;
 
-    margin:
-        28px auto 0;
+    font-size:18px;
 
-    color:
-        #756458;
-
-    font-size:
-        18px;
-
-    line-height:
-        1.7;
+    line-height:1.7;
 }
 
+.start-button{
 
-.start-button {
+    margin-top:35px;
 
-    margin-top:
-        35px;
-
-    padding:
-        15px 28px;
+    padding:15px 28px;
 
     border:
         1px solid
-        rgba(104,73,54,.25);
+        rgba(165,138,112,.30);
 
-    border-radius:
-        50px;
+    border-radius:50px;
 
     background:
         rgba(255,255,255,.75);
 
-    color:
-        var(--brown-dark);
+    color:var(--brown-dark);
 
-    cursor:
-        pointer;
+    cursor:pointer;
 
-    font-size:
-        15px;
+    font-size:15px;
 
     box-shadow:
         0 12px 30px
-        rgba(70,45,30,.10);
+        rgba(112,95,81,.10);
 
-    transition:
-        .3s;
+    transition:.3s;
 }
 
+.start-button:hover{
 
-.start-button:hover {
+    transform:translateY(-3px);
 
-    transform:
-        translateY(-3px);
-
-    background:
-        white;
+    background:white;
 }
 
 
 /* =========================================================
-   SECCIÓN DEL SOBRE
+   CARTA / SOBRE
 ========================================================= */
 
-.letter-section {
+.letter-section{
 
-    min-height:
-        100vh;
+    min-height:100vh;
 
-    display:
-        flex;
+    display:flex;
 
-    align-items:
-        center;
+    align-items:center;
 
-    justify-content:
-        center;
+    justify-content:center;
 
-    padding:
-        80px 20px;
+    padding:80px 20px;
 
-    background:
-        white;
+    background:#FFFDFC;
 
-    text-align:
-        center;
+    text-align:center;
 }
 
+.letter-content{
 
-.letter-content {
-
-    width:
-        min(760px,100%);
+    width:min(760px,100%);
 }
 
+.kicker{
 
-.kicker {
+    margin-bottom:12px;
 
-    margin-bottom:
-        12px;
+    color:var(--brown);
 
-    color:
-        var(--brown-soft);
+    font-size:12px;
 
-    font-size:
-        12px;
+    font-weight:bold;
 
-    font-weight:
-        bold;
+    letter-spacing:.22em;
 
-    letter-spacing:
-        .22em;
-
-    text-transform:
-        uppercase;
+    text-transform:uppercase;
 }
 
+.letter-title{
 
-.letter-title {
+    margin:0;
 
-    margin:
-        0;
-
-    color:
-        var(--brown-dark);
+    color:var(--brown-dark);
 
     font-family:
         Georgia,
@@ -468,24 +353,18 @@ section {
             58px
         );
 
-    font-weight:
-        400;
+    font-weight:400;
 }
 
+.letter-description{
 
-.letter-description {
+    max-width:520px;
 
-    max-width:
-        520px;
+    margin:18px auto 45px;
 
-    margin:
-        18px auto 45px;
+    color:#806F61;
 
-    color:
-        #806f61;
-
-    line-height:
-        1.8;
+    line-height:1.8;
 }
 
 
@@ -493,125 +372,91 @@ section {
    SOBRE
 ========================================================= */
 
-.envelope-container {
+.envelope-container{
 
-    position:
-        relative;
+    position:relative;
 
-    width:
-        min(370px,90vw);
+    width:min(370px,90vw);
 
-    aspect-ratio:
-        1.45 / 1;
+    aspect-ratio:1.45/1;
 
-    margin:
-        auto;
+    margin:auto;
 
-    cursor:
-        pointer;
+    cursor:pointer;
 
-    perspective:
-        1000px;
+    perspective:1000px;
 }
 
+.envelope-container::after{
 
-.envelope-container::after {
+    content:"";
 
-    content:
-        "";
+    position:absolute;
 
-    position:
-        absolute;
+    left:8%;
+    right:8%;
 
-    left:
-        8%;
+    bottom:-15%;
 
-    right:
-        8%;
-
-    bottom:
-        -15%;
-
-    height:
-        25%;
+    height:25%;
 
     background:
-        rgba(70,45,30,.18);
+        rgba(112,95,81,.16);
 
-    border-radius:
-        50%;
+    border-radius:50%;
 
-    filter:
-        blur(20px);
+    filter:blur(20px);
 
-    z-index:
-        -1;
+    z-index:-1;
 }
 
+.envelope{
 
-.envelope {
+    position:relative;
 
-    position:
-        relative;
+    width:100%;
+    height:100%;
 
-    width:
-        100%;
+    overflow:visible;
 
-    height:
-        100%;
+    border-radius:12px;
 
-    overflow:
-        hidden;
-
-    border-radius:
-        12px;
-
-    background:
-        #e4d2c0;
+    background:#E7D8C8;
 
     box-shadow:
         0 25px 70px
-        rgba(70,45,30,.16);
+        rgba(112,95,81,.16);
 }
 
+.envelope-back{
 
-/* parte trasera */
+    position:absolute;
 
-.envelope-back {
-
-    position:
-        absolute;
-
-    inset:
-        0;
+    inset:0;
 
     background:
         linear-gradient(
             145deg,
-            #eee1d4,
-            #dbc6b3
+            #F0E5D9,
+            #DDCBBB
         );
+
+    border-radius:12px;
 }
 
+.envelope-front{
 
-/* parte frontal */
+    position:absolute;
 
-.envelope-front {
+    inset:0;
 
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    z-index:
-        4;
+    z-index:4;
 
     background:
         linear-gradient(
             145deg,
-            #dfccba,
-            #cdb39d
+            #E6D5C4,
+            #D6C0AA
         );
 
     clip-path:
@@ -622,36 +467,27 @@ section {
             100% 100%,
             0 100%
         );
+
+    border-radius:12px;
 }
 
+.envelope-flap{
 
-/* solapa */
+    position:absolute;
 
-.envelope-flap {
+    top:0;
+    left:0;
 
-    position:
-        absolute;
+    width:100%;
+    height:60%;
 
-    top:
-        0;
-
-    left:
-        0;
-
-    width:
-        100%;
-
-    height:
-        60%;
-
-    z-index:
-        6;
+    z-index:6;
 
     background:
         linear-gradient(
             145deg,
-            #c9ae96,
-            #b9987e
+            #D9C5B2,
+            #C8AD96
         );
 
     clip-path:
@@ -661,196 +497,182 @@ section {
             50% 100%
         );
 
-    transform-origin:
-        top;
+    transform-origin:top;
 
     transition:
         transform
         1.2s
-        cubic-bezier(.22,1,.36,1);
+        cubic-bezier(
+            .22,
+            1,
+            .36,
+            1
+        );
 }
 
 
-/* corazón */
+/* =========================================================
+   CORAZÓN DEL SOBRE
+========================================================= */
 
-.envelope-heart {
+.envelope-heart{
 
-    position:
-        absolute;
+    position:absolute;
 
-    left:
-        50%;
-
-    top:
-        52%;
+    left:50%;
+    top:54%;
 
     transform:
-        translate(-50%,-50%);
+        translate(
+            -50%,
+            -50%
+        );
 
-    z-index:
-        8;
+    z-index:8;
 
-    color:
-        white;
+    color:white;
 
-    font-size:
-        48px;
+    font-size:48px;
 
-    transition:
-        .4s;
+    transition:.4s;
 }
 
 
-/* texto */
+/* texto sobre */
 
-.envelope-label {
+.envelope-label{
 
-    position:
-        absolute;
+    position:absolute;
 
-    z-index:
-        7;
+    z-index:7;
 
-    width:
-        100%;
+    width:100%;
 
-    left:
-        50%;
-
-    top:
-        79%;
+    left:50%;
+    top:79%;
 
     transform:
-        translate(-50%,-50%);
+        translate(
+            -50%,
+            -50%
+        );
 
-    color:
-        #6d503d;
+    color:#806F61;
 
-    font-size:
-        11px;
+    font-size:11px;
 
-    letter-spacing:
-        .14em;
+    letter-spacing:.14em;
 
-    text-transform:
-        uppercase;
+    text-transform:uppercase;
 }
 
 
-/* sobre abierto */
+/* SOBRE ABIERTO */
 
 .envelope-container.open
-.envelope-flap {
+.envelope-flap{
 
     transform:
         rotateX(180deg);
 }
 
-
 .envelope-container.open
-.envelope-heart {
+.envelope-heart{
 
-    opacity:
-        0;
+    opacity:0;
 
     transform:
-        translate(-50%,-50%)
+        translate(
+            -50%,
+            -50%
+        )
         scale(.7);
 }
 
+.envelope-hint{
 
-.envelope-hint {
+    margin-top:25px;
 
-    margin-top:
-        25px;
+    color:#9A8879;
 
-    color:
-        #9a8879;
-
-    font-size:
-        13px;
+    font-size:13px;
 }
 
 
 /* =========================================================
-   CORAZONES
+   CORAZONCITOS QUE SALEN DEL SOBRE
 ========================================================= */
 
-#hearts-container {
+#hearts-container{
 
-    position:
-        fixed;
+    position:fixed;
 
-    inset:
-        0;
+    inset:0;
 
-    z-index:
-        500;
+    z-index:500;
 
-    pointer-events:
-        none;
+    pointer-events:none;
 
-    overflow:
-        hidden;
+    overflow:hidden;
 }
 
+.floating-heart{
 
-.floating-heart {
+    position:absolute;
 
-    position:
-        absolute;
+    font-size:25px;
 
-    bottom:
-        25%;
-
-    font-size:
-        24px;
-
-    opacity:
-        0;
+    opacity:0;
 
     animation:
-        floatingHeart
-        3.8s
+        heartFly
+        4s
         ease-out
         forwards;
+
+    filter:
+        drop-shadow(
+            0 3px 4px
+            rgba(112,95,81,.12)
+        );
 }
 
+@keyframes heartFly{
 
-@keyframes floatingHeart {
+    0%{
 
-    0% {
-
-        opacity:
-            0;
+        opacity:0;
 
         transform:
-            translate(0,0)
-            scale(.7)
+            translate(
+                0,
+                0
+            )
+            scale(.4)
             rotate(0deg);
     }
 
-    15% {
+    15%{
 
-        opacity:
-            1;
+        opacity:1;
+
     }
 
-    100% {
+    100%{
 
-        opacity:
-            0;
+        opacity:0;
 
         transform:
             translate(
                 var(--move-x),
-                -75vh
+                -55vh
             )
-            scale(1.3)
+            scale(1.15)
             rotate(
                 var(--rotation)
             );
     }
+
 }
 
 
@@ -858,145 +680,60 @@ section {
    REVELACIÓN
 ========================================================= */
 
-.reveal-section {
+.reveal-section{
 
-    position:
-        relative;
+    position:relative;
 
-    min-height:
-        100vh;
+    min-height:100vh;
 
-    display:
-        flex;
+    display:flex;
 
-    align-items:
-        center;
+    align-items:center;
 
-    justify-content:
-        center;
+    justify-content:center;
 
-    overflow:
-        hidden;
+    overflow:hidden;
 
-    padding:
-        80px 20px;
+    padding:80px 20px;
 
     background:
         linear-gradient(
             180deg,
-            #f8f1e8,
-            #fffaf5
+            #F8F1E8,
+            #FFFDF9
         );
-}
-
-
-/* =========================================================
-   MENSAJE DE ESPERA
-========================================================= */
-
-.wait-message {
-
-    position:
-        absolute;
-
-    z-index:
-        100;
-
-    text-align:
-        center;
-
-    color:
-        white;
-
-    transition:
-        opacity 1s ease;
-}
-
-
-.wait-star {
-
-    font-size:
-        40px;
-}
-
-
-.wait-message h2 {
-
-    margin:
-        10px 0;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            32px,
-            6vw,
-            55px
-        );
-
-    font-style:
-        italic;
-
-    font-weight:
-        400;
-}
-
-
-.wait-message p {
-
-    margin:
-        0;
-
-    font-size:
-        14px;
 }
 
 
 /* =========================================================
    CORTINAS
-   AHORA TARDAN 20 SEGUNDOS EN ABRIR
 ========================================================= */
 
-.curtain {
+.curtain{
 
-    position:
-        absolute;
+    position:absolute;
 
-    top:
-        0;
+    top:0;
 
-    width:
-        53%;
+    width:53%;
+    height:100%;
 
-    height:
-        100%;
-
-    z-index:
-        80;
+    z-index:80;
 
     background:
-
         repeating-linear-gradient(
             90deg,
 
-            #e1d3c2 0px,
-            #e1d3c2 18px,
+            #E9DED2 0px,
+            #E9DED2 18px,
 
-            #f3ebe1 19px,
-            #f3ebe1 38px
+            #F6EFE7 19px,
+            #F6EFE7 38px
         );
 
     box-shadow:
         0 0 45px
-        rgba(70,45,30,.18);
-
-    /*
-       20 SEGUNDOS
-       PARA ABRIR Y CERRAR
-    */
+        rgba(112,95,81,.18);
 
     transition:
         transform
@@ -1009,35 +746,26 @@ section {
         );
 }
 
+.curtain-left{
+    left:0;
+}
 
-.curtain-left {
-
-    left:
-        0;
+.curtain-right{
+    right:0;
 }
 
 
-.curtain-right {
-
-    right:
-        0;
-}
-
-
-/* =========================================================
-   CORTINAS ABIERTAS
-========================================================= */
+/* ABIERTAS */
 
 .reveal-section.open
-.curtain-left {
+.curtain-left{
 
     transform:
         translateX(-105%);
 }
 
-
 .reveal-section.open
-.curtain-right {
+.curtain-right{
 
     transform:
         translateX(105%);
@@ -1045,40 +773,38 @@ section {
 
 
 /* =========================================================
-   CONTENIDO
+   CONTENIDO DETRÁS DE LAS CORTINAS
 ========================================================= */
 
-.reveal-content {
+.reveal-content{
 
-    position:
-        relative;
+    position:relative;
 
-    z-index:
-        10;
+    z-index:10;
 
-    width:
-        min(900px,100%);
+    width:min(900px,100%);
 
-    text-align:
-        center;
+    text-align:center;
 
-    opacity:
-        0;
+    opacity:0;
 
     transform:
-        translateY(25px);
+        translateY(20px);
 
     transition:
-        opacity 1.3s ease,
-        transform 1.3s ease;
+        opacity
+        1.3s
+        ease,
+
+        transform
+        1.3s
+        ease;
 }
 
-
 .reveal-section.open
-.reveal-content {
+.reveal-content{
 
-    opacity:
-        1;
+    opacity:1;
 
     transform:
         translateY(0);
@@ -1089,35 +815,27 @@ section {
    HOLA PAPI
 ========================================================= */
 
-.reveal-small {
+.reveal-small{
 
     margin:
-        0 0 8px;
+        0 0 6px;
 
-    color:
-        var(--brown-soft);
+    color:var(--brown);
 
-    font-size:
-        11px;
+    font-size:11px;
 
-    font-weight:
-        bold;
+    font-weight:bold;
 
-    letter-spacing:
-        .2em;
+    letter-spacing:.20em;
 
-    text-transform:
-        uppercase;
+    text-transform:uppercase;
 }
 
+.hello-papi{
 
-.hello-papi {
+    margin:0;
 
-    margin:
-        0;
-
-    color:
-        var(--brown-dark);
+    color:var(--brown-dark);
 
     font-family:
         Georgia,
@@ -1131,14 +849,11 @@ section {
             90px
         );
 
-    font-style:
-        italic;
+    font-style:italic;
 
-    font-weight:
-        400;
+    font-weight:400;
 
-    line-height:
-        1;
+    line-height:1;
 }
 
 
@@ -1146,22 +861,19 @@ section {
    ANIMALITOS
 ========================================================= */
 
-.animals-image {
+.animals-image{
 
-    display:
-        block;
+    display:block;
 
-    width:
-        min(360px,80vw);
+    width:min(360px,80vw);
 
-    max-height:
-        250px;
+    max-height:250px;
 
-    object-fit:
-        contain;
+    object-fit:contain;
 
     margin:
-        12px auto 5px;
+        12px auto
+        5px;
 }
 
 
@@ -1169,16 +881,14 @@ section {
    MENSAJE
 ========================================================= */
 
-.reveal-message {
+.reveal-message{
 
-    max-width:
-        680px;
+    max-width:680px;
 
     margin:
         20px auto 0;
 
-    color:
-        #705f51;
+    color:#705F51;
 
     font-family:
         Georgia,
@@ -1192,15 +902,12 @@ section {
             23px
         );
 
-    line-height:
-        1.7;
+    line-height:1.7;
 }
 
+.reveal-message strong{
 
-.reveal-message strong {
-
-    color:
-        var(--brown-dark);
+    color:var(--brown-dark);
 }
 
 
@@ -1208,83 +915,68 @@ section {
    FOTOS
 ========================================================= */
 
-.photos {
+.photos{
 
-    display:
-        grid;
+    display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(
+            3,
+            1fr
+        );
 
-    gap:
-        18px;
+    gap:18px;
 
-    max-width:
-        850px;
+    max-width:850px;
 
     margin:
         42px auto 0;
 }
 
+.photo{
 
-.photo {
+    aspect-ratio:4/5;
 
-    aspect-ratio:
-        4 / 5;
+    overflow:hidden;
 
-    overflow:
-        hidden;
+    border-radius:18px;
 
-    border-radius:
-        18px;
-
-    background:
-        #eee2d6;
+    background:#EEE2D6;
 
     box-shadow:
         0 12px 35px
-        rgba(70,45,30,.12);
+        rgba(112,95,81,.12);
 }
 
+.photo img{
 
-.photo img {
+    width:100%;
+    height:100%;
 
-    width:
-        100%;
+    display:block;
 
-    height:
-        100%;
-
-    display:
-        block;
-
-    object-fit:
-        cover;
+    object-fit:cover;
 }
 
 
 /* =========================================================
-   FRASE FINAL
+   FINAL
 ========================================================= */
 
-.final-message {
+.final-message{
 
-    margin-top:
-        38px;
+    margin-top:38px;
 
-    color:
-        #8b7869;
+    color:#8B7869;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size:
-        16px;
+    font-size:16px;
 
-    font-style:
-        italic;
+    font-style:italic;
 }
 
 
@@ -1292,67 +984,51 @@ section {
    MÓVIL
 ========================================================= */
 
-@media (max-width:700px) {
+@media(max-width:700px){
 
-    .intro h1 {
-
-        font-size:
-            52px;
+    .intro h1{
+        font-size:52px;
     }
 
-
-    .airplane {
-
-        width:
-            90px;
-
-        top:
-            9%;
+    .airplane{
+        width:85px;
+        top:8%;
     }
 
+    .photos{
 
-    .photos {
+        grid-template-columns:1fr;
 
-        grid-template-columns:
-            1fr;
-
-        width:
-            min(360px,100%);
+        width:min(
+            360px,
+            100%
+        );
     }
 
-
-    .photo {
-
-        aspect-ratio:
-            1 / 1.1;
+    .photo{
+        aspect-ratio:1/1.1;
     }
 
-
-    .curtain {
-
-        width:
-            57%;
+    .curtain{
+        width:57%;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =======================================================
      PORTADA
-===================================================== -->
+======================================================= -->
 
 <section class="intro">
 
-
     <div class="cloud cloud-1"></div>
-
     <div class="cloud cloud-2"></div>
 
 
@@ -1386,9 +1062,8 @@ section {
             C-1 37 2 35 8 35
             Z
             "
-            fill="#684936">
+            fill="#A58A70">
         </path>
-
 
         <path
             d="
@@ -1398,39 +1073,27 @@ section {
             L60 38
             Z
             "
-            fill="#513628">
+            fill="#806653">
         </path>
 
     </svg>
 
 
-
     <div class="intro-content">
 
-
         <p class="eyebrow">
-
             Hay viajes que cambian la vida...
-
         </p>
-
 
         <h1>
-
             Nuestra próxima<br>
-
             aventura
-
         </h1>
 
-
         <p class="subtitle">
-
             Un viaje muy especial
             está a punto de comenzar.
-
         </p>
-
 
         <button
             class="start-button"
@@ -1440,46 +1103,34 @@ section {
 
         </button>
 
-
     </div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =======================================================
      SOBRE
-===================================================== -->
+======================================================= -->
 
 <section
     class="letter-section"
     id="letter-section">
 
-
     <div class="letter-content">
 
-
         <p class="kicker">
-
             Una pequeña pausa
-
         </p>
-
 
         <h2 class="letter-title">
-
             Antes de continuar...
-
         </h2>
 
-
         <p class="letter-description">
-
             Hay algo que alguien
             muy especial quiere decirte.
-
         </p>
-
 
 
         <div
@@ -1489,38 +1140,25 @@ section {
             role="button"
             aria-label="Abrir el sobre">
 
-
             <div class="envelope">
-
 
                 <div class="envelope-back"></div>
 
-
                 <div class="envelope-label">
-
                     Para alguien muy especial
-
                 </div>
-
 
                 <div class="envelope-heart">
-
                     ♡
-
                 </div>
-
 
                 <div class="envelope-front"></div>
 
-
                 <div class="envelope-flap"></div>
-
 
             </div>
 
-
         </div>
-
 
 
         <p
@@ -1531,28 +1169,32 @@ section {
 
         </p>
 
-
     </div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =======================================================
      REVELACIÓN
-===================================================== -->
+     
+     SOLO CORTINAS AL PRINCIPIO.
+     NO HAY "ESPERA UN POQUITO".
+======================================================= -->
 
 <section
     class="reveal-section"
     id="reveal-section">
 
 
-    <!-- CORTINAS -->
+    <!-- CORTINA IZQUIERDA -->
 
     <div
         class="curtain curtain-left">
     </div>
 
+
+    <!-- CORTINA DERECHA -->
 
     <div
         class="curtain curtain-right">
@@ -1560,79 +1202,35 @@ section {
 
 
 
-    <!-- ESPERA -->
-
-    <div
-        class="wait-message"
-        id="wait-message">
-
-
-        <div class="wait-star">
-
-            ✦
-
-        </div>
-
-
-        <h2>
-
-            Espera un poquito...
-
-        </h2>
-
-
-        <p>
-
-            Hay una pequeña sorpresa
-            esperando por ti.
-
-        </p>
-
-
-    </div>
-
-
-
-    <!-- CONTENIDO -->
+    <!-- CONTENIDO DETRÁS -->
 
     <div class="reveal-content">
 
-
         <p class="reveal-small">
-
             Una nueva aventura está por comenzar
-
         </p>
 
 
         <h2 class="hello-papi">
-
             Hola papi...
-
         </h2>
 
 
         <!--
-        =====================================================
-        ANIMALITOS
+        AQUÍ VA LA IMAGEN EXACTA
+        DE TU ELEFANTITO Y TU JIRAFA.
 
-        Guarda TU imagen correcta como:
-
+        Archivo:
         animalitos.png
-
-        y colócala en la misma carpeta que este HTML.
-        =====================================================
         -->
 
         <img
             class="animals-image"
             src="animalitos.png"
-            alt="Nuestros animalitos">
-
+            alt="Un elefantito y una jirafa">
 
 
         <p class="reveal-message">
-
 
             Mami me contó que eres maravilloso
 
@@ -1640,66 +1238,41 @@ section {
 
             y que serás un buen padre.
 
-
             <br><br>
-
 
             <strong>
-
                 No puedo esperar a conocerte.
-
             </strong>
 
-
             <br><br>
-
 
             Tengo muchas ganas de vivir
             esta aventura contigo.
 
-
         </p>
 
 
-
-        <!-- =================================================
-             FOTOS
-        ================================================= -->
-
         <div class="photos">
 
-
             <div class="photo">
-
                 <img
                     src="foto1.jpeg"
                     alt="Nuestra historia">
-
             </div>
 
-
-
             <div class="photo">
-
                 <img
                     src="foto2.jpeg"
                     alt="Un momento especial">
-
             </div>
 
-
-
             <div class="photo">
-
                 <img
                     src="foto3.jpeg"
                     alt="Nuestra próxima aventura">
-
             </div>
 
-
         </div>
-
 
 
         <p class="final-message">
@@ -1709,16 +1282,13 @@ section {
 
         </p>
 
-
     </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     CORAZONES
-===================================================== -->
+<!-- CORAZONES -->
 
 <div id="hearts-container"></div>
 
@@ -1736,24 +1306,20 @@ const startButton =
         "start-button"
     );
 
-
 const envelope =
     document.getElementById(
         "envelope"
     );
-
 
 const revealSection =
     document.getElementById(
         "reveal-section"
     );
 
-
 const envelopeHint =
     document.getElementById(
         "envelope-hint"
     );
-
 
 const heartsContainer =
     document.getElementById(
@@ -1772,17 +1338,14 @@ let envelopeAlreadyOpened =
 
 startButton.addEventListener(
     "click",
-    function() {
+    function(){
 
         document
             .getElementById(
                 "letter-section"
             )
             .scrollIntoView({
-
-                behavior:
-                    "smooth"
-
+                behavior:"smooth"
             });
 
     }
@@ -1791,43 +1354,59 @@ startButton.addEventListener(
 
 
 /* =========================================================
-   CORAZONES
+   CORAZONCITOS
 ========================================================= */
 
-function createHearts() {
+function createHearts(){
 
+    /*
+    Colores suaves,
+    iguales al estilo de la página.
+    */
 
     const colors = [
 
-        "#e7d8c7",
-
-        "#f4ece2",
-
-        "#fffdf9",
-
-        "#c9ae96",
-
-        "#806653"
+        "#E8DED2",
+        "#F5EEE6",
+        "#FFFDF9",
+        "#D9C5B2",
+        "#A58A70"
 
     ];
 
 
     const symbols = [
-
-        "♥",
-        "♡",
         "♥",
         "♡"
-
     ];
 
 
-    for (
-        let i = 0;
-        i < 22;
-        i++
-    ) {
+    /*
+    IMPORTANTE:
 
+    Los corazones nacen alrededor
+    del centro del sobre.
+    */
+
+    const rect =
+        envelope.getBoundingClientRect();
+
+
+    const originX =
+        rect.left +
+        rect.width / 2;
+
+
+    const originY =
+        rect.top +
+        rect.height * .48;
+
+
+    for(
+        let i = 0;
+        i < 24;
+        i++
+    ){
 
         const heart =
             document.createElement(
@@ -1841,46 +1420,51 @@ function createHearts() {
 
         heart.textContent =
             symbols[
-                i %
-                symbols.length
+                i % symbols.length
             ];
 
 
         heart.style.color =
             colors[
-                i %
-                colors.length
+                i % colors.length
             ];
 
 
+        /*
+        POSICIÓN REAL DEL SOBRE
+        */
+
         heart.style.left =
             (
-                40 +
-                Math.random() * 20
-            ) + "%";
+                originX +
+                (Math.random() - .5)
+                * rect.width * .45
+            ) + "px";
+
+
+        heart.style.top =
+            (
+                originY +
+                (Math.random() - .5)
+                * 15
+            ) + "px";
 
 
         heart.style.setProperty(
-
             "--move-x",
-
             (
                 (Math.random() - .5)
-                * 300
+                * 260
             ) + "px"
-
         );
 
 
         heart.style.setProperty(
-
             "--rotation",
-
             (
                 (Math.random() - .5)
-                * 90
+                * 100
             ) + "deg"
-
         );
 
 
@@ -1896,15 +1480,12 @@ function createHearts() {
 
 
         setTimeout(
-
-            function() {
+            function(){
 
                 heart.remove();
 
             },
-
-            4500
-
+            4800
         );
 
     }
@@ -1917,12 +1498,11 @@ function createHearts() {
    ABRIR SOBRE
 ========================================================= */
 
-function openEnvelope() {
+function openEnvelope(){
 
-
-    if (
+    if(
         envelopeAlreadyOpened
-    ) {
+    ){
 
         return;
 
@@ -1933,7 +1513,9 @@ function openEnvelope() {
         true;
 
 
-    /* abre el sobre */
+    /*
+    ABRIMOS EL SOBRE
+    */
 
     envelope.classList.add(
         "open"
@@ -1944,31 +1526,37 @@ function openEnvelope() {
         "La sorpresa está a punto de comenzar...";
 
 
-    /* corazones */
+    /*
+    LOS CORAZONES SALEN
+    DEL SOBRE
+    */
 
-    createHearts();
+    setTimeout(
+        function(){
+
+            createHearts();
+
+        },
+        500
+    );
 
 
 
     /*
     =========================================================
-    DESPUÉS DE 1.5 SEGUNDOS
-    BAJAMOS A LAS CORTINAS
+    1.5 SEGUNDOS DESPUÉS:
+    VAMOS A LAS CORTINAS
     =========================================================
     */
 
     setTimeout(
-
-        function() {
-
+        function(){
 
             revealSection.scrollIntoView({
 
-                behavior:
-                    "smooth",
+                behavior:"smooth",
 
-                block:
-                    "start"
+                block:"start"
 
             });
 
@@ -1976,21 +1564,20 @@ function openEnvelope() {
 
             /*
             =================================================
-            LAS CORTINAS ESPERAN 10 SEGUNDOS
+            10 SEGUNDOS CON LAS CORTINAS CERRADAS
             =================================================
             */
 
             setTimeout(
-
-                function() {
+                function(){
 
 
                     /*
-                    =========================================
-                    EMPIEZAN A ABRIRSE
+                    =================================================
+                    COMIENZA LA APERTURA
 
-                    TARDAN 20 SEGUNDOS
-                    =========================================
+                    TARDA EXACTAMENTE 20 SEGUNDOS
+                    =================================================
                     */
 
                     revealSection.classList.add(
@@ -2000,43 +1587,35 @@ function openEnvelope() {
 
 
                     /*
-                    =========================================
-                    UNA VEZ ABIERTAS COMPLETAMENTE:
+                    =================================================
+                    LAS CORTINAS PERMANECEN ABIERTAS
+                    DURANTE 40 SEGUNDOS.
 
-                    ESPERAN 40 SEGUNDOS
+                    DESPUÉS COMIENZA EL CIERRE.
 
-                    Y DESPUÉS SE CIERRAN.
-                    =========================================
+                    EL CIERRE TARDA 20 SEGUNDOS.
+                    =================================================
                     */
 
                     setTimeout(
-
-                        function() {
-
+                        function(){
 
                             revealSection.classList.remove(
                                 "open"
                             );
 
-
                         },
-
-                        60000
-
+                        40000
                     );
 
 
                 },
-
                 10000
-
             );
 
 
         },
-
         1500
-
     );
 
 }
@@ -2059,36 +1638,25 @@ envelope.addEventListener(
 ========================================================= */
 
 envelope.addEventListener(
-
     "keydown",
+    function(event){
 
-    function(event) {
-
-
-        if (
-
+        if(
             event.key === "Enter" ||
-
             event.key === " "
-
-        ) {
-
+        ){
 
             event.preventDefault();
 
-
             openEnvelope();
-
 
         }
 
     }
-
 );
 
 </script>
 
 
 </body>
-
 </html>
