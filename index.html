@@ -8,29 +8,18 @@
 
 <style>
 
-/* =========================================================
-   PALETA — ROSA / BEIGE EMPOLVADO DE LA REFERENCIA
-========================================================= */
-
 :root{
-    --bg:#f8eee8;
-    --bg-soft:#f3e2da;
-    --cream:#fffaf6;
-
-    --brown:#8d6658;
-    --brown-dark:#765044;
-    --brown-light:#b78e7d;
-
-    --curtain:#b98273;
-    --curtain-dark:#946255;
-    --curtain-light:#d09c8b;
-    --curtain-highlight:#e0b4a4;
+    --cream:#fff9f3;
+    --cream2:#f8eee6;
+    --beige:#ead5c6;
+    --beige-dark:#c79e88;
+    --brown:#7b5546;
+    --brown2:#936b5a;
+    --brown3:#a87b68;
+    --pink:#d7aa98;
+    --pink-light:#efd8cc;
+    --white:#fffdf9;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     box-sizing:border-box;
@@ -42,830 +31,1039 @@ html{
 
 body{
     margin:0;
+    background:var(--cream);
+    color:var(--brown);
+    font-family:Georgia, "Times New Roman", serif;
     overflow-x:hidden;
-
-    color:var(--brown-dark);
-
-    background:var(--bg);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
 }
 
-section{
-    min-height:100vh;
+button{
+    font-family:Georgia, "Times New Roman", serif;
 }
 
 
-/* =========================================================
+/* =====================================================
    PORTADA
-========================================================= */
+===================================================== */
 
 .cover{
     position:relative;
-
     min-height:100vh;
+    height:760px;
+    max-height:900px;
+    overflow:hidden;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    overflow:hidden;
-
-    text-align:center;
-
     background:
+        radial-gradient(circle at 50% 45%,
+            rgba(255,255,255,.13),
+            transparent 45%),
         linear-gradient(
             180deg,
-            #c9a18f 0%,
-            #d1aa98 42%,
-            #d8b5a2 70%,
-            #e4cabc 100%
+            #c9a28e 0%,
+            #cba58f 45%,
+            #d5b19d 100%
         );
 }
 
 
-/* luz suave */
+/* pequeñas estrellas */
 
-.cover::before{
-    content:"";
-
+.star{
     position:absolute;
+    color:#fffaf3;
+    font-size:18px;
+    opacity:.9;
+    animation:twinkle 3s ease-in-out infinite;
+}
 
-    width:900px;
-    height:500px;
+.star.s1{
+    top:8%;
+    left:7%;
+}
 
-    left:50%;
-    top:25%;
+.star.s2{
+    top:17%;
+    left:36%;
+    animation-delay:.8s;
+}
 
-    transform:translate(-50%,-50%);
+.star.s3{
+    top:13%;
+    right:31%;
+    animation-delay:1.3s;
+}
 
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(255,247,240,.32),
-            transparent 70%
-        );
+.star.s4{
+    top:28%;
+    right:13%;
+    animation-delay:2s;
+}
 
-    pointer-events:none;
+.star.s5{
+    bottom:20%;
+    left:9%;
+    animation-delay:1s;
+}
+
+.star.s6{
+    bottom:18%;
+    right:26%;
+    animation-delay:2.4s;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        transform:scale(.7);
+        opacity:.35;
+    }
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
 }
 
 
-/* =========================================================
+/* =====================================================
    NUBES
-========================================================= */
+===================================================== */
 
 .cloud{
     position:absolute;
-
-    width:170px;
-    height:38px;
-
-    border-radius:50px;
-
-    background:#fffaf6;
-
-    opacity:.9;
-
-    box-shadow:
-        0 5px 15px
-        rgba(103,72,59,.06);
+    pointer-events:none;
+    opacity:.94;
+    filter:blur(.1px);
 }
 
-.cloud::before,
-.cloud::after{
-    content:"";
-
+.cloud span{
     position:absolute;
-
-    bottom:0;
+    display:block;
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #fffaf5 0%,
+            #f6eee7 55%,
+            #e8d8cd 100%
+        );
 
     border-radius:50%;
-
-    background:#fffaf6;
+    box-shadow:
+        inset -10px -8px 15px rgba(160,120,100,.10),
+        inset 8px 5px 12px rgba(255,255,255,.55);
 }
 
-.cloud::before{
-    width:65px;
-    height:65px;
-    left:22px;
+.cloud1{
+    width:270px;
+    height:120px;
+    left:-50px;
+    top:140px;
 }
 
-.cloud::after{
-    width:53px;
-    height:53px;
-    left:89px;
+.cloud1 .c1{
+    width:140px;
+    height:100px;
+    left:10px;
+    bottom:5px;
 }
 
-.cloud-1{
-    top:15%;
-    left:-45px;
+.cloud1 .c2{
+    width:125px;
+    height:90px;
+    left:90px;
+    bottom:15px;
 }
 
-.cloud-2{
-    top:29%;
-    right:-45px;
-}
-
-.cloud-3{
-    top:7%;
-    left:40%;
-
-    transform:scale(.42);
-
-    opacity:.65;
-}
-
-
-/* =========================================================
-   AVIÓN
-========================================================= */
-
-.airplane{
-    position:absolute;
-
+.cloud1 .c3{
     width:105px;
+    height:75px;
+    left:165px;
+    bottom:8px;
+}
 
-    top:9%;
-    left:-150px;
+.cloud2{
+    width:250px;
+    height:120px;
+    right:25px;
+    top:55px;
+}
 
-    z-index:3;
+.cloud2 .c1{
+    width:125px;
+    height:95px;
+    left:15px;
+    bottom:0;
+}
+
+.cloud2 .c2{
+    width:135px;
+    height:105px;
+    left:85px;
+    bottom:5px;
+}
+
+.cloud2 .c3{
+    width:105px;
+    height:75px;
+    left:155px;
+    bottom:5px;
+}
+
+.cloud3{
+    width:240px;
+    height:100px;
+    left:20%;
+    bottom:95px;
+}
+
+.cloud3 .c1{
+    width:115px;
+    height:75px;
+    left:10px;
+    bottom:5px;
+}
+
+.cloud3 .c2{
+    width:125px;
+    height:90px;
+    left:75px;
+    bottom:0;
+}
+
+.cloud3 .c3{
+    width:95px;
+    height:70px;
+    left:150px;
+    bottom:5px;
+}
+
+.cloud4{
+    width:330px;
+    height:150px;
+    right:-55px;
+    bottom:105px;
+}
+
+.cloud4 .c1{
+    width:170px;
+    height:125px;
+    left:0;
+    bottom:0;
+}
+
+.cloud4 .c2{
+    width:165px;
+    height:140px;
+    left:110px;
+    bottom:0;
+}
+
+.cloud4 .c3{
+    width:120px;
+    height:95px;
+    left:205px;
+    bottom:0;
+}
+
+
+/* =====================================================
+   AVIÓN
+===================================================== */
+
+.plane-wrap{
+    position:absolute;
+    top:70px;
+    left:20%;
+    width:180px;
+    height:120px;
+    z-index:4;
 
     animation:
-        airplaneFlight
-        9s
-        ease-in-out
-        forwards;
-
-    filter:
-        drop-shadow(
-            0 6px 8px
-            rgba(85,56,45,.14)
-        );
+        planeMove 12s ease-in-out infinite;
 }
 
-@keyframes airplaneFlight{
+.plane{
+    position:absolute;
+    width:125px;
+    height:70px;
+    transform:rotate(-13deg);
+}
+
+
+/* cuerpo del avión */
+
+.plane-body{
+    position:absolute;
+    width:105px;
+    height:25px;
+    left:15px;
+    top:24px;
+
+    background:#fff8ef;
+    border-radius:50% 55% 48% 48%;
+
+    box-shadow:
+        inset -5px -3px 5px rgba(130,90,70,.18);
+}
+
+
+/* punta */
+
+.plane-nose{
+    position:absolute;
+    width:28px;
+    height:25px;
+    right:-5px;
+    top:24px;
+
+    background:#fff8ef;
+
+    border-radius:
+        0 100% 100% 0;
+}
+
+
+/* alas */
+
+.plane-wing{
+    position:absolute;
+    width:48px;
+    height:15px;
+    background:#ead6c5;
+
+    transform:skewX(-25deg);
+}
+
+.plane-wing.top{
+    left:43px;
+    top:9px;
+}
+
+.plane-wing.bottom{
+    left:53px;
+    top:44px;
+}
+
+
+/* cola */
+
+.plane-tail{
+    position:absolute;
+    width:20px;
+    height:30px;
+    left:13px;
+    top:7px;
+
+    background:#ead6c5;
+    transform:skewX(-18deg);
+}
+
+
+/* ventanas */
+
+.window{
+    position:absolute;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#91a9ad;
+    top:31px;
+}
+
+.w1{left:43px}
+.w2{left:56px}
+.w3{left:69px}
+.w4{left:82px}
+
+
+/* línea del avión */
+
+.flight-line{
+    position:absolute;
+    left:-105px;
+    top:45px;
+    width:135px;
+    height:75px;
+
+    border-top:3px dashed rgba(255,245,232,.8);
+    border-left:3px dashed rgba(255,245,232,.8);
+
+    border-radius:60% 0 0 0;
+    transform:rotate(-18deg);
+}
+
+.flight-heart{
+    position:absolute;
+    left:-14px;
+    top:4px;
+    color:#f8e5d7;
+    font-size:38px;
+    transform:rotate(-15deg);
+}
+
+@keyframes planeMove{
 
     0%{
-        left:-150px;
-        transform:rotate(5deg);
+        transform:translateX(-40px);
     }
 
-    45%{
-        left:30%;
-        transform:rotate(1deg);
-    }
-
-    75%{
-        left:63%;
-        transform:rotate(-1deg);
+    50%{
+        transform:translateX(45px);
     }
 
     100%{
-        left:110%;
-        transform:rotate(-4deg);
+        transform:translateX(-40px);
     }
-
 }
 
 
-/* =========================================================
-   PORTADA — TEXTO
-========================================================= */
+/* =====================================================
+   CONTENIDO PORTADA
+===================================================== */
 
 .cover-content{
     position:relative;
-
     z-index:10;
-
-    width:min(760px,90%);
-
+    text-align:center;
+    width:min(850px,90%);
     margin-top:20px;
 }
 
-.cover-label{
-    margin:0 0 18px;
-
-    color:#fff9f4;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    letter-spacing:.28em;
+.eyebrow{
+    color:#fffaf4;
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:4px;
+    margin-bottom:24px;
 }
 
-.cover h1{
+.cover-title{
     margin:0;
-
-    color:#fffaf6;
-
-    font-size:
-        clamp(52px,9vw,92px);
-
+    line-height:.92;
     font-weight:400;
-
-    line-height:.88;
-
-    letter-spacing:-.05em;
 }
 
-.cover h1 em{
+.cover-title .line1{
     display:block;
-
-    margin-top:5px;
-
-    color:#805747;
-
-    font-style:italic;
+    color:#fffaf5;
+    font-size:clamp(52px,7vw,88px);
 }
 
-.cover-description{
-    margin:28px auto 0;
+.cover-title .line2{
+    display:block;
+    color:#704b3e;
+    font-size:clamp(65px,9vw,105px);
+    font-style:italic;
+    margin-top:8px;
+}
 
-    color:#fff8f3;
-
-    font-size:15px;
-
-    line-height:1.55;
+.cover-subtitle{
+    margin:30px auto 25px;
+    color:#fff9f3;
+    font-size:21px;
+    line-height:1.4;
 }
 
 .cover-button{
-    margin-top:27px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-    padding:12px 27px;
+    min-width:250px;
+    padding:14px 30px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.8);
+    border:1.5px solid rgba(255,255,255,.95);
+    border-radius:50px;
 
-    border-radius:40px;
+    background:transparent;
+    color:#fffaf5;
 
-    background:
-        rgba(255,255,255,.10);
-
-    color:white;
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:.16em;
+    font-size:12px;
+    letter-spacing:3px;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
 }
 
 .cover-button:hover{
-    background:
-        rgba(255,255,255,.22);
-
+    background:#fffaf5;
+    color:#765044;
     transform:translateY(-2px);
 }
 
 
-/* =========================================================
-   CARTA
-========================================================= */
+/* =====================================================
+   CARTA / SOBRE
+===================================================== */
 
 .letter{
-    position:relative;
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:70px 20px;
+    min-height:720px;
+    padding:70px 20px 85px;
 
     text-align:center;
 
     background:
-        linear-gradient(
-            180deg,
-            #fffaf6 0%,
-            #f8eee7 100%
+        radial-gradient(
+            ellipse at center,
+            #fffaf4 0%,
+            #f9eee5 72%,
+            #f1dfd2 100%
         );
+
+    position:relative;
 }
 
-.letter-content{
-    width:min(700px,100%);
+.section-label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+
+    color:#805748;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:4px;
 }
 
-.letter-label{
-    margin:0 0 11px;
-
-    color:#a27a68;
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    font-size:9px;
-
-    font-weight:bold;
-
-    letter-spacing:.27em;
+.section-label::before,
+.section-label::after{
+    content:"";
+    width:55px;
+    height:1px;
+    background:#c9a18d;
 }
 
-.letter h2{
-    margin:0;
+.letter-title{
+    margin:14px 0 8px;
 
-    color:#805847;
-
-    font-size:
-        clamp(40px,7vw,62px);
-
+    font-size:clamp(42px,6vw,65px);
     font-weight:400;
-
     font-style:italic;
 
-    line-height:.95;
+    color:#765044;
 }
 
-.letter-description{
-    margin:17px auto 15px;
+.letter-text{
+    font-size:20px;
+    line-height:1.35;
+    margin:0 auto;
 
-    color:#8d7162;
-
-    font-size:14px;
-
-    line-height:1.5;
+    color:#765044;
 }
 
-.letter-decoration{
-    margin-bottom:18px;
-
-    color:#b98775;
-
-    font-size:15px;
+.little-heart{
+    margin:12px auto 15px;
+    font-size:27px;
+    color:#a97b68;
 }
 
 
-/* =========================================================
+/* =====================================================
    SOBRE
-========================================================= */
+===================================================== */
 
-.envelope-wrap{
+.envelope-area{
     position:relative;
+    width:430px;
+    max-width:90vw;
+    height:340px;
 
-    width:min(350px,85vw);
+    margin:0 auto;
 
-    margin:auto;
-
-    cursor:pointer;
-
-    perspective:1000px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.envelope-wrap::after{
-    content:"";
-
+.envelope-hearts span{
     position:absolute;
-
-    left:7%;
-    right:7%;
-    bottom:-14%;
-
-    height:25%;
-
-    border-radius:50%;
-
-    background:
-        rgba(91,62,50,.15);
-
-    filter:blur(20px);
-
-    z-index:-1;
+    color:#bd907c;
+    font-size:22px;
+    opacity:.85;
+    animation:heartFloat 3.2s ease-in-out infinite;
 }
+
+.envelope-hearts .h1{
+    left:20px;
+    top:80px;
+}
+
+.envelope-hearts .h2{
+    left:5px;
+    top:150px;
+    animation-delay:.7s;
+}
+
+.envelope-hearts .h3{
+    left:40px;
+    bottom:70px;
+    animation-delay:1.2s;
+}
+
+.envelope-hearts .h4{
+    right:20px;
+    top:105px;
+    animation-delay:.4s;
+}
+
+.envelope-hearts .h5{
+    right:8px;
+    top:170px;
+    animation-delay:1.4s;
+}
+
+.envelope-hearts .h6{
+    right:55px;
+    bottom:80px;
+    animation-delay:.9s;
+}
+
+@keyframes heartFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-8deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(8deg);
+    }
+}
+
 
 .envelope{
     position:relative;
 
-    width:100%;
+    width:330px;
+    height:215px;
 
-    aspect-ratio:1.48/1;
+    cursor:pointer;
 
-    overflow:hidden;
+    filter:
+        drop-shadow(0 15px 14px rgba(105,75,60,.16));
 
-    border-radius:8px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ecd6c6,
-            #d2ad96
-        );
-
-    box-shadow:
-        0 25px 60px
-        rgba(91,61,49,.15);
+    perspective:900px;
 }
+
+
+/* parte principal */
 
 .envelope-back{
     position:absolute;
-
     inset:0;
+
+    border-radius:9px;
 
     background:
         linear-gradient(
             145deg,
-            #f0ddd0,
-            #d4b09a
+            #efd9c8,
+            #e6c7b2
         );
+
+    border:1px solid #d3ad96;
 }
 
-.envelope-front{
-    position:absolute;
 
-    inset:0;
+/* lado izquierdo */
+
+.envelope-left{
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-left:165px solid #e8ccb9;
+    border-top:108px solid transparent;
+    border-bottom:108px solid transparent;
 
     z-index:4;
+}
 
-    background:
-        linear-gradient(
-            145deg,
-            #e9d2c0,
-            #cda58d
-        );
+
+/* lado derecho */
+
+.envelope-right{
+    position:absolute;
+    right:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-right:165px solid #e8ccb9;
+    border-top:108px solid transparent;
+    border-bottom:108px solid transparent;
+
+    z-index:4;
+}
+
+
+/* parte inferior */
+
+.envelope-bottom{
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:108px;
+
+    background:#e7c9b6;
 
     clip-path:
         polygon(
             0 0,
-            50% 58%,
+            50% 72%,
             100% 0,
             100% 100%,
             0 100%
         );
+
+    z-index:5;
+
+    border-radius:0 0 9px 9px;
 }
+
+
+/* solapa superior */
 
 .envelope-flap{
     position:absolute;
-
-    top:0;
     left:0;
+    top:0;
 
     width:100%;
-    height:62%;
-
-    z-index:8;
+    height:125px;
 
     background:
         linear-gradient(
-            145deg,
-            #d7b8a2,
-            #bd927b
+            160deg,
+            #f1ddcd,
+            #e8cbb8
         );
 
     clip-path:
         polygon(
             0 0,
             100% 0,
-            50% 100%
+            50% 75%
         );
 
-    transform-origin:top;
+    transform-origin:top center;
+
+    z-index:7;
 
     transition:
-        transform
-        1.2s
-        cubic-bezier(.22,1,.36,1);
+        transform 1s cubic-bezier(.2,.75,.2,1);
 }
 
-.envelope-wrap.open .envelope-flap{
-    transform:rotateX(180deg);
-}
 
-.envelope-heart{
+/* corazón */
+
+.envelope-seal{
     position:absolute;
-
     z-index:10;
 
     left:50%;
-    top:53%;
-
-    transform:
-        translate(-50%,-50%);
-
-    color:#936858;
-
-    font-size:46px;
-
-    transition:.4s;
-}
-
-.envelope-wrap.open .envelope-heart{
-    opacity:0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.5);
-}
-
-.envelope-label{
-    position:absolute;
-
-    z-index:9;
-
-    left:50%;
-    bottom:14%;
-
-    width:100%;
+    top:95px;
 
     transform:translateX(-50%);
 
-    color:#815b49;
+    width:46px;
+    height:46px;
 
-    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    font-size:8px;
+    color:#9c6b59;
+    font-size:37px;
 
-    letter-spacing:.18em;
-}
-
-.envelope-hint{
-    margin-top:18px;
-
-    color:#a18474;
-
-    font-size:12px;
-
-    font-style:italic;
+    transition:
+        transform .7s ease,
+        opacity .5s ease;
 }
 
 
-/* =========================================================
-   CORAZONES DEL SOBRE
-========================================================= */
+/* texto del sobre */
 
-#hearts{
-    position:fixed;
-
-    inset:0;
-
-    overflow:hidden;
-
-    z-index:1000;
-
-    pointer-events:none;
-}
-
-.floating-heart{
+.envelope-label{
     position:absolute;
+    z-index:9;
 
-    bottom:25%;
+    bottom:22px;
+    left:0;
+    width:100%;
+
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+
+    color:#795546;
+}
+
+
+/* sobre abierto */
+
+.envelope.open .envelope-flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .envelope-seal{
+    transform:
+        translateX(-50%)
+        translateY(-15px)
+        scale(.8);
 
     opacity:0;
-
-    animation:
-        heartFloat
-        4.8s
-        ease-out
-        forwards;
 }
 
-@keyframes heartFloat{
+
+/* texto debajo */
+
+.envelope-instruction{
+    margin-top:-10px;
+
+    font-size:16px;
+    font-style:italic;
+
+    color:#765044;
+}
+
+
+/* corazones que salen del sobre */
+
+.flying-heart{
+    position:fixed;
+    z-index:500;
+
+    pointer-events:none;
+
+    font-size:20px;
+    color:#b98572;
+
+    animation:
+        heartOut 2.4s ease-out forwards;
+}
+
+@keyframes heartOut{
 
     0%{
-        opacity:0;
-
         transform:
             translate(0,0)
-            scale(.35)
-            rotate(0deg);
+            scale(.3)
+            rotate(0);
+        opacity:0;
     }
 
-    12%{
+    15%{
         opacity:1;
     }
 
     100%{
-        opacity:0;
-
         transform:
-            translate(var(--x),var(--y))
+            translate(
+                var(--x),
+                var(--y)
+            )
             scale(var(--scale))
-            rotate(var(--rotation));
-    }
+            rotate(var(--rot));
 
+        opacity:0;
+    }
 }
 
 
-/* =========================================================
+/* =====================================================
    REVELACIÓN
-========================================================= */
+===================================================== */
 
 .reveal{
     position:relative;
 
-    min-height:100vh;
+    min-height:900px;
 
     overflow:hidden;
 
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:60px 20px;
-
     background:
-        linear-gradient(
-            180deg,
-            #fffaf6 0%,
-            #f7ece4 100%
+        radial-gradient(
+            ellipse at center,
+            #fffaf4 0%,
+            #f8ece2 70%,
+            #efd9ca 100%
         );
 }
 
 
-/*
-============================================================
-MUY IMPORTANTE
-
-El contenido SIEMPRE está detrás de las cortinas.
-
-Las cortinas tienen z-index:100.
-El contenido tiene z-index:10.
-
-Por tanto, mientras estén cerradas,
-"Hola papi..." NO puede verse.
-============================================================
-*/
+/* =====================================================
+   CONTENIDO DE LA REVELACIÓN
+===================================================== */
 
 .reveal-content{
     position:relative;
-
     z-index:10;
 
-    width:min(650px,90%);
+    min-height:900px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 
     text-align:center;
+
+    padding:
+        65px 25px
+        80px;
 
     opacity:0;
 
     transform:translateY(15px);
 
     transition:
-        opacity 1.3s ease,
-        transform 1.3s ease;
+        opacity 1.5s ease,
+        transform 1.5s ease;
 }
 
-.reveal.open .reveal-content{
-    opacity:1;
 
+/*
+   MUY IMPORTANTE:
+   El contenido no aparece cuando las cortinas empiezan
+   a abrirse. Aparece después de los 10 segundos.
+*/
+
+.reveal-content.show{
+    opacity:1;
     transform:translateY(0);
 }
 
-
-/* =========================================================
-   CONTENIDO HOLA PAPI
-========================================================= */
-
 .reveal-label{
-    margin:0 0 7px;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:4px;
+    color:#795446;
 
-    color:#a17968;
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    font-size:8px;
-
-    font-weight:bold;
-
-    letter-spacing:.26em;
+    margin-bottom:12px;
 }
 
-.reveal h2{
-    margin:0;
+.reveal-title{
+    margin:0 0 15px;
 
-    color:#805747;
-
-    font-size:
-        clamp(52px,10vw,84px);
+    font-size:clamp(55px,8vw,90px);
+    line-height:.95;
 
     font-weight:400;
-
     font-style:italic;
 
-    line-height:.9;
+    color:#795044;
 }
 
 .animals{
-    display:block;
-
-    width:min(240px,58vw);
-
-    max-height:170px;
+    width:260px;
+    max-width:65vw;
+    margin:5px 0 8px;
 
     object-fit:contain;
-
-    margin:9px auto 3px;
 }
 
 .reveal-text{
-    max-width:420px;
+    max-width:560px;
 
-    margin:4px auto;
+    color:#765044;
 
-    color:#80685a;
+    font-size:18px;
+    line-height:1.5;
 
-    font-size:13px;
-
-    line-height:1.45;
+    margin:0;
 }
 
 .reveal-text strong{
-    color:#714b3b;
+    display:block;
+    margin:10px 0;
+
+    font-size:19px;
 }
-
-
-/* =========================================================
-   FOTOS
-========================================================= */
 
 .photos{
     display:flex;
-
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
+    gap:18px;
 
-    gap:13px;
+    margin-top:30px;
 
-    margin:25px auto 0;
+    flex-wrap:wrap;
 }
 
 .photo{
-    width:120px;
+    width:145px;
+    height:165px;
 
-    aspect-ratio:1/1.15;
+    padding:8px 8px 25px;
 
-    padding:5px;
+    background:#fffaf3;
 
-    background:#fffdf9;
+    border:1px solid #d6b9a7;
 
     box-shadow:
-        0 8px 20px
-        rgba(81,54,44,.14);
+        0 8px 18px rgba(100,70,55,.13);
+}
 
-    transform:rotate(-2deg);
+.photo:nth-child(1){
+    transform:rotate(-5deg);
 }
 
 .photo:nth-child(2){
-    transform:
-        rotate(3deg)
-        translateY(-5px);
+    transform:rotate(4deg);
 }
 
 .photo:nth-child(3){
-    transform:rotate(-1deg);
+    transform:rotate(-3deg);
 }
 
 .photo img{
     width:100%;
     height:100%;
 
-    display:block;
-
     object-fit:cover;
 }
 
-.final-message{
-    margin:16px auto 0;
+.final-text{
+    margin-top:25px;
 
-    color:#967b6c;
+    max-width:500px;
 
-    font-size:11px;
-
+    font-size:17px;
     font-style:italic;
+
+    line-height:1.5;
 }
 
 
-/* =========================================================
-   =========================================================
+/* =====================================================
    CORTINAS
-   =========================================================
-   ========================================================= */
+===================================================== */
+
+.curtains{
+    position:absolute;
+    inset:0;
+
+    z-index:100;
+
+    pointer-events:none;
+}
 
 
 /*
-    AQUÍ ESTÁ EL CAMBIO IMPORTANTE.
-
-    Las cortinas ocupan TODA la mitad de la pantalla.
-
-    Cuando están cerradas:
-    - izquierda termina exactamente en el centro.
-    - derecha empieza exactamente en el centro.
-    - no existe ningún hueco.
-
-    Por tanto el mensaje queda completamente oculto.
+   Cada cortina mide más de la mitad.
+   Por eso cuando están cerradas se solapan
+   completamente en el centro.
 */
 
 .curtain{
@@ -873,171 +1071,136 @@ Por tanto, mientras estén cerradas,
 
     top:0;
 
-    width:55vw;
+    width:56vw;
     height:100%;
 
-    z-index:100;
-
-    pointer-events:none;
-
     transition:
-        transform
-        6s
-        cubic-bezier(.77,0,.18,1);
+        transform 10s cubic-bezier(.77,0,.18,1);
+
+    filter:
+        drop-shadow(0 4px 7px rgba(70,45,35,.16));
 }
-
-
-/* izquierda */
 
 .curtain-left{
     left:0;
 
-    transform:
-        translateX(0);
+    transform:translateX(0);
 }
-
-
-/* derecha */
 
 .curtain-right{
     right:0;
 
     transform:
+        scaleX(-1)
         translateX(0);
 }
 
 
-/* =========================================================
-   SVG
-========================================================= */
+/* SVG */
 
 .curtain svg{
-    display:block;
-
     width:100%;
     height:100%;
 
-    overflow:visible;
+    display:block;
 }
 
 
-/* =========================================================
-   APERTURA
-
-   Se desplazan MÁS allá del borde.
-   Así nunca queda una cortina atravesando
-   el mensaje durante la animación.
-========================================================= */
+/*
+   Cuando se abre:
+   tarda exactamente 10 segundos.
+*/
 
 .reveal.open .curtain-left{
-    transform:
-        translateX(-105%);
+    transform:translateX(-105%);
 }
 
 .reveal.open .curtain-right{
     transform:
-        translateX(105%);
+        scaleX(-1)
+        translateX(-105%);
 }
 
 
-/* =========================================================
-   CORAZONES DECORATIVOS
-========================================================= */
-
-.reveal-heart{
-    position:absolute;
-
-    z-index:20;
-
-    color:#b88675;
-
-    font-size:13px;
-}
-
-.rh1{
-    left:28%;
-    top:34%;
-}
-
-.rh2{
-    left:31%;
-    top:42%;
-}
-
-.rh3{
-    right:28%;
-    top:34%;
-}
-
-.rh4{
-    right:31%;
-    top:42%;
-}
-
-
-/* =========================================================
-   MÓVIL
-========================================================= */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:700px){
 
-    .cover h1{
-        font-size:51px;
+    .cover{
+        height:100vh;
+        min-height:700px;
     }
 
-    .airplane{
-        width:78px;
-        top:9%;
-    }
-
-    .cloud{
+    .plane-wrap{
+        left:28%;
         transform:scale(.72);
     }
 
-    .letter h2{
-        font-size:42px;
+    .cover-content{
+        margin-top:40px;
     }
 
-    .envelope-wrap{
-        width:285px;
+    .cover-title .line1{
+        font-size:52px;
     }
 
-    .reveal h2{
-        font-size:55px;
+    .cover-title .line2{
+        font-size:65px;
+    }
+
+    .cover-subtitle{
+        font-size:18px;
+    }
+
+    .letter{
+        padding-top:55px;
+    }
+
+    .letter-title{
+        font-size:43px;
+    }
+
+    .letter-text{
+        font-size:18px;
+    }
+
+    .envelope{
+        width:310px;
+        height:200px;
+    }
+
+    .envelope-area{
+        height:315px;
+    }
+
+    .reveal{
+        min-height:850px;
+    }
+
+    .reveal-content{
+        min-height:850px;
+        padding-top:55px;
+    }
+
+    .reveal-title{
+        font-size:58px;
     }
 
     .animals{
-        width:190px;
-    }
-
-    .reveal-text{
-        max-width:300px;
-
-        font-size:12px;
+        width:220px;
     }
 
     .photo{
-        width:88px;
+        width:105px;
+        height:125px;
+        padding:6px 6px 18px;
     }
 
-    .photos{
-        gap:7px;
+    .curtain{
+        width:72vw;
     }
-
-}
-
-
-/* =========================================================
-   ACCESIBILIDAD
-========================================================= */
-
-button:focus-visible,
-.envelope-wrap:focus-visible{
-    outline:
-        2px solid
-        #9a6f5d;
-
-    outline-offset:5px;
 }
 
 </style>
@@ -1051,71 +1214,114 @@ button:focus-visible,
      PORTADA
 ===================================================== -->
 
-<section class="cover">
+<section class="cover" id="inicio">
 
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
+    <!-- estrellas -->
+
+    <div class="star s1">✦</div>
+    <div class="star s2">✦</div>
+    <div class="star s3">✦</div>
+    <div class="star s4">✦</div>
+    <div class="star s5">♥</div>
+    <div class="star s6">✦</div>
+
+
+    <!-- NUBE 1 -->
+
+    <div class="cloud cloud1">
+        <span class="c1"></span>
+        <span class="c2"></span>
+        <span class="c3"></span>
+    </div>
+
+
+    <!-- NUBE 2 -->
+
+    <div class="cloud cloud2">
+        <span class="c1"></span>
+        <span class="c2"></span>
+        <span class="c3"></span>
+    </div>
+
+
+    <!-- NUBE 3 -->
+
+    <div class="cloud cloud3">
+        <span class="c1"></span>
+        <span class="c2"></span>
+        <span class="c3"></span>
+    </div>
+
+
+    <!-- NUBE 4 -->
+
+    <div class="cloud cloud4">
+        <span class="c1"></span>
+        <span class="c2"></span>
+        <span class="c3"></span>
+    </div>
 
 
     <!-- AVIÓN -->
 
-    <svg
-        class="airplane"
-        viewBox="0 0 120 70"
-        aria-hidden="true">
+    <div class="plane-wrap">
 
-        <path
-            d="
-            M5 34
-            H42
-            L64 9
-            L75 12
-            L61 34
-            H88
-            L109 22
-            L117 27
-            L98 39
-            L117 51
-            L109 57
-            L88 44
-            H61
-            L75 67
-            L64 70
-            L42 44
-            H5
-            C0 44 -2 42 -2 39
-            C-2 36 0 34 5 34
-            Z
-            "
-            fill="#fffaf5"
-        />
+        <div class="flight-line"></div>
 
-    </svg>
+        <div class="flight-heart">♡</div>
 
+        <div class="plane">
+
+            <div class="plane-body"></div>
+            <div class="plane-nose"></div>
+
+            <div class="plane-wing top"></div>
+            <div class="plane-wing bottom"></div>
+
+            <div class="plane-tail"></div>
+
+            <div class="window w1"></div>
+            <div class="window w2"></div>
+            <div class="window w3"></div>
+            <div class="window w4"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TEXTO -->
 
     <div class="cover-content">
 
-        <p class="cover-label">
-            HAY VIAJES QUE CAMBIAN LA VIDA...
-        </p>
+        <div class="eyebrow">
+            HAY VIAJES QUE CAMBIAN LA VIDA… ───
+        </div>
 
-        <h1>
-            Nuestra próxima
-            <em>aventura</em>
+        <h1 class="cover-title">
+
+            <span class="line1">
+                Nuestra próxima
+            </span>
+
+            <span class="line2">
+                aventura
+            </span>
+
         </h1>
 
-        <p class="cover-description">
+
+        <p class="cover-subtitle">
             Un viaje muy especial<br>
             está a punto de comenzar.
         </p>
 
+
         <button
             class="cover-button"
-            id="goLetter">
-
+            onclick="goToLetter()"
+        >
             TENGO ALGO PARA TI →
-
         </button>
 
     </div>
@@ -1128,68 +1334,79 @@ button:focus-visible,
      CARTA
 ===================================================== -->
 
-<section
-    class="letter"
-    id="letter">
+<section class="letter" id="letter">
 
-    <div class="letter-content">
+    <div class="section-label">
+        UNA PEQUEÑA PAUSA
+    </div>
 
-        <p class="letter-label">
-            UNA PEQUEÑA PAUSA
-        </p>
 
-        <h2>
-            Antes de continuar...
-        </h2>
+    <h2 class="letter-title">
+        Antes de continuar…
+    </h2>
 
-        <p class="letter-description">
-            Hay algo que alguien<br>
-            muy especial quiere decirte.
-        </p>
 
-        <div class="letter-decoration">
-            ♥
+    <p class="letter-text">
+        Hay algo que alguien<br>
+        muy especial quiere decirte.
+    </p>
+
+
+    <div class="little-heart">
+        ♥
+    </div>
+
+
+    <!-- SOBRE -->
+
+    <div class="envelope-area">
+
+        <div class="envelope-hearts">
+
+            <span class="h1">♡</span>
+            <span class="h2">♥</span>
+            <span class="h3">♡</span>
+
+            <span class="h4">♡</span>
+            <span class="h5">♥</span>
+            <span class="h6">♡</span>
+
         </div>
 
 
-        <!-- SOBRE -->
-
         <div
-            class="envelope-wrap"
+            class="envelope"
             id="envelope"
-            tabindex="0"
-            role="button"
-            aria-label="Abrir el sobre">
+            onclick="openEnvelope()"
+        >
 
-            <div class="envelope">
+            <div class="envelope-back"></div>
 
-                <div class="envelope-back"></div>
+            <div class="envelope-left"></div>
 
-                <div class="envelope-front"></div>
+            <div class="envelope-right"></div>
 
-                <div class="envelope-flap"></div>
+            <div class="envelope-bottom"></div>
 
-                <div class="envelope-heart">
-                    ♡
-                </div>
+            <div class="envelope-flap"></div>
 
-                <div class="envelope-label">
-                    PARA ALGUIEN MUY ESPECIAL
-                </div>
 
+            <div class="envelope-seal">
+                ♡
+            </div>
+
+
+            <div class="envelope-label">
+                PARA ALGUIEN MUY ESPECIAL
             </div>
 
         </div>
 
+    </div>
 
-        <p
-            class="envelope-hint"
-            id="letterHint">
 
-            Toca el sobre para abrirlo
-
-        </p>
-
+    <div class="envelope-instruction">
+        Toca el sobre para abrirlo
     </div>
 
 </section>
@@ -1200,33 +1417,34 @@ button:focus-visible,
      REVELACIÓN
 ===================================================== -->
 
-<section
-    class="reveal"
-    id="reveal">
+<section class="reveal" id="reveal">
 
 
-    <!-- =================================================
-         CONTENIDO
-         ESTÁ DETRÁS DE LAS CORTINAS
-    ================================================== -->
+    <!-- CONTENIDO OCULTO -->
 
-    <div class="reveal-content">
+    <div class="reveal-content" id="revealContent">
 
-        <p class="reveal-label">
+        <div class="reveal-label">
             UNA NUEVA AVENTURA ESTÁ POR COMENZAR
-        </p>
+        </div>
 
-        <h2>
-            Hola papi...
+
+        <h2 class="reveal-title">
+            Hola papi…
         </h2>
 
 
-        <!-- TU IMAGEN -->
+        <!--
+            Coloca aquí el dibujo de los animalitos
+            de tu referencia como:
+
+            animalitos.png
+        -->
 
         <img
             src="animalitos.png"
             class="animals"
-            alt="Nuestros animalitos"
+            alt="Elefante y jirafa"
         >
 
 
@@ -1234,19 +1452,17 @@ button:focus-visible,
 
             <em>
                 Mami me contó que eres maravilloso
+                <br>
                 y que serás un buen padre.
             </em>
-
-            <br>
 
             <strong>
                 No puedo esperar a conocerte.
             </strong>
 
-            <br>
-
             <em>
                 Tengo muchas ganas de vivir
+                <br>
                 esta aventura contigo.
             </em>
 
@@ -1258,522 +1474,351 @@ button:focus-visible,
         <div class="photos">
 
             <div class="photo">
-                <img
-                    src="foto1.jpeg"
-                    alt="Nuestra historia">
+                <img src="foto1.jpeg" alt="Foto 1">
             </div>
 
             <div class="photo">
-                <img
-                    src="foto2.jpeg"
-                    alt="Un momento especial">
+                <img src="foto2.jpeg" alt="Foto 2">
             </div>
 
             <div class="photo">
-                <img
-                    src="foto3.jpeg"
-                    alt="Nuestra aventura">
+                <img src="foto3.jpeg" alt="Foto 3">
             </div>
 
         </div>
 
 
-        <p class="final-message">
-            Parece que nuestro próximo viaje será<br>
-            el más especial de todos...
+        <p class="final-text">
+            Parece que nuestro próximo viaje será
+            <br>
+            el más especial de todos…
         </p>
 
-    </div>
 
-
-
-    <!-- =================================================
-         CORTINA IZQUIERDA
-    ================================================== -->
-
-    <div class="curtain curtain-left">
-
-        <svg
-            viewBox="0 0 550 1000"
-            preserveAspectRatio="none"
-            aria-hidden="true">
-
-            <defs>
-
-                <linearGradient
-                    id="fabricLeft"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="0">
-
-                    <stop
-                        offset="0"
-                        stop-color="#936157"/>
-
-                    <stop
-                        offset=".10"
-                        stop-color="#ad786b"/>
-
-                    <stop
-                        offset=".20"
-                        stop-color="#c28e7e"/>
-
-                    <stop
-                        offset=".30"
-                        stop-color="#a66e62"/>
-
-                    <stop
-                        offset=".40"
-                        stop-color="#ce9988"/>
-
-                    <stop
-                        offset=".50"
-                        stop-color="#a66d61"/>
-
-                    <stop
-                        offset=".60"
-                        stop-color="#d09a89"/>
-
-                    <stop
-                        offset=".70"
-                        stop-color="#a96f63"/>
-
-                    <stop
-                        offset=".82"
-                        stop-color="#c18b7b"/>
-
-                    <stop
-                        offset=".92"
-                        stop-color="#a36a5e"/>
-
-                    <stop
-                        offset="1"
-                        stop-color="#87574e"/>
-
-                </linearGradient>
-
-            </defs>
-
-
-            <!-- =================================================
-                 SILUETA CURVA
-
-                 El borde interior NO es una línea recta.
-                 La tela se recoge hacia dentro y después
-                 vuelve a caer formando pliegues.
-            ================================================== -->
-
-            <path
-                d="
-                M0 0
-
-                L550 0
-
-                C530 85 510 145 470 195
-
-                C430 245 375 285 330 330
-
-                C285 375 245 415 215 452
-
-                C193 480 187 500 198 522
-
-                C210 545 220 560 217 590
-
-                C213 635 194 680 175 725
-
-                C154 775 137 830 125 885
-
-                C116 925 112 965 108 1000
-
-                L0 1000
-
-                Z
-                "
-
-                fill="url(#fabricLeft)"
-            />
-
-
-            <!-- =================================================
-                 PLIEGUES CLAROS
-            ================================================== -->
-
-            <path
-                d="
-                M35 0
-                C70 160 94 310 115 450
-                C130 570 118 740 102 1000
-
-                M95 0
-                C125 175 150 325 165 455
-                C178 565 155 750 130 1000
-
-                M155 0
-                C185 170 205 300 218 415
-                C225 475 210 525 190 590
-                C170 680 145 820 135 1000
-
-                M220 0
-                C245 145 265 270 278 355
-                C288 415 266 455 225 500
-
-                M290 0
-                C312 120 326 230 330 300
-                C334 360 305 420 260 465
-
-                M365 0
-                C380 100 382 175 365 235
-                C350 285 318 325 280 360
-
-                M445 0
-                C447 75 438 140 415 190
-                C395 230 365 265 330 300
-                "
-
-                fill="none"
-
-                stroke="#e4b7a7"
-
-                stroke-opacity=".27"
-
-                stroke-width="13"
-
-                stroke-linecap="round"
-            />
-
-
-            <!-- =================================================
-                 PLIEGUES OSCUROS
-            ================================================== -->
-
-            <path
-                d="
-                M62 0
-                C92 180 113 340 126 505
-                C136 665 112 830 100 1000
-
-                M175 0
-                C198 155 220 300 232 410
-                C240 475 216 550 192 630
-
-                M310 0
-                C325 135 333 245 320 325
-                C310 380 282 430 240 475
-
-                M465 0
-                C465 95 450 160 420 210
-                "
-
-                fill="none"
-
-                stroke="#754a43"
-
-                stroke-opacity=".20"
-
-                stroke-width="12"
-
-                stroke-linecap="round"
-            />
-
-
-            <!-- BORDE PROFUNDO -->
-
-            <path
-                d="
-                M550 0
-                C530 85 510 145 470 195
-                C430 245 375 285 330 330
-                C285 375 245 415 215 452
-                C193 480 187 500 198 522
-                C210 545 220 560 217 590
-                C213 635 194 680 175 725
-                C154 775 137 830 125 885
-                C116 925 112 965 108 1000
-                "
-
-                fill="none"
-
-                stroke="#70473f"
-
-                stroke-opacity=".30"
-
-                stroke-width="20"
-
-                stroke-linecap="round"
-            />
-
-
-            <!-- =================================================
-                 ABRAZADERA
-            ================================================== -->
-
-            <ellipse
-                cx="201"
-                cy="525"
-                rx="69"
-                ry="32"
-
-                fill="#a97063"
-            />
-
-            <ellipse
-                cx="201"
-                cy="525"
-                rx="61"
-                ry="24"
-
-                fill="none"
-
-                stroke="#dfb0a0"
-
-                stroke-opacity=".55"
-
-                stroke-width="4"
-            />
-
-        </svg>
+        <div class="little-heart">
+            ─── ♥ ───
+        </div>
 
     </div>
 
 
 
     <!-- =================================================
-         CORTINA DERECHA
+         CORTINAS
     ================================================== -->
 
-    <div class="curtain curtain-right">
-
-        <svg
-            viewBox="0 0 550 1000"
-            preserveAspectRatio="none"
-            aria-hidden="true">
-
-            <defs>
-
-                <linearGradient
-                    id="fabricRight"
-                    x1="0"
-                    y1="0"
-                    x2="1"
-                    y2="0">
-
-                    <stop
-                        offset="0"
-                        stop-color="#87574e"/>
-
-                    <stop
-                        offset=".08"
-                        stop-color="#a36a5e"/>
-
-                    <stop
-                        offset=".18"
-                        stop-color="#c18b7b"/>
-
-                    <stop
-                        offset=".30"
-                        stop-color="#a96f63"/>
-
-                    <stop
-                        offset=".40"
-                        stop-color="#d09a89"/>
-
-                    <stop
-                        offset=".50"
-                        stop-color="#a66d61"/>
-
-                    <stop
-                        offset=".60"
-                        stop-color="#ce9988"/>
-
-                    <stop
-                        offset=".70"
-                        stop-color="#a66e62"/>
-
-                    <stop
-                        offset=".80"
-                        stop-color="#c28e7e"/>
-
-                    <stop
-                        offset=".90"
-                        stop-color="#ad786b"/>
-
-                    <stop
-                        offset="1"
-                        stop-color="#936157"/>
-
-                </linearGradient>
-
-            </defs>
-
-
-            <!-- SILUETA ESPEJADA -->
-
-            <path
-                d="
-                M0 0
-
-                L550 0
-
-                L550 1000
-
-                L442 1000
-
-                C438 965 434 925 425 885
-
-                C413 830 396 775 375 725
-
-                C356 680 337 635 333 590
-
-                C330 560 340 545 352 522
-
-                C363 500 357 480 335 452
-
-                C305 415 265 375 220 330
-
-                C175 285 120 245 80 195
-
-                C40 145 20 85 0 0
-
-                Z
-                "
-
-                fill="url(#fabricRight)"
-            />
-
-
-            <!-- PLIEGUES CLAROS -->
-
-            <path
-                d="
-                M515 0
-                C480 160 456 310 435 450
-                C420 570 432 740 448 1000
-
-                M455 0
-                C425 175 400 325 385 455
-                C372 565 395 750 420 1000
-
-                M395 0
-                C365 170 345 300 332 415
-                C325 475 340 525 360 590
-                C380 680 405 820 415 1000
-
-                M330 0
-                C305 145 285 270 272 355
-                C262 415 284 455 325 500
-
-                M260 0
-                C238 120 224 230 220 300
-                C216 360 245 420 290 465
-
-                M185 0
-                C170 100 168 175 185 235
-                C200 285 232 325 270 360
-
-                M105 0
-                C103 75 112 140 135 190
-                C155 230 185 265 220 300
-                "
-
-                fill="none"
-
-                stroke="#e4b7a7"
-
-                stroke-opacity=".27"
-
-                stroke-width="13"
-
-                stroke-linecap="round"
-            />
-
-
-            <!-- PLIEGUES OSCUROS -->
-
-            <path
-                d="
-                M488 0
-                C458 180 437 340 424 505
-                C414 665 438 830 450 1000
-
-                M375 0
-                C352 155 330 300 318 410
-                C310 475 334 550 358 630
-
-                M240 0
-                C225 135 217 245 230 325
-                C240 380 268 430 310 475
-
-                M85 0
-                C85 95 100 160 130 210
-                "
-
-                fill="none"
-
-                stroke="#754a43"
-
-                stroke-opacity=".20"
-
-                stroke-width="12"
-
-                stroke-linecap="round"
-            />
-
-
-            <!-- BORDE PROFUNDO -->
-
-            <path
-                d="
-                M0 0
-                C20 85 40 145 80 195
-                C120 245 175 285 220 330
-                C265 375 305 415 335 452
-                C357 480 363 500 352 522
-                C340 545 330 560 333 590
-                C337 635 356 680 375 725
-                C396 775 413 830 425 885
-                C434 925 438 965 442 1000
-                "
-
-                fill="none"
-
-                stroke="#70473f"
-
-                stroke-opacity=".30"
-
-                stroke-width="20"
-
-                stroke-linecap="round"
-            />
-
-
-            <!-- ABRAZADERA -->
-
-            <ellipse
-                cx="349"
-                cy="525"
-                rx="69"
-                ry="32"
-
-                fill="#a97063"
-            />
-
-            <ellipse
-                cx="349"
-                cy="525"
-                rx="61"
-                ry="24"
-
-                fill="none"
-
-                stroke="#dfb0a0"
-
-                stroke-opacity=".55"
-
-                stroke-width="4"
-            />
-
-        </svg>
+    <div class="curtains">
+
+
+        <!-- CORTINA IZQUIERDA -->
+
+        <div class="curtain curtain-left">
+
+            <svg
+                viewBox="0 0 600 1000"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
+                <!-- forma principal -->
+
+                <path
+                    d="
+                    M0 0
+                    H600
+                    V145
+                    C575 205 560 265 525 330
+                    C490 395 455 460 415 530
+                    C380 592 350 665 315 730
+                    C275 805 225 875 175 930
+                    C130 980 75 1000 0 1000
+                    Z
+                    "
+                    fill="#b98273"
+                />
+
+
+                <!-- iluminación superior -->
+
+                <path
+                    d="
+                    M35 0
+                    H115
+                    C125 190 115 375 85 570
+                    C65 710 35 865 0 945
+                    V0
+                    Z
+                    "
+                    fill="#d4a393"
+                    opacity=".55"
+                />
+
+
+                <!-- pliegue oscuro -->
+
+                <path
+                    d="
+                    M150 0
+                    C165 190 160 365 145 520
+                    C130 680 105 835 70 965
+                    L115 940
+                    C155 795 185 650 190 505
+                    C195 320 188 150 185 0
+                    Z
+                    "
+                    fill="#8f5f52"
+                    opacity=".75"
+                />
+
+
+                <!-- pliegue claro -->
+
+                <path
+                    d="
+                    M235 0
+                    C250 180 245 350 225 500
+                    C205 650 175 805 140 920
+                    L185 895
+                    C225 750 255 600 265 465
+                    C278 295 268 140 270 0
+                    Z
+                    "
+                    fill="#d09a89"
+                    opacity=".8"
+                />
+
+
+                <!-- pliegue oscuro -->
+
+                <path
+                    d="
+                    M325 0
+                    C340 165 335 330 315 470
+                    C292 640 260 785 220 865
+                    L270 825
+                    C320 675 345 515 355 375
+                    C365 230 355 100 360 0
+                    Z
+                    "
+                    fill="#916154"
+                    opacity=".7"
+                />
+
+
+                <!-- pliegue final -->
+
+                <path
+                    d="
+                    M420 0
+                    C440 160 430 300 405 430
+                    C375 585 335 710 300 800
+                    L355 745
+                    C405 615 445 470 460 330
+                    C475 195 465 90 470 0
+                    Z
+                    "
+                    fill="#d09c8b"
+                    opacity=".72"
+                />
+
+
+                <!-- borde interior -->
+
+                <path
+                    d="
+                    M560 130
+                    C525 300 460 470 390 610
+                    C320 750 230 900 155 965
+                    "
+                    fill="none"
+                    stroke="#805348"
+                    stroke-width="13"
+                    opacity=".45"
+                />
+
+
+                <!-- recogido -->
+
+                <ellipse
+                    cx="185"
+                    cy="700"
+                    rx="90"
+                    ry="45"
+                    fill="#a56f60"
+                    opacity=".9"
+                />
+
+                <ellipse
+                    cx="185"
+                    cy="690"
+                    rx="80"
+                    ry="28"
+                    fill="#c58e7c"
+                />
+
+                <path
+                    d="
+                    M110 685
+                    C140 700 165 705 185 700
+                    C210 695 235 685 260 670
+                    "
+                    fill="none"
+                    stroke="#efd0c1"
+                    stroke-width="8"
+                    opacity=".55"
+                />
+
+            </svg>
+
+        </div>
+
+
+
+        <!-- CORTINA DERECHA -->
+
+        <div class="curtain curtain-right">
+
+            <svg
+                viewBox="0 0 600 1000"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
+                <path
+                    d="
+                    M0 0
+                    H600
+                    V145
+                    C575 205 560 265 525 330
+                    C490 395 455 460 415 530
+                    C380 592 350 665 315 730
+                    C275 805 225 875 175 930
+                    C130 980 75 1000 0 1000
+                    Z
+                    "
+                    fill="#b98273"
+                />
+
+
+                <path
+                    d="
+                    M35 0
+                    H115
+                    C125 190 115 375 85 570
+                    C65 710 35 865 0 945
+                    V0
+                    Z
+                    "
+                    fill="#d4a393"
+                    opacity=".55"
+                />
+
+
+                <path
+                    d="
+                    M150 0
+                    C165 190 160 365 145 520
+                    C130 680 105 835 70 965
+                    L115 940
+                    C155 795 185 650 190 505
+                    C195 320 188 150 185 0
+                    Z
+                    "
+                    fill="#8f5f52"
+                    opacity=".75"
+                />
+
+
+                <path
+                    d="
+                    M235 0
+                    C250 180 245 350 225 500
+                    C205 650 175 805 140 920
+                    L185 895
+                    C225 750 255 600 265 465
+                    C278 295 268 140 270 0
+                    Z
+                    "
+                    fill="#d09a89"
+                    opacity=".8"
+                />
+
+
+                <path
+                    d="
+                    M325 0
+                    C340 165 335 330 315 470
+                    C292 640 260 785 220 865
+                    L270 825
+                    C320 675 345 515 355 375
+                    C365 230 355 100 360 0
+                    Z
+                    "
+                    fill="#916154"
+                    opacity=".7"
+                />
+
+
+                <path
+                    d="
+                    M420 0
+                    C440 160 430 300 405 430
+                    C375 585 335 710 300 800
+                    L355 745
+                    C405 615 445 470 460 330
+                    C475 195 465 90 470 0
+                    Z
+                    "
+                    fill="#d09c8b"
+                    opacity=".72"
+                />
+
+
+                <path
+                    d="
+                    M560 130
+                    C525 300 460 470 390 610
+                    C320 750 230 900 155 965
+                    "
+                    fill="none"
+                    stroke="#805348"
+                    stroke-width="13"
+                    opacity=".45"
+                />
+
+
+                <ellipse
+                    cx="185"
+                    cy="700"
+                    rx="90"
+                    ry="45"
+                    fill="#a56f60"
+                    opacity=".9"
+                />
+
+                <ellipse
+                    cx="185"
+                    cy="690"
+                    rx="80"
+                    ry="28"
+                    fill="#c58e7c"
+                />
+
+                <path
+                    d="
+                    M110 685
+                    C140 700 165 705 185 700
+                    C210 695 235 685 260 670
+                    "
+                    fill="none"
+                    stroke="#efd0c1"
+                    stroke-width="8"
+                    opacity=".55"
+                />
+
+            </svg>
+
+        </div>
 
     </div>
 
@@ -1781,196 +1826,47 @@ button:focus-visible,
 
 
 
-<!-- =====================================================
-     CORAZONES
-===================================================== -->
-
-<div id="hearts"></div>
-
-
-
 <script>
 
-/* =========================================================
-   ELEMENTOS
-========================================================= */
 
-const goLetter =
-    document.getElementById("goLetter");
+/* =====================================================
+   IR A LA CARTA
+===================================================== */
 
-const envelope =
-    document.getElementById("envelope");
+function goToLetter(){
 
-const letter =
-    document.getElementById("letter");
-
-const reveal =
-    document.getElementById("reveal");
-
-const letterHint =
-    document.getElementById("letterHint");
-
-const hearts =
-    document.getElementById("hearts");
-
-
-let opened = false;
-
-
-/* =========================================================
-   PORTADA → CARTA
-========================================================= */
-
-goLetter.addEventListener(
-    "click",
-    function(){
-
-        letter.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
+    document
+        .getElementById("letter")
+        .scrollIntoView({
+            behavior:"smooth"
         });
-
-    }
-);
-
-
-/* =========================================================
-   CORAZONES
-========================================================= */
-
-function createHearts(){
-
-    const colors = [
-        "#9d6d5d",
-        "#b17d6b",
-        "#c18e7b",
-        "#d2a392",
-        "#e1b9a9",
-        "#efd5ca",
-        "#fff7f2"
-    ];
-
-    const symbols = [
-        "♥",
-        "♡",
-        "♥",
-        "♡"
-    ];
-
-
-    /* MÁS CORAZONES */
-
-    for(let i=0;i<55;i++){
-
-        const heart =
-            document.createElement("span");
-
-        heart.className =
-            "floating-heart";
-
-        heart.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-        heart.style.color =
-            colors[
-                Math.floor(
-                    Math.random() *
-                    colors.length
-                )
-            ];
-
-
-        /*
-            Salen desde la zona del sobre.
-        */
-
-        heart.style.left =
-            (
-                38 +
-                Math.random()*24
-            ) + "%";
-
-
-        heart.style.setProperty(
-            "--x",
-            (
-                (Math.random()-.5)*430
-            ) + "px"
-        );
-
-
-        heart.style.setProperty(
-            "--y",
-            (
-                -(350+
-                Math.random()*520)
-            ) + "px"
-        );
-
-
-        heart.style.setProperty(
-            "--scale",
-            (
-                .55+
-                Math.random()*1.1
-            )
-        );
-
-
-        heart.style.setProperty(
-            "--rotation",
-            (
-                (Math.random()-.5)*150
-            ) + "deg"
-        );
-
-
-        heart.style.fontSize =
-            (
-                10+
-                Math.random()*17
-            ) + "px";
-
-
-        heart.style.animationDelay =
-            (
-                Math.random()*1
-            ) + "s";
-
-
-        hearts.appendChild(heart);
-
-
-        setTimeout(
-            function(){
-
-                heart.remove();
-
-            },
-            6000
-        );
-
-    }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    ABRIR SOBRE
-========================================================= */
+===================================================== */
+
+let envelopeOpened = false;
 
 function openEnvelope(){
 
-    if(opened){
+    if(envelopeOpened){
         return;
     }
 
-    opened = true;
+    envelopeOpened = true;
+
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const reveal =
+        document.getElementById("reveal");
+
+    const revealContent =
+        document.getElementById("revealContent");
 
 
     /* abrir sobre */
@@ -1983,77 +1879,160 @@ function openEnvelope(){
     createHearts();
 
 
-    letterHint.textContent =
-        "La sorpresa está a punto de comenzar...";
+    /*
+       Esperamos un momento para que se vea
+       la apertura del sobre.
+    */
+
+    setTimeout(() => {
+
+        reveal.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    },1200);
 
 
     /*
-    =========================================================
-    TRANSICIÓN CARTA → REVELACIÓN
-    =========================================================
+       Después de llegar a la revelación,
+       empiezan las cortinas.
     */
 
-    setTimeout(
-        function(){
+    setTimeout(() => {
 
-            reveal.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
+        reveal.classList.add("open");
 
+        /*
+           LAS CORTINAS TARDAN 10 SEGUNDOS.
+           El mensaje sigue completamente oculto
+           durante esos 10 segundos.
+        */
 
-            /*
-            Dejamos que el scroll termine antes
-            de comenzar la apertura.
-            */
+        setTimeout(() => {
 
-            setTimeout(
-                function(){
+            revealContent.classList.add("show");
 
-                    reveal.classList.add("open");
+        },10000);
 
-                },
-                800
-            );
-
-        },
-        1200
-    );
+    },2200);
 
 }
 
 
-/* =========================================================
-   CLICK
-========================================================= */
 
-envelope.addEventListener(
-    "click",
-    openEnvelope
-);
+/* =====================================================
+   CORAZONES DEL SOBRE
+===================================================== */
+
+function createHearts(){
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const rect =
+        envelope.getBoundingClientRect();
 
 
-/* =========================================================
-   TECLADO
-========================================================= */
+    const colors=[
+        "#c58f7c",
+        "#d3a18e",
+        "#b97e6c",
+        "#e1bdad",
+        "#efd7cb",
+        "#9f6e5d"
+    ];
 
-envelope.addEventListener(
-    "keydown",
-    function(event){
 
-        if(
-            event.key === "Enter" ||
-            event.key === " "
-        ){
+    for(let i=0;i<55;i++){
 
-            event.preventDefault();
+        const heart =
+            document.createElement("div");
 
-            openEnvelope();
+        heart.className="flying-heart";
 
-        }
+        heart.textContent =
+            Math.random() > .35
+            ? "♥"
+            : "♡";
+
+
+        heart.style.color =
+            colors[
+                Math.floor(
+                    Math.random()*colors.length
+                )
+            ];
+
+
+        heart.style.left =
+            (
+                rect.left +
+                rect.width/2 +
+                (Math.random()-.5)*70
+            )+"px";
+
+
+        heart.style.top =
+            (
+                rect.top +
+                rect.height*.35
+            )+"px";
+
+
+        heart.style.setProperty(
+            "--x",
+            (
+                (Math.random()-.5)*420
+            )+"px"
+        );
+
+
+        heart.style.setProperty(
+            "--y",
+            (
+                -120 -
+                Math.random()*430
+            )+"px"
+        );
+
+
+        heart.style.setProperty(
+            "--scale",
+            (
+                .55 +
+                Math.random()*1.15
+            )
+        );
+
+
+        heart.style.setProperty(
+            "--rot",
+            (
+                -180 +
+                Math.random()*360
+            )+"deg"
+        );
+
+
+        heart.style.animationDuration =
+            (
+                1.7 +
+                Math.random()*1.8
+            )+"s";
+
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        },4500);
 
     }
-);
+
+}
 
 </script>
 
