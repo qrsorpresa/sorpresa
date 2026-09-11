@@ -1,1765 +1,2246 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Nuestra próxima aventura — una sorpresa muy especial."
-  >
+<meta charset="UTF-8">
 
-  <meta name="theme-color" content="#edf7fc">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-  <title>Nuestra próxima aventura</title>
+<meta
+  name="description"
+  content="Nuestra próxima aventura"
+>
 
-  <!-- TIPOGRAFÍAS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Nuestra próxima aventura</title>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
-    rel="stylesheet"
-  >
 
-  <style>
+<!-- FUENTES -->
 
-    /* =====================================================
-       VARIABLES
-    ===================================================== */
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    :root {
-      --blue: #6f9bb6;
-      --blue-dark: #315f7b;
-      --blue-soft: #dceef7;
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
 
-      --text: #536d7e;
-      --text-light: #7d929f;
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
+  rel="stylesheet"
+>
 
-      --cream: #fffdf9;
-      --white: #ffffff;
 
-      --shadow:
-        0 20px 55px rgba(62, 103, 128, 0.13);
+<style>
 
-      --shadow-soft:
-        0 10px 30px rgba(62, 103, 128, 0.08);
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-      --radius: 24px;
+:root {
 
-      --ease:
-        cubic-bezier(.22, 1, .36, 1);
-    }
+  --cream: #f8f4ed;
 
+  --cream-dark: #eee5d8;
 
-    /* =====================================================
-       RESET
-    ===================================================== */
+  --beige: #d7c3aa;
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  --beige-dark: #b69b7d;
 
+  --brown: #765f49;
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 20px;
-    }
+  --brown-dark: #594633;
 
+  --text: #766a5d;
 
-    body {
-      min-width: 320px;
-      overflow-x: hidden;
+  --white: #ffffff;
 
-      background: var(--white);
-      color: var(--text);
+  --shadow:
+    0 25px 70px rgba(94, 73, 52, .12);
 
-      font-family:
-        "DM Sans",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+  --shadow-soft:
+    0 12px 35px rgba(94, 73, 52, .08);
 
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+  --ease:
+    cubic-bezier(.22, 1, .36, 1);
+}
 
 
-    button {
-      font: inherit;
-    }
+/* =====================================================
+   RESET
+===================================================== */
 
+*,
+*::before,
+*::after {
 
-    button:focus-visible,
-    .envelope-container:focus-visible {
-      outline: 3px solid rgba(111, 155, 182, .35);
-      outline-offset: 5px;
-    }
+  box-sizing: border-box;
 
+  margin: 0;
 
-    /* =====================================================
-       TIPOGRAFÍA
-    ===================================================== */
+  padding: 0;
+}
 
-    .main-title,
-    .section-title,
-    .hello {
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
 
-      font-weight: 500;
-      letter-spacing: -0.035em;
-    }
+html {
 
+  scroll-behavior: smooth;
 
-    /* =====================================================
-       INTRO
-    ===================================================== */
+  scroll-padding-top: 20px;
+}
 
-    .intro {
-      position: relative;
 
-      min-height: 100svh;
+body {
 
-      display: grid;
-      place-items: center;
+  min-width: 320px;
 
-      overflow: hidden;
-      isolation: isolate;
+  overflow-x: hidden;
 
-      padding: 50px 24px;
+  background: var(--white);
 
-      text-align: center;
+  color: var(--text);
 
-      background:
-        radial-gradient(
-          circle at 50% 28%,
-          rgba(255,255,255,.95),
-          transparent 30%
-        ),
+  font-family:
+    "DM Sans",
+    system-ui,
+    sans-serif;
 
-        linear-gradient(
-          180deg,
-          #d9edf8 0%,
-          #eef8fc 58%,
-          #ffffff 100%
-        );
-    }
+  -webkit-font-smoothing: antialiased;
+}
 
 
-    .intro::after {
-      content: "";
+button {
 
-      position: absolute;
+  font: inherit;
+}
 
-      left: -10%;
-      right: -10%;
-      bottom: -8%;
 
-      height: 25%;
+/* =====================================================
+   TIPOGRAFÍA
+===================================================== */
 
-      z-index: -1;
+.main-title,
+.section-title,
+.hello {
 
-      border-radius: 50% 50% 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
 
-      background:
-        rgba(255,255,255,.72);
+  font-weight: 500;
 
-      filter: blur(14px);
-    }
+  letter-spacing: -.035em;
+}
 
 
-    .intro-content {
-      position: relative;
-      z-index: 5;
+/* =====================================================
+   INTRO
+===================================================== */
 
-      width: min(760px, 100%);
+.intro {
 
-      animation:
-        fadeUp
-        1.2s
-        var(--ease)
-        both;
-    }
+  position: relative;
 
+  min-height: 100svh;
 
-    .eyebrow {
-      margin-bottom: 20px;
+  display: grid;
 
-      color: var(--blue);
+  place-items: center;
 
-      font-size: .73rem;
-      font-weight: 600;
+  overflow: hidden;
 
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
+  isolation: isolate;
 
+  padding: 50px 24px;
 
-    .main-title {
-      color: var(--blue-dark);
+  text-align: center;
 
-      font-size:
-        clamp(
-          3.2rem,
-          9vw,
-          6.2rem
-        );
+  background:
 
-      font-style: italic;
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(255,255,255,.98),
+      transparent 32%
+    ),
 
-      line-height: .98;
-    }
+    linear-gradient(
+      180deg,
+      #eee5d8 0%,
+      #f8f4ed 55%,
+      #ffffff 100%
+    );
+}
 
 
-    .subtitle {
-      max-width: 550px;
+.intro::after {
 
-      margin: 28px auto 0;
+  content: "";
 
-      color: var(--text);
+  position: absolute;
 
-      font-size:
-        clamp(
-          1rem,
-          2vw,
-          1.1rem
-        );
+  left: -10%;
+  right: -10%;
 
-      line-height: 1.8;
-    }
+  bottom: -10%;
 
+  height: 28%;
 
-    /* =====================================================
-       BOTÓN
-    ===================================================== */
+  z-index: -1;
 
-    .start-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+  border-radius: 50% 50% 0 0;
 
-      margin-top: 38px;
+  background:
+    rgba(255,255,255,.8);
 
-      padding: 15px 23px 15px 25px;
+  filter: blur(15px);
+}
 
-      border:
-        1px solid
-        rgba(79,130,165,.22);
 
-      border-radius: 999px;
+.intro-content {
 
-      background:
-        rgba(255,255,255,.75);
+  position: relative;
 
-      color: var(--blue-dark);
+  z-index: 5;
 
-      box-shadow:
-        var(--shadow-soft);
+  width:
+    min(
+      760px,
+      100%
+    );
 
-      backdrop-filter: blur(12px);
+  animation:
+    fadeUp
+    1.2s
+    var(--ease)
+    both;
+}
 
-      cursor: pointer;
 
-      transition:
-        transform .4s var(--ease),
-        box-shadow .4s var(--ease),
-        background .4s ease;
-    }
+.eyebrow {
 
+  margin-bottom: 20px;
 
-    .start-btn::after {
-      content: "→";
+  color: var(--beige-dark);
 
-      transition:
-        transform .35s var(--ease);
-    }
+  font-size: .72rem;
 
+  font-weight: 600;
 
-    .start-btn:hover {
-      background: rgba(255,255,255,.96);
+  letter-spacing: .22em;
 
-      transform:
-        translateY(-4px);
+  text-transform: uppercase;
+}
 
-      box-shadow:
-        0 18px 40px
-        rgba(62,103,128,.13);
-    }
 
+.main-title {
 
-    .start-btn:hover::after {
-      transform: translateX(4px);
-    }
+  color: var(--brown-dark);
 
+  font-size:
+    clamp(
+      3.2rem,
+      9vw,
+      6.2rem
+    );
 
-    /* =====================================================
-       NUBES
-    ===================================================== */
+  font-style: italic;
 
-    .cloud {
-      position: absolute;
+  line-height: .98;
+}
 
-      width: 180px;
-      height: 42px;
 
-      border-radius: 999px;
+.subtitle {
 
-      background:
-        rgba(255,255,255,.72);
+  max-width: 550px;
 
-      opacity: .8;
+  margin: 28px auto 0;
 
-      filter: blur(1px);
-    }
+  color: var(--text);
 
+  font-size: 1.05rem;
 
-    .cloud::before,
-    .cloud::after {
-      content: "";
+  line-height: 1.8;
+}
 
-      position: absolute;
-      bottom: 0;
 
-      border-radius: 50%;
+/* =====================================================
+   BOTÓN
+===================================================== */
 
-      background: white;
-    }
+.start-btn {
 
+  display: inline-flex;
 
-    .cloud::before {
-      left: 25px;
+  align-items: center;
 
-      width: 65px;
-      height: 65px;
-    }
+  gap: 10px;
 
+  margin-top: 38px;
 
-    .cloud::after {
-      left: 85px;
+  padding:
+    15px
+    24px
+    15px
+    26px;
 
-      width: 50px;
-      height: 50px;
-    }
+  border:
+    1px solid
+    rgba(118,95,73,.2);
 
+  border-radius: 999px;
 
-    .cloud-1 {
-      top: 17%;
-      left: -40px;
-    }
+  background:
+    rgba(255,255,255,.75);
 
+  color: var(--brown);
 
-    .cloud-2 {
-      top: 31%;
-      right: -55px;
+  box-shadow:
+    var(--shadow-soft);
 
-      transform: scale(1.15);
-    }
+  backdrop-filter: blur(12px);
 
+  cursor: pointer;
 
-    /* =====================================================
-       AVIÓN
-    ===================================================== */
+  transition:
+    transform .4s var(--ease),
+    box-shadow .4s var(--ease),
+    background .4s ease;
+}
 
-    .airplane {
-      position: absolute;
 
-      top: 25%;
-      left: -100px;
+.start-btn::after {
 
-      z-index: 1;
+  content: "→";
 
-      font-size: 3.8rem;
+  transition:
+    transform .35s var(--ease);
+}
 
-      opacity: .82;
 
-      filter:
-        drop-shadow(
-          0 7px 14px
-          rgba(40,80,105,.1)
-        );
+.start-btn:hover {
 
-      animation:
-        fly
-        6s
-        ease-in-out
-        both;
-    }
+  transform:
+    translateY(-4px);
 
+  background:
+    white;
 
-    @keyframes fly {
+  box-shadow:
+    0 18px 40px
+    rgba(94,73,52,.14);
+}
 
-      0% {
-        left: -100px;
-        transform: rotate(6deg);
-      }
 
-      70% {
-        left: 75%;
-        transform: rotate(-2deg);
-      }
+.start-btn:hover::after {
 
-      100% {
-        left: 110%;
-        transform: rotate(-6deg);
-      }
+  transform:
+    translateX(4px);
+}
 
-    }
 
+/* =====================================================
+   NUBES
+===================================================== */
 
-    /* =====================================================
-       CARTA
-    ===================================================== */
+.cloud {
 
-    .letter-section {
-      min-height: 100svh;
+  position: absolute;
 
-      display: grid;
-      place-items: center;
+  width: 180px;
 
-      padding: 100px 24px;
+  height: 42px;
 
-      background: #fff;
+  border-radius: 999px;
 
-      text-align: center;
-    }
+  background:
+    rgba(255,255,255,.7);
 
+  opacity: .75;
 
-    .letter-inner {
-      width: min(760px, 100%);
-    }
+  filter: blur(1px);
+}
 
 
-    .section-kicker {
-      margin-bottom: 12px;
+.cloud::before,
+.cloud::after {
 
-      color: var(--blue);
+  content: "";
 
-      font-size: .72rem;
-      font-weight: 600;
+  position: absolute;
 
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
+  bottom: 0;
 
+  border-radius: 50%;
 
-    .section-title {
-      color: #274e66;
+  background: white;
+}
 
-      font-size:
-        clamp(
-          2rem,
-          5vw,
-          3.1rem
-        );
 
-      line-height: 1.1;
-    }
+.cloud::before {
 
+  left: 25px;
 
-    .section-description {
-      max-width: 510px;
+  width: 65px;
 
-      margin:
-        18px auto 48px;
+  height: 65px;
+}
 
-      color: var(--text-light);
 
-      font-size: 1rem;
+.cloud::after {
 
-      line-height: 1.8;
-    }
+  left: 85px;
 
+  width: 50px;
 
-    /* =====================================================
-       SOBRE
-    ===================================================== */
+  height: 50px;
+}
 
-    .envelope-container {
-      position: relative;
 
-      width:
-        min(
-          360px,
-          88vw
-        );
+.cloud-1 {
 
-      aspect-ratio: 1.45 / 1;
+  top: 17%;
 
-      margin: 0 auto;
+  left: -45px;
+}
 
-      perspective: 1200px;
 
-      cursor: pointer;
-    }
+.cloud-2 {
 
+  top: 32%;
 
-    .envelope-container::after {
-      content: "";
+  right: -55px;
 
-      position: absolute;
+  transform:
+    scale(1.15);
+}
 
-      z-index: -1;
 
-      left: 8%;
-      right: 8%;
-      bottom: -15%;
+/* =====================================================
+   AVIÓN
+===================================================== */
 
-      height: 35%;
+.airplane {
 
-      border-radius: 50%;
+  position: absolute;
 
-      background:
-        rgba(50,95,120,.13);
+  top: 24%;
 
-      filter: blur(25px);
-    }
+  left: -100px;
 
+  z-index: 1;
 
-    .envelope {
-      position: relative;
+  font-size: 3.5rem;
 
-      width: 100%;
-      height: 100%;
+  opacity: .7;
 
-      overflow: hidden;
+  filter:
+    grayscale(.3)
+    sepia(.15);
 
-      border-radius: 12px;
+  animation:
+    fly
+    6s
+    ease-in-out
+    both;
+}
 
-      background:
-        linear-gradient(
-          145deg,
-          #e3f2fa,
-          #c8e2f0
-        );
 
-      box-shadow:
-        var(--shadow);
-    }
+@keyframes fly {
 
+  0% {
 
-    .envelope-back {
-      position: absolute;
-      inset: 0;
+    left: -100px;
 
-      background:
-        #d8edf7;
-    }
+    transform:
+      rotate(6deg);
+  }
 
+  70% {
 
-    .envelope-front {
-      position: absolute;
+    left: 75%;
 
-      inset: 0;
+    transform:
+      rotate(-2deg);
+  }
 
-      z-index: 4;
+  100% {
 
-      background:
-        linear-gradient(
-          145deg,
-          #d3eaf6,
-          #bfdceb
-        );
+    left: 110%;
 
-      clip-path:
-        polygon(
-          0 0,
-          50% 56%,
-          100% 0,
-          100% 100%,
-          0 100%
-        );
-    }
+    transform:
+      rotate(-6deg);
+  }
+}
 
 
-    .flap {
-      position: absolute;
+/* =====================================================
+   CARTA
+===================================================== */
 
-      top: 0;
-      left: 0;
+.letter-section {
 
-      width: 100%;
-      height: 58%;
+  min-height: 100svh;
 
-      z-index: 5;
+  display: grid;
 
-      background:
-        linear-gradient(
-          145deg,
-          #c1dfed,
-          #a9cfe3
-        );
+  place-items: center;
 
-      clip-path:
-        polygon(
-          0 0,
-          100% 0,
-          50% 100%
-        );
+  padding: 100px 24px;
 
-      transform-origin: top;
+  background:
+    #ffffff;
 
-      transition:
-        transform
-        1s
-        var(--ease);
-    }
+  text-align: center;
+}
 
 
-    .heart {
-      position: absolute;
+.letter-inner {
 
-      top: 51%;
-      left: 50%;
+  width:
+    min(
+      760px,
+      100%
+    );
+}
 
-      z-index: 10;
 
-      color: white;
+.section-kicker {
 
-      font-family: Georgia, serif;
+  margin-bottom: 12px;
 
-      font-size: 2.7rem;
+  color: var(--beige-dark);
 
-      transform:
-        translate(-50%,-50%);
+  font-size: .72rem;
 
-      transition:
-        opacity .5s ease,
-        transform .5s var(--ease);
-    }
+  font-weight: 600;
 
+  letter-spacing: .2em;
 
-    .envelope-text {
-      position: absolute;
+  text-transform: uppercase;
+}
 
-      top: 78%;
-      left: 50%;
 
-      z-index: 6;
+.section-title {
 
-      width: 100%;
+  color: var(--brown-dark);
 
-      color: #3b637b;
+  font-size:
+    clamp(
+      2rem,
+      5vw,
+      3.1rem
+    );
 
-      font-size: .7rem;
-      font-weight: 500;
+  line-height: 1.1;
+}
 
-      letter-spacing: .14em;
 
-      text-transform: uppercase;
+.section-description {
 
-      transform:
-        translate(-50%,-50%);
-    }
+  max-width: 510px;
 
+  margin:
+    18px auto
+    48px;
 
-    .envelope-container.open .flap {
-      transform:
-        rotateX(180deg);
-    }
+  color: var(--text);
 
+  font-size: 1rem;
 
-    .envelope-container.open .heart {
-      opacity: 0;
+  line-height: 1.8;
+}
 
-      transform:
-        translate(-50%,-50%)
-        scale(.7);
-    }
 
+/* =====================================================
+   SOBRE
+===================================================== */
 
-    .tap-hint {
-      margin-top: 27px;
+.envelope-container {
 
-      color: #8aa0ad;
+  position: relative;
 
-      font-size: .8rem;
-    }
+  width:
+    min(
+      360px,
+      88vw
+    );
 
+  aspect-ratio:
+    1.45 / 1;
 
-    /* =====================================================
-       REVELACIÓN
-    ===================================================== */
+  margin: 0 auto;
 
-    .reveal-section {
-      position: relative;
+  perspective: 1200px;
 
-      min-height: 100svh;
+  cursor: pointer;
+}
 
-      display: grid;
-      place-items: center;
 
-      overflow: hidden;
+.envelope-container::after {
 
-      padding: 100px 24px 150px;
+  content: "";
 
-      background:
-        radial-gradient(
-          circle at 50% 5%,
-          #ffffff,
-          transparent 48%
-        ),
+  position: absolute;
 
-        linear-gradient(
-          180deg,
-          #f5fbfe,
-          #edf7fc
-        );
-    }
+  left: 8%;
+  right: 8%;
 
+  bottom: -15%;
 
-    /* =====================================================
-       CORTINAS DELICADAS
-    ===================================================== */
+  height: 35%;
 
-    .curtain {
-      position: absolute;
+  z-index: -1;
 
-      top: 0;
+  border-radius: 50%;
 
-      width: 39%;
-      height: 100%;
+  background:
+    rgba(94,73,52,.12);
 
-      z-index: 50;
+  filter: blur(25px);
+}
 
-      background:
-        linear-gradient(
-          90deg,
-          rgba(170,205,221,.92),
-          rgba(224,240,247,.96),
-          rgba(166,201,218,.92)
-        );
 
-      box-shadow:
-        0 0 35px
-        rgba(72,113,136,.10);
+.envelope {
 
-      transition:
-        transform
-        2.4s
-        cubic-bezier(.77,0,.18,1);
-    }
+  position: relative;
 
+  width: 100%;
 
-    /* pequeños pliegues */
-    .curtain::before {
-      content: "";
+  height: 100%;
 
-      position: absolute;
-      inset: 0;
+  overflow: hidden;
 
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,.10) 0,
-          rgba(255,255,255,.10) 13px,
-          rgba(105,151,176,.07) 14px,
-          rgba(105,151,176,.07) 27px
-        );
-    }
+  border-radius: 12px;
 
+  background:
+    linear-gradient(
+      145deg,
+      #f4eee5,
+      #e5d9ca
+    );
 
-    .curtain-left {
-      left: 0;
+  box-shadow:
+    var(--shadow);
+}
 
-      border-radius:
-        0 0 45% 0;
 
-      transform-origin: left center;
-    }
+.envelope-back {
 
+  position: absolute;
 
-    .curtain-right {
-      right: 0;
+  inset: 0;
 
-      border-radius:
-        0 0 0 45%;
+  background:
+    #eee5d8;
+}
 
-      transform-origin: right center;
-    }
 
+.envelope-front {
 
-    .reveal-section.open
-    .curtain-left {
-      transform:
-        translateX(-105%);
-    }
+  position: absolute;
 
+  inset: 0;
 
-    .reveal-section.open
-    .curtain-right {
-      transform:
-        translateX(105%);
-    }
+  z-index: 4;
 
+  background:
+    linear-gradient(
+      145deg,
+      #e9ded0,
+      #dac9b6
+    );
 
-    /* =====================================================
-       MENSAJE ESPERA
-    ===================================================== */
+  clip-path:
+    polygon(
+      0 0,
+      50% 56%,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+}
 
-    .waiting-message {
-      position: absolute;
 
-      z-index: 60;
+.flap {
 
-      padding: 24px;
+  position: absolute;
 
-      color: white;
+  top: 0;
 
-      text-align: center;
+  left: 0;
 
-      transition:
-        opacity .8s ease;
-    }
+  width: 100%;
 
+  height: 58%;
 
-    .pause-icon {
-      margin-bottom: 15px;
+  z-index: 5;
 
-      font-size: 2.4rem;
-    }
+  background:
+    linear-gradient(
+      145deg,
+      #e2d4c3,
+      #cdb79d
+    );
 
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
 
-    .waiting-message h2 {
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+  transform-origin: top;
 
-      font-size:
-        clamp(
-          1.6rem,
-          4vw,
-          2.1rem
-        );
+  transition:
+    transform
+    1s
+    var(--ease);
+}
 
-      font-style: italic;
 
-      font-weight: 500;
-    }
+.heart {
 
+  position: absolute;
 
-    .waiting-message p {
-      margin-top: 9px;
+  top: 51%;
 
-      font-size: .85rem;
+  left: 50%;
 
-      opacity: .9;
-    }
+  z-index: 10;
 
+  color:
+    #b99d7d;
 
-    .reveal-section.open
-    .waiting-message {
-      opacity: 0;
+  font-family:
+    Georgia,
+    serif;
 
-      pointer-events: none;
-    }
+  font-size: 2.7rem;
 
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
 
-    /* =====================================================
-       CONTENIDO DE REVELACIÓN
-    ===================================================== */
+  transition:
+    opacity .5s ease,
+    transform .5s var(--ease);
+}
 
-    .reveal-content {
-      position: relative;
 
-      z-index: 5;
+.envelope-text {
 
-      width:
-        min(
-          920px,
-          100%
-        );
+  position: absolute;
 
-      text-align: center;
+  top: 78%;
 
-      opacity: 0;
+  left: 50%;
 
-      transform:
-        translateY(25px);
+  z-index: 6;
 
-      transition:
-        opacity
-        1.2s
-        1.35s
-        ease,
+  width: 100%;
 
-        transform
-        1.2s
-        1.35s
-        var(--ease);
-    }
+  color: #765f49;
 
+  font-size: .7rem;
 
-    .reveal-section.open
-    .reveal-content {
-      opacity: 1;
+  font-weight: 500;
 
-      transform:
-        translateY(0);
-    }
+  letter-spacing: .14em;
 
+  text-transform: uppercase;
 
-    /* =====================================================
-       ILUSTRACIÓN ANIMALITOS
-    ===================================================== */
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+}
 
-    .animalitos {
-      position: absolute;
 
-      left: 50%;
+.envelope-container.open
+.flap {
 
-      bottom: -35px;
+  transform:
+    rotateX(180deg);
+}
 
-      width:
-        min(
-          500px,
-          100%
-        );
 
-      z-index: -1;
+.envelope-container.open
+.heart {
 
-      opacity: .34;
+  opacity: 0;
 
-      pointer-events: none;
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(.7);
+}
 
-      transform:
-        translateX(-50%);
 
-      mask-image:
-        linear-gradient(
-          to bottom,
-          transparent 0%,
-          black 25%,
-          black 100%
-        );
+.tap-hint {
 
-      -webkit-mask-image:
-        linear-gradient(
-          to bottom,
-          transparent 0%,
-          black 25%,
-          black 100%
-        );
-    }
+  margin-top: 27px;
 
+  color: #a18f7b;
 
-    /* =====================================================
-       TÍTULO HOLA PAPI
-    ===================================================== */
+  font-size: .8rem;
+}
 
-    .baby-small {
-      margin-bottom: 12px;
 
-      color: var(--blue);
+/* =====================================================
+   CORAZONES
+===================================================== */
 
-      font-size: .7rem;
-      font-weight: 600;
+.hearts-container {
 
-      letter-spacing: .2em;
+  position: fixed;
 
-      text-transform: uppercase;
-    }
+  inset: 0;
 
+  z-index: 999;
 
-    .hello-wrap {
-      display: inline-flex;
+  pointer-events: none;
 
-      flex-direction: column;
+  overflow: hidden;
+}
 
-      align-items: center;
 
-      gap: 2px;
+.floating-heart {
 
-      margin-bottom: 22px;
-    }
+  position: absolute;
 
+  bottom: 35%;
 
-    .hello {
-      color: var(--blue-dark);
+  color:
+    #c9ad8d;
 
-      font-size:
-        clamp(
-          3rem,
-          8vw,
-          4.8rem
-        );
+  font-size:
+    clamp(
+      14px,
+      2vw,
+      24px
+    );
 
-      font-style: italic;
+  opacity: 0;
 
-      line-height: .92;
-    }
+  animation:
+    heartFloat
+    2.8s
+    var(--ease)
+    forwards;
+}
 
 
-    .hello-line {
-      width: 54px;
-      height: 1px;
+@keyframes heartFloat {
 
-      margin-top: 13px;
+  0% {
 
-      background:
-        rgba(111,155,182,.45);
-    }
+    opacity: 0;
 
+    transform:
+      translate(
+        0,
+        20px
+      )
+      scale(.5)
+      rotate(0deg);
+  }
 
-    /* =====================================================
-       MENSAJE
-    ===================================================== */
+  15% {
 
-    .message {
-      width:
-        min(
-          650px,
-          100%
-        );
+    opacity: .9;
+  }
 
-      margin-inline: auto;
+  100% {
 
-      color: #607988;
+    opacity: 0;
 
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+    transform:
+      translate(
+        var(--x),
+        -80vh
+      )
+      scale(1)
+      rotate(var(--rotate));
+  }
+}
 
-      font-size:
-        clamp(
-          1.08rem,
-          2.3vw,
-          1.3rem
-        );
 
-      line-height: 1.85;
-    }
+/* =====================================================
+   REVELACIÓN
+===================================================== */
 
+.reveal-section {
 
-    .message strong {
-      color: var(--blue-dark);
+  position: relative;
 
-      font-weight: 600;
-    }
+  min-height: 100svh;
 
+  display: grid;
 
-    /* =====================================================
-       GALERÍA
-    ===================================================== */
+  place-items: center;
 
-    .photos {
-      display: grid;
+  overflow: hidden;
 
-      grid-template-columns:
-        repeat(
-          3,
-          1fr
-        );
+  padding:
+    110px
+    24px
+    160px;
 
-      gap: 18px;
+  background:
 
-      margin-top: 55px;
-    }
+    radial-gradient(
+      circle at 50% 10%,
+      #ffffff 0%,
+      transparent 50%
+    ),
 
+    linear-gradient(
+      180deg,
+      #faf7f1,
+      #f1e9de
+    );
+}
 
-    .photo {
-      position: relative;
 
-      aspect-ratio: 4 / 5;
+/* =====================================================
+   CORTINAS
+===================================================== */
 
-      overflow: hidden;
+.curtain {
 
-      border:
-        1px solid
-        rgba(40,92,128,.08);
+  position: absolute;
 
-      border-radius:
-        var(--radius);
+  top: 0;
 
-      background: #e8f2f7;
+  width: 45%;
 
-      box-shadow:
-        var(--shadow-soft);
+  height: 100%;
 
-      transition:
-        transform
-        .45s
-        var(--ease),
+  z-index: 50;
 
-        box-shadow
-        .45s
-        var(--ease);
-    }
+  background:
 
+    linear-gradient(
+      90deg,
+      #d4c1aa 0%,
+      #f0e8dd 18%,
+      #d8c6b1 38%,
+      #f5eee6 55%,
+      #d1bda5 75%,
+      #e8dbca 100%
+    );
 
-    .photo:hover {
-      transform:
-        translateY(-7px);
+  box-shadow:
+    inset 0 0 45px
+    rgba(92,70,49,.08),
 
-      box-shadow:
-        0 24px 50px
-        rgba(31,75,103,.15);
-    }
+    0 0 30px
+    rgba(92,70,49,.08);
 
+  transition:
+    transform
+    2.2s
+    cubic-bezier(
+      .77,
+      0,
+      .18,
+      1
+    );
+}
 
-    .photo img {
-      display: block;
 
-      width: 100%;
-      height: 100%;
+/* pliegues delicados */
 
-      object-fit: cover;
+.curtain::before {
 
-      transition:
-        transform
-        .7s
-        var(--ease);
-    }
+  content: "";
 
+  position: absolute;
 
-    .photo:hover img {
-      transform:
-        scale(1.045);
-    }
+  inset: 0;
 
+  background:
 
-    /* =====================================================
-       FINAL
-    ===================================================== */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.2) 0,
+      rgba(255,255,255,.2) 10px,
+      rgba(130,100,75,.06) 12px,
+      rgba(130,100,75,.06) 24px
+    );
 
-    .final {
-      margin-top: 58px;
+  opacity: .75;
+}
 
-      color: #8094a0;
 
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+/* borde suave */
 
-      font-size: .98rem;
+.curtain::after {
 
-      font-style: italic;
+  content: "";
 
-      line-height: 1.8;
-    }
+  position: absolute;
 
+  top: 0;
 
-    /* =====================================================
-       ANIMACIÓN
-    ===================================================== */
+  bottom: 0;
 
-    @keyframes fadeUp {
+  width: 25px;
 
-      from {
-        opacity: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.5)
+    );
+}
 
-        transform:
-          translateY(25px);
-      }
 
-      to {
-        opacity: 1;
+.curtain-left {
 
-        transform:
-          translateY(0);
-      }
+  left: 0;
 
-    }
+  border-radius:
+    0 0 60% 0;
 
+  transform-origin:
+    left center;
+}
 
-    /* =====================================================
-       REDUCIR ANIMACIONES
-    ===================================================== */
 
-    @media (prefers-reduced-motion: reduce) {
+.curtain-right {
 
-      html {
-        scroll-behavior: auto;
-      }
+  right: 0;
 
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
+  border-radius:
+    0 0 0 60%;
 
-    }
+  transform-origin:
+    right center;
+}
 
 
-    /* =====================================================
-       TABLET
-    ===================================================== */
+.curtain-right::after {
 
-    @media (max-width: 720px) {
+  right: 0;
 
-      .intro,
-      .letter-section,
-      .reveal-section {
-        padding-inline: 20px;
-      }
+  transform:
+    scaleX(-1);
+}
 
 
-      .main-title {
-        font-size:
-          clamp(
-            3rem,
-            15vw,
-            4.5rem
-          );
-      }
+/* CORTINAS ABIERTAS */
 
+.reveal-section.open
+.curtain-left {
 
-      .airplane {
-        font-size: 3rem;
-      }
+  transform:
+    translateX(-105%);
+}
 
 
-      .photos {
-        grid-template-columns: 1fr;
+.reveal-section.open
+.curtain-right {
 
-        width:
-          min(
-            390px,
-            100%
-          );
+  transform:
+    translateX(105%);
+}
 
-        margin-inline: auto;
-      }
 
+/* =====================================================
+   BOTÓN CORTINAS
+===================================================== */
 
-      .photo {
-        aspect-ratio:
-          1 / 1.12;
-      }
+.curtain-control {
 
+  position: absolute;
 
-      .message {
-        font-size: 1.08rem;
-      }
+  z-index: 80;
 
+  bottom: 30px;
 
-      .curtain {
-        width: 44%;
-      }
+  left: 50%;
 
+  transform:
+    translateX(-50%);
 
-      .animalitos {
-        width: 115%;
-        bottom: -20px;
-      }
+  padding:
+    10px
+    18px;
 
-    }
+  border:
+    1px solid
+    rgba(118,95,73,.18);
 
+  border-radius: 999px;
 
-    /* =====================================================
-       MÓVIL PEQUEÑO
-    ===================================================== */
+  background:
+    rgba(255,255,255,.78);
 
-    @media (max-width: 420px) {
+  color:
+    var(--brown);
 
-      .eyebrow {
-        font-size: .65rem;
-        letter-spacing: .16em;
-      }
+  font-size: .76rem;
 
+  letter-spacing: .04em;
 
-      .start-btn {
-        margin-top: 30px;
-      }
+  box-shadow:
+    var(--shadow-soft);
 
+  backdrop-filter:
+    blur(10px);
 
-      .envelope-container {
-        width: 285px;
-      }
+  cursor: pointer;
 
+  opacity: 0;
 
-      .envelope-text {
-        font-size: .62rem;
-      }
+  pointer-events: none;
 
+  transition:
+    opacity .7s ease,
+    transform .35s var(--ease);
+}
 
-      .hello {
-        font-size: 3.2rem;
-      }
 
+.reveal-section.open
+.curtain-control {
 
-      .animalitos {
-        bottom: -5px;
-      }
+  opacity: 1;
 
-    }
+  pointer-events: auto;
+}
 
-  </style>
+
+.curtain-control:hover {
+
+  transform:
+    translateX(-50%)
+    translateY(-3px);
+
+  background: white;
+}
+
+
+/* =====================================================
+   MENSAJE ESPERA
+===================================================== */
+
+.waiting-message {
+
+  position: absolute;
+
+  z-index: 60;
+
+  color: white;
+
+  text-align: center;
+
+  transition:
+    opacity .7s ease;
+}
+
+
+.waiting-message h2 {
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      1.7rem,
+      4vw,
+      2.2rem
+    );
+
+  font-style: italic;
+
+  font-weight: 500;
+}
+
+
+.waiting-message p {
+
+  margin-top: 10px;
+
+  font-size: .85rem;
+}
+
+
+.pause-icon {
+
+  margin-bottom: 15px;
+
+  font-size: 2.4rem;
+}
+
+
+.reveal-section.open
+.waiting-message {
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   CONTENIDO REVELADO
+===================================================== */
+
+.reveal-content {
+
+  position: relative;
+
+  z-index: 5;
+
+  width:
+    min(
+      920px,
+      100%
+    );
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform:
+    translateY(30px);
+
+  transition:
+
+    opacity
+    1.2s
+    1.25s
+    ease,
+
+    transform
+    1.2s
+    1.25s
+    var(--ease);
+}
+
+
+.reveal-section.open
+.reveal-content {
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =====================================================
+   ANIMALITOS
+===================================================== */
+
+.animalitos {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -100px;
+
+  width:
+    min(
+      540px,
+      115%
+    );
+
+  z-index: -1;
+
+  opacity: .30;
+
+  pointer-events: none;
+
+  transform:
+    translateX(-50%);
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 30%,
+      black 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 30%,
+      black 100%
+    );
+}
+
+
+/* =====================================================
+   HOLA PAPI
+===================================================== */
+
+.baby-small {
+
+  margin-bottom: 9px;
+
+  color:
+    var(--beige-dark);
+
+  font-size: .7rem;
+
+  font-weight: 600;
+
+  letter-spacing: .2em;
+
+  text-transform: uppercase;
+}
+
+
+.hello-wrap {
+
+  display: inline-flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 0;
+
+  margin-bottom: 20px;
+}
+
+
+.hello {
+
+  color:
+    var(--brown-dark);
+
+  font-size:
+    clamp(
+      3rem,
+      8vw,
+      4.8rem
+    );
+
+  font-style: italic;
+
+  line-height: .9;
+}
+
+
+.hello-line {
+
+  width: 48px;
+
+  height: 1px;
+
+  margin-top: 15px;
+
+  background:
+    rgba(118,95,73,.35);
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.message {
+
+  width:
+    min(
+      650px,
+      100%
+    );
+
+  margin-inline: auto;
+
+  color:
+    #75695d;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      1.08rem,
+      2.3vw,
+      1.3rem
+    );
+
+  line-height: 1.85;
+}
+
+
+.message strong {
+
+  color:
+    var(--brown-dark);
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   FOTOS
+===================================================== */
+
+.photos {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap: 18px;
+
+  margin-top: 55px;
+}
+
+
+.photo {
+
+  position: relative;
+
+  aspect-ratio:
+    4 / 5;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(118,95,73,.12);
+
+  border-radius:
+    20px;
+
+  background:
+    #eee5d8;
+
+  box-shadow:
+    var(--shadow-soft);
+
+  transition:
+    transform
+    .45s
+    var(--ease),
+
+    box-shadow
+    .45s
+    var(--ease);
+}
+
+
+.photo:hover {
+
+  transform:
+    translateY(-7px);
+
+  box-shadow:
+    0 25px 50px
+    rgba(94,73,52,.15);
+}
+
+
+.photo img {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform
+    .7s
+    var(--ease);
+}
+
+
+.photo:hover img {
+
+  transform:
+    scale(1.045);
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final {
+
+  margin-top: 60px;
+
+  color:
+    #907e6b;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: .98rem;
+
+  font-style: italic;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+@keyframes fadeUp {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(25px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
+@media (max-width: 720px) {
+
+  .intro,
+  .letter-section,
+  .reveal-section {
+
+    padding-inline: 20px;
+  }
+
+
+  .main-title {
+
+    font-size:
+      clamp(
+        3rem,
+        15vw,
+        4.5rem
+      );
+  }
+
+
+  .airplane {
+
+    font-size: 3rem;
+  }
+
+
+  .curtain {
+
+    width: 50%;
+  }
+
+
+  .photos {
+
+    grid-template-columns: 1fr;
+
+    width:
+      min(
+        390px,
+        100%
+      );
+
+    margin-inline: auto;
+  }
+
+
+  .photo {
+
+    aspect-ratio:
+      1 / 1.12;
+  }
+
+
+  .message {
+
+    font-size: 1.08rem;
+  }
+
+
+  .animalitos {
+
+    width: 120%;
+
+    bottom: -30px;
+  }
+
+}
+
+
+@media (max-width: 420px) {
+
+  .envelope-container {
+
+    width: 285px;
+  }
+
+
+  .hello {
+
+    font-size: 3.2rem;
+  }
+
+
+  .curtain {
+
+    width: 53%;
+  }
+
+
+  .animalitos {
+
+    width: 135%;
+
+    bottom: -15px;
+  }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
-  <main>
+
+<!-- =====================================================
+     CORAZONES
+===================================================== -->
+
+<div
+  class="hearts-container"
+  id="heartsContainer"
+></div>
 
 
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
 
-    <section
-      class="intro"
-      id="inicio"
-      aria-labelledby="intro-title"
+<main>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section
+  class="intro"
+  id="inicio"
+>
+
+  <div
+    class="cloud cloud-1"
+    aria-hidden="true"
+  ></div>
+
+
+  <div
+    class="cloud cloud-2"
+    aria-hidden="true"
+  ></div>
+
+
+  <div
+    class="airplane"
+    aria-hidden="true"
+  >
+    ✈️
+  </div>
+
+
+  <div class="intro-content">
+
+    <p class="eyebrow">
+      Hay viajes que cambian la vida...
+    </p>
+
+
+    <h1 class="main-title">
+      Nuestra próxima<br>
+      aventura
+    </h1>
+
+
+    <p class="subtitle">
+      Un viaje muy especial está a punto de comenzar.
+    </p>
+
+
+    <button
+      class="start-btn"
+      id="startButton"
+      type="button"
+    >
+      Tengo algo para ti
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CARTA
+===================================================== -->
+
+<section
+  class="letter-section"
+  id="carta"
+>
+
+  <div class="letter-inner">
+
+    <p class="section-kicker">
+      Una pequeña pausa
+    </p>
+
+
+    <h2 class="section-title">
+      Antes de continuar...
+    </h2>
+
+
+    <p class="section-description">
+      Hay algo que alguien muy especial quiere decirte.
+    </p>
+
+
+    <div
+      class="envelope-container"
+      id="envelope"
+      role="button"
+      tabindex="0"
+      aria-label="Abrir la carta"
     >
 
-      <div
-        class="cloud cloud-1"
-        aria-hidden="true"
-      ></div>
-
-      <div
-        class="cloud cloud-2"
-        aria-hidden="true"
-      ></div>
+      <div class="envelope">
 
 
-      <div
-        class="airplane"
-        aria-hidden="true"
-      >
-        ✈️
-      </div>
+        <div class="envelope-back"></div>
 
 
-      <div class="intro-content">
-
-        <p class="eyebrow">
-          Hay viajes que cambian la vida...
-        </p>
-
-
-        <h1
-          class="main-title"
-          id="intro-title"
-        >
-          Nuestra próxima<br>
-          aventura
-        </h1>
-
-
-        <p class="subtitle">
-          Un viaje muy especial está a punto de comenzar.
-        </p>
-
-
-        <button
-          class="start-btn"
-          type="button"
-          id="startButton"
-        >
-          Tengo algo para ti
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CARTA
-    ====================================================== -->
-
-    <section
-      class="letter-section"
-      id="carta"
-      aria-labelledby="letter-title"
-    >
-
-      <div class="letter-inner">
-
-        <p class="section-kicker">
-          Una pequeña pausa
-        </p>
-
-
-        <h2
-          class="section-title"
-          id="letter-title"
-        >
-          Antes de continuar...
-        </h2>
-
-
-        <p class="section-description">
-          Hay algo que alguien muy especial quiere decirte.
-        </p>
-
-
-        <div
-          class="envelope-container"
-          id="envelope"
-          role="button"
-          tabindex="0"
-          aria-label="Abrir la carta"
-          aria-pressed="false"
-        >
-
-          <div class="envelope">
-
-            <div class="envelope-back"></div>
-
-
-            <div class="envelope-text">
-              Para alguien muy especial
-            </div>
-
-
-            <div
-              class="heart"
-              aria-hidden="true"
-            >
-              ♡
-            </div>
-
-
-            <div class="envelope-front"></div>
-
-            <div class="flap"></div>
-
-          </div>
-
+        <div class="envelope-text">
+          Para alguien muy especial
         </div>
 
 
-        <p
-          class="tap-hint"
-          id="tapHint"
-        >
-          Toca el sobre para abrirlo
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         REVELACIÓN
-    ====================================================== -->
-
-    <section
-      class="reveal-section"
-      id="revelacion"
-      aria-labelledby="reveal-title"
-    >
-
-
-      <!-- CORTINAS -->
-
-      <div
-        class="curtain curtain-left"
-        aria-hidden="true"
-      ></div>
-
-
-      <div
-        class="curtain curtain-right"
-        aria-hidden="true"
-      ></div>
-
-
-      <!-- MENSAJE MIENTRAS ESPERA -->
-
-      <div
-        class="waiting-message"
-        aria-live="polite"
-      >
-
         <div
-          class="pause-icon"
+          class="heart"
           aria-hidden="true"
         >
-          ⏳
+          ♡
         </div>
 
 
-        <h2>
-          Espera un poquito...
-        </h2>
+        <div class="envelope-front"></div>
 
 
-        <p>
-          Hay una pequeña sorpresa esperando por ti.
-        </p>
+        <div class="flap"></div>
+
 
       </div>
 
-
-      <!-- CONTENIDO REVELADO -->
-
-      <div class="reveal-content">
+    </div>
 
 
-        <!-- ANIMALITOS -->
+    <p
+      class="tap-hint"
+      id="tapHint"
+    >
+      Toca el sobre para abrirlo
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REVELACIÓN
+===================================================== -->
+
+<section
+  class="reveal-section"
+  id="revelacion"
+>
+
+
+  <!-- CORTINAS -->
+
+  <div
+    class="curtain curtain-left"
+    aria-hidden="true"
+  ></div>
+
+
+  <div
+    class="curtain curtain-right"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- ESPERA -->
+
+  <div
+    class="waiting-message"
+    id="waitingMessage"
+  >
+
+    <div
+      class="pause-icon"
+      aria-hidden="true"
+    >
+      ✨
+    </div>
+
+
+    <h2>
+      Espera un poquito...
+    </h2>
+
+
+    <p>
+      Hay una pequeña sorpresa esperando por ti.
+    </p>
+
+  </div>
+
+
+
+  <!-- CONTENIDO -->
+
+  <div class="reveal-content">
+
+
+    <!-- ANIMALITOS -->
+
+    <img
+      class="animalitos"
+      src="animalitos.png"
+      alt=""
+      aria-hidden="true"
+    >
+
+
+    <p class="baby-small">
+      Una nueva aventura está por comenzar
+    </p>
+
+
+    <div class="hello-wrap">
+
+      <h2 class="hello">
+        Hola papi...
+      </h2>
+
+
+      <div
+        class="hello-line"
+        aria-hidden="true"
+      ></div>
+
+    </div>
+
+
+    <p class="message">
+
+      Mami me contó que eres maravilloso
+      y que serás un buen padre.
+
+      <br><br>
+
+      <strong>
+        No puedo esperar a conocerte.
+      </strong>
+
+      <br><br>
+
+      Tengo muchas ganas de vivir
+      esta aventura contigo.
+
+    </p>
+
+
+
+    <!-- FOTOS -->
+
+    <div
+      class="photos"
+      aria-label="Nuestra historia"
+    >
+
+      <figure class="photo">
 
         <img
-          class="animalitos"
-          src="animalitos.png"
-          alt=""
-          aria-hidden="true"
+          src="foto1.jpeg"
+          alt="Nuestra historia"
+          loading="lazy"
         >
 
-
-        <p class="baby-small">
-          Una nueva aventura está por comenzar
-        </p>
+      </figure>
 
 
-        <div class="hello-wrap">
+      <figure class="photo">
 
-          <h2
-            class="hello"
-            id="reveal-title"
-          >
-            Hola papi...
-          </h2>
-
-          <div
-            class="hello-line"
-            aria-hidden="true"
-          ></div>
-
-        </div>
-
-
-        <p class="message">
-
-          Mami me contó que eres maravilloso
-          y que serás un buen padre.
-
-          <br><br>
-
-          <strong>
-            No puedo esperar a conocerte.
-          </strong>
-
-          <br><br>
-
-          Tengo muchas ganas de vivir
-          esta aventura contigo.
-
-        </p>
-
-
-        <!-- FOTOS -->
-
-        <div
-          class="photos"
-          aria-label="Nuestra historia"
+        <img
+          src="foto2.jpeg"
+          alt="Un momento especial"
+          loading="lazy"
         >
 
-          <figure class="photo">
-
-            <img
-              src="foto1.jpeg"
-              alt="Nuestra historia"
-              loading="lazy"
-            >
-
-          </figure>
+      </figure>
 
 
-          <figure class="photo">
+      <figure class="photo">
 
-            <img
-              src="foto2.jpeg"
-              alt="Un momento especial"
-              loading="lazy"
-            >
+        <img
+          src="foto3.jpeg"
+          alt="Nuestra próxima aventura"
+          loading="lazy"
+        >
 
-          </figure>
+      </figure>
 
-
-          <figure class="photo">
-
-            <img
-              src="foto3.jpeg"
-              alt="Nuestra próxima aventura"
-              loading="lazy"
-            >
-
-          </figure>
-
-        </div>
+    </div>
 
 
-        <!-- FINAL -->
+    <p class="final">
 
-        <p class="final">
+      Parece que nuestro próximo viaje<br>
+      será el más especial de todos...
 
-          Parece que nuestro próximo viaje<br>
-          será el más especial de todos...
-
-        </p>
+    </p>
 
 
-      </div>
-
-    </section>
-
-  </main>
+  </div>
 
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
 
-  <script>
+  <!-- CONTROL DE CORTINAS -->
 
-    (() => {
-
-      "use strict";
-
-
-      const envelope =
-        document.getElementById("envelope");
-
-      const reveal =
-        document.getElementById("revelacion");
-
-      const startButton =
-        document.getElementById("startButton");
-
-      const tapHint =
-        document.getElementById("tapHint");
+  <button
+    class="curtain-control"
+    id="curtainControl"
+    type="button"
+  >
+    Cerrar cortinas
+  </button>
 
 
-      const REVEAL_DELAY = 1800;
+</section>
 
-      let isOpening = false;
-
-
-      /* =====================================================
-         SCROLL
-      ====================================================== */
-
-      const scrollToSection = (section) => {
-
-        if (!section) return;
-
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      };
+</main>
 
 
-      /* =====================================================
-         ABRIR SOBRE
-      ====================================================== */
 
-      const openEnvelope = () => {
+<script>
 
-        if (
-          isOpening ||
-          envelope.classList.contains("open")
-        ) {
-          return;
-        }
+(() => {
+
+  "use strict";
 
 
-        isOpening = true;
+  /* =====================================================
+     ELEMENTOS
+  ===================================================== */
+
+  const envelope =
+    document.getElementById("envelope");
 
 
-        envelope.classList.add("open");
+  const reveal =
+    document.getElementById("revelacion");
 
 
-        envelope.setAttribute(
-          "aria-pressed",
-          "true"
+  const startButton =
+    document.getElementById("startButton");
+
+
+  const tapHint =
+    document.getElementById("tapHint");
+
+
+  const heartsContainer =
+    document.getElementById("heartsContainer");
+
+
+  const curtainControl =
+    document.getElementById("curtainControl");
+
+
+  let isOpening = false;
+
+  let curtainsOpen = false;
+
+
+
+  /* =====================================================
+     SCROLL
+  ===================================================== */
+
+  function scrollToSection(section) {
+
+    if (!section) return;
+
+    section.scrollIntoView({
+
+      behavior: "smooth",
+
+      block: "start"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     CORAZONES
+  ===================================================== */
+
+  function createHearts() {
+
+    const totalHearts = 22;
+
+
+    for (
+      let i = 0;
+      i < totalHearts;
+      i++
+    ) {
+
+      const heart =
+        document.createElement("span");
+
+
+      heart.className =
+        "floating-heart";
+
+
+      heart.innerHTML =
+        Math.random() > .5
+          ? "♡"
+          : "♥";
+
+
+      heart.style.left =
+        `${35 + Math.random() * 30}%`;
+
+
+      heart.style.setProperty(
+        "--x",
+        `${(Math.random() - .5) * 360}px`
+      );
+
+
+      heart.style.setProperty(
+        "--rotate",
+        `${(Math.random() - .5) * 50}deg`
+      );
+
+
+      heart.style.animationDelay =
+        `${Math.random() * .7}s`;
+
+
+      heart.style.fontSize =
+        `${14 + Math.random() * 13}px`;
+
+
+      heartsContainer.appendChild(
+        heart
+      );
+
+
+      setTimeout(() => {
+
+        heart.remove();
+
+      }, 3500);
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     ABRIR SOBRE
+  ===================================================== */
+
+  function openEnvelope() {
+
+    if (
+      isOpening ||
+      envelope.classList.contains("open")
+    ) {
+
+      return;
+
+    }
+
+
+    isOpening = true;
+
+
+    envelope.classList.add("open");
+
+
+    createHearts();
+
+
+    tapHint.textContent =
+      "Algo muy especial está a punto de comenzar...";
+
+
+    setTimeout(() => {
+
+      reveal.classList.add("open");
+
+      curtainsOpen = true;
+
+
+      curtainControl.textContent =
+        "Cerrar cortinas";
+
+
+      setTimeout(() => {
+
+        scrollToSection(
+          reveal
         );
 
-
-        if (tapHint) {
-
-          tapHint.textContent =
-            "La sorpresa está a punto de comenzar...";
-
-        }
+      }, 500);
 
 
-        window.setTimeout(() => {
+    }, 2300);
 
-          reveal.classList.add("open");
-
-
-          window.setTimeout(() => {
-
-            scrollToSection(reveal);
-
-          }, 500);
-
-        }, REVEAL_DELAY);
-
-      };
+  }
 
 
-      /* =====================================================
-         BOTÓN INICIAL
-      ====================================================== */
 
-      startButton.addEventListener(
-        "click",
-        () => {
+  /* =====================================================
+     BOTÓN INICIAL
+  ===================================================== */
 
-          scrollToSection(
-            document.getElementById("carta")
-          );
+  startButton.addEventListener(
+    "click",
+    () => {
 
-        }
+      scrollToSection(
+        document.getElementById("carta")
+      );
+
+    }
+  );
+
+
+
+  /* =====================================================
+     SOBRE
+  ===================================================== */
+
+  envelope.addEventListener(
+    "click",
+    openEnvelope
+  );
+
+
+  envelope.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+
+        event.preventDefault();
+
+        openEnvelope();
+
+      }
+
+    }
+  );
+
+
+
+  /* =====================================================
+     ABRIR / CERRAR CORTINAS
+  ===================================================== */
+
+  curtainControl.addEventListener(
+    "click",
+    () => {
+
+      curtainsOpen =
+        !curtainsOpen;
+
+
+      reveal.classList.toggle(
+        "open",
+        curtainsOpen
       );
 
 
-      /* =====================================================
-         CLICK SOBRE
-      ====================================================== */
+      if (curtainsOpen) {
 
-      envelope.addEventListener(
-        "click",
-        openEnvelope
-      );
+        curtainControl.textContent =
+          "Cerrar cortinas";
+
+      } else {
+
+        curtainControl.textContent =
+          "Abrir cortinas";
+
+      }
+
+    }
+  );
 
 
-      /* =====================================================
-         TECLADO
-      ====================================================== */
+})();
 
-      envelope.addEventListener(
-        "keydown",
-        (event) => {
+</script>
 
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-
-            event.preventDefault();
-
-            openEnvelope();
-
-          }
-
-        }
-      );
-
-    })();
-
-  </script>
 
 </body>
 </html>
