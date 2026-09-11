@@ -1,58 +1,60 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nuestra próxima aventura — una sorpresa muy especial.">
-  <meta name="theme-color" content="#eef7fc">
 
-  <title>Nuestra próxima aventura ✈️</title>
+  <meta
+    name="description"
+    content="Nuestra próxima aventura — una sorpresa muy especial."
+  >
+
+  <meta name="theme-color" content="#edf7fc">
+
+  <title>Nuestra próxima aventura</title>
 
   <!-- TIPOGRAFÍAS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
   <style>
 
-    /* =========================================================
+    /* =====================================================
        VARIABLES
-    ========================================================= */
+    ===================================================== */
 
     :root {
-      --ink: #19364d;
-      --ink-soft: #5f788b;
+      --blue: #6f9bb6;
+      --blue-dark: #315f7b;
+      --blue-soft: #dceef7;
 
-      --blue: #4f82a5;
-      --blue-dark: #285c80;
-      --blue-light: #dceef9;
+      --text: #536d7e;
+      --text-light: #7d929f;
 
-      --sky: #eef8fd;
+      --cream: #fffdf9;
       --white: #ffffff;
 
-      --line: rgba(40, 92, 128, 0.14);
+      --shadow:
+        0 20px 55px rgba(62, 103, 128, 0.13);
 
-      --shadow-sm:
-        0 10px 30px rgba(31, 75, 103, 0.10);
+      --shadow-soft:
+        0 10px 30px rgba(62, 103, 128, 0.08);
 
-      --shadow-lg:
-        0 30px 80px rgba(31, 75, 103, 0.16);
+      --radius: 24px;
 
-      --radius-md: 18px;
-      --radius-lg: 28px;
-
-      --ease: cubic-bezier(.22, 1, .36, 1);
+      --ease:
+        cubic-bezier(.22, 1, .36, 1);
     }
 
 
-    /* =========================================================
+    /* =====================================================
        RESET
-    ========================================================= */
+    ===================================================== */
 
     *,
     *::before,
@@ -71,11 +73,10 @@
 
     body {
       min-width: 320px;
-
       overflow-x: hidden;
 
       background: var(--white);
-      color: var(--ink);
+      color: var(--text);
 
       font-family:
         "DM Sans",
@@ -97,14 +98,14 @@
 
     button:focus-visible,
     .envelope-container:focus-visible {
-      outline: 3px solid rgba(79, 130, 165, 0.35);
-      outline-offset: 6px;
+      outline: 3px solid rgba(111, 155, 182, .35);
+      outline-offset: 5px;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        TIPOGRAFÍA
-    ========================================================= */
+    ===================================================== */
 
     .main-title,
     .section-title,
@@ -119,12 +120,11 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        INTRO
-    ========================================================= */
+    ===================================================== */
 
     .intro {
-
       position: relative;
 
       min-height: 100svh;
@@ -132,64 +132,59 @@
       display: grid;
       place-items: center;
 
+      overflow: hidden;
       isolation: isolate;
 
-      overflow: hidden;
-
-      padding: 48px 24px;
+      padding: 50px 24px;
 
       text-align: center;
 
       background:
         radial-gradient(
           circle at 50% 28%,
-          rgba(255, 255, 255, 0.92),
+          rgba(255,255,255,.95),
           transparent 30%
         ),
 
         linear-gradient(
           180deg,
-          #d9effc 0%,
-          #eff8fd 58%,
+          #d9edf8 0%,
+          #eef8fc 58%,
           #ffffff 100%
         );
     }
 
 
     .intro::after {
-
       content: "";
 
       position: absolute;
 
-      z-index: -1;
-
       left: -10%;
       right: -10%;
-
       bottom: -8%;
 
-      height: 28%;
+      height: 25%;
+
+      z-index: -1;
 
       border-radius: 50% 50% 0 0;
 
       background:
-        rgba(255, 255, 255, 0.65);
+        rgba(255,255,255,.72);
 
-      filter: blur(12px);
+      filter: blur(14px);
     }
 
 
     .intro-content {
-
       position: relative;
-
       z-index: 5;
 
       width: min(760px, 100%);
 
       animation:
-        fade-up
+        fadeUp
         1.2s
         var(--ease)
         both;
@@ -197,125 +192,107 @@
 
 
     .eyebrow {
-
-      margin-bottom: 22px;
+      margin-bottom: 20px;
 
       color: var(--blue);
 
-      font-size: 0.76rem;
-
+      font-size: .73rem;
       font-weight: 600;
 
-      letter-spacing: 0.22em;
-
-      line-height: 1.5;
-
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
 
 
     .main-title {
-
       color: var(--blue-dark);
 
       font-size:
         clamp(
-          3.4rem,
+          3.2rem,
           9vw,
-          6.4rem
+          6.2rem
         );
 
       font-style: italic;
 
-      line-height: 0.98;
+      line-height: .98;
     }
 
 
     .subtitle {
-
-      max-width: 560px;
+      max-width: 550px;
 
       margin: 28px auto 0;
 
-      color: var(--ink-soft);
+      color: var(--text);
 
       font-size:
         clamp(
           1rem,
           2vw,
-          1.12rem
+          1.1rem
         );
 
       line-height: 1.8;
     }
 
 
-    /* =========================================================
-       BOTÓN PRINCIPAL
-    ========================================================= */
+    /* =====================================================
+       BOTÓN
+    ===================================================== */
 
     .start-btn {
-
       display: inline-flex;
-
       align-items: center;
-
       gap: 10px;
 
-      margin-top: 40px;
+      margin-top: 38px;
+
+      padding: 15px 23px 15px 25px;
 
       border:
         1px solid
-        rgba(79, 130, 165, 0.28);
+        rgba(79,130,165,.22);
 
       border-radius: 999px;
 
-      padding:
-        15px
-        24px
-        15px
-        26px;
-
       background:
-        rgba(255, 255, 255, 0.72);
+        rgba(255,255,255,.75);
 
       color: var(--blue-dark);
 
       box-shadow:
-        0 12px 30px
-        rgba(31, 75, 103, 0.08);
+        var(--shadow-soft);
 
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
 
       cursor: pointer;
 
       transition:
-        transform 0.35s var(--ease),
-        box-shadow 0.35s var(--ease),
-        background 0.35s ease;
+        transform .4s var(--ease),
+        box-shadow .4s var(--ease),
+        background .4s ease;
     }
 
 
     .start-btn::after {
-
       content: "→";
 
       transition:
-        transform 0.35s var(--ease);
+        transform .35s var(--ease);
     }
 
 
     .start-btn:hover {
-
-      background:
-        rgba(255, 255, 255, 0.95);
+      background: rgba(255,255,255,.96);
 
       transform:
         translateY(-4px);
 
       box-shadow:
         0 18px 40px
-        rgba(31, 75, 103, 0.13);
+        rgba(62,103,128,.13);
     }
 
 
@@ -324,111 +301,95 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        NUBES
-    ========================================================= */
+    ===================================================== */
 
     .cloud {
-
       position: absolute;
 
-      z-index: -1;
-
       width: 180px;
-      height: 44px;
+      height: 42px;
 
       border-radius: 999px;
 
       background:
-        rgba(255, 255, 255, 0.78);
+        rgba(255,255,255,.72);
+
+      opacity: .8;
 
       filter: blur(1px);
-
-      opacity: 0.8;
     }
 
 
     .cloud::before,
     .cloud::after {
-
       content: "";
 
       position: absolute;
-
       bottom: 0;
 
       border-radius: 50%;
 
-      background: #ffffff;
+      background: white;
     }
 
 
     .cloud::before {
-
       left: 25px;
 
-      width: 68px;
-      height: 68px;
+      width: 65px;
+      height: 65px;
     }
 
 
     .cloud::after {
+      left: 85px;
 
-      left: 86px;
-
-      width: 52px;
-      height: 52px;
+      width: 50px;
+      height: 50px;
     }
 
 
     .cloud-1 {
-
-      top: 18%;
-
-      left: -35px;
+      top: 17%;
+      left: -40px;
     }
 
 
     .cloud-2 {
-
-      top: 32%;
-
-      right: -50px;
+      top: 31%;
+      right: -55px;
 
       transform: scale(1.15);
     }
 
 
-    /* =========================================================
+    /* =====================================================
        AVIÓN
-    ========================================================= */
+    ===================================================== */
 
     .airplane {
-
       position: absolute;
+
+      top: 25%;
+      left: -100px;
 
       z-index: 1;
 
-      top: 25%;
+      font-size: 3.8rem;
 
-      left: -100px;
-
-      font-size:
-        clamp(
-          3.2rem,
-          7vw,
-          4.5rem
-        );
+      opacity: .82;
 
       filter:
         drop-shadow(
-          0 8px 14px
-          rgba(31, 75, 103, 0.12)
+          0 7px 14px
+          rgba(40,80,105,.1)
         );
 
       animation:
         fly
-        5.5s
+        6s
         ease-in-out
         both;
     }
@@ -437,82 +398,67 @@
     @keyframes fly {
 
       0% {
-
         left: -100px;
-
-        transform:
-          rotate(6deg);
+        transform: rotate(6deg);
       }
 
       70% {
-
         left: 75%;
-
-        transform:
-          rotate(-2deg);
+        transform: rotate(-2deg);
       }
 
       100% {
-
         left: 110%;
-
-        transform:
-          rotate(-6deg);
+        transform: rotate(-6deg);
       }
+
     }
 
 
-    /* =========================================================
-       SECCIÓN CARTA
-    ========================================================= */
+    /* =====================================================
+       CARTA
+    ===================================================== */
 
     .letter-section {
-
       min-height: 100svh;
 
       display: grid;
-
       place-items: center;
 
       padding: 100px 24px;
 
-      background: #ffffff;
+      background: #fff;
 
       text-align: center;
     }
 
 
     .letter-inner {
-
       width: min(760px, 100%);
     }
 
 
     .section-kicker {
-
       margin-bottom: 12px;
 
       color: var(--blue);
 
-      font-size: 0.74rem;
-
+      font-size: .72rem;
       font-weight: 600;
 
-      letter-spacing: 0.2em;
-
+      letter-spacing: .2em;
       text-transform: uppercase;
     }
 
 
     .section-title {
-
-      color: var(--ink);
+      color: #274e66;
 
       font-size:
         clamp(
-          2.1rem,
+          2rem,
           5vw,
-          3.2rem
+          3.1rem
         );
 
       line-height: 1.1;
@@ -520,27 +466,24 @@
 
 
     .section-description {
-
-      max-width: 520px;
+      max-width: 510px;
 
       margin:
-        18px auto
-        48px;
+        18px auto 48px;
 
-      color: var(--ink-soft);
+      color: var(--text-light);
 
       font-size: 1rem;
 
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        SOBRE
-    ========================================================= */
+    ===================================================== */
 
     .envelope-container {
-
       position: relative;
 
       width:
@@ -549,8 +492,7 @@
           88vw
         );
 
-      aspect-ratio:
-        1.45 / 1;
+      aspect-ratio: 1.45 / 1;
 
       margin: 0 auto;
 
@@ -561,29 +503,28 @@
 
 
     .envelope-container::after {
-
       content: "";
 
       position: absolute;
 
       z-index: -1;
 
-      inset:
-        14%
-        8%
-        -10%;
+      left: 8%;
+      right: 8%;
+      bottom: -15%;
+
+      height: 35%;
 
       border-radius: 50%;
 
       background:
-        rgba(40, 92, 128, 0.16);
+        rgba(50,95,120,.13);
 
-      filter: blur(24px);
+      filter: blur(25px);
     }
 
 
     .envelope {
-
       position: relative;
 
       width: 100%;
@@ -591,44 +532,41 @@
 
       overflow: hidden;
 
-      border-radius: 10px;
+      border-radius: 12px;
 
       background:
         linear-gradient(
           145deg,
-          #e1f1fa,
-          #c9e4f4
+          #e3f2fa,
+          #c8e2f0
         );
 
       box-shadow:
-        var(--shadow-lg);
+        var(--shadow);
     }
 
 
     .envelope-back {
-
       position: absolute;
-
       inset: 0;
 
       background:
-        #d4ebf8;
+        #d8edf7;
     }
 
 
     .envelope-front {
-
       position: absolute;
 
-      z-index: 4;
-
       inset: 0;
+
+      z-index: 4;
 
       background:
         linear-gradient(
           145deg,
-          #cde6f5,
-          #bdd9eb
+          #d3eaf6,
+          #bfdceb
         );
 
       clip-path:
@@ -643,23 +581,21 @@
 
 
     .flap {
-
       position: absolute;
-
-      z-index: 5;
 
       top: 0;
       left: 0;
 
       width: 100%;
-
       height: 58%;
+
+      z-index: 5;
 
       background:
         linear-gradient(
           145deg,
-          #b8d8eb,
-          #a8cce2
+          #c1dfed,
+          #a9cfe3
         );
 
       clip-path:
@@ -675,239 +611,224 @@
         transform
         1s
         var(--ease);
-
-      backface-visibility: hidden;
     }
 
 
     .heart {
-
       position: absolute;
-
-      z-index: 10;
 
       top: 51%;
       left: 50%;
 
-      color: #ffffff;
+      z-index: 10;
+
+      color: white;
 
       font-family: Georgia, serif;
 
       font-size: 2.7rem;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        );
+        translate(-50%,-50%);
 
       transition:
-        opacity 0.5s ease,
-        transform 0.5s var(--ease);
-
-      text-shadow:
-        0 3px 12px
-        rgba(40, 92, 128, 0.12);
+        opacity .5s ease,
+        transform .5s var(--ease);
     }
 
 
     .envelope-text {
-
       position: absolute;
-
-      z-index: 6;
 
       top: 78%;
       left: 50%;
 
+      z-index: 6;
+
       width: 100%;
 
-      color: #315a76;
+      color: #3b637b;
 
-      font-size: 0.72rem;
-
+      font-size: .7rem;
       font-weight: 500;
 
-      letter-spacing: 0.14em;
+      letter-spacing: .14em;
 
       text-transform: uppercase;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        );
+        translate(-50%,-50%);
     }
 
 
     .envelope-container.open .flap {
-
       transform:
         rotateX(180deg);
     }
 
 
     .envelope-container.open .heart {
-
       opacity: 0;
 
       transform:
-        translate(
-          -50%,
-          -50%
-        )
-        scale(0.7);
+        translate(-50%,-50%)
+        scale(.7);
     }
 
 
     .tap-hint {
+      margin-top: 27px;
 
-      margin-top: 28px;
+      color: #8aa0ad;
 
-      color: #7890a0;
-
-      font-size: 0.82rem;
+      font-size: .8rem;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        REVELACIÓN
-    ========================================================= */
+    ===================================================== */
 
     .reveal-section {
-
       position: relative;
 
       min-height: 100svh;
 
       display: grid;
-
       place-items: center;
 
       overflow: hidden;
 
-      padding: 90px 24px;
+      padding: 100px 24px 150px;
 
       background:
-
         radial-gradient(
-          circle at 50% 0%,
-          #ffffff 0%,
+          circle at 50% 5%,
+          #ffffff,
           transparent 48%
         ),
 
         linear-gradient(
           180deg,
-          #f5fbff,
+          #f5fbfe,
           #edf7fc
         );
     }
 
 
-    /* =========================================================
-       CORTINAS
-    ========================================================= */
+    /* =====================================================
+       CORTINAS DELICADAS
+    ===================================================== */
 
     .curtain {
-
       position: absolute;
-
-      z-index: 50;
 
       top: 0;
 
-      width: 52%;
-
+      width: 39%;
       height: 100%;
 
-      background:
+      z-index: 50;
 
-        repeating-linear-gradient(
+      background:
+        linear-gradient(
           90deg,
-          #6797b8 0,
-          #6797b8 18px,
-          #78a8c7 19px,
-          #78a8c7 38px
+          rgba(170,205,221,.92),
+          rgba(224,240,247,.96),
+          rgba(166,201,218,.92)
         );
 
       box-shadow:
-        0 0 45px
-        rgba(32, 75, 105, 0.25);
+        0 0 35px
+        rgba(72,113,136,.10);
 
       transition:
         transform
         2.4s
-        cubic-bezier(.77, 0, .18, 1);
+        cubic-bezier(.77,0,.18,1);
+    }
+
+
+    /* pequeños pliegues */
+    .curtain::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.10) 0,
+          rgba(255,255,255,.10) 13px,
+          rgba(105,151,176,.07) 14px,
+          rgba(105,151,176,.07) 27px
+        );
     }
 
 
     .curtain-left {
-
       left: 0;
 
-      transform-origin:
-        left center;
+      border-radius:
+        0 0 45% 0;
+
+      transform-origin: left center;
     }
 
 
     .curtain-right {
-
       right: 0;
 
-      transform-origin:
-        right center;
+      border-radius:
+        0 0 0 45%;
+
+      transform-origin: right center;
     }
 
 
     .reveal-section.open
     .curtain-left {
-
       transform:
-        translateX(-100%);
+        translateX(-105%);
     }
 
 
     .reveal-section.open
     .curtain-right {
-
       transform:
-        translateX(100%);
+        translateX(105%);
     }
 
 
-    /* =========================================================
-       MENSAJE DE ESPERA
-    ========================================================= */
+    /* =====================================================
+       MENSAJE ESPERA
+    ===================================================== */
 
     .waiting-message {
-
       position: absolute;
 
       z-index: 60;
 
       padding: 24px;
 
-      color: #ffffff;
+      color: white;
 
       text-align: center;
 
       transition:
-        opacity
-        0.8s
-        ease;
+        opacity .8s ease;
     }
 
 
     .pause-icon {
+      margin-bottom: 15px;
 
-      margin-bottom: 18px;
-
-      font-size: 2.7rem;
+      font-size: 2.4rem;
     }
 
 
     .waiting-message h2 {
-
       font-family:
         "Playfair Display",
         Georgia,
@@ -915,9 +836,9 @@
 
       font-size:
         clamp(
-          1.7rem,
+          1.6rem,
           4vw,
-          2.2rem
+          2.1rem
         );
 
       font-style: italic;
@@ -927,33 +848,34 @@
 
 
     .waiting-message p {
+      margin-top: 9px;
 
-      margin-top: 10px;
+      font-size: .85rem;
 
-      font-size: 0.88rem;
-
-      opacity: 0.9;
+      opacity: .9;
     }
 
 
     .reveal-section.open
     .waiting-message {
-
       opacity: 0;
 
       pointer-events: none;
     }
 
 
-    /* =========================================================
-       CONTENIDO REVELACIÓN
-    ========================================================= */
+    /* =====================================================
+       CONTENIDO DE REVELACIÓN
+    ===================================================== */
 
     .reveal-content {
+      position: relative;
+
+      z-index: 5;
 
       width:
         min(
-          980px,
+          920px,
           100%
         );
 
@@ -962,25 +884,23 @@
       opacity: 0;
 
       transform:
-        translateY(32px);
+        translateY(25px);
 
       transition:
-
         opacity
         1.2s
-        1.45s
+        1.35s
         ease,
 
         transform
         1.2s
-        1.45s
+        1.35s
         var(--ease);
     }
 
 
     .reveal-section.open
     .reveal-content {
-
       opacity: 1;
 
       transform:
@@ -988,52 +908,122 @@
     }
 
 
-    .baby-small {
+    /* =====================================================
+       ILUSTRACIÓN ANIMALITOS
+    ===================================================== */
 
-      margin-bottom: 15px;
+    .animalitos {
+      position: absolute;
+
+      left: 50%;
+
+      bottom: -35px;
+
+      width:
+        min(
+          500px,
+          100%
+        );
+
+      z-index: -1;
+
+      opacity: .34;
+
+      pointer-events: none;
+
+      transform:
+        translateX(-50%);
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 25%,
+          black 100%
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 25%,
+          black 100%
+        );
+    }
+
+
+    /* =====================================================
+       TÍTULO HOLA PAPI
+    ===================================================== */
+
+    .baby-small {
+      margin-bottom: 12px;
 
       color: var(--blue);
 
-      font-size: 0.74rem;
-
+      font-size: .7rem;
       font-weight: 600;
 
-      letter-spacing: 0.2em;
+      letter-spacing: .2em;
 
       text-transform: uppercase;
     }
 
 
+    .hello-wrap {
+      display: inline-flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 2px;
+
+      margin-bottom: 22px;
+    }
+
+
     .hello {
-
-      margin-bottom: 24px;
-
       color: var(--blue-dark);
 
       font-size:
         clamp(
           3rem,
           8vw,
-          5rem
+          4.8rem
         );
 
       font-style: italic;
 
-      line-height: 1;
+      line-height: .92;
     }
 
 
-    .message {
+    .hello-line {
+      width: 54px;
+      height: 1px;
 
+      margin-top: 13px;
+
+      background:
+        rgba(111,155,182,.45);
+    }
+
+
+    /* =====================================================
+       MENSAJE
+    ===================================================== */
+
+    .message {
       width:
         min(
-          680px,
+          650px,
           100%
         );
 
       margin-inline: auto;
 
-      color: #536d80;
+      color: #607988;
 
       font-family:
         "Playfair Display",
@@ -1042,29 +1032,27 @@
 
       font-size:
         clamp(
-          1.15rem,
-          2.4vw,
-          1.42rem
+          1.08rem,
+          2.3vw,
+          1.3rem
         );
 
-      line-height: 1.9;
+      line-height: 1.85;
     }
 
 
     .message strong {
-
       color: var(--blue-dark);
 
       font-weight: 600;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        GALERÍA
-    ========================================================= */
+    ===================================================== */
 
     .photos {
-
       display: grid;
 
       grid-template-columns:
@@ -1075,80 +1063,51 @@
 
       gap: 18px;
 
-      margin-top: 58px;
+      margin-top: 55px;
     }
 
 
     .photo {
-
       position: relative;
 
-      aspect-ratio:
-        4 / 5;
+      aspect-ratio: 4 / 5;
 
       overflow: hidden;
 
       border:
         1px solid
-        rgba(40, 92, 128, 0.08);
+        rgba(40,92,128,.08);
 
       border-radius:
-        var(--radius-md);
+        var(--radius);
 
-      background:
-        #e7f1f7;
+      background: #e8f2f7;
 
       box-shadow:
-        var(--shadow-sm);
-
-      transform:
-        translateZ(0);
+        var(--shadow-soft);
 
       transition:
-
         transform
-        0.45s
+        .45s
         var(--ease),
 
         box-shadow
-        0.45s
+        .45s
         var(--ease);
     }
 
 
     .photo:hover {
-
       transform:
-        translateY(-8px)
-        rotate(0.3deg);
+        translateY(-7px);
 
       box-shadow:
         0 24px 50px
-        rgba(31, 75, 103, 0.16);
-    }
-
-
-    .photo::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      pointer-events: none;
-
-      background:
-        linear-gradient(
-          180deg,
-          transparent 60%,
-          rgba(20, 55, 78, 0.08)
-        );
+        rgba(31,75,103,.15);
     }
 
 
     .photo img {
-
       display: block;
 
       width: 100%;
@@ -1158,75 +1117,65 @@
 
       transition:
         transform
-        0.7s
+        .7s
         var(--ease);
     }
 
 
     .photo:hover img {
-
       transform:
         scale(1.045);
     }
 
 
-    /* =========================================================
-       MENSAJE FINAL
-    ========================================================= */
+    /* =====================================================
+       FINAL
+    ===================================================== */
 
     .final {
+      margin-top: 58px;
 
-      margin-top: 64px;
+      color: #8094a0;
 
-      color: #71899b;
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-      font-size: 0.92rem;
+      font-size: .98rem;
 
       font-style: italic;
 
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
 
-    .final span {
+    /* =====================================================
+       ANIMACIÓN
+    ===================================================== */
 
-      display: block;
-
-      margin-top: 14px;
-
-      font-size: 2rem;
-
-      font-style: normal;
-    }
-
-
-    /* =========================================================
-       ANIMACIONES
-    ========================================================= */
-
-    @keyframes fade-up {
+    @keyframes fadeUp {
 
       from {
-
         opacity: 0;
 
         transform:
-          translateY(24px);
+          translateY(25px);
       }
 
       to {
-
         opacity: 1;
 
         transform:
           translateY(0);
       }
+
     }
 
 
-    /* =========================================================
-       ACCESIBILIDAD
-    ========================================================= */
+    /* =====================================================
+       REDUCIR ANIMACIONES
+    ===================================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -1237,35 +1186,28 @@
       *,
       *::before,
       *::after {
-
-        animation-duration:
-          0.01ms !important;
-
-        animation-iteration-count:
-          1 !important;
-
-        transition-duration:
-          0.01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
+
     }
 
 
-    /* =========================================================
-       TABLET / MÓVIL
-    ========================================================= */
+    /* =====================================================
+       TABLET
+    ===================================================== */
 
     @media (max-width: 720px) {
 
       .intro,
       .letter-section,
       .reveal-section {
-
         padding-inline: 20px;
       }
 
 
       .main-title {
-
         font-size:
           clamp(
             3rem,
@@ -1276,41 +1218,11 @@
 
 
       .airplane {
-
-        top: 20%;
-
-        font-size: 3.2rem;
-      }
-
-
-      .cloud-1 {
-        top: 14%;
-      }
-
-
-      .cloud-2 {
-        top: 28%;
-      }
-
-
-      .section-description {
-
-        margin-bottom: 40px;
-      }
-
-
-      .envelope-container {
-
-        width:
-          min(
-            330px,
-            90vw
-          );
+        font-size: 3rem;
       }
 
 
       .photos {
-
         grid-template-columns: 1fr;
 
         width:
@@ -1324,53 +1236,65 @@
 
 
       .photo {
-
         aspect-ratio:
-          1 / 1.15;
+          1 / 1.12;
       }
 
 
       .message {
-
         font-size: 1.08rem;
-
-        line-height: 1.85;
       }
 
 
       .curtain {
-        width: 56%;
+        width: 44%;
       }
+
+
+      .animalitos {
+        width: 115%;
+        bottom: -20px;
+      }
+
     }
 
+
+    /* =====================================================
+       MÓVIL PEQUEÑO
+    ===================================================== */
 
     @media (max-width: 420px) {
 
       .eyebrow {
-
-        font-size: 0.68rem;
-
-        letter-spacing:
-          0.17em;
+        font-size: .65rem;
+        letter-spacing: .16em;
       }
 
 
       .start-btn {
-
-        margin-top: 32px;
+        margin-top: 30px;
       }
 
 
       .envelope-container {
-
         width: 285px;
       }
 
 
       .envelope-text {
-
-        font-size: 0.63rem;
+        font-size: .62rem;
       }
+
+
+      .hello {
+        font-size: 3.2rem;
+      }
+
+
+      .animalitos {
+        bottom: -5px;
+      }
+
     }
 
   </style>
@@ -1381,8 +1305,9 @@
 
   <main>
 
+
     <!-- =====================================================
-         INTRODUCCIÓN
+         INTRO
     ====================================================== -->
 
     <section
@@ -1400,6 +1325,7 @@
         class="cloud cloud-2"
         aria-hidden="true"
       ></div>
+
 
       <div
         class="airplane"
@@ -1531,6 +1457,7 @@
       aria-labelledby="reveal-title"
     >
 
+
       <!-- CORTINAS -->
 
       <div
@@ -1538,13 +1465,14 @@
         aria-hidden="true"
       ></div>
 
+
       <div
         class="curtain curtain-right"
         aria-hidden="true"
       ></div>
 
 
-      <!-- MENSAJE DE ESPERA -->
+      <!-- MENSAJE MIENTRAS ESPERA -->
 
       <div
         class="waiting-message"
@@ -1571,21 +1499,41 @@
       </div>
 
 
-      <!-- CONTENIDO -->
+      <!-- CONTENIDO REVELADO -->
 
       <div class="reveal-content">
+
+
+        <!-- ANIMALITOS -->
+
+        <img
+          class="animalitos"
+          src="animalitos.png"
+          alt=""
+          aria-hidden="true"
+        >
+
 
         <p class="baby-small">
           Una nueva aventura está por comenzar
         </p>
 
 
-        <h2
-          class="hello"
-          id="reveal-title"
-        >
-          Hola papi...
-        </h2>
+        <div class="hello-wrap">
+
+          <h2
+            class="hello"
+            id="reveal-title"
+          >
+            Hola papi...
+          </h2>
+
+          <div
+            class="hello-line"
+            aria-hidden="true"
+          ></div>
+
+        </div>
 
 
         <p class="message">
@@ -1607,7 +1555,7 @@
         </p>
 
 
-        <!-- GALERÍA -->
+        <!-- FOTOS -->
 
         <div
           class="photos"
@@ -1617,7 +1565,7 @@
           <figure class="photo">
 
             <img
-              src="foto1.jpg"
+              src="foto1.jpeg"
               alt="Nuestra historia"
               loading="lazy"
             >
@@ -1628,7 +1576,7 @@
           <figure class="photo">
 
             <img
-              src="foto2.jpg"
+              src="foto2.jpeg"
               alt="Un momento especial"
               loading="lazy"
             >
@@ -1639,7 +1587,7 @@
           <figure class="photo">
 
             <img
-              src="foto3.jpg"
+              src="foto3.jpeg"
               alt="Nuestra próxima aventura"
               loading="lazy"
             >
@@ -1656,11 +1604,8 @@
           Parece que nuestro próximo viaje<br>
           será el más especial de todos...
 
-          <span aria-hidden="true">
-            👶🏻 🩵
-          </span>
-
         </p>
+
 
       </div>
 
@@ -1669,9 +1614,9 @@
   </main>
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        JAVASCRIPT
-  ======================================================== -->
+  ====================================================== -->
 
   <script>
 
@@ -1679,10 +1624,6 @@
 
       "use strict";
 
-
-      /* -------------------------------------------------------
-         ELEMENTOS
-      ------------------------------------------------------- */
 
       const envelope =
         document.getElementById("envelope");
@@ -1697,19 +1638,14 @@
         document.getElementById("tapHint");
 
 
-      /* -------------------------------------------------------
-         CONFIGURACIÓN
-      ------------------------------------------------------- */
-
       const REVEAL_DELAY = 1800;
-
 
       let isOpening = false;
 
 
-      /* -------------------------------------------------------
+      /* =====================================================
          SCROLL
-      ------------------------------------------------------- */
+      ====================================================== */
 
       const scrollToSection = (section) => {
 
@@ -1723,9 +1659,9 @@
       };
 
 
-      /* -------------------------------------------------------
+      /* =====================================================
          ABRIR SOBRE
-      ------------------------------------------------------- */
+      ====================================================== */
 
       const openEnvelope = () => {
 
@@ -1741,6 +1677,7 @@
 
 
         envelope.classList.add("open");
+
 
         envelope.setAttribute(
           "aria-pressed",
@@ -1772,9 +1709,9 @@
       };
 
 
-      /* -------------------------------------------------------
-         BOTÓN INTRO
-      ------------------------------------------------------- */
+      /* =====================================================
+         BOTÓN INICIAL
+      ====================================================== */
 
       startButton.addEventListener(
         "click",
@@ -1788,9 +1725,9 @@
       );
 
 
-      /* -------------------------------------------------------
+      /* =====================================================
          CLICK SOBRE
-      ------------------------------------------------------- */
+      ====================================================== */
 
       envelope.addEventListener(
         "click",
@@ -1798,9 +1735,9 @@
       );
 
 
-      /* -------------------------------------------------------
+      /* =====================================================
          TECLADO
-      ------------------------------------------------------- */
+      ====================================================== */
 
       envelope.addEventListener(
         "keydown",
@@ -1826,4 +1763,3 @@
 
 </body>
 </html>
-```
