@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nuestra próxima aventura</title>
+
 
 <style>
 
+/* =========================================================
+   PALETA
+========================================================= */
+
 :root{
-    --brown:#A58A70;
-    --brown-dark:#705F51;
-    --brown-soft:#A58A70;
 
-    --beige:#E8DED2;
-    --beige-light:#F5EEE6;
-    --cream:#FBF7F1;
-    --white:#FFFDF9;
+    --brown:#5F402E;
+    --brown-dark:#493021;
+    --brown-light:#795944;
 
-    --text:#76695D;
+    --cream:#F8F3EC;
+    --cream-light:#FCF9F4;
+
+    --beige:#E7D9C9;
+    --beige-light:#F3EAE0;
+
+    --text:#725F50;
+
 }
+
+
+/* =========================================================
+   BASE
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -29,12 +45,20 @@ html{
 }
 
 body{
+
     margin:0;
-    padding:0;
+
     background:var(--cream);
+
     color:var(--text);
-    font-family:Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     overflow-x:hidden;
+
 }
 
 section{
@@ -47,98 +71,91 @@ section{
 ========================================================= */
 
 .intro{
+
     position:relative;
+
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     overflow:hidden;
+
     text-align:center;
 
-    padding:50px 25px;
+    padding:40px 25px;
 
     background:
+
         radial-gradient(
-            circle at center top,
-            rgba(255,255,255,.8),
-            transparent 45%
+            circle at 50% 42%,
+            rgba(255,255,255,.055),
+            transparent 32%
         ),
+
         linear-gradient(
-            180deg,
-            #F0E7DE 0%,
-            #F6EFE7 55%,
-            #FBF8F3 100%
+            145deg,
+            #5F402E 0%,
+            #5F402E 55%,
+            #563925 100%
         );
+
 }
+
+
+/* textura muy sutil */
+
+.intro::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.10;
+
+    background-image:
+
+        radial-gradient(
+            rgba(255,255,255,.18) 1px,
+            transparent 1px
+        );
+
+    background-size:24px 24px;
+
+    pointer-events:none;
+
+}
+
+
+/* línea decorativa inferior */
 
 .intro::after{
+
     content:"";
 
     position:absolute;
 
-    width:130%;
-    height:250px;
+    width:1px;
 
-    bottom:-150px;
-    left:-15%;
+    height:150px;
 
-    background:rgba(255,255,255,.55);
+    bottom:-20px;
 
-    border-radius:50%;
+    left:50%;
 
-    filter:blur(25px);
-}
+    background:
 
+        linear-gradient(
+            transparent,
+            rgba(247,235,220,.35),
+            transparent
+        );
 
-/* NUBES */
-
-.cloud{
-    position:absolute;
-
-    width:170px;
-    height:40px;
-
-    border-radius:50px;
-
-    background:rgba(255,255,255,.45);
-
-    filter:blur(1px);
-}
-
-.cloud::before,
-.cloud::after{
-    content:"";
-
-    position:absolute;
-    bottom:0;
-
-    background:white;
-
-    border-radius:50%;
-}
-
-.cloud::before{
-    width:65px;
-    height:65px;
-    left:25px;
-}
-
-.cloud::after{
-    width:50px;
-    height:50px;
-    left:90px;
-}
-
-.cloud-1{
-    left:-30px;
-    top:18%;
-}
-
-.cloud-2{
-    right:-45px;
-    top:32%;
 }
 
 
@@ -147,155 +164,282 @@ section{
 ========================================================= */
 
 .airplane{
+
     position:absolute;
 
-    width:110px;
+    width:105px;
 
-    top:9%;
-    left:-150px;
+    top:13%;
 
-    z-index:1;
+    left:-140px;
+
+    z-index:2;
+
+    opacity:.78;
 
     animation:
         airplaneFlight
-        10s
+        11s
         ease-in-out
         forwards;
 
     filter:
         drop-shadow(
-            0 7px 10px
-            rgba(112,95,81,.16)
+            0 7px 8px
+            rgba(0,0,0,.12)
         );
+
 }
+
 
 @keyframes airplaneFlight{
 
     0%{
-        left:-150px;
-        transform:rotate(5deg);
+
+        left:-140px;
+
+        transform:
+            rotate(5deg);
+
     }
 
     45%{
-        left:30%;
-        transform:rotate(1deg);
+
+        left:32%;
+
+        transform:
+            rotate(1deg);
+
     }
 
     75%{
+
         left:65%;
-        transform:rotate(-2deg);
+
+        transform:
+            rotate(-2deg);
+
     }
 
     100%{
+
         left:110%;
-        transform:rotate(-5deg);
+
+        transform:
+            rotate(-5deg);
+
     }
 
 }
 
 
 /* =========================================================
-   TEXTO PORTADA
+   CONTENIDO PORTADA
 ========================================================= */
 
 .intro-content{
+
     position:relative;
 
     z-index:5;
 
-    width:min(850px,100%);
+    width:min(
+        900px,
+        100%
+    );
+
 }
 
+
+/* pequeño texto */
+
 .eyebrow{
-    margin:0 0 20px;
 
-    color:var(--brown);
+    display:flex;
 
-    font-size:12px;
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    margin:
+        0 0 28px;
+
+    color:#E9DCCC;
+
+    font-size:10px;
 
     font-weight:bold;
 
-    letter-spacing:.25em;
+    letter-spacing:.38em;
 
     text-transform:uppercase;
+
 }
 
-.intro h1{
-    margin:0;
 
-    color:var(--brown-dark);
+.eyebrow::before,
+.eyebrow::after{
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    content:"";
 
-    font-size:
-        clamp(
-            48px,
-            9vw,
-            100px
-        );
+    width:42px;
 
-    line-height:.95;
-
-    font-style:italic;
-
-    font-weight:400;
-
-    letter-spacing:-.04em;
-}
-
-.subtitle{
-    max-width:580px;
-
-    margin:28px auto 0;
-
-    color:#806F61;
-
-    font-size:18px;
-
-    line-height:1.7;
-}
-
-.start-button{
-
-    margin-top:35px;
-
-    padding:15px 28px;
-
-    border:
-        1px solid
-        rgba(165,138,112,.30);
-
-    border-radius:50px;
+    height:1px;
 
     background:
-        rgba(255,255,255,.75);
+        rgba(
+            233,
+            220,
+            204,
+            .55
+        );
 
-    color:var(--brown-dark);
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(112,95,81,.10);
-
-    transition:.3s;
-}
-
-.start-button:hover{
-
-    transform:translateY(-3px);
-
-    background:white;
 }
 
 
 /* =========================================================
-   CARTA / SOBRE
+   TÍTULO PRINCIPAL
+========================================================= */
+
+.intro h1{
+
+    margin:0;
+
+    color:#FCF7F0;
+
+    font-family:
+
+        Georgia,
+
+        "Times New Roman",
+
+        serif;
+
+    font-size:
+
+        clamp(
+            58px,
+            10vw,
+            108px
+        );
+
+    line-height:.88;
+
+    font-weight:400;
+
+    letter-spacing:-.055em;
+
+}
+
+
+.intro h1 .italic{
+
+    display:block;
+
+    font-size:.88em;
+
+    font-style:italic;
+
+    margin-top:10px;
+
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.subtitle{
+
+    max-width:470px;
+
+    margin:
+        34px auto 0;
+
+    color:#E8D8C7;
+
+    font-family:
+
+        Georgia,
+
+        "Times New Roman",
+
+        serif;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+.start-button{
+
+    position:relative;
+
+    margin-top:40px;
+
+    padding:
+        15px 30px;
+
+    border:
+        1px solid
+        rgba(
+            248,
+            239,
+            228,
+            .45
+        );
+
+    border-radius:50px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+
+    color:#FFF9F2;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    letter-spacing:.08em;
+
+    transition:.35s ease;
+
+    backdrop-filter:blur(5px);
+
+}
+
+
+.start-button:hover{
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .16
+        );
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   SECCIÓN DEL SOBRE
 ========================================================= */
 
 .letter-section{
@@ -308,63 +452,84 @@ section{
 
     justify-content:center;
 
-    padding:80px 20px;
+    padding:
+        80px 20px;
 
-    background:#FFFDFC;
+    background:
+        var(--cream-light);
 
     text-align:center;
+
 }
+
 
 .letter-content{
 
-    width:min(760px,100%);
+    width:min(
+        760px,
+        100%
+    );
+
 }
+
 
 .kicker{
 
-    margin-bottom:12px;
+    margin:
+        0 0 13px;
 
-    color:var(--brown);
+    color:var(--brown-light);
 
-    font-size:12px;
+    font-size:10px;
 
     font-weight:bold;
 
-    letter-spacing:.22em;
+    letter-spacing:.30em;
 
     text-transform:uppercase;
+
 }
+
 
 .letter-title{
 
     margin:0;
 
-    color:var(--brown-dark);
+    color:var(--brown);
 
     font-family:
+
         Georgia,
+
         "Times New Roman",
+
         serif;
 
     font-size:
         clamp(
-            36px,
+            40px,
             6vw,
-            58px
+            62px
         );
 
     font-weight:400;
+
+    letter-spacing:-.03em;
+
 }
+
 
 .letter-description{
 
-    max-width:520px;
+    max-width:480px;
 
-    margin:18px auto 45px;
+    margin:
+        20px auto 45px;
 
     color:#806F61;
 
     line-height:1.8;
+
 }
 
 
@@ -376,7 +541,10 @@ section{
 
     position:relative;
 
-    width:min(370px,90vw);
+    width:min(
+        370px,
+        90vw
+    );
 
     aspect-ratio:1.45/1;
 
@@ -385,7 +553,9 @@ section{
     cursor:pointer;
 
     perspective:1000px;
+
 }
+
 
 .envelope-container::after{
 
@@ -394,6 +564,7 @@ section{
     position:absolute;
 
     left:8%;
+
     right:8%;
 
     bottom:-15%;
@@ -401,32 +572,48 @@ section{
     height:25%;
 
     background:
-        rgba(112,95,81,.16);
+        rgba(
+            95,
+            64,
+            46,
+            .17
+        );
 
     border-radius:50%;
 
     filter:blur(20px);
 
     z-index:-1;
+
 }
+
 
 .envelope{
 
     position:relative;
 
     width:100%;
+
     height:100%;
 
     overflow:visible;
 
     border-radius:12px;
 
-    background:#E7D8C8;
+    background:#E4D1BE;
 
     box-shadow:
+
         0 25px 70px
-        rgba(112,95,81,.16);
+        rgba(
+            95,
+            64,
+            46,
+            .17
+        );
+
 }
+
 
 .envelope-back{
 
@@ -434,15 +621,20 @@ section{
 
     inset:0;
 
+    border-radius:12px;
+
     background:
+
         linear-gradient(
             145deg,
             #F0E5D9,
-            #DDCBBB
+            #DCC6B0
         );
 
-    border-radius:12px;
 }
+
+
+/* frente */
 
 .envelope-front{
 
@@ -453,13 +645,15 @@ section{
     z-index:4;
 
     background:
+
         linear-gradient(
             145deg,
-            #E6D5C4,
-            #D6C0AA
+            #E5D2BF,
+            #CFB59C
         );
 
     clip-path:
+
         polygon(
             0 0,
             50% 58%,
@@ -469,28 +663,36 @@ section{
         );
 
     border-radius:12px;
+
 }
+
+
+/* solapa */
 
 .envelope-flap{
 
     position:absolute;
 
     top:0;
+
     left:0;
 
     width:100%;
+
     height:60%;
 
     z-index:6;
 
     background:
+
         linear-gradient(
             145deg,
-            #D9C5B2,
-            #C8AD96
+            #D5BCA4,
+            #B99579
         );
 
     clip-path:
+
         polygon(
             0 0,
             100% 0,
@@ -500,6 +702,7 @@ section{
     transform-origin:top;
 
     transition:
+
         transform
         1.2s
         cubic-bezier(
@@ -508,19 +711,19 @@ section{
             .36,
             1
         );
+
 }
 
 
-/* =========================================================
-   CORAZÓN DEL SOBRE
-========================================================= */
+/* corazón del sobre */
 
 .envelope-heart{
 
     position:absolute;
 
     left:50%;
-    top:54%;
+
+    top:53%;
 
     transform:
         translate(
@@ -535,10 +738,11 @@ section{
     font-size:48px;
 
     transition:.4s;
+
 }
 
 
-/* texto sobre */
+/* etiqueta */
 
 .envelope-label{
 
@@ -549,6 +753,7 @@ section{
     width:100%;
 
     left:50%;
+
     top:79%;
 
     transform:
@@ -557,24 +762,27 @@ section{
             -50%
         );
 
-    color:#806F61;
+    color:#795D47;
 
-    font-size:11px;
+    font-size:10px;
 
-    letter-spacing:.14em;
+    letter-spacing:.16em;
 
     text-transform:uppercase;
+
 }
 
 
-/* SOBRE ABIERTO */
+/* sobre abierto */
 
 .envelope-container.open
 .envelope-flap{
 
     transform:
         rotateX(180deg);
+
 }
+
 
 .envelope-container.open
 .envelope-heart{
@@ -586,21 +794,24 @@ section{
             -50%,
             -50%
         )
-        scale(.7);
+        scale(.6);
+
 }
+
 
 .envelope-hint{
 
     margin-top:25px;
 
-    color:#9A8879;
+    color:#9B8878;
 
     font-size:13px;
+
 }
 
 
 /* =========================================================
-   CORAZONCITOS QUE SALEN DEL SOBRE
+   CORAZONES
 ========================================================= */
 
 #hearts-container{
@@ -614,28 +825,49 @@ section{
     pointer-events:none;
 
     overflow:hidden;
+
 }
+
 
 .floating-heart{
 
     position:absolute;
 
-    font-size:25px;
+    font-size:
+        clamp(
+            18px,
+            2.2vw,
+            29px
+        );
 
     opacity:0;
 
     animation:
+
         heartFly
-        4s
-        ease-out
+        4.8s
+        cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        )
         forwards;
 
     filter:
+
         drop-shadow(
-            0 3px 4px
-            rgba(112,95,81,.12)
+            0 4px 5px
+            rgba(
+                95,
+                64,
+                46,
+                .14
+            )
         );
+
 }
+
 
 @keyframes heartFly{
 
@@ -648,11 +880,25 @@ section{
                 0,
                 0
             )
-            scale(.4)
+            scale(.25)
             rotate(0deg);
+
     }
 
-    15%{
+    12%{
+
+        opacity:1;
+
+        transform:
+            translate(
+                0,
+                -20px
+            )
+            scale(1);
+
+    }
+
+    45%{
 
         opacity:1;
 
@@ -663,14 +909,20 @@ section{
         opacity:0;
 
         transform:
+
             translate(
                 var(--move-x),
-                -55vh
+                var(--move-y)
             )
-            scale(1.15)
+
+            scale(
+                var(--scale)
+            )
+
             rotate(
                 var(--rotation)
             );
+
     }
 
 }
@@ -694,14 +946,17 @@ section{
 
     overflow:hidden;
 
-    padding:80px 20px;
+    padding:
+        80px 20px;
 
     background:
+
         linear-gradient(
             180deg,
-            #F8F1E8,
+            #F7EFE6,
             #FFFDF9
         );
+
 }
 
 
@@ -715,65 +970,279 @@ section{
 
     top:0;
 
-    width:53%;
+    width:52%;
+
     height:100%;
 
     z-index:80;
 
+    overflow:hidden;
+
     background:
-        repeating-linear-gradient(
+
+        linear-gradient(
+
             90deg,
 
-            #E9DED2 0px,
-            #E9DED2 18px,
+            rgba(
+                55,
+                34,
+                23,
+                .90
+            ) 0%,
 
-            #F6EFE7 19px,
-            #F6EFE7 38px
+            #5F402E 12%,
+
+            #795944 25%,
+
+            #563925 39%,
+
+            #76543E 53%,
+
+            #543624 68%,
+
+            #76543E 83%,
+
+            #4B3021 100%
+
         );
 
     box-shadow:
-        0 0 45px
-        rgba(112,95,81,.18);
+
+        inset
+        0 0 70px
+        rgba(
+            30,
+            17,
+            10,
+            .25
+        ),
+
+        0 0 50px
+        rgba(
+            60,
+            38,
+            26,
+            .22
+        );
 
     transition:
+
         transform
-        20s
+        9s
         cubic-bezier(
             .77,
             0,
             .18,
             1
         );
+
 }
+
+
+/* =========================================================
+   PLIEGUES
+========================================================= */
+
+.curtain::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        repeating-linear-gradient(
+
+            90deg,
+
+            rgba(
+                255,
+                255,
+                255,
+                .10
+            ) 0px,
+
+            rgba(
+                255,
+                255,
+                255,
+                .10
+            ) 8px,
+
+            transparent 17px,
+
+            rgba(
+                0,
+                0,
+                0,
+                .16
+            ) 27px,
+
+            transparent 39px
+
+        );
+
+    opacity:.85;
+
+}
+
+
+/* =========================================================
+   SOMBRA INTERIOR
+========================================================= */
+
+.curtain::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    width:45px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.25),
+            transparent
+        );
+
+}
+
+
+/* izquierda */
 
 .curtain-left{
+
     left:0;
+
+    box-shadow:
+
+        inset
+        -30px 0 45px
+        rgba(0,0,0,.20),
+
+        0 0 50px
+        rgba(60,38,26,.20);
+
 }
+
+
+.curtain-left::after{
+
+    right:0;
+
+}
+
+
+/* derecha */
 
 .curtain-right{
+
     right:0;
+
+    box-shadow:
+
+        inset
+        30px 0 45px
+        rgba(0,0,0,.20),
+
+        0 0 50px
+        rgba(60,38,26,.20);
+
 }
 
 
-/* ABIERTAS */
+.curtain-right::after{
+
+    left:0;
+
+    transform:
+        scaleX(-1);
+
+}
+
+
+/* =========================================================
+   CENEFA SUPERIOR
+========================================================= */
+
+.reveal-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:22px;
+
+    z-index:85;
+
+    pointer-events:none;
+
+    background:
+
+        repeating-linear-gradient(
+
+            90deg,
+
+            #493021 0,
+            #493021 18px,
+
+            #76543E 20px,
+            #76543E 38px
+
+        );
+
+    box-shadow:
+
+        0 5px 15px
+        rgba(
+            45,
+            26,
+            17,
+            .18
+        );
+
+}
+
+
+/* =========================================================
+   APERTURA
+========================================================= */
 
 .reveal-section.open
 .curtain-left{
 
     transform:
         translateX(-105%);
+
 }
+
 
 .reveal-section.open
 .curtain-right{
 
     transform:
         translateX(105%);
+
 }
 
 
 /* =========================================================
-   CONTENIDO DETRÁS DE LAS CORTINAS
+   CONTENIDO
 ========================================================= */
 
 .reveal-content{
@@ -782,7 +1251,10 @@ section{
 
     z-index:10;
 
-    width:min(900px,100%);
+    width:min(
+        900px,
+        100%
+    );
 
     text-align:center;
 
@@ -792,14 +1264,17 @@ section{
         translateY(20px);
 
     transition:
+
         opacity
-        1.3s
+        1.2s
         ease,
 
         transform
-        1.3s
+        1.2s
         ease;
+
 }
+
 
 .reveal-section.open
 .reveal-content{
@@ -808,19 +1283,16 @@ section{
 
     transform:
         translateY(0);
+
 }
 
-
-/* =========================================================
-   HOLA PAPI
-========================================================= */
 
 .reveal-small{
 
     margin:
         0 0 6px;
 
-    color:var(--brown);
+    color:var(--brown-light);
 
     font-size:11px;
 
@@ -829,20 +1301,26 @@ section{
     letter-spacing:.20em;
 
     text-transform:uppercase;
+
 }
+
 
 .hello-papi{
 
     margin:0;
 
-    color:var(--brown-dark);
+    color:var(--brown);
 
     font-family:
+
         Georgia,
+
         "Times New Roman",
+
         serif;
 
     font-size:
+
         clamp(
             52px,
             10vw,
@@ -854,18 +1332,18 @@ section{
     font-weight:400;
 
     line-height:1;
+
 }
 
-
-/* =========================================================
-   ANIMALITOS
-========================================================= */
 
 .animals-image{
 
     display:block;
 
-    width:min(360px,80vw);
+    width:min(
+        360px,
+        80vw
+    );
 
     max-height:250px;
 
@@ -874,12 +1352,9 @@ section{
     margin:
         12px auto
         5px;
+
 }
 
-
-/* =========================================================
-   MENSAJE
-========================================================= */
 
 .reveal-message{
 
@@ -891,11 +1366,15 @@ section{
     color:#705F51;
 
     font-family:
+
         Georgia,
+
         "Times New Roman",
+
         serif;
 
     font-size:
+
         clamp(
             18px,
             2.5vw,
@@ -903,11 +1382,14 @@ section{
         );
 
     line-height:1.7;
+
 }
+
 
 .reveal-message strong{
 
-    color:var(--brown-dark);
+    color:var(--brown);
+
 }
 
 
@@ -931,7 +1413,9 @@ section{
 
     margin:
         42px auto 0;
+
 }
+
 
 .photo{
 
@@ -944,24 +1428,30 @@ section{
     background:#EEE2D6;
 
     box-shadow:
+
         0 12px 35px
-        rgba(112,95,81,.12);
+        rgba(
+            95,
+            64,
+            46,
+            .12
+        );
+
 }
+
 
 .photo img{
 
     width:100%;
+
     height:100%;
 
     display:block;
 
     object-fit:cover;
+
 }
 
-
-/* =========================================================
-   FINAL
-========================================================= */
 
 .final-message{
 
@@ -970,13 +1460,17 @@ section{
     color:#8B7869;
 
     font-family:
+
         Georgia,
+
         "Times New Roman",
+
         serif;
 
     font-size:16px;
 
     font-style:italic;
+
 }
 
 
@@ -987,13 +1481,37 @@ section{
 @media(max-width:700px){
 
     .intro h1{
-        font-size:52px;
+
+        font-size:54px;
+
     }
 
-    .airplane{
-        width:85px;
-        top:8%;
+
+    .eyebrow{
+
+        font-size:9px;
+
+        letter-spacing:.25em;
+
     }
+
+
+    .eyebrow::before,
+    .eyebrow::after{
+
+        width:20px;
+
+    }
+
+
+    .airplane{
+
+        width:78px;
+
+        top:9%;
+
+    }
+
 
     .photos{
 
@@ -1003,19 +1521,27 @@ section{
             360px,
             100%
         );
+
     }
+
 
     .photo{
+
         aspect-ratio:1/1.1;
+
     }
 
+
     .curtain{
+
         width:57%;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -1027,9 +1553,6 @@ section{
 ======================================================= -->
 
 <section class="intro">
-
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
 
 
     <!-- AVIÓN -->
@@ -1062,8 +1585,9 @@ section{
             C-1 37 2 35 8 35
             Z
             "
-            fill="#A58A70">
+            fill="#E5D2BF">
         </path>
+
 
         <path
             d="
@@ -1073,27 +1597,41 @@ section{
             L60 38
             Z
             "
-            fill="#806653">
+            fill="#D0B59B">
         </path>
 
     </svg>
 
 
+
     <div class="intro-content">
 
+
         <p class="eyebrow">
+
             Hay viajes que cambian la vida...
+
         </p>
+
 
         <h1>
-            Nuestra próxima<br>
-            aventura
+
+            Nuestra próxima
+
+            <span class="italic">
+                aventura
+            </span>
+
         </h1>
 
+
         <p class="subtitle">
+
             Un viaje muy especial
             está a punto de comenzar.
+
         </p>
+
 
         <button
             class="start-button"
@@ -1102,6 +1640,7 @@ section{
             Tengo algo para ti →
 
         </button>
+
 
     </div>
 
@@ -1117,20 +1656,31 @@ section{
     class="letter-section"
     id="letter-section">
 
+
     <div class="letter-content">
 
+
         <p class="kicker">
+
             Una pequeña pausa
+
         </p>
+
 
         <h2 class="letter-title">
+
             Antes de continuar...
+
         </h2>
 
+
         <p class="letter-description">
+
             Hay algo que alguien
             muy especial quiere decirte.
+
         </p>
+
 
 
         <div
@@ -1140,23 +1690,38 @@ section{
             role="button"
             aria-label="Abrir el sobre">
 
+
             <div class="envelope">
 
-                <div class="envelope-back"></div>
+
+                <div class="envelope-back">
+                </div>
+
 
                 <div class="envelope-label">
+
                     Para alguien muy especial
+
                 </div>
+
 
                 <div class="envelope-heart">
+
                     ♡
+
                 </div>
 
-                <div class="envelope-front"></div>
 
-                <div class="envelope-flap"></div>
+                <div class="envelope-front">
+                </div>
+
+
+                <div class="envelope-flap">
+                </div>
+
 
             </div>
+
 
         </div>
 
@@ -1169,6 +1734,7 @@ section{
 
         </p>
 
+
     </div>
 
 </section>
@@ -1177,9 +1743,6 @@ section{
 
 <!-- =======================================================
      REVELACIÓN
-     
-     SOLO CORTINAS AL PRINCIPIO.
-     NO HAY "ESPERA UN POQUITO".
 ======================================================= -->
 
 <section
@@ -1202,32 +1765,44 @@ section{
 
 
 
-    <!-- CONTENIDO DETRÁS -->
+    <!-- ===================================================
+         CONTENIDO DETRÁS
+    =================================================== -->
 
     <div class="reveal-content">
 
+
         <p class="reveal-small">
+
             Una nueva aventura está por comenzar
+
         </p>
 
 
         <h2 class="hello-papi">
+
             Hola papi...
+
         </h2>
 
 
-        <!--
-        AQUÍ VA LA IMAGEN EXACTA
-        DE TU ELEFANTITO Y TU JIRAFA.
 
-        Archivo:
+        <!--
+        IMAGEN DE LOS ANIMALITOS
+
+        Pon tu imagen exacta aquí.
+
+        Nombre:
         animalitos.png
+
+        Debe estar junto al HTML.
         -->
 
         <img
             class="animals-image"
             src="animalitos.png"
             alt="Un elefantito y una jirafa">
+
 
 
         <p class="reveal-message">
@@ -1252,27 +1827,41 @@ section{
         </p>
 
 
+
+        <!-- FOTOS -->
+
         <div class="photos">
 
+
             <div class="photo">
+
                 <img
                     src="foto1.jpeg"
                     alt="Nuestra historia">
+
             </div>
 
+
             <div class="photo">
+
                 <img
                     src="foto2.jpeg"
                     alt="Un momento especial">
+
             </div>
 
+
             <div class="photo">
+
                 <img
                     src="foto3.jpeg"
                     alt="Nuestra próxima aventura">
+
             </div>
 
+
         </div>
+
 
 
         <p class="final-message">
@@ -1282,13 +1871,17 @@ section{
 
         </p>
 
+
     </div>
+
 
 </section>
 
 
 
-<!-- CORAZONES -->
+<!-- =======================================================
+     CORAZONES
+======================================================= -->
 
 <div id="hearts-container"></div>
 
@@ -1306,20 +1899,24 @@ const startButton =
         "start-button"
     );
 
+
 const envelope =
     document.getElementById(
         "envelope"
     );
+
 
 const revealSection =
     document.getElementById(
         "reveal-section"
     );
 
+
 const envelopeHint =
     document.getElementById(
         "envelope-hint"
     );
+
 
 const heartsContainer =
     document.getElementById(
@@ -1345,7 +1942,9 @@ startButton.addEventListener(
                 "letter-section"
             )
             .scrollIntoView({
+
                 behavior:"smooth"
+
             });
 
     }
@@ -1354,38 +1953,37 @@ startButton.addEventListener(
 
 
 /* =========================================================
-   CORAZONCITOS
+   CORAZONES
 ========================================================= */
 
 function createHearts(){
 
-    /*
-    Colores suaves,
-    iguales al estilo de la página.
-    */
 
     const colors = [
 
-        "#E8DED2",
-        "#F5EEE6",
+        "#E7D9C9",
+        "#F3EAE0",
         "#FFFDF9",
-        "#D9C5B2",
-        "#A58A70"
+        "#D5BCA4",
+        "#A9876D",
+        "#795944"
 
     ];
 
 
     const symbols = [
+
+        "♥",
+        "♡",
         "♥",
         "♡"
+
     ];
 
 
     /*
-    IMPORTANTE:
-
-    Los corazones nacen alrededor
-    del centro del sobre.
+    Calculamos dónde está el sobre
+    en ese momento.
     */
 
     const rect =
@@ -1399,14 +1997,20 @@ function createHearts(){
 
     const originY =
         rect.top +
-        rect.height * .48;
+        rect.height * .43;
 
+
+
+    /*
+    42 corazones
+    */
 
     for(
-        let i = 0;
-        i < 24;
+        let i=0;
+        i<42;
         i++
     ){
+
 
         const heart =
             document.createElement(
@@ -1430,48 +2034,117 @@ function createHearts(){
             ];
 
 
+
         /*
-        POSICIÓN REAL DEL SOBRE
+        Todos nacen desde
+        el sobre.
         */
 
         heart.style.left =
             (
                 originX +
-                (Math.random() - .5)
-                * rect.width * .45
+
+                (Math.random()-.5)
+                * rect.width
+                * .50
+
             ) + "px";
 
 
         heart.style.top =
             (
                 originY +
-                (Math.random() - .5)
-                * 15
+
+                Math.random()
+                * 20
+
             ) + "px";
 
 
+
+        /*
+        Movimiento horizontal
+        */
+
         heart.style.setProperty(
+
             "--move-x",
+
             (
-                (Math.random() - .5)
-                * 260
+                (Math.random()-.5)
+                * 330
+
             ) + "px"
+
         );
 
+
+
+        /*
+        Movimiento vertical
+        */
 
         heart.style.setProperty(
-            "--rotation",
+
+            "--move-y",
+
             (
-                (Math.random() - .5)
-                * 100
-            ) + "deg"
+                -(260 +
+                Math.random()*420)
+
+            ) + "px"
+
         );
 
+
+
+        /*
+        Tamaño aleatorio
+        */
+
+        heart.style.setProperty(
+
+            "--scale",
+
+            (
+                .75 +
+                Math.random()*.75
+
+            )
+
+        );
+
+
+
+        /*
+        Rotación
+        */
+
+        heart.style.setProperty(
+
+            "--rotation",
+
+            (
+                (Math.random()-.5)
+                * 120
+
+            ) + "deg"
+
+        );
+
+
+
+        /*
+        Salen en pequeños grupos
+        */
 
         heart.style.animationDelay =
+
             (
-                Math.random() * .8
+                Math.random()*1.1
+
             ) + "s";
+
 
 
         heartsContainer.appendChild(
@@ -1479,13 +2152,17 @@ function createHearts(){
         );
 
 
+
         setTimeout(
+
             function(){
 
                 heart.remove();
 
             },
-            4800
+
+            6000
+
         );
 
     }
@@ -1500,6 +2177,7 @@ function createHearts(){
 
 function openEnvelope(){
 
+
     if(
         envelopeAlreadyOpened
     ){
@@ -1513,9 +2191,8 @@ function openEnvelope(){
         true;
 
 
-    /*
-    ABRIMOS EL SOBRE
-    */
+
+    /* abrir sobre */
 
     envelope.classList.add(
         "open"
@@ -1526,31 +2203,37 @@ function openEnvelope(){
         "La sorpresa está a punto de comenzar...";
 
 
+
     /*
-    LOS CORAZONES SALEN
-    DEL SOBRE
+    Los corazones salen justo
+    después de que empieza
+    a abrirse el sobre.
     */
 
     setTimeout(
+
         function(){
 
             createHearts();
 
         },
-        500
+
+        450
+
     );
 
 
 
     /*
     =========================================================
-    1.5 SEGUNDOS DESPUÉS:
-    VAMOS A LAS CORTINAS
+    1.5 SEGUNDOS
     =========================================================
     */
 
     setTimeout(
+
         function(){
+
 
             revealSection.scrollIntoView({
 
@@ -1564,20 +2247,19 @@ function openEnvelope(){
 
             /*
             =================================================
-            10 SEGUNDOS CON LAS CORTINAS CERRADAS
+            10 SEGUNDOS CON CORTINAS CERRADAS
             =================================================
             */
 
             setTimeout(
+
                 function(){
 
 
                     /*
-                    =================================================
-                    COMIENZA LA APERTURA
-
-                    TARDA EXACTAMENTE 20 SEGUNDOS
-                    =================================================
+                    =========================================
+                    APERTURA DE 9 SEGUNDOS
+                    =========================================
                     */
 
                     revealSection.classList.add(
@@ -1587,35 +2269,45 @@ function openEnvelope(){
 
 
                     /*
-                    =================================================
-                    LAS CORTINAS PERMANECEN ABIERTAS
-                    DURANTE 40 SEGUNDOS.
-
-                    DESPUÉS COMIENZA EL CIERRE.
-
-                    EL CIERRE TARDA 20 SEGUNDOS.
-                    =================================================
+                    =========================================
+                    40 SEGUNDOS COMPLETAMENTE ABIERTAS
+                    =========================================
                     */
 
                     setTimeout(
+
                         function(){
+
+
+                            /*
+                            =================================
+                            CIERRE DE 9 SEGUNDOS
+                            =================================
+                            */
 
                             revealSection.classList.remove(
                                 "open"
                             );
 
+
                         },
+
                         40000
+
                     );
 
 
                 },
+
                 10000
+
             );
 
 
         },
+
         1500
+
     );
 
 }
@@ -1623,12 +2315,15 @@ function openEnvelope(){
 
 
 /* =========================================================
-   CLICK SOBRE
+   CLICK
 ========================================================= */
 
 envelope.addEventListener(
+
     "click",
+
     openEnvelope
+
 );
 
 
@@ -1638,12 +2333,18 @@ envelope.addEventListener(
 ========================================================= */
 
 envelope.addEventListener(
+
     "keydown",
+
     function(event){
 
+
         if(
+
             event.key === "Enter" ||
+
             event.key === " "
+
         ){
 
             event.preventDefault();
@@ -1653,10 +2354,12 @@ envelope.addEventListener(
         }
 
     }
+
 );
 
 </script>
 
 
 </body>
+
 </html>
