@@ -11,24 +11,20 @@
 <style>
 
 /* =========================================================
-   PALETA GENERAL
-   Marrón bebé / café con leche
+   PALETA
 ========================================================= */
 
 :root{
 
-    --brown:#92725F;
-    --brown-dark:#765744;
-    --brown-soft:#AB8D79;
+    --brown: #9A7865;
+    --brown-dark: #765746;
+    --brown-light: #B39784;
+    --brown-pale: #D8C4B4;
 
-    --cream:#FBF7F1;
-    --cream-2:#F6EEE5;
-    --beige:#E9DACE;
-    --beige-light:#F4ECE4;
+    --cream: #FBF7F2;
+    --cream-light: #FFFDF9;
 
-    --white:#FFFDF9;
-
-    --text:#806D5D;
+    --text: #806C5D;
 }
 
 
@@ -48,6 +44,8 @@ body{
 
     margin:0;
 
+    overflow-x:hidden;
+
     background:var(--cream);
 
     color:var(--text);
@@ -56,8 +54,6 @@ body{
         Arial,
         Helvetica,
         sans-serif;
-
-    overflow-x:hidden;
 
 }
 
@@ -86,48 +82,47 @@ section{
 
     text-align:center;
 
-    padding:40px 25px;
+    padding:50px 25px;
 
     background:
 
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(255,255,255,.20),
-            transparent 34%
-        ),
-
         linear-gradient(
             180deg,
-            #AA8D79 0%,
-            #9C7C67 48%,
-            #92725F 100%
+            #A98A76 0%,
+            #9E7D68 45%,
+            #96745F 100%
         );
 
 }
 
 
-/* textura */
+/* brillo suave */
 
-.intro::before{
+.intro::after{
 
     content:"";
 
     position:absolute;
 
-    inset:0;
+    width:120%;
 
-    opacity:.06;
+    height:300px;
 
-    background-image:
+    left:-10%;
 
-        radial-gradient(
-            rgba(255,255,255,.9) 1px,
-            transparent 1px
+    bottom:-190px;
+
+    border-radius:50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .16
         );
 
-    background-size:25px 25px;
-
-    pointer-events:none;
+    filter:blur(25px);
 
 }
 
@@ -140,9 +135,9 @@ section{
 
     position:absolute;
 
-    width:185px;
+    width:190px;
 
-    height:38px;
+    height:40px;
 
     border-radius:50px;
 
@@ -151,10 +146,8 @@ section{
             255,
             253,
             249,
-            .52
+            .42
         );
-
-    opacity:.9;
 
     z-index:1;
 
@@ -170,15 +163,15 @@ section{
 
     bottom:0;
 
+    border-radius:50%;
+
     background:
         rgba(
             255,
             253,
             249,
-            .70
+            .55
         );
-
-    border-radius:50%;
 
 }
 
@@ -200,14 +193,14 @@ section{
 
     height:55px;
 
-    left:100px;
+    left:105px;
 
 }
 
 
 .cloud-1{
 
-    left:-55px;
+    left:-60px;
 
     top:17%;
 
@@ -216,35 +209,33 @@ section{
 
 .cloud-2{
 
-    right:-60px;
+    right:-65px;
 
-    top:29%;
-
-    transform:scale(1.05);
+    top:30%;
 
 }
 
 
 .cloud-3{
 
-    left:14%;
+    left:17%;
 
-    top:8%;
+    top:9%;
 
-    transform:scale(.55);
+    transform:scale(.5);
 
-    opacity:.48;
+    opacity:.55;
 
 }
 
 
 .cloud-4{
 
-    right:13%;
+    right:16%;
 
     top:13%;
 
-    transform:scale(.60);
+    transform:scale(.55);
 
     opacity:.45;
 
@@ -259,15 +250,13 @@ section{
 
     position:absolute;
 
-    width:105px;
+    width:110px;
 
-    top:12%;
+    top:11%;
 
     left:-150px;
 
-    z-index:2;
-
-    opacity:.9;
+    z-index:3;
 
     animation:
         airplaneFlight
@@ -277,12 +266,12 @@ section{
 
     filter:
         drop-shadow(
-            0 7px 9px
+            0 7px 10px
             rgba(
-                80,
-                55,
-                40,
-                .14
+                75,
+                52,
+                39,
+                .15
             )
         );
 
@@ -290,7 +279,7 @@ section{
 
 
 /*
-   EL AVIÓN APUNTA HACIA LA DERECHA
+   EL AVIÓN VA HACIA LA DERECHA
 */
 
 @keyframes airplaneFlight{
@@ -300,38 +289,37 @@ section{
         left:-150px;
 
         transform:
-            translateY(0)
-            rotate(4deg);
+            rotate(3deg);
 
     }
 
-    25%{
+    30%{
 
-        left:18%;
+        left:22%;
 
         transform:
-            translateY(-5px)
-            rotate(2deg);
+            rotate(1deg)
+            translateY(-5px);
 
     }
 
-    50%{
+    55%{
 
-        left:43%;
+        left:47%;
 
         transform:
-            translateY(3px)
-            rotate(0deg);
+            rotate(0deg)
+            translateY(3px);
 
     }
 
-    75%{
+    80%{
 
-        left:68%;
+        left:72%;
 
         transform:
-            translateY(-4px)
-            rotate(-2deg);
+            rotate(-2deg)
+            translateY(-3px);
 
     }
 
@@ -340,8 +328,8 @@ section{
         left:110%;
 
         transform:
-            translateY(-8px)
-            rotate(-4deg);
+            rotate(-4deg)
+            translateY(-8px);
 
     }
 
@@ -349,14 +337,14 @@ section{
 
 
 /* =========================================================
-   CONTENIDO PORTADA
+   PORTADA - TEXTO
 ========================================================= */
 
 .intro-content{
 
     position:relative;
 
-    z-index:5;
+    z-index:6;
 
     width:min(
         900px,
@@ -377,9 +365,9 @@ section{
     gap:15px;
 
     margin:
-        0 0 28px;
+        0 0 27px;
 
-    color:#F5E9DD;
+    color:#F5E9DF;
 
     font-size:10px;
 
@@ -405,7 +393,7 @@ section{
         rgba(
             245,
             233,
-            221,
+            223,
             .65
         );
 
@@ -419,22 +407,18 @@ section{
     color:#FFFDF9;
 
     font-family:
-
         Georgia,
-
         "Times New Roman",
-
         serif;
 
     font-size:
-
         clamp(
-            58px,
+            56px,
             10vw,
-            106px
+            104px
         );
 
-    line-height:.88;
+    line-height:.9;
 
     font-weight:400;
 
@@ -443,7 +427,7 @@ section{
 }
 
 
-.intro h1 .italic{
+.intro h1 span{
 
     display:block;
 
@@ -458,19 +442,16 @@ section{
 
 .subtitle{
 
-    max-width:470px;
+    max-width:500px;
 
     margin:
-        34px auto 0;
+        32px auto 0;
 
-    color:#F2E5D9;
+    color:#F3E7DC;
 
     font-family:
-
         Georgia,
-
         "Times New Roman",
-
         serif;
 
     font-size:17px;
@@ -482,17 +463,17 @@ section{
 
 .start-button{
 
-    margin-top:40px;
+    margin-top:39px;
 
     padding:
-        15px 30px;
+        15px 29px;
 
     border:
         1px solid
         rgba(
             255,
-            253,
-            249,
+            255,
+            255,
             .55
         );
 
@@ -506,22 +487,25 @@ section{
             .10
         );
 
-    color:#FFFDF9;
-
-    cursor:pointer;
+    color:white;
 
     font-size:12px;
 
     letter-spacing:.08em;
 
-    transition:.35s ease;
+    cursor:pointer;
 
     backdrop-filter:blur(5px);
+
+    transition:.35s ease;
 
 }
 
 
 .start-button:hover{
+
+    transform:
+        translateY(-3px);
 
     background:
         rgba(
@@ -530,9 +514,6 @@ section{
             255,
             .18
         );
-
-    transform:
-        translateY(-3px);
 
 }
 
@@ -558,8 +539,8 @@ section{
 
         linear-gradient(
             180deg,
-            #FCF9F4,
-            #F7EFE6
+            #FFFDF9,
+            #F7EFE7
         );
 
     text-align:center;
@@ -582,7 +563,7 @@ section{
     margin:
         0 0 13px;
 
-    color:var(--brown-soft);
+    color:var(--brown-light);
 
     font-size:10px;
 
@@ -602,15 +583,11 @@ section{
     color:var(--brown-dark);
 
     font-family:
-
         Georgia,
-
         "Times New Roman",
-
         serif;
 
     font-size:
-
         clamp(
             40px,
             6vw,
@@ -626,12 +603,12 @@ section{
 
 .letter-description{
 
-    max-width:480px;
+    max-width:490px;
 
     margin:
-        20px auto 45px;
+        19px auto 45px;
 
-    color:#897768;
+    color:#897668;
 
     line-height:1.8;
 
@@ -651,7 +628,7 @@ section{
         90vw
     );
 
-    aspect-ratio:1.45/1;
+    aspect-ratio:1.45 / 1;
 
     margin:auto;
 
@@ -676,15 +653,15 @@ section{
 
     height:25%;
 
+    border-radius:50%;
+
     background:
         rgba(
-            112,
-            81,
-            63,
-            .15
+            100,
+            72,
+            55,
+            .14
         );
-
-    border-radius:50%;
 
     filter:blur(20px);
 
@@ -701,20 +678,18 @@ section{
 
     height:100%;
 
-    overflow:visible;
-
     border-radius:12px;
 
-    background:#E8D8C9;
+    background:#E9D8C8;
 
     box-shadow:
 
         0 25px 70px
         rgba(
-            112,
-            81,
-            63,
-            .15
+            105,
+            77,
+            59,
+            .14
         );
 
 }
@@ -732,8 +707,8 @@ section{
 
         linear-gradient(
             145deg,
-            #F3E9DF,
-            #DEC9B7
+            #F2E7DD,
+            #DDC8B6
         );
 
 }
@@ -747,12 +722,14 @@ section{
 
     z-index:4;
 
+    border-radius:12px;
+
     background:
 
         linear-gradient(
             145deg,
-            #E9D9C9,
-            #D3BBA5
+            #E8D7C6,
+            #D1B9A4
         );
 
     clip-path:
@@ -764,8 +741,6 @@ section{
             100% 100%,
             0 100%
         );
-
-    border-radius:12px;
 
 }
 
@@ -788,8 +763,8 @@ section{
 
         linear-gradient(
             145deg,
-            #D8C1AC,
-            #C0A188
+            #D8C0AA,
+            #BE9F87
         );
 
     clip-path:
@@ -803,7 +778,6 @@ section{
     transform-origin:top;
 
     transition:
-
         transform
         1.2s
         cubic-bezier(
@@ -824,13 +798,13 @@ section{
 
     top:53%;
 
+    z-index:8;
+
     transform:
         translate(
             -50%,
             -50%
         );
-
-    z-index:8;
 
     color:white;
 
@@ -845,13 +819,13 @@ section{
 
     position:absolute;
 
-    z-index:7;
-
-    width:100%;
-
     left:50%;
 
     top:79%;
+
+    z-index:7;
+
+    width:100%;
 
     transform:
         translate(
@@ -898,7 +872,7 @@ section{
 
     margin-top:25px;
 
-    color:#A18D7C;
+    color:#A08C7A;
 
     font-size:13px;
 
@@ -915,11 +889,11 @@ section{
 
     inset:0;
 
-    z-index:500;
+    overflow:hidden;
 
     pointer-events:none;
 
-    overflow:hidden;
+    z-index:500;
 
 }
 
@@ -928,15 +902,14 @@ section{
 
     position:absolute;
 
-    font-size:
+    opacity:0;
 
+    font-size:
         clamp(
             18px,
-            2.2vw,
-            29px
+            2.5vw,
+            30px
         );
-
-    opacity:0;
 
     animation:
 
@@ -951,14 +924,13 @@ section{
         forwards;
 
     filter:
-
         drop-shadow(
             0 4px 5px
             rgba(
-                112,
-                81,
-                63,
-                .12
+                100,
+                72,
+                55,
+                .10
             )
         );
 
@@ -976,7 +948,7 @@ section{
                 0,
                 0
             )
-            scale(.25)
+            scale(.2)
             rotate(0deg);
 
     }
@@ -994,7 +966,7 @@ section{
 
     }
 
-    45%{
+    55%{
 
         opacity:1;
 
@@ -1025,7 +997,7 @@ section{
 
 
 /* =========================================================
-   ESCENA DE LAS CORTINAS
+   ESCENA DE REVELACIÓN
 ========================================================= */
 
 .reveal-section{
@@ -1050,18 +1022,18 @@ section{
         radial-gradient(
             circle at center,
             #FFFDF9 0%,
-            #F8F0E8 65%,
-            #F1E5D9 100%
+            #FAF2EA 55%,
+            #F2E5D9 100%
         );
 
 }
 
 
 /* =========================================================
-   LUZ DETRÁS DE LAS CORTINAS
+   LUZ DEL CENTRO
 ========================================================= */
 
-.reveal-section::after{
+.reveal-section::before{
 
     content:"";
 
@@ -1079,28 +1051,25 @@ section{
                 255,
                 255,
                 255,
-                .95
+                .96
             ) 0%,
 
             rgba(
                 255,
                 255,
                 255,
-                .50
+                .55
             ) 35%,
 
-            transparent 70%
+            transparent 72%
         );
-
-    pointer-events:none;
 
 }
 
 
 /* =========================================================
    CORTINAS
-   Inspiradas en la imagen:
-   tela recogida a los lados
+   DISEÑO NUEVO
 ========================================================= */
 
 .curtain{
@@ -1109,343 +1078,69 @@ section{
 
     top:0;
 
-    width:53%;
+    width:57%;
 
     height:100%;
 
     z-index:80;
-
-    background:
-
-        linear-gradient(
-
-            90deg,
-
-            #765744 0%,
-
-            #94725F 11%,
-
-            #A98B77 22%,
-
-            #866451 34%,
-
-            #B09582 47%,
-
-            #896653 59%,
-
-            #A78A76 72%,
-
-            #795945 87%,
-
-            #684B39 100%
-
-        );
-
-    box-shadow:
-
-        inset
-        0 0 70px
-        rgba(
-            70,
-            45,
-            32,
-            .17
-        );
 
     transition:
 
         transform
         6s
         cubic-bezier(
-            .76,
+            .77,
             0,
             .18,
             1
         );
 
-}
+    filter:
 
-
-/* =========================================================
-   PLIEGUES DE TELA
-========================================================= */
-
-.curtain::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        repeating-linear-gradient(
-
-            90deg,
-
+        drop-shadow(
+            0 0 20px
             rgba(
-                255,
-                255,
-                255,
-                .16
-            ) 0px,
-
-            rgba(
-                255,
-                255,
-                255,
-                .16
-            ) 7px,
-
-            rgba(
-                120,
-                82,
-                63,
-                .04
-            ) 14px,
-
-            rgba(
-                70,
-                45,
-                33,
-                .16
-            ) 25px,
-
-            rgba(
-                255,
-                255,
-                255,
-                .04
-            ) 35px
-
+                80,
+                55,
+                42,
+                .12
+            )
         );
 
-    opacity:.9;
+}
+
+
+/*
+   Cada cortina contiene un SVG.
+   La forma se parece a la referencia:
+   caída + recogido + faldón.
+*/
+
+.curtain svg{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
 
 }
 
 
 /* =========================================================
-   BRILLO SUAVE DE LOS PLIEGUES
-========================================================= */
-
-.curtain::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255,255,255,.10) 20%,
-            transparent 30%,
-            rgba(60,40,30,.10) 42%,
-            transparent 53%,
-            rgba(255,255,255,.10) 66%,
-            transparent 80%
-        );
-
-    mix-blend-mode:screen;
-
-    opacity:.65;
-
-}
-
-
-/* =========================================================
-   IZQUIERDA
+   POSICIÓN
 ========================================================= */
 
 .curtain-left{
 
     left:0;
 
-    transform-origin:left center;
-
-    clip-path:
-
-        polygon(
-
-            0 0,
-
-            100% 0,
-
-            92% 10%,
-
-            82% 20%,
-
-            67% 32%,
-
-            48% 42%,
-
-            36% 48%,
-
-            34% 53%,
-
-            39% 60%,
-
-            32% 72%,
-
-            23% 86%,
-
-            15% 100%,
-
-            0 100%
-
-        );
-
 }
 
-
-/* =========================================================
-   DERECHA
-========================================================= */
 
 .curtain-right{
 
     right:0;
-
-    transform-origin:right center;
-
-    clip-path:
-
-        polygon(
-
-            0 0,
-
-            100% 0,
-
-            100% 100%,
-
-            85% 100%,
-
-            77% 86%,
-
-            68% 72%,
-
-            61% 60%,
-
-            66% 53%,
-
-            64% 48%,
-
-            52% 42%,
-
-            33% 32%,
-
-            18% 20%,
-
-            8% 10%
-
-        );
-
-}
-
-
-/* =========================================================
-   LAZOS / SUJECIONES
-========================================================= */
-
-.curtain-left{
-
-    --tie-position:51%;
-
-}
-
-
-.curtain-right{
-
-    --tie-position:51%;
-
-}
-
-
-/*
-   Lazada izquierda
-*/
-
-.curtain-left{
-
-    background-image:
-
-        radial-gradient(
-            ellipse at 65% 51%,
-            #B3947F 0px,
-            #A47F69 17px,
-            transparent 18px
-        ),
-
-        linear-gradient(
-
-            90deg,
-
-            #765744 0%,
-
-            #94725F 11%,
-
-            #A98B77 22%,
-
-            #866451 34%,
-
-            #B09582 47%,
-
-            #896653 59%,
-
-            #A78A76 72%,
-
-            #795945 87%,
-
-            #684B39 100%
-
-        );
-
-}
-
-
-/*
-   Lazada derecha
-*/
-
-.curtain-right{
-
-    background-image:
-
-        radial-gradient(
-            ellipse at 35% 51%,
-            #B3947F 0px,
-            #A47F69 17px,
-            transparent 18px
-        ),
-
-        linear-gradient(
-
-            90deg,
-
-            #684B39 0%,
-
-            #795945 13%,
-
-            #A78A76 28%,
-
-            #896653 41%,
-
-            #B09582 53%,
-
-            #866451 66%,
-
-            #A98B77 78%,
-
-            #94725F 89%,
-
-            #765744 100%
-
-        );
 
 }
 
@@ -1458,8 +1153,7 @@ section{
 .curtain-left{
 
     transform:
-        translateX(-92%)
-        scaleX(.94);
+        translateX(-86%);
 
 }
 
@@ -1468,53 +1162,13 @@ section{
 .curtain-right{
 
     transform:
-        translateX(92%)
-        scaleX(.94);
+        translateX(86%);
 
 }
 
 
 /* =========================================================
-   BARRA SUPERIOR DE TEATRO
-========================================================= */
-
-.reveal-section .top-valance{
-
-    position:absolute;
-
-    top:0;
-
-    left:0;
-
-    right:0;
-
-    height:24px;
-
-    z-index:90;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #80604C,
-            #9C7B65
-        );
-
-    box-shadow:
-
-        0 4px 14px
-        rgba(
-            90,
-            60,
-            43,
-            .18
-        );
-
-}
-
-
-/* =========================================================
-   CONTENIDO
+   CONTENIDO DETRÁS
 ========================================================= */
 
 .reveal-content{
@@ -1562,9 +1216,9 @@ section{
 .reveal-small{
 
     margin:
-        0 0 6px;
+        0 0 7px;
 
-    color:var(--brown-soft);
+    color:var(--brown-light);
 
     font-size:11px;
 
@@ -1584,15 +1238,11 @@ section{
     color:var(--brown-dark);
 
     font-family:
-
         Georgia,
-
         "Times New Roman",
-
         serif;
 
     font-size:
-
         clamp(
             52px,
             10vw,
@@ -1619,11 +1269,10 @@ section{
 
     max-height:250px;
 
-    object-fit:contain;
-
     margin:
-        12px auto
-        5px;
+        12px auto 5px;
+
+    object-fit:contain;
 
 }
 
@@ -1638,15 +1287,11 @@ section{
     color:#806D5D;
 
     font-family:
-
         Georgia,
-
         "Times New Roman",
-
         serif;
 
     font-size:
-
         clamp(
             18px,
             2.5vw,
@@ -1697,15 +1342,15 @@ section{
 
     border-radius:18px;
 
-    background:#EEE3D8;
+    background:#EEE2D6;
 
     box-shadow:
 
         0 12px 35px
         rgba(
-            112,
-            81,
-            63,
+            105,
+            77,
+            59,
             .11
         );
 
@@ -1732,11 +1377,8 @@ section{
     color:#958274;
 
     font-family:
-
         Georgia,
-
         "Times New Roman",
-
         serif;
 
     font-size:16px;
@@ -1754,7 +1396,16 @@ section{
 
     .intro h1{
 
-        font-size:54px;
+        font-size:53px;
+
+    }
+
+
+    .airplane{
+
+        width:80px;
+
+        top:9%;
 
     }
 
@@ -1763,7 +1414,7 @@ section{
 
         font-size:9px;
 
-        letter-spacing:.24em;
+        letter-spacing:.23em;
 
     }
 
@@ -1772,23 +1423,6 @@ section{
     .eyebrow::after{
 
         width:20px;
-
-    }
-
-
-    .airplane{
-
-        width:78px;
-
-        top:9%;
-
-    }
-
-
-    .cloud-3,
-    .cloud-4{
-
-        display:none;
 
     }
 
@@ -1814,7 +1448,7 @@ section{
 
     .curtain{
 
-        width:58%;
+        width:68%;
 
     }
 
@@ -1823,8 +1457,7 @@ section{
     .curtain-left{
 
         transform:
-            translateX(-93%)
-            scaleX(.94);
+            translateX(-91%);
 
     }
 
@@ -1833,8 +1466,7 @@ section{
     .curtain-right{
 
         transform:
-            translateX(93%)
-            scaleX(.94);
+            translateX(91%);
 
     }
 
@@ -1901,9 +1533,7 @@ section{
             5 34
             Z
             "
-
-            fill="#F1E2D4">
-
+            fill="#F3E4D7">
         </path>
 
 
@@ -1915,16 +1545,14 @@ section{
             L60 37
             Z
             "
-
-            fill="#DCC5B0">
-
+            fill="#D9C0AB">
         </path>
 
     </svg>
 
 
 
-    <!-- CONTENIDO -->
+    <!-- TEXTO -->
 
     <div class="intro-content">
 
@@ -1940,7 +1568,7 @@ section{
 
             Nuestra próxima
 
-            <span class="italic">
+            <span>
 
                 aventura
 
@@ -2069,7 +1697,7 @@ section{
 
 
 <!-- =======================================================
-     ESCENA CORTINAS
+     REVELACIÓN
 ======================================================= -->
 
 <section
@@ -2077,28 +1705,643 @@ section{
     id="reveal-section">
 
 
-    <!-- barra superior -->
+    <!-- ===================================================
+         CORTINA IZQUIERDA
+         FORMA CURVA
+    =================================================== -->
 
-    <div class="top-valance"></div>
+    <div class="curtain curtain-left">
+
+        <svg
+            viewBox="0 0 600 1000"
+            preserveAspectRatio="none"
+            aria-hidden="true">
 
 
-    <!-- cortina izquierda -->
+            <defs>
 
-    <div
-        class="curtain curtain-left">
-    </div>
+                <!-- Gradiente de tela -->
+
+                <linearGradient
+                    id="leftCurtainGradient"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#795A48"/>
+
+                    <stop
+                        offset="12%"
+                        stop-color="#A27F69"/>
+
+                    <stop
+                        offset="24%"
+                        stop-color="#B29683"/>
+
+                    <stop
+                        offset="36%"
+                        stop-color="#886653"/>
+
+                    <stop
+                        offset="48%"
+                        stop-color="#B69A86"/>
+
+                    <stop
+                        offset="61%"
+                        stop-color="#906E5A"/>
+
+                    <stop
+                        offset="74%"
+                        stop-color="#B09582"/>
+
+                    <stop
+                        offset="88%"
+                        stop-color="#86624F"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#704F3D"/>
+
+                </linearGradient>
 
 
-    <!-- cortina derecha -->
+                <!-- brillo -->
 
-    <div
-        class="curtain curtain-right">
+                <linearGradient
+                    id="leftLight"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                    <stop
+                        offset="23%"
+                        stop-color="#FFFFFF"
+                        stop-opacity=".14"/>
+
+                    <stop
+                        offset="36%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                    <stop
+                        offset="53%"
+                        stop-color="#FFFFFF"
+                        stop-opacity=".13"/>
+
+                    <stop
+                        offset="68%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                    <stop
+                        offset="84%"
+                        stop-color="#FFFFFF"
+                        stop-opacity=".12"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                </linearGradient>
+
+            </defs>
+
+
+
+            <!-- CUERPO DE LA CORTINA -->
+
+            <path
+                d="
+                M0 0
+
+                L600 0
+
+                L565 90
+
+                C535 165 505 230 455 290
+
+                C420 332 370 365 325 390
+
+                C292 408 270 430 267 458
+
+                C264 487 286 505 295 530
+
+                C308 568 296 613 282 660
+
+                C264 724 242 790 228 855
+
+                C218 908 210 958 205 1000
+
+                L0 1000
+
+                Z
+                "
+
+                fill="url(#leftCurtainGradient)">
+
+            </path>
+
+
+
+            <!-- PLIEGUES -->
+
+            <path
+                d="
+                M30 0
+                C70 160 85 290 105 405
+                C120 500 120 650 105 1000
+
+                M100 0
+                C130 160 160 290 165 405
+                C170 510 165 690 150 1000
+
+                M175 0
+                C195 160 225 290 220 405
+                C215 520 205 690 190 1000
+
+                M255 0
+                C260 170 280 300 270 405
+                C258 515 245 700 225 1000
+
+                M335 0
+                C330 170 330 300 315 390
+
+                M415 0
+                C390 170 375 270 340 350
+
+                M495 0
+                C455 155 420 250 365 330
+
+                M565 0
+                C520 145 475 235 400 315
+                "
+
+                fill="none"
+
+                stroke="#F8EEE6"
+
+                stroke-opacity=".18"
+
+                stroke-width="10">
+
+            </path>
+
+
+
+            <!-- SOMBRAS DE LOS PLIEGUES -->
+
+            <path
+                d="
+                M65 0
+                C95 180 110 300 118 420
+                C124 570 120 770 112 1000
+
+                M145 0
+                C175 175 190 300 190 420
+                C190 600 175 820 165 1000
+
+                M230 0
+                C250 170 260 300 250 410
+                C240 550 220 760 205 1000
+
+                M390 0
+                C360 160 345 270 315 360
+
+                M470 0
+                C430 155 390 260 345 335
+
+                "
+
+                fill="none"
+
+                stroke="#5E4334"
+
+                stroke-opacity=".16"
+
+                stroke-width="13">
+
+            </path>
+
+
+
+            <!-- LUZ SUAVE -->
+
+            <path
+                d="
+                M0 0
+                L600 0
+                L565 90
+                C530 175 500 235 455 290
+                C410 340 350 375 305 405
+                C285 420 270 440 267 458
+                C264 487 285 505 295 530
+                C305 565 295 615 280 670
+                C260 750 235 850 205 1000
+                L0 1000
+                Z
+                "
+
+                fill="url(#leftLight)">
+
+            </path>
+
+
+
+            <!-- LAZADA / FRUNCIDO -->
+
+            <ellipse
+                cx="278"
+                cy="485"
+                rx="43"
+                ry="25"
+                fill="#9D7965">
+
+            </ellipse>
+
+
+            <ellipse
+                cx="278"
+                cy="485"
+                rx="30"
+                ry="17"
+                fill="#765443">
+
+            </ellipse>
+
+
+            <path
+                d="
+                M238 478
+                C255 466 300 466 318 478
+                C300 490 255 492 238 478
+                Z
+                "
+
+                fill="#B4937D">
+
+            </path>
+
+
+            <!-- lazo -->
+
+            <path
+                d="
+                M247 480
+                C220 460 205 458 196 474
+                C210 493 226 501 249 490
+                Z
+                "
+
+                fill="#B4937D">
+
+            </path>
+
+
+            <path
+                d="
+                M309 480
+                C335 460 350 458 360 474
+                C345 493 329 501 307 490
+                Z
+                "
+
+                fill="#B4937D">
+
+            </path>
+
+        </svg>
+
     </div>
 
 
 
     <!-- ===================================================
-         CONTENIDO DETRÁS DE LAS CORTINAS
+         CORTINA DERECHA
+    =================================================== -->
+
+    <div class="curtain curtain-right">
+
+        <svg
+            viewBox="0 0 600 1000"
+            preserveAspectRatio="none"
+            aria-hidden="true">
+
+
+            <defs>
+
+                <linearGradient
+                    id="rightCurtainGradient"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#704F3D"/>
+
+                    <stop
+                        offset="12%"
+                        stop-color="#86624F"/>
+
+                    <stop
+                        offset="26%"
+                        stop-color="#B09582"/>
+
+                    <stop
+                        offset="39%"
+                        stop-color="#906E5A"/>
+
+                    <stop
+                        offset="51%"
+                        stop-color="#B69A86"/>
+
+                    <stop
+                        offset="64%"
+                        stop-color="#886653"/>
+
+                    <stop
+                        offset="76%"
+                        stop-color="#B29683"/>
+
+                    <stop
+                        offset="88%"
+                        stop-color="#A27F69"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#795A48"/>
+
+                </linearGradient>
+
+
+                <linearGradient
+                    id="rightLight"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                    <stop
+                        offset="18%"
+                        stop-color="#FFFFFF"
+                        stop-opacity=".12"/>
+
+                    <stop
+                        offset="34%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                    <stop
+                        offset="52%"
+                        stop-color="#FFFFFF"
+                        stop-opacity=".13"/>
+
+                    <stop
+                        offset="69%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                    <stop
+                        offset="84%"
+                        stop-color="#FFFFFF"
+                        stop-opacity=".14"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#FFFFFF"
+                        stop-opacity="0"/>
+
+                </linearGradient>
+
+            </defs>
+
+
+
+            <!-- CUERPO -->
+
+            <path
+                d="
+                M0 0
+
+                L600 0
+
+                L600 1000
+
+                L395 1000
+
+                C390 950 382 905 372 855
+
+                C358 790 336 724 318 660
+
+                C304 613 292 568 305 530
+
+                C314 505 336 487 333 458
+
+                C330 430 308 408 275 390
+
+                C230 365 180 332 145 290
+
+                C95 230 65 165 35 90
+
+                Z
+                "
+
+                fill="url(#rightCurtainGradient)">
+
+            </path>
+
+
+
+            <!-- PLIEGUES -->
+
+            <path
+                d="
+                M570 0
+                C530 160 515 290 495 405
+                C480 500 480 650 495 1000
+
+                M500 0
+                C470 160 440 290 435 405
+                C430 510 435 690 450 1000
+
+                M425 0
+                C405 160 375 290 380 405
+                C385 520 395 690 410 1000
+
+                M345 0
+                C340 170 320 300 330 405
+                C342 515 355 700 375 1000
+
+                M265 0
+                C270 170 270 300 285 390
+
+                M185 0
+                C210 170 225 270 260 350
+
+                M105 0
+                C145 155 180 250 235 330
+
+                M35 0
+                C80 145 125 235 200 315
+                "
+
+                fill="none"
+
+                stroke="#F8EEE6"
+
+                stroke-opacity=".18"
+
+                stroke-width="10">
+
+            </path>
+
+
+
+            <!-- SOMBRAS -->
+
+            <path
+                d="
+                M535 0
+                C505 180 490 300 482 420
+                C476 570 480 770 488 1000
+
+                M455 0
+                C425 175 410 300 410 420
+                C410 600 425 820 435 1000
+
+                M370 0
+                C350 170 340 300 350 410
+                C360 550 380 760 395 1000
+
+                M210 0
+                C240 160 255 270 285 360
+
+                M130 0
+                C170 155 210 260 255 335
+
+                "
+
+                fill="none"
+
+                stroke="#5E4334"
+
+                stroke-opacity=".16"
+
+                stroke-width="13">
+
+            </path>
+
+
+
+            <!-- LUZ -->
+
+            <path
+                d="
+                M600 0
+                L0 0
+                L35 90
+                C70 175 100 235 145 290
+                C190 340 250 375 295 405
+                C315 420 330 440 333 458
+                C336 487 315 505 305 530
+                C295 565 305 615 320 670
+                C340 750 365 850 395 1000
+                L600 1000
+                Z
+                "
+
+                fill="url(#rightLight)">
+
+            </path>
+
+
+
+            <!-- LAZADA -->
+
+            <ellipse
+                cx="322"
+                cy="485"
+                rx="43"
+                ry="25"
+                fill="#9D7965">
+
+            </ellipse>
+
+
+            <ellipse
+                cx="322"
+                cy="485"
+                rx="30"
+                ry="17"
+                fill="#765443">
+
+            </ellipse>
+
+
+            <path
+                d="
+                M282 478
+                C300 466 345 466 362 478
+                C345 490 300 492 282 478
+                Z
+                "
+
+                fill="#B4937D">
+
+            </path>
+
+
+            <!-- lazo -->
+
+            <path
+                d="
+                M292 480
+                C265 460 250 458 240 474
+                C255 493 271 501 293 490
+                Z
+                "
+
+                fill="#B4937D">
+
+            </path>
+
+
+            <path
+                d="
+                M354 480
+                C380 460 395 458 404 474
+                C390 493 374 501 352 490
+                Z
+                "
+
+                fill="#B4937D">
+
+            </path>
+
+        </svg>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         CONTENIDO
     =================================================== -->
 
     <div class="reveal-content">
@@ -2119,7 +2362,12 @@ section{
 
 
 
-        <!-- ANIMALITOS -->
+        <!--
+            TU IMAGEN DE ELEFANTITO + JIRAFA
+            debe llamarse:
+
+            animalitos.png
+        -->
 
         <img
             class="animals-image"
@@ -2127,8 +2375,6 @@ section{
             alt="Un elefantito y una jirafa">
 
 
-
-        <!-- MENSAJE -->
 
         <p class="reveal-message">
 
@@ -2223,24 +2469,20 @@ const startButton =
         "start-button"
     );
 
-
 const envelope =
     document.getElementById(
         "envelope"
     );
-
 
 const revealSection =
     document.getElementById(
         "reveal-section"
     );
 
-
 const envelopeHint =
     document.getElementById(
         "envelope-hint"
     );
-
 
 const heartsContainer =
     document.getElementById(
@@ -2248,9 +2490,7 @@ const heartsContainer =
     );
 
 
-let envelopeAlreadyOpened =
-    false;
-
+let envelopeAlreadyOpened = false;
 
 
 /* =========================================================
@@ -2258,9 +2498,7 @@ let envelopeAlreadyOpened =
 ========================================================= */
 
 startButton.addEventListener(
-
     "click",
-
     function(){
 
         document
@@ -2276,13 +2514,11 @@ startButton.addEventListener(
             });
 
     }
-
 );
 
 
-
 /* =========================================================
-   CORAZONES
+   CREAR MUCHOS CORAZONES
 ========================================================= */
 
 function createHearts(){
@@ -2290,12 +2526,13 @@ function createHearts(){
 
     const colors = [
 
-        "#E9DACE",
+        "#E8D7C6",
         "#F4ECE4",
         "#FFFDF9",
-        "#D8C1AC",
-        "#AB8D79",
-        "#92725F"
+        "#D8C0AA",
+        "#B39784",
+        "#9A7865",
+        "#C8AD99"
 
     ];
 
@@ -2305,7 +2542,8 @@ function createHearts(){
         "♥",
         "♡",
         "♥",
-        "♡"
+        "♡",
+        "♥"
 
     ];
 
@@ -2321,17 +2559,17 @@ function createHearts(){
 
     const originY =
         rect.top +
-        rect.height * .42;
+        rect.height * .40;
 
 
 
     /*
-       50 corazones
+       60 corazones
     */
 
     for(
         let i=0;
-        i<50;
+        i<60;
         i++
     ){
 
@@ -2368,9 +2606,13 @@ function createHearts(){
             (
                 originX +
 
-                (Math.random()-.5)
-                * rect.width
-                * .45
+                (
+                    Math.random()-.5
+                )
+                *
+                rect.width
+                *
+                .55
 
             ) + "px";
 
@@ -2380,7 +2622,7 @@ function createHearts(){
             (
                 originY +
 
-                Math.random()*25
+                Math.random()*30
 
             ) + "px";
 
@@ -2395,8 +2637,10 @@ function createHearts(){
             "--move-x",
 
             (
-                (Math.random()-.5)
-                * 360
+                (
+                    Math.random()-.5
+                )
+                * 400
 
             ) + "px"
 
@@ -2405,17 +2649,16 @@ function createHearts(){
 
 
         /*
-           Movimiento hacia arriba
+           Movimiento vertical
         */
 
         heart.style.setProperty(
 
             "--move-y",
 
-            (
-                -(260 +
-                Math.random()*430)
-
+            -(
+                280 +
+                Math.random()*450
             ) + "px"
 
         );
@@ -2431,9 +2674,8 @@ function createHearts(){
             "--scale",
 
             (
-                .7 +
-                Math.random()*.8
-
+                .65 +
+                Math.random()*.85
             )
 
         );
@@ -2449,8 +2691,10 @@ function createHearts(){
             "--rotation",
 
             (
-                (Math.random()-.5)
-                * 130
+                (
+                    Math.random()-.5
+                )
+                * 150
 
             ) + "deg"
 
@@ -2459,14 +2703,13 @@ function createHearts(){
 
 
         /*
-           Salida escalonada
+           Salen poco a poco
         */
 
         heart.style.animationDelay =
 
             (
-                Math.random()*1.1
-
+                Math.random()*1.2
             ) + "s";
 
 
@@ -2485,14 +2728,13 @@ function createHearts(){
 
             },
 
-            6200
+            6500
 
         );
 
     }
 
 }
-
 
 
 /* =========================================================
@@ -2511,13 +2753,11 @@ function openEnvelope(){
     }
 
 
-    envelopeAlreadyOpened =
-        true;
-
+    envelopeAlreadyOpened = true;
 
 
     /*
-       Abrimos el sobre
+       Abrir sobre
     */
 
     envelope.classList.add(
@@ -2527,7 +2767,6 @@ function openEnvelope(){
 
     envelopeHint.textContent =
         "La sorpresa está a punto de comenzar...";
-
 
 
     /*
@@ -2542,27 +2781,21 @@ function openEnvelope(){
 
         },
 
-        350
+        250
 
     );
 
 
-
     /*
-       Esperamos un poquito
-       para que se disfrute el sobre
+       Después de disfrutar
+       el sobre, pasamos
+       suavemente a las cortinas.
     */
 
     setTimeout(
 
         function(){
 
-
-            /*
-               Transición suave
-               hacia la escena
-               de las cortinas
-            */
 
             revealSection.scrollIntoView({
 
@@ -2573,10 +2806,9 @@ function openEnvelope(){
             });
 
 
-
             /*
-               Las cortinas permanecen
-               cerradas 10 segundos
+               Dejamos las cortinas
+               cerradas 10 segundos.
             */
 
             setTimeout(
@@ -2585,8 +2817,9 @@ function openEnvelope(){
 
 
                     /*
-                       APERTURA:
-                       exactamente 6 segundos
+                       ABRIR
+
+                       6 SEGUNDOS
                     */
 
                     revealSection.classList.add(
@@ -2594,26 +2827,24 @@ function openEnvelope(){
                     );
 
 
-
                     /*
                        Permanecen abiertas
-                       40 segundos
+                       40 segundos.
                     */
 
                     setTimeout(
 
                         function(){
 
-
                             /*
-                               CIERRE:
-                               también 6 segundos
+                               CIERRE
+                               6 segundos
+                               gracias a CSS
                             */
 
                             revealSection.classList.remove(
                                 "open"
                             );
-
 
                         },
 
@@ -2638,19 +2869,14 @@ function openEnvelope(){
 }
 
 
-
 /* =========================================================
-   CLICK SOBRE
+   CLICK
 ========================================================= */
 
 envelope.addEventListener(
-
     "click",
-
     openEnvelope
-
 );
-
 
 
 /* =========================================================
@@ -2662,7 +2888,6 @@ envelope.addEventListener(
     "keydown",
 
     function(event){
-
 
         if(
 
